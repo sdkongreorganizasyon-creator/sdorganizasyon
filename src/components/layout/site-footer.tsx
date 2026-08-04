@@ -1,16 +1,18 @@
 import {
   Clock3,
-  Instagram,
-  Linkedin,
   Mail,
   MapPin,
   MessageCircle,
   Phone,
-  Youtube,
 } from "lucide-react";
 import Link from "next/link";
 
 import { Logo } from "@/components/brand/logo";
+import {
+  InstagramIcon,
+  LinkedInIcon,
+  YouTubeIcon,
+} from "@/components/icons/social-icons";
 import { navigation } from "@/config/navigation";
 import type { ResolvedSiteSettings } from "@/lib/content/settings";
 import {
@@ -48,7 +50,7 @@ export function SiteFooter({
                 target="_blank"
                 rel="noreferrer"
               >
-                <Instagram aria-hidden="true" />
+                <InstagramIcon aria-hidden="true" />
               </a>
             ) : null}
             {settings.social.linkedin ? (
@@ -58,7 +60,7 @@ export function SiteFooter({
                 target="_blank"
                 rel="noreferrer"
               >
-                <Linkedin aria-hidden="true" />
+                <LinkedInIcon aria-hidden="true" />
               </a>
             ) : null}
             {settings.social.youtube ? (
@@ -68,7 +70,7 @@ export function SiteFooter({
                 target="_blank"
                 rel="noreferrer"
               >
-                <Youtube aria-hidden="true" />
+                <YouTubeIcon aria-hidden="true" />
               </a>
             ) : null}
           </div>

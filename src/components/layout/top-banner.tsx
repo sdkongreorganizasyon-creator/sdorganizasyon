@@ -1,11 +1,13 @@
 import {
-  Instagram,
-  Linkedin,
   Mail,
   MessageCircle,
   Phone,
 } from "lucide-react";
 
+import {
+  InstagramIcon,
+  LinkedInIcon,
+} from "@/components/icons/social-icons";
 import type { ResolvedSiteSettings } from "@/lib/content/settings";
 import {
   normalizePhoneForLink,
@@ -66,7 +68,7 @@ export function TopBanner({
               target="_blank"
               rel="noreferrer"
             >
-              <Instagram aria-hidden="true" size={16} />
+              <InstagramIcon aria-hidden="true" size={16} />
             </a>
           ) : null}
           {settings.social.linkedin ? (
@@ -76,7 +78,7 @@ export function TopBanner({
               target="_blank"
               rel="noreferrer"
             >
-              <Linkedin aria-hidden="true" size={16} />
+              <LinkedInIcon aria-hidden="true" size={16} />
             </a>
           ) : null}
         </div>
