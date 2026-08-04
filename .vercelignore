@@ -1,0 +1,6 @@
+docs/source
+playwright-report
+test-results
+coverage
+tests
+*.zip
