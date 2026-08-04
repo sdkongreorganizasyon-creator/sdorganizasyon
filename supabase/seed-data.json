@@ -1,0 +1,1108 @@
+{
+  "siteSettings": [
+    {
+      "key": "global",
+      "locale": "tr",
+      "value_json": {
+        "contact": {},
+        "social": {},
+        "seo": {
+          "defaultTitle": "SDKONGRE | Kongre ve Etkinlik Organizasyonu",
+          "defaultDescription": "Kongre, toplantı, sempozyum, kurumsal etkinlik ve dijital organizasyon süreçlerinde uçtan uca profesyonel çözümler."
+        },
+        "hero": {
+          "poster": "/fallback/hero-poster.svg",
+          "desktopVideo": "",
+          "mobileVideo": ""
+        },
+        "homeValues": [
+          {
+            "number": "01",
+            "title": "Kusursuz Planlama",
+            "description": "Her ayrıntıyı önceden düşünür, olası riskleri etkinlik başlamadan yönetiriz.",
+            "icon": "calendar-check"
+          },
+          {
+            "number": "02",
+            "title": "Uluslararası Standart",
+            "description": "Yerel deneyimi global hizmet anlayışı ve kurumsal süreç disipliniyle birleştiririz.",
+            "icon": "globe"
+          },
+          {
+            "number": "03",
+            "title": "Deneyim Odaklı",
+            "description": "Her temas noktasını katılımcılar için akıcı ve hatırlanabilir bir deneyime dönüştürürüz.",
+            "icon": "sparkles"
+          },
+          {
+            "number": "04",
+            "title": "Tek Noktadan Yönetim",
+            "description": "Planlama, kayıt, teknik operasyon, konaklama ve koordinasyonu tek merkezden yürütürüz.",
+            "icon": "workflow"
+          },
+          {
+            "number": "05",
+            "title": "Güven Veren Çözümler",
+            "description": "Şeffaf iletişim, profesyonel ekip ve sürdürülebilir kalite anlayışıyla ilerleriz.",
+            "icon": "shield-check"
+          }
+        ]
+      }
+    }
+  ],
+  "pages": [
+    {
+      "page_key": "about",
+      "locale": "tr",
+      "title": "Hakkımızda",
+      "slug": "hakkimizda",
+      "eyebrow": "KURUMSAL",
+      "summary": "Organizasyon Yönetiminde Güvenilir Çözüm Ortağınız",
+      "content_json": {
+        "headline": "Organizasyon Yönetiminde Güvenilir Çözüm Ortağınız",
+        "paragraphs": [
+          "SD Kongre, kongre, sempozyum, toplantı, lansman, fuar, kurumsal etkinlik ve seyahat organizasyonlarında uçtan uca hizmet sunan profesyonel bir organizasyon ve etkinlik yönetim şirketidir.",
+          "Kurulduğumuz günden bu yana temel amacımız; kurumların organizasyon süreçlerini daha verimli, daha kontrollü ve daha başarılı hale getirmektir. Organizasyonların yalnızca etkinlik günü değil, fikir aşamasından sonuç raporuna kadar geçen tüm süreçlerinin profesyonel şekilde yönetilmesi gerektiğine inanıyoruz.",
+          "Bu anlayışla; planlama, bütçe yönetimi, tedarikçi koordinasyonu, konaklama çözümleri, dijital kayıt sistemleri, saha operasyonları ve raporlama süreçlerini tek merkezden yönetiyor, müşterilerimize zaman ve maliyet avantajı sağlıyoruz.",
+          "Kamu kurumlarından özel sektöre, meslek örgütlerinden akademik kuruluşlara kadar geniş bir yelpazede hizmet verirken her projeyi kendi dinamikleri içerisinde değerlendiriyor ve kurumlara özel çözümler geliştiriyoruz.",
+          "SD Kongre olarak biz, yalnızca organizasyon düzenleyen bir firma değil; kurumların hedeflerine ulaşmasını sağlayan stratejik bir çözüm ortağı olmayı hedefliyoruz."
+        ]
+      },
+      "status": "published",
+      "seo_json": {
+        "title": "Hakkımızda",
+        "description": "Organizasyon Yönetiminde Güvenilir Çözüm Ortağınız"
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "page_key": "story",
+      "locale": "tr",
+      "title": "Hikayemiz",
+      "slug": "hikayemiz",
+      "eyebrow": "KURUMSAL",
+      "summary": "Bir Organizasyondan Daha Fazlası",
+      "content_json": {
+        "headline": "Bir Organizasyondan Daha Fazlası",
+        "paragraphs": [
+          "SD Kongre'nin hikayesi, profesyonel organizasyon yönetimine duyulan ihtiyaçtan doğdu.",
+          "Kuruluşumuzun temelinde; kurumların farklı tedarikçilerle çalışırken yaşadığı koordinasyon sorunlarını, bütçe kontrolündeki zorlukları ve operasyonel yükleri azaltma fikri bulunmaktadır.",
+          "İlk günden itibaren yalnızca etkinlik organizasyonu gerçekleştirmeyi değil, süreç yönetimi konusunda fark yaratmayı hedefledik. Bu nedenle organizasyon sektörünü teknoloji, raporlama ve veri yönetimiyle birleştirerek daha ölçülebilir ve daha sürdürülebilir bir yapı oluşturduk.",
+          "Yıllar içerisinde gerçekleştirdiğimiz toplantılar, kongreler, sempozyumlar, eğitim programları, kurumsal etkinlikler ve lansmanlar sayesinde sektörde önemli bir deneyim birikimi elde ettik.",
+          "Bugün geldiğimiz noktada SD Kongre; planlama gücü, güçlü operasyon ağı, dijital altyapıları ve uzman ekibiyle Türkiye'nin farklı şehirlerinde başarılı organizasyonlara imza atan güvenilir bir marka haline gelmiştir.",
+          "Ancak bizim için başarı, tamamlanan organizasyon sayısından çok müşterilerimizin bize yeniden güvenmesi ve bizi tavsiye etmesidir."
+        ]
+      },
+      "status": "published",
+      "seo_json": {
+        "title": "Hikayemiz",
+        "description": "Bir Organizasyondan Daha Fazlası"
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "page_key": "mission",
+      "locale": "tr",
+      "title": "Misyon",
+      "slug": "misyon",
+      "eyebrow": "KURUMSAL",
+      "summary": "Kurumların ihtiyaçlarına özel, yenilikçi ve sürdürülebilir organizasyon çözümleri geliştirerek her projeyi yüksek kalite standartlarında hayata geçirmek.",
+      "content_json": {
+        "headline": "Kurumların ihtiyaçlarına özel, yenilikçi ve sürdürülebilir organizasyon çözümleri geliştirerek her projeyi yüksek kalite standartlarında hayata geçirmek.",
+        "paragraphs": [
+          "Kurumların ihtiyaçlarına özel, yenilikçi ve sürdürülebilir organizasyon çözümleri geliştirerek her projeyi yüksek kalite standartlarında hayata geçirmek.",
+          "Planlama, koordinasyon, teknoloji ve operasyon gücümüzü bir araya getirerek müşterilerimize maksimum verimlilik, minimum operasyonel yük ve ölçülebilir başarı sunmak.",
+          "Organizasyon süreçlerinde güvenilir bir iş ortağı olarak müşterilerimizin hedeflerine ulaşmalarına katkı sağlamak."
+        ]
+      },
+      "status": "published",
+      "seo_json": {
+        "title": "Misyon",
+        "description": "Kurumların ihtiyaçlarına özel, yenilikçi ve sürdürülebilir organizasyon çözümleri geliştirerek her projeyi yüksek kalite standartlarında hayata geçirmek."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "page_key": "vision",
+      "locale": "tr",
+      "title": "Vizyon",
+      "slug": "vizyon",
+      "eyebrow": "KURUMSAL",
+      "summary": "Kongre ve etkinlik yönetimi sektöründe yenilikçi yaklaşımı, teknolojik altyapıları ve operasyonel mükemmeliyetiyle Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak.",
+      "content_json": {
+        "headline": "Kongre ve etkinlik yönetimi sektöründe yenilikçi yaklaşımı, teknolojik altyapıları ve operasyonel mükemmeliyetiyle Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak.",
+        "paragraphs": [
+          "Kongre ve etkinlik yönetimi sektöründe yenilikçi yaklaşımı, teknolojik altyapıları ve operasyonel mükemmeliyetiyle Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak.",
+          "Ulusal ve uluslararası ölçekte yürütülen projelerde kalite, güven ve sürdürülebilirlik denildiğinde akla gelen ilk çözüm ortağı haline gelmek."
+        ]
+      },
+      "status": "published",
+      "seo_json": {
+        "title": "Vizyon",
+        "description": "Kongre ve etkinlik yönetimi sektöründe yenilikçi yaklaşımı, teknolojik altyapıları ve operasyonel mükemmeliyetiyle Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "page_key": "values",
+      "locale": "tr",
+      "title": "Değerlerimiz",
+      "slug": "degerlerimiz",
+      "eyebrow": "KURUMSAL",
+      "summary": "Değerlerimiz",
+      "content_json": {
+        "headline": "Değerlerimiz",
+        "paragraphs": [],
+        "values": [
+          {
+            "title": "Güven",
+            "description": "İşimizin temelinde güven yer alır. Verdiğimiz sözleri zamanında yerine getirir, süreçleri şeffaf biçimde yönetir ve müşterilerimizle uzun vadeli ilişkiler kurarız."
+          },
+          {
+            "title": "Şeffaflık",
+            "description": "Bütçe, planlama, satın alma ve raporlama süreçlerinin tamamında açık iletişim prensibiyle hareket ederiz."
+          },
+          {
+            "title": "Profesyonellik",
+            "description": "Her organizasyona aynı ciddiyet ve sorumluluk bilinciyle yaklaşırız."
+          },
+          {
+            "title": "Yenilikçilik",
+            "description": "Teknolojik gelişmeleri yakından takip eder, organizasyon süreçlerine yenilikçi çözümler entegre ederiz."
+          },
+          {
+            "title": "Sürdürülebilirlik",
+            "description": "Planlama ve operasyon süreçlerinde kaynakların verimli kullanımını esas alırız."
+          },
+          {
+            "title": "Müşteri Odaklılık",
+            "description": "Başarımızın merkezinde müşteri memnuniyeti bulunmaktadır."
+          }
+        ]
+      },
+      "status": "published",
+      "seo_json": {
+        "title": "Değerlerimiz",
+        "description": "Değerlerimiz"
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "page_key": "why-us",
+      "locale": "tr",
+      "title": "Neden Biz",
+      "slug": "neden-biz",
+      "eyebrow": "NEDEN BİZ",
+      "summary": "Her Detayı Yönetiyor, Her Süreci Kontrol Ediyoruz",
+      "content_json": {
+        "headline": "Her Detayı Yönetiyor, Her Süreci Kontrol Ediyoruz",
+        "paragraphs": [
+          "Bir organizasyonun başarısı yalnızca etkinlik günündeki kusursuz uygulamayla değil, öncesinde yapılan doğru planlama ve profesyonel koordinasyonla mümkündür.",
+          "SD Kongre olarak müşterilerimize yalnızca organizasyon hizmeti değil, bütüncül proje yönetimi sunuyoruz."
+        ],
+        "items": [
+          {
+            "title": "Tek Noktadan Yönetim",
+            "description": "Farklı tedarikçiler, farklı ekipler ve ayrı koordinasyon süreçleri yerine tüm organizasyon tek merkezden yönetilir.",
+            "icon": "network"
+          },
+          {
+            "title": "Türkiye Genelinde Operasyon Gücü",
+            "description": "Ankara merkezli yapımız ve geniş çözüm ortağı ağımız sayesinde ülke genelinde aynı kalite standartlarında hizmet veriyoruz.",
+            "icon": "map"
+          },
+          {
+            "title": "Teknoloji Destekli Süreçler",
+            "description": "Online kayıt sistemleri, QR kod uygulamaları, dijital davet çözümleri ve raporlama sistemleriyle süreçleri daha verimli yönetiyoruz.",
+            "icon": "cpu"
+          },
+          {
+            "title": "Şeffaf Bütçe Yönetimi",
+            "description": "Harcamaların her aşaması kontrol altında tutulur ve düzenli raporlanır.",
+            "icon": "wallet"
+          },
+          {
+            "title": "Deneyimli Uzman Kadro",
+            "description": "Alanında uzman proje yöneticileri, operasyon ekipleri ve teknik destek personelleri ile tüm süreçler profesyonel şekilde yürütülür.",
+            "icon": "users"
+          },
+          {
+            "title": "Ölçülebilir Sonuçlar",
+            "description": "Her organizasyon sonunda detaylı raporlama sunularak yatırımın geri dönüşü analiz edilir.",
+            "icon": "chart"
+          }
+        ]
+      },
+      "status": "published",
+      "seo_json": {
+        "title": "Neden Biz",
+        "description": "Her Detayı Yönetiyor, Her Süreci Kontrol Ediyoruz"
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    }
+  ],
+  "services": [
+    {
+      "category": "physical",
+      "locale": "tr",
+      "title": "Lansman ve Kurumsal Etkinlikler",
+      "slug": "lansman-ve-kurumsal-etkinlikler",
+      "summary": "Yeni ürün, hizmet veya marka tanıtımlarında hedef kitleniz üzerinde güçlü ve kalıcı etkiler bırakacak profesyonel etkinlikler tasarlıyoruz.",
+      "body_json": {
+        "paragraphs": [
+          "Etkinlik konseptinin oluşturulmasından mekan seçimine, sahne tasarımından teknik altyapıya, davet süreçlerinden medya koordinasyonuna kadar tüm organizasyon detaylarını yönetiyoruz.",
+          "Markanızın kurumsal kimliğini ve mesajını doğru şekilde yansıtan etkinlik deneyimleri sunuyoruz."
+        ],
+        "features": []
+      },
+      "icon": "sparkles",
+      "order_no": 1,
+      "status": "published",
+      "seo_json": {
+        "title": "Lansman ve Kurumsal Etkinlikler",
+        "description": "Yeni ürün, hizmet veya marka tanıtımlarında hedef kitleniz üzerinde güçlü ve kalıcı etkiler bırakacak profesyonel etkinlikler tasarlıyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "physical",
+      "locale": "tr",
+      "title": "Kongre Organizasyonları",
+      "slug": "kongre-organizasyonlari",
+      "summary": "Bilimsel, akademik, mesleki ve sektörel kongrelerin tüm süreçlerini profesyonel standartlarda yönetiyoruz.",
+      "body_json": {
+        "paragraphs": [],
+        "features": [
+          "Bilimsel kurul koordinasyonu",
+          "Kongre sekretaryası",
+          "Katılımcı yönetimi",
+          "Bildiri yönetim sistemleri",
+          "Konuşmacı koordinasyonu",
+          "Sponsorluk yönetimi",
+          "Kayıt sistemleri",
+          "Konaklama planlaması",
+          "Teknik altyapı yönetimi",
+          "Sergi alanı organizasyonu",
+          "Bütçe ve raporlama süreçleri"
+        ]
+      },
+      "icon": "presentation",
+      "order_no": 2,
+      "status": "published",
+      "seo_json": {
+        "title": "Kongre Organizasyonları",
+        "description": "Bilimsel, akademik, mesleki ve sektörel kongrelerin tüm süreçlerini profesyonel standartlarda yönetiyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "physical",
+      "locale": "tr",
+      "title": "Toplantı  ve Sempozyum Yönetimi",
+      "slug": "toplanti-ve-sempozyum-yonetimi",
+      "summary": "Kurumsal toplantılar, eğitim seminerleri ve sempozyum organizasyonlarında verimlilik odaklı çözümler sunuyoruz.",
+      "body_json": {
+        "paragraphs": [
+          "Katılımcı deneyimini artıran, kurumsal hedeflere katkı sağlayan profesyonel toplantı organizasyonları gerçekleştiriyoruz."
+        ],
+        "features": []
+      },
+      "icon": "messages",
+      "order_no": 3,
+      "status": "published",
+      "seo_json": {
+        "title": "Toplantı  ve Sempozyum Yönetimi",
+        "description": "Kurumsal toplantılar, eğitim seminerleri ve sempozyum organizasyonlarında verimlilik odaklı çözümler sunuyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "physical",
+      "locale": "tr",
+      "title": "Workshop Organizasyonları",
+      "slug": "workshop-organizasyonlari",
+      "summary": "Katılımcı etkileşiminin yüksek olduğu workshop ve eğitim etkinliklerinde tüm operasyonel süreçleri planlıyor ve yönetiyoruz.",
+      "body_json": {
+        "paragraphs": [
+          "Mekan planlaması, teknik ekipman tedariği, kayıt süreçleri ve saha yönetimi eksiksiz olarak yürütülmektedir."
+        ],
+        "features": []
+      },
+      "icon": "workflow",
+      "order_no": 4,
+      "status": "published",
+      "seo_json": {
+        "title": "Workshop Organizasyonları",
+        "description": "Katılımcı etkileşiminin yüksek olduğu workshop ve eğitim etkinliklerinde tüm operasyonel süreçleri planlıyor ve yönetiyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "physical",
+      "locale": "tr",
+      "title": "Fuar ve Sergi Organizasyonları",
+      "slug": "fuar-ve-sergi-organizasyonlari",
+      "summary": "Markanızın görünürlüğünü artıracak fuar ve sergi organizasyonlarını yaratıcı çözümlerle destekliyoruz.",
+      "body_json": {
+        "paragraphs": [
+          "Stand tasarımlarından teknik kurulumlara, ziyaretçi yönetiminden operasyonel koordinasyona kadar tüm süreçler kontrol altında tutulmaktadır."
+        ],
+        "features": []
+      },
+      "icon": "landmark",
+      "order_no": 5,
+      "status": "published",
+      "seo_json": {
+        "title": "Fuar ve Sergi Organizasyonları",
+        "description": "Markanızın görünürlüğünü artıracak fuar ve sergi organizasyonlarını yaratıcı çözümlerle destekliyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "physical",
+      "locale": "tr",
+      "title": "Seyahat ve Konaklama Yönetimi",
+      "slug": "seyahat-ve-konaklama-yonetimi",
+      "summary": "Katılımcı, konuşmacı ve davetlilerin tüm seyahat süreçlerini profesyonel biçimde planlıyoruz.",
+      "body_json": {
+        "paragraphs": [],
+        "features": [
+          "Uçak bileti organizasyonu",
+          "Otel rezervasyonları",
+          "VIP konaklama çözümleri",
+          "Grup rezervasyonları",
+          "Karşılama hizmetleri",
+          "Transfer koordinasyonu"
+        ]
+      },
+      "icon": "hotel",
+      "order_no": 6,
+      "status": "published",
+      "seo_json": {
+        "title": "Seyahat ve Konaklama Yönetimi",
+        "description": "Katılımcı, konuşmacı ve davetlilerin tüm seyahat süreçlerini profesyonel biçimde planlıyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "physical",
+      "locale": "tr",
+      "title": "Transfer ve lojistik Yönetimi",
+      "slug": "transfer-ve-lojistik-yonetimi",
+      "summary": "Etkinliklerin görünmeyen ancak en kritik süreçlerinden biri olan lojistik yönetimini profesyonel ekiplerle yürütüyoruz.",
+      "body_json": {
+        "paragraphs": [
+          "Katılımcı transferlerinden ekipman taşımalarına kadar tüm süreçler detaylı planlarla yönetilmektedir."
+        ],
+        "features": []
+      },
+      "icon": "bus",
+      "order_no": 7,
+      "status": "published",
+      "seo_json": {
+        "title": "Transfer ve lojistik Yönetimi",
+        "description": "Etkinliklerin görünmeyen ancak en kritik süreçlerinden biri olan lojistik yönetimini profesyonel ekiplerle yürütüyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "physical",
+      "locale": "tr",
+      "title": "Tedarikçi ve Operasyon Yönetimi",
+      "slug": "tedarikci-ve-operasyon-yonetimi",
+      "summary": "Organizasyon başarısının temelinde doğru tedarikçi seçimi yer alır.",
+      "body_json": {
+        "paragraphs": [
+          "SD Kongre olarak teknik ekiplerden catering hizmetlerine, dekorasyon firmalarından ulaşım sağlayıcılarına kadar tüm tedarikçi yönetimini gerçekleştiriyoruz."
+        ],
+        "features": []
+      },
+      "icon": "clipboard",
+      "order_no": 8,
+      "status": "published",
+      "seo_json": {
+        "title": "Tedarikçi ve Operasyon Yönetimi",
+        "description": "Organizasyon başarısının temelinde doğru tedarikçi seçimi yer alır."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "digital",
+      "locale": "tr",
+      "title": "Katılımcı ve Kayıt Yönetimi",
+      "slug": "katilimci-ve-kayit-yonetimi",
+      "summary": "Katılımcı kayıt süreçlerini tamamen dijital ortama taşıyarak zaman kaybını ve operasyonel yükü azaltıyoruz.",
+      "body_json": {
+        "paragraphs": [
+          "Katılım formları, ödeme sistemleri, kayıt takibi ve anlık raporlama tek platform üzerinden yönetilmektedir."
+        ],
+        "features": []
+      },
+      "icon": "user-check",
+      "order_no": 1,
+      "status": "published",
+      "seo_json": {
+        "title": "Katılımcı ve Kayıt Yönetimi",
+        "description": "Katılımcı kayıt süreçlerini tamamen dijital ortama taşıyarak zaman kaybını ve operasyonel yükü azaltıyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "digital",
+      "locale": "tr",
+      "title": "Dijital Altyapı ve Etkinlik Teknolojileri",
+      "slug": "dijital-altyapi-ve-etkinlik-teknolojileri",
+      "summary": "Modern organizasyonların ihtiyaç duyduğu tüm teknolojik çözümleri sunuyoruz.",
+      "body_json": {
+        "paragraphs": [],
+        "features": [
+          "Kayıt yazılımları",
+          "Mobil uygulamalar",
+          "Canlı yayın sistemleri",
+          "Hibrit etkinlik çözümleri",
+          "Katılımcı yönetim panelleri"
+        ]
+      },
+      "icon": "monitor",
+      "order_no": 2,
+      "status": "published",
+      "seo_json": {
+        "title": "Dijital Altyapı ve Etkinlik Teknolojileri",
+        "description": "Modern organizasyonların ihtiyaç duyduğu tüm teknolojik çözümleri sunuyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "digital",
+      "locale": "tr",
+      "title": "QR Kod ve Yaka Kart Sistemleri",
+      "slug": "qr-kod-ve-yaka-kart-sistemleri",
+      "summary": "Katılımcı girişlerini hızlandıran ve hata oranını en aza indiren dijital kontrol sistemleri sağlıyoruz.",
+      "body_json": {
+        "paragraphs": [
+          "QR kod entegrasyonlu yaka kartları sayesinde anlık giriş takibi ve raporlama yapılabilmektedir."
+        ],
+        "features": []
+      },
+      "icon": "qr",
+      "order_no": 3,
+      "status": "published",
+      "seo_json": {
+        "title": "QR Kod ve Yaka Kart Sistemleri",
+        "description": "Katılımcı girişlerini hızlandıran ve hata oranını en aza indiren dijital kontrol sistemleri sağlıyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "digital",
+      "locale": "tr",
+      "title": "Online Davet ve İletişim Yönetimi",
+      "slug": "online-davet-ve-iletisim-yonetimi",
+      "summary": "Profesyonel tasarıma sahip dijital davet sistemleri ve toplu iletişim çözümleri ile katılımcılarla etkin iletişim kuruyoruz.",
+      "body_json": {
+        "paragraphs": [],
+        "features": []
+      },
+      "icon": "mail",
+      "order_no": 4,
+      "status": "published",
+      "seo_json": {
+        "title": "Online Davet ve İletişim Yönetimi",
+        "description": "Profesyonel tasarıma sahip dijital davet sistemleri ve toplu iletişim çözümleri ile katılımcılarla etkin iletişim kuruyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "digital",
+      "locale": "tr",
+      "title": "Organizasyon Takip Sistemleri",
+      "slug": "organizasyon-takip-sistemleri",
+      "summary": "Tüm proje süreçleri dijital olarak izlenebilir hale getirilir.",
+      "body_json": {
+        "paragraphs": [
+          "Bu sayede organizasyonun hangi aşamada olduğu gerçek zamanlı olarak takip edilebilir."
+        ],
+        "features": []
+      },
+      "icon": "list-checks",
+      "order_no": 5,
+      "status": "published",
+      "seo_json": {
+        "title": "Organizasyon Takip Sistemleri",
+        "description": "Tüm proje süreçleri dijital olarak izlenebilir hale getirilir."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "digital",
+      "locale": "tr",
+      "title": "Veri ve Raporlama Sistemleri",
+      "slug": "veri-ve-raporlama-sistemleri",
+      "summary": "Etkinlik sonunda yalnızca organizasyonu tamamlamıyor, ölçülebilir sonuçlar da sunuyoruz.",
+      "body_json": {
+        "paragraphs": [],
+        "features": [
+          "Katılımcı analizleri",
+          "Katılım oranları",
+          "Operasyon raporları",
+          "Bütçe raporları",
+          "Performans değerlendirmeleri"
+        ]
+      },
+      "icon": "chart",
+      "order_no": 6,
+      "status": "published",
+      "seo_json": {
+        "title": "Veri ve Raporlama Sistemleri",
+        "description": "Etkinlik sonunda yalnızca organizasyonu tamamlamıyor, ölçülebilir sonuçlar da sunuyoruz."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "category": "digital",
+      "locale": "tr",
+      "title": "Veri Güvenliği ve Merkezi Yönetim",
+      "slug": "veri-guvenligi-ve-merkezi-yonetim",
+      "summary": "Tüm katılımcı verileri güvenli sunucularda saklanmakta ve KVKK hükümlerine uygun şekilde işlenmektedir.",
+      "body_json": {
+        "paragraphs": [
+          "Kurumsal verileriniz en yüksek güvenlik standartlarıyla korunmaktadır."
+        ],
+        "features": []
+      },
+      "icon": "shield",
+      "order_no": 7,
+      "status": "published",
+      "seo_json": {
+        "title": "Veri Güvenliği ve Merkezi Yönetim",
+        "description": "Tüm katılımcı verileri güvenli sunucularda saklanmakta ve KVKK hükümlerine uygun şekilde işlenmektedir."
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    }
+  ],
+  "processSteps": [
+    {
+      "locale": "tr",
+      "step_key": "brief",
+      "title": "BRIEF",
+      "subtitle": "İhtiyaçların Doğru Analizi ile Sağlam Bir Başlangıç",
+      "description": "Her başarılı organizasyonun temelinde doğru bir ihtiyaç analizi bulunur. Bu nedenle proje sürecine başlamadan önce kurumun beklentilerini, hedeflerini ve organizasyonun genel kapsamını detaylı şekilde değerlendiriyoruz.",
+      "content_json": {
+        "number": "01",
+        "items": [
+          "Organizasyonun amacı ve hedefleri belirlenir.",
+          "Hedef katılımcı profili analiz edilir.",
+          "Etkinliğin türü, kapsamı ve büyüklüğü netleştirilir.",
+          "Tarih ve lokasyon alternatifleri değerlendirilir.",
+          "Kurumsal beklentiler ve özel talepler kayıt altına alınır.",
+          "Operasyonel ihtiyaçlar ve olası riskler belirlenir.",
+          "Bütçe çerçevesi ve mali beklentiler analiz edilir."
+        ],
+        "groups": [],
+        "closing": "Gerçekleştirdiğimiz detaylı brief toplantıları sayesinde organizasyonun yol haritasını oluşturarak sonraki süreçlerin eksiksiz ilerlemesini sağlıyoruz.",
+        "outputs": [
+          "İhtiyaç Analiz Raporu",
+          "Hedef Kitle Belirleme",
+          "Organizasyon Kapsamı",
+          "İlk Operasyon Taslağı",
+          "Ön Bütçe Çalışması"
+        ]
+      },
+      "icon": "workflow",
+      "order_no": 1,
+      "status": "published"
+    },
+    {
+      "locale": "tr",
+      "step_key": "planlama",
+      "title": "PLANLAMA",
+      "subtitle": "Her Detayın Önceden Tasarlandığı Profesyonel Hazırlık Süreci",
+      "description": "Planlama aşaması, organizasyonun başarısını doğrudan etkileyen en kritik süreçlerden biridir. Bu aşamada tüm operasyonel ve teknik detaylar sistematik şekilde oluşturulur.",
+      "content_json": {
+        "number": "02",
+        "items": [
+          "Organizasyon takvimini hazırlar.",
+          "Görev ve sorumluluk dağılımlarını belirler.",
+          "Mekân planlamasını yapar.",
+          "Teknik altyapı ihtiyaçlarını tespit eder.",
+          "Konaklama ve ulaşım planlarını oluşturur.",
+          "Tedarikçi ve çözüm ortaklarını belirler.",
+          "Risk ve kriz yönetim planlarını hazırlar.",
+          "Satın alma süreçlerini planlar.",
+          "Kaynak ve bütçe yönetimini oluşturur."
+        ],
+        "groups": [],
+        "closing": "Planlama sürecinde tüm paydaşlar arasında koordinasyon sağlanarak organizasyon gününe kadar gerçekleşecek her adım netleştirilir.",
+        "outputs": [
+          "Operasyon Takvimi",
+          "Görev ve Sorumluluk Planı",
+          "Bütçe Planı",
+          "Risk Yönetim Planı",
+          "Teknik Altyapı Planlaması",
+          "Lojistik ve Transfer Planı"
+        ]
+      },
+      "icon": "workflow",
+      "order_no": 2,
+      "status": "published"
+    },
+    {
+      "locale": "tr",
+      "step_key": "teklif",
+      "title": "TEKLİF",
+      "subtitle": "Şeffaf, Anlaşılır ve İhtiyaca Özel Çözümler",
+      "description": "Planlama çalışmaları tamamlandıktan sonra organizasyonun tüm kapsamını içeren detaylı teklif dosyası hazırlanır.",
+      "content_json": {
+        "number": "03",
+        "items": [
+          "Hizmet kapsamı detaylandırılır.",
+          "Alternatif uygulama senaryoları hazırlanır.",
+          "Bütçe kalemleri açık şekilde listelenir.",
+          "Operasyonel süreçler tanımlanır.",
+          "Teknik ihtiyaçlar belirlenir.",
+          "İnsan kaynağı planlaması sunulur.",
+          "Zaman çizelgesi oluşturulur."
+        ],
+        "groups": [],
+        "closing": "Amacımız yalnızca maliyet sunmak değil; kurumun ihtiyaçlarına uygun, maksimum verim sağlayacak sürdürülebilir bir çözüm modeli geliştirmektir.",
+        "outputs": [
+          "Organizasyon Konsepti",
+          "Hizmet Kapsamı",
+          "Teknik ve Operasyonel Çözümler",
+          "Personel Planlaması",
+          "Konaklama ve Seyahat Yönetimi",
+          "Detaylı Bütçe Analizi",
+          "Uygulama Takvimi"
+        ]
+      },
+      "icon": "workflow",
+      "order_no": 3,
+      "status": "published"
+    },
+    {
+      "locale": "tr",
+      "step_key": "onay",
+      "title": "ONAY",
+      "subtitle": "Sürecin Netleştirildiği ve Projenin Başlatıldığı Aşama",
+      "description": "Teklif değerlendirme sürecinin ardından proje detayları karşılıklı olarak gözden geçirilir ve son hali oluşturulur.",
+      "content_json": {
+        "number": "04",
+        "items": [
+          "Hizmet kapsamı kesinleştirilir.",
+          "Bütçe kalemleri onaylanır.",
+          "Uygulama takvimi netleştirilir.",
+          "Tedarikçi seçimleri tamamlanır.",
+          "Operasyon ekibi oluşturulur.",
+          "İş planları kesinleştirilir.",
+          "İletişim ve koordinasyon süreçleri tanımlanır."
+        ],
+        "groups": [],
+        "closing": "Onay aşaması sayesinde tüm paydaşlar aynı hedef doğrultusunda hareket eder ve uygulama süreci kontrollü şekilde başlatılır.",
+        "outputs": [
+          "Onaylanmış Proje Planı",
+          "Kesin Bütçe Çalışması",
+          "Operasyon Organizasyon Şeması",
+          "Uygulama Takvimi",
+          "Tedarikçi ve Çözüm Ortakları Listesi"
+        ]
+      },
+      "icon": "workflow",
+      "order_no": 4,
+      "status": "published"
+    },
+    {
+      "locale": "tr",
+      "step_key": "operasyon",
+      "title": "OPERASYON",
+      "subtitle": "Organizasyonun Sahadaki Kusursuz Yönetimi",
+      "description": "Operasyon süreci, hazırlıkların gerçeğe dönüştüğü ve organizasyonun tüm detaylarının uygulandığı aşamadır. SD Kongre operasyon ekibi etkinlik öncesi, etkinlik süresince ve etkinlik sonrasında tüm süreçlerin koordinasyonunu sağlar.",
+      "content_json": {
+        "number": "05",
+        "items": [],
+        "groups": [
+          {
+            "title": "Etkinlik Öncesi",
+            "items": [
+              "Mekân hazırlıkları gerçekleştirilir.",
+              "Teknik ekipman kurulumları yapılır.",
+              "Kayıt alanları oluşturulur.",
+              "Yaka kartları ve materyaller hazırlanır.",
+              "Transfer planları uygulanır.",
+              "Konaklama organizasyonları tamamlanır."
+            ]
+          },
+          {
+            "title": "Etkinlik Sırasında",
+            "items": [
+              "Katılımcı kayıt süreçleri yönetilir.",
+              "Konuşmacı koordinasyonu sağlanır.",
+              "Teknik ekipler yönetilir.",
+              "Protokol organizasyonu yürütülür.",
+              "Sahne ve program akışı takip edilir.",
+              "Anlık kriz ve risk yönetimi gerçekleştirilir."
+            ]
+          },
+          {
+            "title": "Etkinlik Sonrasında",
+            "items": [
+              "Kapanış operasyonları tamamlanır.",
+              "Demontaj süreçleri yürütülür.",
+              "Katılımcı verileri konsolide edilir.",
+              "Tedarikçi kapanış işlemleri gerçekleştirilir."
+            ]
+          }
+        ],
+        "closing": "",
+        "outputs": [
+          "Tek Merkezden Koordinasyon",
+          "Anlık Süreç Takibi",
+          "Profesyonel Saha Yönetimi",
+          "Kriz ve Risk Yönetimi",
+          "Katılımcı Memnuniyeti Odaklı Hizmet",
+          "Tam Operasyonel Kontrol"
+        ]
+      },
+      "icon": "workflow",
+      "order_no": 5,
+      "status": "published"
+    },
+    {
+      "locale": "tr",
+      "step_key": "raporlama",
+      "title": "RAPORLAMA",
+      "subtitle": "Ölçülebilir Sonuçlar ve Stratejik Değerlendirme",
+      "description": "Bir organizasyonun başarısı yalnızca tamamlanmış olmasıyla değil, elde edilen çıktılarla değerlendirilir. Bu nedenle proje sonunda kapsamlı raporlama ve analiz çalışmaları gerçekleştiriyoruz.",
+      "content_json": {
+        "number": "06",
+        "items": [
+          "Katılımcı istatistikleri hazırlanır.",
+          "Kayıt ve katılım oranları analiz edilir.",
+          "Operasyon performansı değerlendirilir.",
+          "Bütçe gerçekleşme raporları oluşturulur.",
+          "Tedarikçi performans analizleri yapılır.",
+          "Memnuniyet anketleri değerlendirilir.",
+          "Güçlü yönler ve geliştirme alanları belirlenir.",
+          "Gelecek organizasyonlar için öneriler hazırlanır."
+        ],
+        "groups": [],
+        "closing": "Sunulan raporlar sayesinde kurumlar organizasyon yatırımlarının çıktılarını somut verilerle değerlendirebilir ve gelecekteki projelerini daha verimli planlayabilir.",
+        "outputs": [
+          "Katılımcı ve Kayıt Analizleri",
+          "Etkinlik Performans Değerlendirmesi",
+          "Bütçe Gerçekleşme Raporu",
+          "Operasyon Sonuç Raporu",
+          "Memnuniyet ve Geri Bildirim Analizi",
+          "Fotoğraf ve Medya Arşivi",
+          "Yönetici Özet Raporu",
+          "Gelecek Dönem Önerileri"
+        ]
+      },
+      "icon": "workflow",
+      "order_no": 6,
+      "status": "published"
+    }
+  ],
+  "legalDocuments": [
+    {
+      "document_key": "privacy-notice",
+      "locale": "tr",
+      "title": "KVKK Aydınlatma Metni",
+      "slug": "aydinlatma-metni",
+      "body_json": {
+        "headline": "Kişisel Verilerin Korunması ve İşlenmesine İlişkin Aydınlatma Metni",
+        "sections": [
+          {
+            "title": null,
+            "paragraphs": [
+              "SD Kongre Organizasyon ve Etkinlik Yönetimi (\"SD Kongre\") olarak özel hayatın gizliliğine ve kişisel verilerin korunmasına önem vermekteyiz. Bu kapsamda, 6698 Sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") uyarınca veri sorumlusu sıfatıyla kişisel verilerinizi aşağıda belirtilen çerçevede işlemekteyiz."
+            ]
+          },
+          {
+            "title": "İşlenen Kişisel Veriler",
+            "bullets": [
+              "Ad, soyad",
+              "T.C. Kimlik numarası",
+              "Telefon numarası",
+              "E-posta adresi",
+              "Kurum ve görev bilgileri",
+              "Konaklama ve seyahat bilgileri",
+              "Katılımcı kayıt bilgileri",
+              "Finansal ve faturalandırma bilgileri",
+              "IP adresi ve internet kullanım verileri",
+              "Fotoğraf ve video kayıtları"
+            ]
+          },
+          {
+            "title": "Kişisel Verilerin İşlenme Amaçları",
+            "paragraphs": [
+              "Kişisel verileriniz aşağıdaki amaçlarla işlenebilmektedir."
+            ],
+            "bullets": [
+              "Kongre, toplantı ve etkinlik organizasyonlarının yürütülmesi",
+              "Katılımcı kayıt süreçlerinin yönetilmesi",
+              "Konaklama ve ulaşım hizmetlerinin sağlanması",
+              "Bilgilendirme ve duyuru faaliyetlerinin gerçekleştirilmesi",
+              "Sözleşmesel yükümlülüklerin yerine getirilmesi",
+              "Finans ve muhasebe süreçlerinin yürütülmesi",
+              "Müşteri memnuniyetinin artırılması",
+              "Yasal yükümlülüklerin yerine getirilmesi",
+              "Bilgi güvenliği süreçlerinin sağlanması"
+            ]
+          },
+          {
+            "title": "Kişisel Verilerin Aktarılması",
+            "paragraphs": [
+              "Kişisel verileriniz ilgili mevzuat hükümleri çerçevesinde aşağıdaki kişi ve kuruluşlara aktarılabilmektedir."
+            ],
+            "bullets": [
+              "Yetkili kamu kurum ve kuruluşlarına",
+              "İş ortaklarına",
+              "Konaklama ve ulaşım hizmet sağlayıcılarına",
+              "Teknoloji altyapı hizmet sağlayıcılarına",
+              "Hukuken yetkili kişi ve kurumlara"
+            ]
+          },
+          {
+            "title": "Veri Sahibinin Hakları",
+            "paragraphs": [
+              "KVKK'nın 11. maddesi kapsamında veri sahipleri aşağıdaki haklara sahiptir."
+            ],
+            "bullets": [
+              "Kişisel verilerinin işlenip işlenmediğini öğrenme",
+              "İşlenen verilere ilişkin bilgi talep etme",
+              "İşleme amacını öğrenme",
+              "Yanlış veya eksik işlenen verilerin düzeltilmesini isteme",
+              "Verilerin silinmesini veya yok edilmesini talep etme",
+              "İşlemenin hukuka uygunluğunu sorgulama",
+              "Zarara uğraması halinde tazminat talep etme"
+            ]
+          }
+        ]
+      },
+      "version": "1.0",
+      "effective_date": null,
+      "status": "published",
+      "seo_json": {
+        "title": "KVKK Aydınlatma Metni",
+        "description": "Kişisel Verilerin Korunması ve İşlenmesine İlişkin Aydınlatma Metni"
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "document_key": "privacy-policy",
+      "locale": "tr",
+      "title": "Gizlilik Politikası",
+      "slug": "gizlilik-politikasi",
+      "body_json": {
+        "headline": "Bilgileriniz Bizim İçin Değerlidir",
+        "sections": [
+          {
+            "title": null,
+            "paragraphs": [
+              "SD Kongre, web sitesini ziyaret eden kullanıcıların ve hizmetlerinden yararlanan müşterilerinin kişisel bilgilerinin güvenliğini sağlamayı temel ilkelerinden biri olarak kabul etmektedir.",
+              "Web sitemiz üzerinden paylaşılan bilgiler yalnızca hizmet sunulması, iletişim faaliyetlerinin yürütülmesi, organizasyon süreçlerinin yönetilmesi ve yasal yükümlülüklerin yerine getirilmesi amacıyla kullanılmaktadır."
+            ]
+          },
+          {
+            "title": "Toplanan Bilgilerin Korunması",
+            "bullets": [
+              "Yetkisiz erişime karşı korunur",
+              "Güvenli sistemlerde saklanır",
+              "Üçüncü kişilerle izinsiz paylaşılmaz",
+              "Yasal zorunluluklar dışında aktarılmaz"
+            ],
+            "paragraphs": [
+              "SD Kongre, kişisel verilerin korunmasına ilişkin tüm teknik ve idari tedbirleri uygulamayı taahhüt eder."
+            ]
+          },
+          {
+            "title": "Veri Güvenliği",
+            "paragraphs": [
+              "Kurumumuz aşağıdaki uygulamalarla verilerinizin korunmasını sağlamaktadır."
+            ],
+            "bullets": [
+              "SSL güvenlik sertifikaları",
+              "Güncel güvenlik altyapıları",
+              "Erişim yetkilendirme sistemleri",
+              "Veri yedekleme uygulamaları",
+              "Düzenli güvenlik kontrolleri"
+            ]
+          }
+        ]
+      },
+      "version": "1.0",
+      "effective_date": null,
+      "status": "published",
+      "seo_json": {
+        "title": "Gizlilik Politikası",
+        "description": "Bilgileriniz Bizim İçin Değerlidir"
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "document_key": "cookie-policy",
+      "locale": "tr",
+      "title": "Çerez (Cookie) Politikası",
+      "slug": "cerez-politikasi",
+      "body_json": {
+        "headline": "Çerez Kullanımı Hakkında Bilgilendirme",
+        "sections": [
+          {
+            "title": null,
+            "paragraphs": [
+              "Bu web sitesi kullanıcı deneyimini geliştirmek, site performansını analiz etmek ve sunulan hizmetleri iyileştirmek amacıyla çerezler kullanmaktadır.",
+              "Çerezler, ziyaret ettiğiniz internet sitesi tarafından cihazınıza kaydedilen küçük veri dosyalarıdır."
+            ]
+          },
+          {
+            "title": "Zorunlu Çerezler",
+            "paragraphs": [
+              "Web sitesinin temel işlevlerinin çalışabilmesi için gereklidir."
+            ]
+          },
+          {
+            "title": "Performans ve Analitik Çerezleri",
+            "paragraphs": [
+              "Kullanıcıların web sitesini nasıl kullandığına ilişkin anonim veriler sağlar."
+            ]
+          },
+          {
+            "title": "İşlevsel Çerezler",
+            "paragraphs": [
+              "Tercihlerinizin hatırlanmasına yardımcı olur."
+            ]
+          },
+          {
+            "title": "Pazarlama Çerezleri",
+            "paragraphs": [
+              "Sunulan içeriklerin ve reklamların ilgi alanlarınıza göre özelleştirilmesini sağlar."
+            ]
+          },
+          {
+            "title": "Çerez Yönetimi",
+            "paragraphs": [
+              "Tarayıcı ayarlarınızı değiştirerek çerezleri silebilir, engelleyebilir veya kullanımını sınırlandırabilirsiniz.",
+              "Çerezleri devre dışı bırakmanız halinde web sitesinin bazı özelliklerinden tam olarak yararlanamayabilirsiniz."
+            ]
+          }
+        ]
+      },
+      "version": "1.0",
+      "effective_date": null,
+      "status": "published",
+      "seo_json": {
+        "title": "Çerez (Cookie) Politikası",
+        "description": "Çerez Kullanımı Hakkında Bilgilendirme"
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "document_key": "explicit-consent",
+      "locale": "tr",
+      "title": "Açık Rıza Metni",
+      "slug": "acik-riza-metni",
+      "body_json": {
+        "headline": "Açık Rıza Beyanı",
+        "sections": [
+          {
+            "title": null,
+            "paragraphs": [
+              "6698 Sayılı Kişisel Verilerin Korunması Kanunu kapsamında tarafıma sunulan Aydınlatma Metni'ni okuduğumu ve anladığımı kabul ederim.",
+              "Bu kapsamda aşağıdaki verilerimin SD Kongre tarafından ilgili mevzuata uygun şekilde işlenmesine, saklanmasına ve gerekli durumlarda belirtilen üçüncü kişilerle paylaşılmasına özgür irademle açık rıza verdiğimi kabul ederim."
+            ],
+            "bullets": [
+              "Kimlik bilgilerimin",
+              "İletişim bilgilerimin",
+              "Katılım ve kayıt bilgilerimin",
+              "Organizasyon süreçlerine ilişkin verilerimin",
+              "Görsel ve işitsel kayıtlarımın"
+            ]
+          },
+          {
+            "title": null,
+            "paragraphs": [
+              "Vermiş olduğum açık rızayı dilediğim zaman geri çekme hakkına sahip olduğumu biliyorum."
+            ]
+          }
+        ]
+      },
+      "version": "1.0",
+      "effective_date": null,
+      "status": "published",
+      "seo_json": {
+        "title": "Açık Rıza Metni",
+        "description": "Açık Rıza Beyanı"
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "document_key": "legal-basis",
+      "locale": "tr",
+      "title": "Yasal Dayanaklar",
+      "slug": "yasal-dayanaklar",
+      "body_json": {
+        "headline": "Kişisel Verilerin İşlenmesine İlişkin Hukuki Çerçeve",
+        "sections": [
+          {
+            "title": null,
+            "paragraphs": [
+              "SD Kongre tarafından gerçekleştirilen tüm veri işleme faaliyetleri ulusal ve uluslararası mevzuat hükümlerine uygun şekilde yürütülmektedir."
+            ]
+          },
+          {
+            "title": "Dayanak Alınan Mevzuatlar",
+            "items": [
+              {
+                "title": "6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK)",
+                "description": "Kişisel verilerin işlenmesine ilişkin temel usul ve esasları belirlemektedir."
+              },
+              {
+                "title": "Türk Borçlar Kanunu",
+                "description": "Müşteri ve hizmet sağlayıcı arasındaki sözleşmesel ilişkilerin yürütülmesine ilişkin hükümleri kapsar."
+              },
+              {
+                "title": "Türk Ticaret Kanunu",
+                "description": "Ticari faaliyetler kapsamında tutulması gereken kayıtlar ve yükümlülükleri düzenler."
+              },
+              {
+                "title": "Vergi Usul Kanunu",
+                "description": "Muhasebe ve mali kayıtların saklanmasıyla ilgili yükümlülükleri belirler."
+              },
+              {
+                "title": "Elektronik Ticaretin Düzenlenmesi Hakkında Kanun",
+                "description": "Elektronik ortamda yürütülen iletişim ve ticari faaliyetlere ilişkin hükümleri düzenler."
+              }
+            ]
+          },
+          {
+            "title": "Veri İşleme Şartları",
+            "paragraphs": [
+              "Kişisel veriler aşağıdaki hukuki sebeplerinden en az birine dayanılarak işlenmektedir."
+            ],
+            "bullets": [
+              "Kanunlarda açıkça öngörülmesi",
+              "Bir sözleşmenin kurulması veya ifası için gerekli olması",
+              "Hukuki yükümlülüklerin yerine getirilmesi",
+              "Bir hakkın tesisi, kullanılması veya korunması",
+              "İlgili kişinin açık rızasının bulunması"
+            ]
+          },
+          {
+            "title": "Veri Saklama ve İmha",
+            "paragraphs": [
+              "Kişisel veriler, ilgili mevzuatta öngörülen süreler boyunca saklanmakta; saklama süresinin sona ermesi veya işleme amacının ortadan kalkması halinde güvenli yöntemlerle silinmekte, yok edilmekte veya anonim hale getirilmektedir."
+            ]
+          }
+        ]
+      },
+      "version": "1.0",
+      "effective_date": null,
+      "status": "published",
+      "seo_json": {
+        "title": "Yasal Dayanaklar",
+        "description": "Kişisel Verilerin İşlenmesine İlişkin Hukuki Çerçeve"
+      },
+      "published_at": "2026-08-04T00:00:00.000Z"
+    }
+  ]
+}
