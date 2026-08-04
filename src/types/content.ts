@@ -1,0 +1,113 @@
+export type ContentStatus =
+  | "draft"
+  | "review"
+  | "scheduled"
+  | "published"
+  | "archived";
+
+export type SeoData = Readonly<{
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+  noindex?: boolean;
+}>;
+
+export type ValueItem = Readonly<{
+  title: string;
+  description: string;
+  icon?: string;
+}>;
+
+export type CorporatePageContent = Readonly<{
+  pageKey: string;
+  title: string;
+  eyebrow: string;
+  headline: string;
+  paragraphs: readonly string[];
+  values?: readonly ValueItem[];
+}>;
+
+export type ServiceContent = Readonly<{
+  category: "physical" | "digital";
+  slug: string;
+  title: string;
+  icon: string;
+  summary: string;
+  paragraphs: readonly string[];
+  features: readonly string[];
+}>;
+
+export type ProcessGroup = Readonly<{
+  title: string;
+  items: readonly string[];
+}>;
+
+export type ProcessStep = Readonly<{
+  stepKey: string;
+  number: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  items: readonly string[];
+  groups?: readonly ProcessGroup[];
+  closing: string;
+  outputs: readonly string[];
+}>;
+
+export type LegalSection = Readonly<{
+  title?: string | null;
+  paragraphs?: readonly string[];
+  bullets?: readonly string[];
+  items?: readonly Readonly<{
+    title: string;
+    description: string;
+  }>[];
+}>;
+
+export type LegalDocumentContent = Readonly<{
+  documentKey: string;
+  title: string;
+  headline: string;
+  sections: readonly LegalSection[];
+}>;
+
+export type HomeValue = Readonly<{
+  number: string;
+  title: string;
+  description: string;
+  icon: string;
+}>;
+
+export type ProjectRecord = Readonly<{
+  id: string;
+  slug: string;
+  title: string;
+  clientName?: string | null;
+  eventType?: string | null;
+  city?: string | null;
+  venue?: string | null;
+  startDate?: string | null;
+  endDate?: string | null;
+  summary: string;
+  challenge?: string | null;
+  solution?: string | null;
+  result?: Record<string, unknown> | null;
+  coverUrl?: string | null;
+  media?: readonly Readonly<{
+    id: string;
+    url: string;
+    altText?: string | null;
+    caption?: string | null;
+    mediaType: "image" | "video";
+  }>[];
+}>;
+
+export type ReferenceRecord = Readonly<{
+  id: string;
+  name: string;
+  website?: string | null;
+  category?: string | null;
+  story?: string | null;
+  logoUrl?: string | null;
+}>;
