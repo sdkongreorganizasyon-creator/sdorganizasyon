@@ -6,7 +6,6 @@ import { redirect } from "next/navigation";
 import {
   canManageUsers,
   canPublish,
-  getAdminContext,
   requireAdmin,
 } from "@/lib/auth/require-admin";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
@@ -16,7 +15,7 @@ import {
   projectAdminSchema,
   referenceAdminSchema,
 } from "@/lib/validation/admin";
-import type { ContentStatus, Json, UserRole } from "@/types/database";
+import type { Json, UserRole } from "@/types/database";
 
 export type ActionState = {
   success: boolean;

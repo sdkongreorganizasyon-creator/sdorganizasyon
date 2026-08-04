@@ -8,7 +8,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 
 import { TurnstileField } from "@/components/forms/turnstile-field";
 import { Button } from "@/components/ui/button";
@@ -53,7 +53,7 @@ export function QuoteForm({
     register,
     handleSubmit,
     trigger,
-    watch,
+    control,
     reset,
     setValue,
     formState: { errors, isSubmitting },
@@ -83,7 +83,7 @@ export function QuoteForm({
     },
   });
 
-  const selectedServices = watch("services") ?? [];
+  const selectedServices = useWatch({ control, name: "services" }) ?? [];
 
   const onToken = useCallback(
     (token: string) =>

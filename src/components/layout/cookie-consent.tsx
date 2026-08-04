@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import {
+  useEffect,
+  useState,
+  useSyncExternalStore,
+} from "react";
 
 import { Button } from "@/components/ui/button";
 
@@ -41,26 +46,38 @@ function persistConsent(preferences: ConsentPreferences) {
   );
 }
 
+function subscribeToHydration() {
+  return () => {};
+}
+
+function getClientSnapshot() {
+  return true;
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
 export function getStoredConsent() {
   if (typeof window === "undefined") return null;
   return parseStoredConsent();
 }
 
 export function CookieConsent() {
-  const [open, setOpen] = useState(false);
+  const hydrated = useSyncExternalStore(
+    subscribeToHydration,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
+  const [manuallyOpened, setManuallyOpened] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [analytics, setAnalytics] = useState(false);
   const [marketing, setMarketing] = useState(false);
 
-  useEffect(() => {
-    const current = parseStoredConsent();
-    if (!current) {
-      setOpen(true);
-    } else {
-      setAnalytics(current.analytics);
-      setMarketing(current.marketing);
-    }
+  const storedConsent = hydrated ? parseStoredConsent() : null;
+  const open = hydrated && (manuallyOpened || !storedConsent);
 
+  useEffect(() => {
     function openSettings(event: Event) {
       const target = event.target as HTMLElement | null;
       if (target?.closest("[data-open-cookie-settings]")) {
@@ -68,7 +85,7 @@ export function CookieConsent() {
         const stored = parseStoredConsent();
         setAnalytics(stored?.analytics ?? false);
         setMarketing(stored?.marketing ?? false);
-        setOpen(true);
+        setManuallyOpened(true);
         setSettingsOpen(true);
       }
     }
@@ -86,7 +103,7 @@ export function CookieConsent() {
     });
     setAnalytics(nextAnalytics);
     setMarketing(nextMarketing);
-    setOpen(false);
+    setManuallyOpened(false);
     setSettingsOpen(false);
   }
 
@@ -102,7 +119,10 @@ export function CookieConsent() {
             Zorunlu çerezler sitenin çalışması için kullanılır. Analitik ve
             pazarlama çerezleri yalnız onayınız sonrasında etkinleştirilir.
             Ayrıntılar için{" "}
-            <a href="/kvkk/cerez-politikasi">Çerez Politikası</a>.
+            <Link href="/kvkk/cerez-politikasi">
+              Çerez Politikası
+            </Link>
+            .
           </p>
         </div>
 

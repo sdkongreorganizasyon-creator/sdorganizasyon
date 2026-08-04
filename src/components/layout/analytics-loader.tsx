@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 import {
   consentEventName,
@@ -9,20 +9,46 @@ import {
   type ConsentPreferences,
 } from "@/components/layout/cookie-consent";
 
+function subscribeToConsent(onStoreChange: () => void) {
+  function onConsentChange() {
+    onStoreChange();
+  }
+
+  window.addEventListener(consentEventName, onConsentChange);
+
+  return () => {
+    window.removeEventListener(consentEventName, onConsentChange);
+  };
+}
+
+function getConsentSnapshot() {
+  const consent = getStoredConsent();
+  return consent ? JSON.stringify(consent) : "";
+}
+
+function getServerConsentSnapshot() {
+  return "";
+}
+
+function parseConsentSnapshot(
+  snapshot: string,
+): ConsentPreferences | null {
+  if (!snapshot) return null;
+
+  try {
+    return JSON.parse(snapshot) as ConsentPreferences;
+  } catch {
+    return null;
+  }
+}
+
 export function AnalyticsLoader() {
-  const [consent, setConsent] = useState<ConsentPreferences | null>(null);
-
-  useEffect(() => {
-    setConsent(getStoredConsent());
-
-    function onConsent(event: Event) {
-      const customEvent = event as CustomEvent<ConsentPreferences>;
-      setConsent(customEvent.detail);
-    }
-
-    window.addEventListener(consentEventName, onConsent);
-    return () => window.removeEventListener(consentEventName, onConsent);
-  }, []);
+  const snapshot = useSyncExternalStore(
+    subscribeToConsent,
+    getConsentSnapshot,
+    getServerConsentSnapshot,
+  );
+  const consent = parseConsentSnapshot(snapshot);
 
   const gaId = process.env.NEXT_PUBLIC_GA_ID?.trim();
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim();

@@ -88,7 +88,7 @@ export default async function AdminDashboardPage() {
         <h2>Başlangıç Kontrolü</h2>
         <ul className="admin-check-list">
           <li>Gerçek iletişim bilgilerini Vercel environment değerlerine ekleyin.</li>
-          <li>Seed scriptini çalıştırarak kaynak içerikleri Supabase'e aktarın.</li>
+          <li>Seed scriptini çalıştırarak kaynak içerikleri Supabase&apos;e aktarın.</li>
           <li>Gerçek proje ve referansları kullanım izinleriyle birlikte ekleyin.</li>
           <li>Yasal metinleri canlı yayın öncesi yetkili kişiyle doğrulayın.</li>
           <li>Natro domain geçişini tüm testler tamamlandıktan sonra yapın.</li>

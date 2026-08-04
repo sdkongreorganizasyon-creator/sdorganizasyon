@@ -7,7 +7,6 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   useEffect,
   useId,
@@ -16,22 +15,17 @@ import {
 } from "react";
 
 import { navigation } from "@/config/navigation";
-import { ButtonLink } from "@/components/ui/button";
 
 export function MenuOverlay() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
   const dialogId = useId();
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     if (!open) return;
 
+    const trigger = triggerRef.current;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
@@ -70,9 +64,13 @@ export function MenuOverlay() {
     return () => {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", onKeyDown);
-      triggerRef.current?.focus();
+      trigger?.focus();
     };
   }, [dialogId, open]);
+
+  function closeMenu() {
+    setOpen(false);
+  }
 
   return (
     <>
@@ -99,7 +97,7 @@ export function MenuOverlay() {
           <div
             className="menu-overlay__backdrop"
             aria-hidden="true"
-            onClick={() => setOpen(false)}
+            onClick={closeMenu}
           />
 
           <div className="menu-overlay__panel">
@@ -109,7 +107,7 @@ export function MenuOverlay() {
                 ref={closeButtonRef}
                 type="button"
                 aria-label="Menüyü kapat"
-                onClick={() => setOpen(false)}
+                onClick={closeMenu}
               >
                 <X aria-hidden="true" />
               </button>
@@ -127,6 +125,7 @@ export function MenuOverlay() {
                       className="menu-group__heading"
                       href={item.href}
                       id={`menu-${item.id}`}
+                      onClick={closeMenu}
                     >
                       <span className="menu-group__number">
                         {String(index + 1).padStart(2, "0")}
@@ -139,7 +138,7 @@ export function MenuOverlay() {
                       <ul>
                         {item.children.map((child) => (
                           <li key={child.id}>
-                            <Link href={child.href}>
+                            <Link href={child.href} onClick={closeMenu}>
                               <ChevronRight aria-hidden="true" size={15} />
                               <span>{child.label}</span>
                             </Link>
@@ -156,7 +155,13 @@ export function MenuOverlay() {
                   Organizasyonunuzun kapsamını paylaşın; ihtiyaçlarınızı
                   birlikte planlayalım.
                 </p>
-                <ButtonLink href="/teklif-al">Teklif Al</ButtonLink>
+                <Link
+                  className="button button--primary"
+                  href="/teklif-al"
+                  onClick={closeMenu}
+                >
+                  Teklif Al
+                </Link>
               </div>
             </div>
           </div>

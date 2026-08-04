@@ -1,0 +1,20 @@
+SDKONGRE GitHub Actions lint düzeltmesi
+
+Bu pakette 6 güncel dosya vardır:
+- src/app/admin/(protected)/page.tsx
+- src/app/admin/actions.ts
+- src/components/forms/quote-form.tsx
+- src/components/layout/analytics-loader.tsx
+- src/components/layout/cookie-consent.tsx
+- src/components/layout/menu-overlay.tsx
+
+GitHub repository ana sayfasında Add file > Upload files seçin.
+Bu paketin içindeki src klasörünü yükleme alanına sürükleyin.
+Mevcut dosyaların değiştirilmesini onaylayın.
+Commit mesajı:
+fix: resolve lint and React hook errors
+
+Kontrol:
+- Yüklenen GitHub logunda type-check başarılıydı.
+- Bu paket logdaki 5 error ve 4 warning kaynağını düzeltir.
+- TypeScript/TSX parse sözdizimi kontrolü başarılıdır.
