@@ -12,12 +12,22 @@ import {
   useId,
   useRef,
   useState,
+  useSyncExternalStore,
 } from "react";
 
 import { navigation } from "@/config/navigation";
 
+const subscribeToHydration = () => () => {};
+const getClientHydrationSnapshot = () => true;
+const getServerHydrationSnapshot = () => false;
+
 export function MenuOverlay() {
   const [open, setOpen] = useState(false);
+  const hydrated = useSyncExternalStore(
+    subscribeToHydration,
+    getClientHydrationSnapshot,
+    getServerHydrationSnapshot,
+  );
   const dialogId = useId();
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -80,6 +90,7 @@ export function MenuOverlay() {
         type="button"
         aria-controls={dialogId}
         aria-expanded={open}
+        disabled={!hydrated}
         onClick={() => setOpen(true)}
       >
         <Menu aria-hidden="true" size={20} />
