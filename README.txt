@@ -1,10 +1,13 @@
-SDKONGRE E2E Development Origin Düzeltmesi
+SDKONGRE E2E Test Scope Düzeltmesi
 
 Güncellenen dosya:
-next.config.ts
+tests/e2e/home.spec.ts
+
+Logdaki hata:
+Playwright getByText("HİZMETLERİMİZ") sorgusu sayfanın tamamında iki eşleşme
+buluyordu: biri açılan menüde, diğeri sayfanın başka bir bölümünde. Strict mode
+bu nedenle testi durduruyordu.
 
 Düzeltme:
-GitHub Actions E2E testi uygulamayı 127.0.0.1 üzerinden açıyor.
-Next.js geliştirme sunucusu bu origin'i izinli görmediği için istemci
-kaynakları ve hydration tamamlanmıyordu. allowedDevOrigins alanına
-127.0.0.1 ve localhost eklendi.
+Başlık kontrolleri "Site menüsü" dialog alanıyla sınırlandırıldı. Uygulama
+kodunda değişiklik yapılmadı.

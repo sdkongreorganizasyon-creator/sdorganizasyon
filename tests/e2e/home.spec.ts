@@ -22,16 +22,16 @@ test("full menu opens and preserves key headings", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: /Menü/i }).click();
 
+  const menuDialog = page.getByRole("dialog", { name: "Site menüsü" });
+
+  await expect(menuDialog).toBeVisible();
   await expect(
-    page.getByRole("dialog", { name: "Site menüsü" }),
+    menuDialog.getByText("HİZMETLERİMİZ", { exact: true }),
   ).toBeVisible();
-  await expect(page.getByText("HİZMETLERİMİZ", { exact: true })).toBeVisible();
   await expect(
-    page.getByText("ORGANİZASYON SURECİ", { exact: true }),
+    menuDialog.getByText("ORGANİZASYON SURECİ", { exact: true }),
   ).toBeVisible();
 
   await page.keyboard.press("Escape");
-  await expect(
-    page.getByRole("dialog", { name: "Site menüsü" }),
-  ).toHaveCount(0);
+  await expect(menuDialog).toHaveCount(0);
 });
