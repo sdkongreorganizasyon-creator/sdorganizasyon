@@ -1,10 +1,10 @@
-SDKONGRE E2E Menü Hydration Düzeltmesi
+SDKONGRE E2E Development Origin Düzeltmesi
 
 Güncellenen dosya:
-src/components/layout/menu-overlay.tsx
+next.config.ts
 
 Düzeltme:
-Önceki useSyncExternalStore tabanlı hydration kontrolü butonu sürekli disabled
-durumda bırakıyordu. Yeni sürüm, hydration tamamlandıktan sonraki ilk animation
-frame içinde butonu etkinleştirir. Playwright click işlemi buton etkinleşene
-kadar otomatik bekler.
+GitHub Actions E2E testi uygulamayı 127.0.0.1 üzerinden açıyor.
+Next.js geliştirme sunucusu bu origin'i izinli görmediği için istemci
+kaynakları ve hydration tamamlanmıyordu. allowedDevOrigins alanına
+127.0.0.1 ve localhost eklendi.
