@@ -1,13 +1,10 @@
-SDKONGRE E2E Menü Düzeltmesi
+SDKONGRE E2E Menü Hydration Düzeltmesi
 
-Bu paket yalnızca şu dosyayı günceller:
+Güncellenen dosya:
 src/components/layout/menu-overlay.tsx
 
-Sorun:
-E2E testi, Next.js istemci tarafı hydration tamamlanmadan Menü düğmesine
-tıklayabildiği için ilk tıklama kayboluyor ve dialog açılmıyordu.
-
-Çözüm:
-Menü düğmesi hydration tamamlanana kadar native disabled durumda tutulur.
-Hydration tamamlandığında otomatik etkinleşir. Playwright ve gerçek kullanıcı
-tıklamaları artık React olay dinleyicileri hazır olduktan sonra gerçekleşir.
+Düzeltme:
+Önceki useSyncExternalStore tabanlı hydration kontrolü butonu sürekli disabled
+durumda bırakıyordu. Yeni sürüm, hydration tamamlandıktan sonraki ilk animation
+frame içinde butonu etkinleştirir. Playwright click işlemi buton etkinleşene
+kadar otomatik bekler.

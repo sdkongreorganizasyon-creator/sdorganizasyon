@@ -12,25 +12,26 @@ import {
   useId,
   useRef,
   useState,
-  useSyncExternalStore,
 } from "react";
 
 import { navigation } from "@/config/navigation";
 
-const subscribeToHydration = () => () => {};
-const getClientHydrationSnapshot = () => true;
-const getServerHydrationSnapshot = () => false;
-
 export function MenuOverlay() {
   const [open, setOpen] = useState(false);
-  const hydrated = useSyncExternalStore(
-    subscribeToHydration,
-    getClientHydrationSnapshot,
-    getServerHydrationSnapshot,
-  );
+  const [hydrated, setHydrated] = useState(false);
   const dialogId = useId();
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      setHydrated(true);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
