@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { Icon } from "@/components/ui/icon";
 import type { ServiceContent } from "@/types/content";
 
 type ServiceCardProps = Readonly<{
@@ -8,12 +7,13 @@ type ServiceCardProps = Readonly<{
 }>;
 
 export function ServiceCard({ service }: ServiceCardProps) {
-  const fullDescription = [
-    service.summary,
-    ...service.paragraphs,
-  ]
+  const fullDescription = [service.summary, ...service.paragraphs]
     .filter(Boolean)
     .join(" ");
+
+  const featureText = service.features.length
+    ? service.features.join(" · ")
+    : null;
 
   return (
     <article className="service-card" id={service.slug}>
@@ -30,18 +30,10 @@ export function ServiceCard({ service }: ServiceCardProps) {
       </div>
 
       <div className="service-card__body">
-        <span className="service-card__icon">
-          <Icon name={service.icon} size={30} />
-        </span>
         <h2>{service.title}</h2>
         <p>{fullDescription}</p>
-
-        {service.features.length ? (
-          <ul>
-            {service.features.map((feature) => (
-              <li key={feature}>{feature}</li>
-            ))}
-          </ul>
+        {featureText ? (
+          <p className="service-card__features">{featureText}</p>
         ) : null}
       </div>
     </article>

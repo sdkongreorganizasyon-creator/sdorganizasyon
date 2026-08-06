@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { approvedHeroPoster, whyUsHighlights } from "@/config/media";
-import { Icon } from "@/components/ui/icon";
 import type { ResolvedSiteSettings } from "@/lib/content/settings";
 
 export function Hero({
@@ -77,9 +76,6 @@ export function Hero({
           <ul>
             {whyUsHighlights.map((item) => (
               <li key={item.title}>
-                <span className="why-panel__icon">
-                  <Icon name={item.icon} size={28} />
-                </span>
                 <div>
                   <strong>{item.title}</strong>
                   <p>{item.description}</p>

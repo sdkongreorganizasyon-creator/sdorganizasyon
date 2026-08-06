@@ -24,10 +24,10 @@ export function Logo({
       className={className}
       src={resolvedSrc}
       alt="SD Kongre Organizasyon Hizmetleri"
-      width={compact ? 452 : 904}
-      height={compact ? 311 : 622}
+      width={1424}
+      height={1172}
       priority={priority}
-      sizes={compact ? "180px" : "320px"}
+      sizes={compact ? "150px" : "280px"}
     />
   );
 }

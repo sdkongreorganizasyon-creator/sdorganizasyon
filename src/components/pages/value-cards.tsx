@@ -1,4 +1,3 @@
-import { Icon } from "@/components/ui/icon";
 import { Reveal } from "@/components/ui/reveal";
 
 type ValueCardsProps = Readonly<{
@@ -16,9 +15,6 @@ export function ValueCards({ items }: ValueCardsProps) {
         {items.map((item, index) => (
           <Reveal delay={index * 0.05} key={item.title}>
             <article className="info-card">
-              <span className="info-card__icon">
-                <Icon name={item.icon} size={28} />
-              </span>
               <h2>{item.title}</h2>
               <p>{item.description}</p>
             </article>
