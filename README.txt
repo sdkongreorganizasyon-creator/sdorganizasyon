@@ -1,13 +1,18 @@
-SDKONGRE E2E Test Scope Düzeltmesi
+SDKONGRE E2E Menü Test Düzeltmesi
 
 Güncellenen dosya:
 tests/e2e/home.spec.ts
 
-Logdaki hata:
-Playwright getByText("HİZMETLERİMİZ") sorgusu sayfanın tamamında iki eşleşme
-buluyordu: biri açılan menüde, diğeri sayfanın başka bir bölümünde. Strict mode
-bu nedenle testi durduruyordu.
+Log sonucu:
+27 test başarılı, 1 test başarısız.
+
+Hatanın nedeni:
+Test, menü düğmesini yönetim panelinden değiştirilebilen görünür metni üzerinden
+getByRole(... name: /Menü/i) ile arıyordu. Üretim ortamındaki etiket farklı
+olduğunda düğme bulunamıyordu.
 
 Düzeltme:
-Başlık kontrolleri "Site menüsü" dialog alanıyla sınırlandırıldı. Uygulama
-kodunda değişiklik yapılmadı.
+Test, menü bileşeninin sabit ve mevcut CSS seçicisi olan
+button.menu-trigger üzerinden düğmeye tıklıyor.
+
+Public site tasarımı, içerikler, Supabase veya Vercel ayarları değiştirilmez.

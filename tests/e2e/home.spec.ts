@@ -25,7 +25,7 @@ test("home page follows the approved SDKONGRE composition", async ({ page }) => 
 
 test("full menu opens and preserves key headings", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: /Menü/i }).click();
+  await page.locator("button.menu-trigger").click();
 
   const menuDialog = page.getByRole("dialog", { name: "Site menüsü" });
 
