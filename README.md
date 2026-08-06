@@ -1,4 +1,4 @@
-# SDKONGRE Web — GitHub'a Hazır Son Kodlar
+# SDKONGRE Web
 
 Bu repository, SDKONGRE Design Bible v2.0 esas alınarak hazırlanmış kurumsal web sitesi, Supabase veritabanı ve yönetim panelidir.
 
