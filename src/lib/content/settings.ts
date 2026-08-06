@@ -121,6 +121,11 @@ export type ResolvedSiteSettings = Readonly<{
     container: "narrow" | "standard" | "wide";
     headingScale: number;
     bodyScale: number;
+    sectionSpacing: number;
+    cardPadding: number;
+    cardGap: number;
+    contentGap: number;
+    heroSpacing: number;
   };
   motion: {
     enabled: boolean;
@@ -203,29 +208,28 @@ function enumValue<T extends string>(
 }
 
 function resolveHomeValues(value: unknown): readonly HomeValue[] {
-  if (!Array.isArray(value) || value.length !== 5) return defaultHomeValues;
+  if (!Array.isArray(value)) return defaultHomeValues;
 
-  const normalized = value.flatMap((item, index) => {
+  return value.map((item, index) => {
     const source = record(item);
-    const fallback = defaultHomeValues[index];
-    const title = text(source, "title", fallback.title);
-    const description = text(source, "description", fallback.description);
+    const fallback = defaultHomeValues[index] ?? {
+      number: "",
+      title: "",
+      description: "",
+      icon: "",
+      image: "",
+      active: true,
+    };
 
-    if (!title || !description) return [];
-
-    return [
-      {
-        number: text(source, "number", fallback.number),
-        title,
-        description,
-        icon: text(source, "icon", fallback.icon),
-        image: text(source, "image", fallback.image ?? ""),
-        active: bool(source, "active", true),
-      },
-    ];
+    return {
+      number: text(source, "number", fallback.number),
+      title: text(source, "title", fallback.title),
+      description: text(source, "description", fallback.description),
+      icon: text(source, "icon", fallback.icon),
+      image: text(source, "image", fallback.image ?? ""),
+      active: bool(source, "active", true),
+    };
   });
-
-  return normalized.length === 5 ? normalized : defaultHomeValues;
 }
 
 function defaultResolvedNavigation(): readonly ResolvedNavigationItem[] {
@@ -249,7 +253,7 @@ function defaultResolvedNavigation(): readonly ResolvedNavigationItem[] {
 }
 
 function resolveNavigation(value: unknown): readonly ResolvedNavigationItem[] {
-  if (!Array.isArray(value) || !value.length) return defaultResolvedNavigation();
+  if (!Array.isArray(value)) return defaultResolvedNavigation();
 
   const normalized = value.flatMap((item, index) => {
     const source = record(item);
@@ -282,7 +286,7 @@ function resolveNavigation(value: unknown): readonly ResolvedNavigationItem[] {
     }];
   });
 
-  return normalized.length ? normalized : defaultResolvedNavigation();
+  return normalized;
 }
 
 
@@ -367,13 +371,13 @@ const defaultPageHeroes: readonly ResolvedPageHero[] = [
 ];
 
 function resolvePageHeroes(value: unknown): readonly ResolvedPageHero[] {
-  if (!Array.isArray(value) || !value.length) return defaultPageHeroes;
+  if (!Array.isArray(value)) return defaultPageHeroes;
 
   const normalized = value.flatMap((item, index) => {
     const source = record(item);
     const path = text(source, "path", "");
     const title = text(source, "title", "");
-    if (!path || !title) return [];
+    if (!path) return [];
 
     const rawAnimation = text(source, "animation", "fade");
     const animation =
@@ -397,7 +401,7 @@ function resolvePageHeroes(value: unknown): readonly ResolvedPageHero[] {
     ];
   });
 
-  return normalized.length ? normalized : defaultPageHeroes;
+  return normalized;
 }
 
 export function getPageHero(
@@ -494,6 +498,11 @@ export const fallbackSiteSettings: ResolvedSiteSettings = {
     container: "standard",
     headingScale: 1,
     bodyScale: 1,
+    sectionSpacing: 72,
+    cardPadding: 18,
+    cardGap: 16,
+    contentGap: 32,
+    heroSpacing: 72,
   },
   motion: {
     enabled: true,
@@ -690,8 +699,13 @@ export function resolveSiteSettingsValue(value: unknown): ResolvedSiteSettings {
         ["narrow", "standard", "wide"] as const,
         fallbackSiteSettings.theme.container,
       ),
-      headingScale: numberValue(theme, "headingScale", 1, 0.75, 1.25),
-      bodyScale: numberValue(theme, "bodyScale", 1, 0.85, 1.2),
+      headingScale: numberValue(theme, "headingScale", 1, 0.5, 2),
+      bodyScale: numberValue(theme, "bodyScale", 1, 0.5, 2),
+      sectionSpacing: numberValue(theme, "sectionSpacing", 72, 0, 240),
+      cardPadding: numberValue(theme, "cardPadding", 18, 0, 96),
+      cardGap: numberValue(theme, "cardGap", 16, 0, 96),
+      contentGap: numberValue(theme, "contentGap", 32, 0, 160),
+      heroSpacing: numberValue(theme, "heroSpacing", 72, 0, 240),
     },
     motion: {
       enabled: bool(motion, "enabled", true),

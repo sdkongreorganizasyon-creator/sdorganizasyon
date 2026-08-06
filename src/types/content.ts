@@ -32,6 +32,11 @@ export type CmsPageSection = Readonly<{
   textColor?: string;
   animation?: "fade" | "slide" | "scale" | "none";
   align?: "left" | "center" | "right";
+  paddingTop?: number;
+  paddingBottom?: number;
+  contentGap?: number;
+  contentPadding?: number;
+  mediaHeight?: number;
   active?: boolean;
 }>;
 
@@ -62,6 +67,9 @@ export type ServiceContent = Readonly<{
   animation?: string;
   cardBackground?: string;
   textColor?: string;
+  cardPadding?: number;
+  mediaHeight?: number;
+  contentGap?: number;
 }>;
 
 export type ProcessGroup = Readonly<{
