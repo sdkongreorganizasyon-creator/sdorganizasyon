@@ -484,7 +484,7 @@ export async function saveProjectAction(
         ? payload
         : {
             ...payload,
-            status: "draft",
+            status: "draft" as const,
             published_at: null,
             scheduled_at: null,
           };
@@ -503,6 +503,13 @@ export async function saveProjectAction(
     }
 
     projectId = data.id;
+  }
+
+  if (!projectId) {
+    return {
+      success: false,
+      message: "Proje kimliği oluşturulamadı.",
+    };
   }
 
   const draftKey = cmsDraftKey("projects", projectId);
@@ -698,6 +705,13 @@ export async function saveReferenceAction(
     }
 
     referenceId = data.id;
+  }
+
+  if (!referenceId) {
+    return {
+      success: false,
+      message: "Referans kimliği oluşturulamadı.",
+    };
   }
 
   const draftKey = cmsDraftKey("references", referenceId);

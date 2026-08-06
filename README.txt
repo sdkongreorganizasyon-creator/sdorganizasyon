@@ -1,18 +1,13 @@
-SDKONGRE E2E Menü Test Düzeltmesi
+SDKONGRE Admin TypeScript Düzeltmesi
 
 Güncellenen dosya:
-tests/e2e/home.spec.ts
+src/app/admin/actions.ts
 
-Log sonucu:
-27 test başarılı, 1 test başarısız.
+Düzeltilen GitHub Actions hataları:
+1. Yeni proje taslağı oluşturulurken "draft" durumu TypeScript tarafından genel string
+   olarak genişliyordu. Literal tür korunacak şekilde düzeltildi.
+2. projectId oluşturma işleminden sonra string olduğu açıkça doğrulandı.
+3. referenceId oluşturma işleminden sonra string olduğu açıkça doğrulandı.
 
-Hatanın nedeni:
-Test, menü düğmesini yönetim panelinden değiştirilebilen görünür metni üzerinden
-getByRole(... name: /Menü/i) ile arıyordu. Üretim ortamındaki etiket farklı
-olduğunda düğme bulunamıyordu.
-
-Düzeltme:
-Test, menü bileşeninin sabit ve mevcut CSS seçicisi olan
-button.menu-trigger üzerinden düğmeye tıklıyor.
-
-Public site tasarımı, içerikler, Supabase veya Vercel ayarları değiştirilmez.
+Bu paket yalnız TypeScript derleme hatalarını düzeltir.
+Admin tasarımı, public site, Supabase şeması ve Vercel ayarları değişmez.
