@@ -67,6 +67,6 @@ describe("locked navigation", () => {
       ...(item.children?.map((child) => child.href) ?? []),
     ]);
 
-    expect(paths.every((path) => /^\/[a-z0-9/-]*$/.test(path))).toBe(true);
+    expect(paths.every((path) => /^\/[a-z0-9/-]*(?:#[a-z0-9-]+)?$/.test(path))).toBe(true);
   });
 });

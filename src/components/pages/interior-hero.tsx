@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
@@ -7,6 +8,7 @@ type InteriorHeroProps = Readonly<{
   eyebrow: string;
   title: string;
   description?: string;
+  image?: string | null;
   breadcrumbs?: readonly Readonly<{
     label: string;
     href?: string;
@@ -17,10 +19,17 @@ export function InteriorHero({
   eyebrow,
   title,
   description,
+  image,
   breadcrumbs,
 }: InteriorHeroProps) {
   return (
     <section className="interior-hero">
+      {image ? (
+        <div className="interior-hero__media" aria-hidden="true">
+          <Image src={image} alt="" fill priority sizes="100vw" />
+        </div>
+      ) : null}
+      <div className="interior-hero__shade" aria-hidden="true" />
       <div className="interior-hero__glow" aria-hidden="true" />
       <Container>
         {breadcrumbs?.length ? (

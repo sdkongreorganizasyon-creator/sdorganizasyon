@@ -1,6 +1,5 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   ArrowLeft,
   ArrowRight,
@@ -21,6 +20,7 @@ import {
   digitalServices,
   physicalServices,
 } from "@/content/site-content";
+import { zodResolver } from "@/lib/validation/zod-resolver";
 import {
   quoteSchema,
   type QuoteInput,

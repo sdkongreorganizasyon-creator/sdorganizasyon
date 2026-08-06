@@ -6,6 +6,10 @@ import {
   processSteps,
   whyUsContent,
 } from "@/content/site-content";
+import {
+  digitalServiceImages,
+  physicalServiceImages,
+} from "@/config/media";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createPublicClient } from "@/lib/supabase/public";
 import type {
@@ -182,7 +186,18 @@ export async function getServices(
   const fallback =
     category === "physical" ? physicalServices : digitalServices;
 
-  if (!isSupabaseConfigured()) return fallback;
+  if (!isSupabaseConfigured()) {
+    const imageMap =
+      category === "physical"
+        ? physicalServiceImages
+        : digitalServiceImages;
+
+    return fallback.map((item) => ({
+      ...item,
+      imageUrl: imageMap[item.slug],
+      imageAlt: `${item.title} hizmetini temsil eden etkinlik görseli`,
+    }));
+  }
 
   const supabase = createPublicClient();
   const { data } = await supabase
@@ -194,10 +209,26 @@ export async function getServices(
     .order("order_no");
 
   const rows = (data ?? []) as ServiceRow[];
-  if (!rows.length) return fallback;
+  if (!rows.length) {
+    const imageMap =
+      category === "physical"
+        ? physicalServiceImages
+        : digitalServiceImages;
+
+    return fallback.map((item) => ({
+      ...item,
+      imageUrl: imageMap[item.slug],
+      imageAlt: `${item.title} hizmetini temsil eden etkinlik görseli`,
+    }));
+  }
 
   return rows.map((item) => {
     const body = asRecord(item.body_json);
+
+    const imageMap =
+      item.category === "physical"
+        ? physicalServiceImages
+        : digitalServiceImages;
 
     return {
       category: item.category,
@@ -207,6 +238,14 @@ export async function getServices(
       summary: item.summary ?? "",
       paragraphs: stringArray(body.paragraphs),
       features: stringArray(body.features),
+      imageUrl:
+        typeof body.imageUrl === "string" && body.imageUrl.trim()
+          ? body.imageUrl.trim()
+          : imageMap[item.slug],
+      imageAlt:
+        typeof body.imageAlt === "string" && body.imageAlt.trim()
+          ? body.imageAlt.trim()
+          : `${item.title} hizmetini temsil eden etkinlik görseli`,
     };
   });
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -12,6 +11,7 @@ import {
   Textarea,
   TextInput,
 } from "@/components/ui/field";
+import { zodResolver } from "@/lib/validation/zod-resolver";
 import {
   contactSchema,
   type ContactInput,

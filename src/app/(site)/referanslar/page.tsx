@@ -24,6 +24,7 @@ export default async function ReferencesPage() {
         eyebrow="REFERANSLAR"
         title={referencesIntro.headline}
         description={referencesIntro.paragraphs.join(" ")}
+        image="/media/pages/referanslar.webp"
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "REFERANSLAR" },

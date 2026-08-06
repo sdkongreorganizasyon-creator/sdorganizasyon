@@ -33,6 +33,20 @@ export default async function AdminContentEditorPage({
   const entity = rawEntity as Entity;
   const supabase = await createClient();
 
+  const { data: mediaRows } = await supabase
+    .from("media_assets")
+    .select("bucket,path,file_name,mime_type")
+    .order("created_at", { ascending: false })
+    .limit(200);
+
+  const mediaOptions = (mediaRows ?? []).map((item) => ({
+    label: item.file_name || item.path,
+    value: supabase.storage
+      .from(item.bucket)
+      .getPublicUrl(item.path).data.publicUrl,
+    type: item.mime_type || "application/octet-stream",
+  }));
+
   if (entity === "pages") {
     const { data } = await supabase
       .from("pages")
@@ -47,6 +61,7 @@ export default async function AdminContentEditorPage({
     return (
       <EntityForm
         entity="pages"
+        mediaOptions={mediaOptions}
         record={{
           id: data.id,
           title: data.title,
@@ -64,7 +79,9 @@ export default async function AdminContentEditorPage({
   if (entity === "services") {
     const { data } = await supabase
       .from("services")
-      .select("id,title,summary,body_json,status,scheduled_at,seo_json")
+      .select(
+        "id,title,slug,icon,order_no,summary,body_json,status,scheduled_at,seo_json",
+      )
       .eq("id", id)
       .maybeSingle();
 
@@ -73,9 +90,13 @@ export default async function AdminContentEditorPage({
     return (
       <EntityForm
         entity="services"
+        mediaOptions={mediaOptions}
         record={{
           id: data.id,
           title: data.title,
+          slug: data.slug,
+          icon: data.icon,
+          orderNo: data.order_no,
           summary: data.summary,
           contentJson: data.body_json as Json,
           status: data.status as ContentStatus,
@@ -100,6 +121,7 @@ export default async function AdminContentEditorPage({
     return (
       <EntityForm
         entity="process_steps"
+        mediaOptions={mediaOptions}
         record={{
           id: data.id,
           title: data.title,
@@ -127,6 +149,7 @@ export default async function AdminContentEditorPage({
   return (
     <EntityForm
       entity="legal_documents"
+      mediaOptions={mediaOptions}
       record={{
         id: data.id,
         title: data.title,

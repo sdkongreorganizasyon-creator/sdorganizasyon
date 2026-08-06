@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 
 import { InteriorHero } from "@/components/pages/interior-hero";
-import { PageCta } from "@/components/pages/page-cta";
 import { ProcessTimeline } from "@/components/pages/process-timeline";
-import {
-  processIntro,
-  processOutro,
-} from "@/content/site-content";
+import { processIntro } from "@/content/site-content";
 import { getProcessSteps } from "@/lib/content/queries";
 import { createMetadata } from "@/lib/seo/metadata";
 
@@ -26,6 +22,7 @@ export default async function ProcessPage() {
         eyebrow="ORGANİZASYON SURECİ"
         title="Organizasyon Süreci"
         description={processIntro}
+        image="/media/pages/organizasyon-sureci.webp"
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "ORGANİZASYON SURECİ" },
@@ -37,11 +34,6 @@ export default async function ProcessPage() {
           <ProcessTimeline steps={steps} />
         </div>
       </section>
-
-      <PageCta
-        title="SD Kongre Yaklaşımı"
-        description={processOutro}
-      />
     </>
   );
 }

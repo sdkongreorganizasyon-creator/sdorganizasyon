@@ -16,7 +16,9 @@ import {
 
 import { navigation } from "@/config/navigation";
 
-export function MenuOverlay() {
+export function MenuOverlay({
+  buttonLabel = "Menü",
+}: Readonly<{ buttonLabel?: string }>) {
   const [open, setOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const dialogId = useId();
@@ -28,9 +30,7 @@ export function MenuOverlay() {
       setHydrated(true);
     });
 
-    return () => {
-      window.cancelAnimationFrame(frame);
-    };
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
@@ -42,32 +42,7 @@ export function MenuOverlay() {
     closeButtonRef.current?.focus();
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setOpen(false);
-      }
-
-      if (event.key !== "Tab") return;
-
-      const container = document.getElementById(dialogId);
-      if (!container) return;
-
-      const focusable = Array.from(
-        container.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
-        ),
-      );
-
-      const first = focusable[0];
-      const last = focusable.at(-1);
-      if (!first || !last) return;
-
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
+      if (event.key === "Escape") setOpen(false);
     }
 
     document.addEventListener("keydown", onKeyDown);
@@ -77,7 +52,7 @@ export function MenuOverlay() {
       document.removeEventListener("keydown", onKeyDown);
       trigger?.focus();
     };
-  }, [dialogId, open]);
+  }, [open]);
 
   function closeMenu() {
     setOpen(false);
@@ -95,7 +70,7 @@ export function MenuOverlay() {
         onClick={() => setOpen(true)}
       >
         <Menu aria-hidden="true" size={20} />
-        <span>Menü</span>
+        <span>{buttonLabel || "Menü"}</span>
       </button>
 
       {open ? (
@@ -114,7 +89,10 @@ export function MenuOverlay() {
 
           <div className="menu-overlay__panel">
             <div className="menu-overlay__top">
-              <p>SDKONGRE</p>
+              <div>
+                <p>SDKONGRE</p>
+                <span>Tüm sayfalar</span>
+              </div>
               <button
                 ref={closeButtonRef}
                 type="button"
@@ -161,20 +139,6 @@ export function MenuOverlay() {
                   </section>
                 ))}
               </nav>
-
-              <div className="menu-overlay__cta">
-                <p>
-                  Organizasyonunuzun kapsamını paylaşın; ihtiyaçlarınızı
-                  birlikte planlayalım.
-                </p>
-                <Link
-                  className="button button--primary"
-                  href="/teklif-al"
-                  onClick={closeMenu}
-                >
-                  Teklif Al
-                </Link>
-              </div>
             </div>
           </div>
         </div>

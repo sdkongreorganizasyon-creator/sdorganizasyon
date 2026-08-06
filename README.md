@@ -81,3 +81,15 @@ Canlı yayından önce şu gerçek bilgiler eklenmelidir:
 - Son hukuk kontrolünden geçmiş yasal metinler
 
 Tabela JPEG'i web logosu olarak kullanılmamıştır. Kod içinde geçici temiz SVG marka yorumu bulunmaktadır.
+
+
+## Onaylı Tasarım ve CMS Güncellemesi — 2026-08-05
+
+Bu sürüm, kullanıcı tarafından onaylanan koyu lacivert/altın ana sayfa kompozisyonunu, şeffaf orijinal SDKONGRE logosunu, tek sayfalık Hizmetlerimiz ve Dijital Hizmetler kartlarını ve profesyonel admin ayar akışını içerir.
+
+- Tasarım referansı: `docs/APPROVED_HOME_REFERENCE.png`
+- Uygulama raporu: `docs/IMPLEMENTATION_20260805.md`
+- Medya kayıtları: `docs/MEDIA_SOURCES.md`
+- Tarayıcı kurulum adımları: `docs/BROWSER_UPDATE_20260805.md`
+
+Domain ve Natro DNS işlemleri bu sürüm kapsamında yapılmamıştır.

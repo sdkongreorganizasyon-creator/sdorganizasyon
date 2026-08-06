@@ -24,6 +24,7 @@ export default async function ProjectsPage() {
         eyebrow="PROJELER"
         title={projectsIntro.headline}
         description={projectsIntro.paragraphs.join(" ")}
+        image="/media/pages/projeler.webp"
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "PROJELER" },

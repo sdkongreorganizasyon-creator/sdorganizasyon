@@ -36,6 +36,8 @@ export type ServiceContent = Readonly<{
   summary: string;
   paragraphs: readonly string[];
   features: readonly string[];
+  imageUrl?: string;
+  imageAlt?: string;
 }>;
 
 export type ProcessGroup = Readonly<{
@@ -77,6 +79,8 @@ export type HomeValue = Readonly<{
   title: string;
   description: string;
   icon: string;
+  image?: string;
+  active?: boolean;
 }>;
 
 export type ProjectRecord = Readonly<{

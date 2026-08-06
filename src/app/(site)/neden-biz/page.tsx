@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { InteriorHero } from "@/components/pages/interior-hero";
-import { PageCta } from "@/components/pages/page-cta";
 import { ProseContent } from "@/components/pages/prose-content";
 import { ValueCards } from "@/components/pages/value-cards";
 import { getWhyUsContent } from "@/lib/content/queries";
@@ -23,6 +22,7 @@ export default async function WhyUsPage() {
         eyebrow="NEDEN BİZ"
         title={content.headline}
         description="Planlamadan raporlamaya kadar her adımda profesyonel proje yönetimi."
+        image="/media/pages/neden-biz.webp"
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "NEDEN BİZ" },
@@ -31,7 +31,6 @@ export default async function WhyUsPage() {
 
       <ProseContent paragraphs={content.paragraphs} />
       <ValueCards items={content.items} />
-      <PageCta />
     </>
   );
 }

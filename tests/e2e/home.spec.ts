@@ -1,21 +1,26 @@
 import { expect, test } from "@playwright/test";
 
-test("home page follows the locked content scope", async ({ page }) => {
+test("home page follows the approved SDKONGRE composition", async ({ page }) => {
   await page.goto("/");
 
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: /Doğru Planlama.*Unutulmaz Deneyimler/i,
+      name: /DOĞRU YERDE.*DOĞRU ZAMAN.*MÜKEMMEL SONUÇLAR/i,
     }),
   ).toBeVisible();
 
-  await expect(page.locator(".hero")).toHaveCount(1);
-  await expect(page.locator(".value-card")).toHaveCount(5);
-  await expect(page.locator(".service-card")).toHaveCount(0);
+  await expect(page.locator(".approved-hero")).toHaveCount(1);
+  await expect(page.locator(".why-panel")).toHaveCount(1);
+  await expect(page.locator(".approved-service-card")).toHaveCount(5);
+  await expect(page.locator(".capability-strip")).toHaveCount(1);
   await expect(page.locator(".project-card")).toHaveCount(0);
   await expect(page.locator(".reference-card")).toHaveCount(0);
   await expect(page.locator(".site-footer")).toHaveCount(1);
+  await expect(page.getByText(".env.local", { exact: false })).toHaveCount(0);
+  await expect(
+    page.getByText("Etkinliğinizi birlikte planlayalım.", { exact: true }),
+  ).toHaveCount(0);
 });
 
 test("full menu opens and preserves key headings", async ({ page }) => {

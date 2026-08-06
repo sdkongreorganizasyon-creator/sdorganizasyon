@@ -43,54 +43,19 @@ const leadRoles: readonly UserRole[] = [
 
 const items: readonly NavItem[] = [
   { href: "/admin", label: "Dashboard", icon: Gauge, roles: "all" },
-  {
-    href: "/admin/content",
-    label: "İçerikler",
-    icon: BookOpenText,
-    roles: contentRoles,
-  },
-  {
-    href: "/admin/projects",
-    label: "Projeler",
-    icon: FolderKanban,
-    roles: contentRoles,
-  },
-  {
-    href: "/admin/references",
-    label: "Referanslar",
-    icon: ShieldCheck,
-    roles: contentRoles,
-  },
-  {
-    href: "/admin/messages",
-    label: "İletişim",
-    icon: Inbox,
-    roles: leadRoles,
-  },
-  {
-    href: "/admin/quotes",
-    label: "Teklifler",
-    icon: MessageSquareQuote,
-    roles: leadRoles,
-  },
-  {
-    href: "/admin/media",
-    label: "Medya",
-    icon: ImageIcon,
-    roles: contentRoles,
-  },
+  { href: "/admin/content", label: "İçerikler", icon: BookOpenText, roles: contentRoles },
+  { href: "/admin/projects", label: "Projeler", icon: FolderKanban, roles: contentRoles },
+  { href: "/admin/references", label: "Referanslar", icon: ShieldCheck, roles: contentRoles },
+  { href: "/admin/messages", label: "İletişim", icon: Inbox, roles: leadRoles },
+  { href: "/admin/quotes", label: "Teklifler", icon: MessageSquareQuote, roles: leadRoles },
+  { href: "/admin/media", label: "Medya", icon: ImageIcon, roles: contentRoles },
   {
     href: "/admin/settings",
     label: "Ayarlar",
     icon: Settings,
     roles: ["super_admin", "admin", "editor"],
   },
-  {
-    href: "/admin/users",
-    label: "Kullanıcılar",
-    icon: Users,
-    roles: ["super_admin"],
-  },
+  { href: "/admin/users", label: "Kullanıcılar", icon: Users, roles: ["super_admin"] },
   {
     href: "/admin/audit",
     label: "Audit Log",
@@ -102,13 +67,18 @@ const items: readonly NavItem[] = [
 
 export function AdminNav({
   role,
-}: Readonly<{ role: UserRole | undefined }>) {
+  collapsed = false,
+  onNavigate,
+}: Readonly<{
+  role: UserRole | undefined;
+  collapsed?: boolean;
+  onNavigate?: () => void;
+}>) {
   const pathname = usePathname();
 
   const visibleItems = items.filter(
     (item) =>
-      item.roles === "all" ||
-      (role ? item.roles.includes(role) : false),
+      item.roles === "all" || (role ? item.roles.includes(role) : false),
   );
 
   return (
@@ -126,6 +96,8 @@ export function AdminNav({
               <Link
                 className={active ? "is-active" : undefined}
                 href={item.href}
+                onClick={onNavigate}
+                title={collapsed ? item.label : undefined}
               >
                 <Icon aria-hidden="true" size={18} />
                 <span>{item.label}</span>
@@ -136,7 +108,7 @@ export function AdminNav({
       </ul>
 
       <form action={logoutAction}>
-        <button type="submit">
+        <button type="submit" title={collapsed ? "Çıkış Yap" : undefined}>
           <LogOut aria-hidden="true" size={18} />
           <span>Çıkış Yap</span>
         </button>

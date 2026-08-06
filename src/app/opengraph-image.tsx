@@ -75,7 +75,7 @@ export default function OpenGraphImage() {
                 letterSpacing: -3,
               }}
             >
-              Doğru Planlama. Unutulmaz Deneyimler.
+              DOĞRU YERDE. DOĞRU ZAMAN. MÜKEMMEL SONUÇLAR.
             </div>
             <div
               style={{

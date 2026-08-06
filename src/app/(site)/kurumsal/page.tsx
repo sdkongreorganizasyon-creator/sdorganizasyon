@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { InteriorHero } from "@/components/pages/interior-hero";
-import { PageCta } from "@/components/pages/page-cta";
 import { corporatePages } from "@/content/site-content";
 import { createMetadata } from "@/lib/seo/metadata";
 
@@ -20,6 +19,7 @@ export default function CorporateIndexPage() {
         eyebrow="KURUMSAL"
         title="SDKONGRE'yi Tanıyın"
         description="Organizasyon yönetimi yaklaşımımızı, hikayemizi ve iş yapış biçimimizi keşfedin."
+        image="/media/pages/kurumsal.webp"
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "KURUMSAL" },
@@ -42,8 +42,6 @@ export default function CorporateIndexPage() {
           ))}
         </div>
       </section>
-
-      <PageCta />
     </>
   );
 }

@@ -19,6 +19,7 @@ export default function LegalIndexPage() {
         eyebrow="KVKK"
         title="Kişisel Veriler ve Gizlilik"
         description="Kişisel verilerin işlenmesi, saklanması ve web sitesi kullanımına ilişkin yasal metinler."
+        image="/media/pages/kvkk.webp"
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "KVKK" },

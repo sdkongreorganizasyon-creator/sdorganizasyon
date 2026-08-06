@@ -24,6 +24,7 @@ export default async function QuotePage({ searchParams }: PageProps) {
         eyebrow="TEKLİF AL"
         title="Organizasyonunuzu Birlikte Planlayalım"
         description="Etkinliğinizin temel bilgilerini paylaşın. Ekibimiz ihtiyaçlarınızı değerlendirerek kapsam ve çözüm yaklaşımı için sizinle iletişime geçsin."
+        image="/media/pages/iletisim.webp"
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "TEKLİF AL" },

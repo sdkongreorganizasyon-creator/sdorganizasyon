@@ -35,8 +35,9 @@ export default async function ContactPage() {
     <>
       <InteriorHero
         eyebrow="İLETİŞİM"
-        title="Etkinliğinizi Birlikte Planlayalım"
-        description="Sorularınızı, proje kapsamınızı veya iş birliği talebinizi bize iletin."
+        title="Bizimle İletişime Geçin"
+        description="Sorularınızı, proje kapsamınızı veya iş birliği talebinizi güvenli form üzerinden bize iletin."
+        image="/media/pages/iletisim.webp"
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "İLETİŞİM" },
@@ -124,12 +125,7 @@ export default async function ContactPage() {
                   </li>
                 ) : null}
               </ul>
-            ) : (
-              <p className="configuration-notice">
-                Telefon, e-posta ve adres bilgileri `.env.local` dosyasına
-                eklendiğinde burada otomatik görüntülenecektir.
-              </p>
-            )}
+            ) : null}
           </aside>
 
           <ContactForm />

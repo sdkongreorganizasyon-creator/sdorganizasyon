@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { InteriorHero } from "@/components/pages/interior-hero";
-import { PageCta } from "@/components/pages/page-cta";
 import { ProseContent } from "@/components/pages/prose-content";
 import { ValueCards } from "@/components/pages/value-cards";
 import { corporatePages } from "@/content/site-content";
@@ -53,6 +52,7 @@ export default async function CorporateDetailPage({ params }: PageProps) {
         eyebrow={page.eyebrow}
         title={page.headline}
         description={page.title}
+        image="/media/pages/kurumsal.webp"
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "KURUMSAL", href: "/kurumsal" },
@@ -63,8 +63,6 @@ export default async function CorporateDetailPage({ params }: PageProps) {
       <ProseContent paragraphs={page.paragraphs} />
 
       {page.values?.length ? <ValueCards items={page.values} /> : null}
-
-      <PageCta />
     </>
   );
 }

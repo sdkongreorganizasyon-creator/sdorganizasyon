@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getResolvedSiteSettings();
 
   return {
-    metadataBase: new URL(siteConfig.url),
+    metadataBase: new URL(settings.seo.canonicalBaseUrl || siteConfig.url),
     title: {
       default: settings.seo.defaultTitle,
       template: "%s | SDKONGRE",
@@ -20,9 +20,11 @@ export async function generateMetadata(): Promise<Metadata> {
     description: settings.seo.defaultDescription,
     applicationName: siteConfig.name,
     icons: {
-      icon: "/icon.svg",
+      icon: settings.branding.faviconUrl,
+      shortcut: settings.branding.faviconUrl,
+      apple: settings.branding.faviconUrl,
     },
-    robots: siteConfig.indexable
+    robots: settings.seo.indexable
       ? { index: true, follow: true }
       : { index: false, follow: false, nocache: true },
     openGraph: {
@@ -31,7 +33,10 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       title: settings.seo.defaultTitle,
       description: settings.seo.defaultDescription,
-      url: siteConfig.url,
+      url: settings.seo.canonicalBaseUrl || siteConfig.url,
+      images: settings.seo.ogImage
+        ? [{ url: settings.seo.ogImage }]
+        : undefined,
     },
   };
 }

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { InteriorHero } from "@/components/pages/interior-hero";
-import { PageCta } from "@/components/pages/page-cta";
 import { getProject } from "@/lib/content/queries";
 import { formatDate } from "@/lib/utils/format";
 import { breadcrumbJsonLd, JsonLd } from "@/lib/seo/jsonld";
@@ -53,6 +52,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         eyebrow={project.eventType ?? "PROJE"}
         title={project.title}
         description={project.summary}
+        image={project.coverUrl ?? "/media/pages/projeler.webp"}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "PROJELER", href: "/projeler" },
@@ -150,8 +150,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           </div>
         </section>
       ) : null}
-
-      <PageCta />
     </>
   );
 }

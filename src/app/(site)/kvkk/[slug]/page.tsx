@@ -51,6 +51,7 @@ export default async function LegalDetailPage({ params }: PageProps) {
         eyebrow="KVKK"
         title={document.title}
         description={document.headline}
+        image="/media/pages/kvkk.webp"
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "KVKK", href: "/kvkk" },

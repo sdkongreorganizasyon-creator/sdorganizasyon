@@ -1,0 +1,12 @@
+Aşağıdaki eski dosyaları GitHub tarayıcı arayüzünden silin:
+
+public/fallback/hero-poster.svg
+src/app/icon.svg
+src/components/layout/top-banner.tsx
+src/components/pages/page-cta.tsx
+
+Silme adımları:
+1. GitHub repository içinde dosyayı açın.
+2. Sağ üstteki üç nokta veya çöp kutusu simgesinden Delete file seçin.
+3. Commit directly to the main branch seçili kalsın.
+4. Commit changes düğmesine basın.

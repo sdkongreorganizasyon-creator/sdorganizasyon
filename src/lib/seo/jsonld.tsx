@@ -28,10 +28,13 @@ export function organizationJsonLd(
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: siteConfig.legalName,
-    alternateName: siteConfig.name,
-    url: siteConfig.url,
-    logo: new URL("/icon.svg", siteConfig.url).toString(),
+    name: settings?.general.legalName || siteConfig.legalName,
+    alternateName: settings?.general.siteName || siteConfig.name,
+    url: settings?.seo.canonicalBaseUrl || siteConfig.url,
+    logo: new URL(
+      settings?.branding.headerLogoUrl || "/brand/sdkongre-logo-web.png",
+      settings?.seo.canonicalBaseUrl || siteConfig.url,
+    ).toString(),
     description:
       settings?.seo.defaultDescription ?? siteConfig.description,
     ...(contact.phone ? { telephone: contact.phone } : {}),

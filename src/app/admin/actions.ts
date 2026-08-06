@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 import {
@@ -8,6 +8,7 @@ import {
   canPublish,
   requireAdmin,
 } from "@/lib/auth/require-admin";
+import { SITE_SETTINGS_TAG } from "@/lib/content/settings";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
 import {
@@ -15,6 +16,7 @@ import {
   projectAdminSchema,
   referenceAdminSchema,
 } from "@/lib/validation/admin";
+import { siteSettingsSchema } from "@/lib/validation/site-settings";
 import type { Json, UserRole } from "@/types/database";
 
 export type ActionState = {
@@ -174,6 +176,24 @@ export async function saveGenericContentAction(
     };
   }
 
+  if (parsed.data.entity === "services") {
+    const paragraphs = stringValue(formData, "serviceParagraphs")
+      .split("\n")
+      .map((item) => item.trim())
+      .filter(Boolean);
+    const features = stringValue(formData, "serviceFeatures")
+      .split("\n")
+      .map((item) => item.trim())
+      .filter(Boolean);
+
+    contentJson = {
+      paragraphs,
+      features,
+      imageUrl: stringValue(formData, "serviceImageUrl"),
+      imageAlt: stringValue(formData, "serviceImageAlt"),
+    };
+  }
+
   const supabase = await createClient();
   const seoJson = {
     title: parsed.data.seoTitle || null,
@@ -206,10 +226,28 @@ export async function saveGenericContentAction(
   }
 
   if (parsed.data.entity === "services") {
+    const serviceSlug = stringValue(formData, "serviceSlug");
+    const serviceIcon = stringValue(formData, "serviceIcon");
+    const rawOrderNo = Number(stringValue(formData, "serviceOrderNo"));
+
+    if (
+      serviceSlug &&
+      !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(serviceSlug)
+    ) {
+      return {
+        success: false,
+        message:
+          "Anchor slug yalnız küçük harf, rakam ve tire içerebilir.",
+      };
+    }
+
     const { error } = await supabase
       .from("services")
       .update({
         title: parsed.data.title,
+        slug: serviceSlug || undefined,
+        icon: serviceIcon || null,
+        order_no: Number.isFinite(rawOrderNo) ? rawOrderNo : undefined,
         summary: parsed.data.summary || null,
         body_json: contentJson,
         status: parsed.data.status,
@@ -559,47 +597,35 @@ export async function saveSettingsAction(
     };
   }
 
-  let homeValues: Json;
+  const homeValues = Array.from({ length: 5 }, (_, index) => ({
+    number: stringValue(formData, `homeValue${index}Number`),
+    title: stringValue(formData, `homeValue${index}Title`),
+    description: stringValue(formData, `homeValue${index}Description`),
+    icon: stringValue(formData, `homeValue${index}Icon`),
+    image: stringValue(formData, `homeValue${index}Image`),
+    active: booleanValue(formData, `homeValue${index}Active`),
+  }));
 
-  try {
-    homeValues = parseJson(stringValue(formData, "homeValues"), []);
-  } catch (error) {
-    return {
-      success: false,
-      message:
-        error instanceof Error ? error.message : "Değer kartları JSON'u geçersiz.",
-    };
-  }
-
-  const validHomeValues =
-    Array.isArray(homeValues) &&
-    homeValues.length === 5 &&
-    homeValues.every(
-      (item) =>
-        item &&
-        typeof item === "object" &&
-        !Array.isArray(item) &&
-        typeof item.number === "string" &&
-        typeof item.title === "string" &&
-        typeof item.description === "string" &&
-        typeof item.icon === "string",
-    );
-
-  if (!validHomeValues) {
-    return {
-      success: false,
-      message:
-        "Ana sayfada number, title, description ve icon alanlarına sahip tam olarak beş değer kartı bulunmalıdır.",
-    };
-  }
-
-  const valueJson = {
+  const parsed = siteSettingsSchema.safeParse({
+    general: {
+      siteName: stringValue(formData, "siteName"),
+      legalName: stringValue(formData, "legalName"),
+      slogan: stringValue(formData, "slogan"),
+      shortDescription: stringValue(formData, "shortDescription"),
+      establishmentYear: stringValue(formData, "establishmentYear"),
+      headquarters: stringValue(formData, "headquarters"),
+    },
     contact: {
       phone: stringValue(formData, "phone"),
       mobile: stringValue(formData, "mobile"),
       email: stringValue(formData, "email"),
-      address: stringValue(formData, "address"),
+      quoteEmail: stringValue(formData, "quoteEmail"),
       whatsapp: stringValue(formData, "whatsapp"),
+      address: stringValue(formData, "address"),
+      district: stringValue(formData, "district"),
+      city: stringValue(formData, "city"),
+      postalCode: stringValue(formData, "postalCode"),
+      workingDays: stringValue(formData, "workingDays"),
       workingHours: stringValue(formData, "workingHours"),
       mapUrl: stringValue(formData, "mapUrl"),
     },
@@ -608,26 +634,83 @@ export async function saveSettingsAction(
       linkedin: stringValue(formData, "linkedin"),
       youtube: stringValue(formData, "youtube"),
       x: stringValue(formData, "x"),
+      facebook: stringValue(formData, "facebook"),
+    },
+    header: {
+      quoteButtonLabel: stringValue(formData, "quoteButtonLabel"),
+      quoteButtonUrl: stringValue(formData, "quoteButtonUrl"),
+      menuButtonLabel: stringValue(formData, "menuButtonLabel"),
     },
     hero: {
+      eyebrow: stringValue(formData, "heroEyebrow"),
+      titleLine1: stringValue(formData, "heroTitleLine1"),
+      titleLine2: stringValue(formData, "heroTitleLine2"),
+      titleHighlight: stringValue(formData, "heroTitleHighlight"),
+      description: stringValue(formData, "heroDescription"),
+      primaryButtonLabel: stringValue(formData, "heroPrimaryButtonLabel"),
+      primaryButtonUrl: stringValue(formData, "heroPrimaryButtonUrl"),
+      secondaryButtonLabel: stringValue(formData, "heroSecondaryButtonLabel"),
+      secondaryButtonUrl: stringValue(formData, "heroSecondaryButtonUrl"),
       poster: stringValue(formData, "heroPoster"),
       desktopVideo: stringValue(formData, "heroDesktopVideo"),
       mobileVideo: stringValue(formData, "heroMobileVideo"),
     },
     homeValues,
+    footer: {
+      description: stringValue(formData, "footerDescription"),
+      copyrightText: stringValue(formData, "copyrightText"),
+      showQuickMenu: booleanValue(formData, "showQuickMenu"),
+      showLegalLinks: booleanValue(formData, "showLegalLinks"),
+      showContact: booleanValue(formData, "showContact"),
+      showSocialLinks: booleanValue(formData, "showSocialLinks"),
+    },
     seo: {
       defaultTitle: stringValue(formData, "defaultTitle"),
       defaultDescription: stringValue(formData, "defaultDescription"),
+      ogImage: stringValue(formData, "ogImage"),
+      canonicalBaseUrl: stringValue(formData, "canonicalBaseUrl"),
+      indexable: booleanValue(formData, "indexable"),
     },
-  };
+    branding: {
+      headerLogoUrl: stringValue(formData, "headerLogoUrl"),
+      footerLogoUrl: stringValue(formData, "footerLogoUrl"),
+      compactLogoUrl: stringValue(formData, "compactLogoUrl"),
+      faviconUrl: stringValue(formData, "faviconUrl"),
+    },
+  });
+
+  if (!parsed.success) {
+    return {
+      success: false,
+      message: "Ayar alanlarını kontrol edin.",
+      fieldErrors: parsed.error.flatten().fieldErrors as Record<
+        string,
+        string[] | undefined
+      >,
+    };
+  }
+
+  const activeCount = parsed.data.homeValues.filter(
+    (item) => item.active,
+  ).length;
+
+  if (activeCount !== 5) {
+    return {
+      success: false,
+      message: "Ana sayfada tam olarak beş aktif kart bulunmalıdır.",
+    };
+  }
 
   const supabase = await createClient();
-  const { error } = await supabase.from("site_settings").upsert({
-    key: "global",
-    locale: "tr",
-    value_json: valueJson,
-    updated_by: context.user?.id ?? null,
-  });
+  const { error } = await supabase.from("site_settings").upsert(
+    {
+      key: "global",
+      locale: "tr",
+      value_json: parsed.data as Json,
+      updated_by: context.user?.id ?? null,
+    },
+    { onConflict: "key,locale" },
+  );
 
   if (error) {
     return {
@@ -636,12 +719,17 @@ export async function saveSettingsAction(
     };
   }
 
-  revalidatePath("/");
+  updateTag(SITE_SETTINGS_TAG);
+  revalidatePath("/", "layout");
   revalidatePath("/admin/settings");
+  revalidatePath("/iletisim");
+  revalidatePath("/hizmetlerimiz");
+  revalidatePath("/dijital-hizmetler");
 
   return {
     success: true,
-    message: "Ayarlar başarıyla kaydedildi.",
+    message:
+      "Ayarlar kaydedildi. Public site yeni verileri yeniden deploy olmadan kullanacaktır.",
   };
 }
 
