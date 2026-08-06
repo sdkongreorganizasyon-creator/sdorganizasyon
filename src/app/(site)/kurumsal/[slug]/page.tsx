@@ -35,7 +35,7 @@ export async function generateMetadata({
 
   return createMetadata({
     title: page.title,
-    description: page.headline || page.paragraphs[0],
+    description: page.headline,
     path: `/kurumsal/${slug}`,
   });
 }
@@ -88,7 +88,7 @@ export default async function CorporateDetailPage({ params }: PageProps) {
       <InteriorHero
         eyebrow="KURUMSAL"
         title={page.title.toLocaleUpperCase("tr-TR")}
-        description={page.headline || undefined}
+        description={page.headline}
         image={hero.image}
         video={hero.video}
         animation={hero.animation}

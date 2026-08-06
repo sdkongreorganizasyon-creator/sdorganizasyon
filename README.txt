@@ -1,18 +1,15 @@
-SDKONGRE Admin Tip Modeli Senkronizasyonu
+SDKONGRE Kurumsal TypeScript Build Düzeltmesi
 
-Logdaki 27 TypeScript hatasının nedeni:
-- Boşluk kontrollerini kullanan bileşenler GitHub'a yüklenmiş.
-- Bu yeni alanları tanımlayan TypeScript tip ve doğrulama dosyaları eski kalmış.
+Güncellenen tek dosya:
+src/app/(site)/kurumsal/[slug]/page.tsx
 
-Bu paket yalnız şu dosyaları senkronize eder:
-- src/types/content.ts
-- src/lib/content/settings.ts
-- src/lib/validation/site-settings.ts
-- src/lib/validation/admin.ts
+Düzeltme:
+- page.headline || page.paragraphs[0] yerine page.headline kullanıldı.
+- page.headline || undefined yerine page.headline kullanıldı.
 
-Tanımlanan alanlar:
-- Tema: sectionSpacing, cardPadding, cardGap, contentGap, heroSpacing
-- Sayfa bölümü: paddingTop, paddingBottom, contentGap, contentPadding, mediaHeight
-- Hizmet kartı: cardPadding, mediaHeight, contentGap
+Neden:
+corporatePages `as const` olarak tanımlandığından headline değerleri TypeScript
+tarafından boş olmayan sabit string olarak biliniyor. Bu nedenle `||`
+ifadesinin sağ tarafında page değişkeni `never` tipine daralıyordu.
 
-Public tasarım, içerikler, Supabase verileri ve Vercel ayarları değiştirilmez.
+Başka hiçbir dosya veya özellik değiştirilmedi.
