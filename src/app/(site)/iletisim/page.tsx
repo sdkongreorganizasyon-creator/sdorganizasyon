@@ -43,7 +43,7 @@ export default async function ContactPage() {
     settings.contact.email ||
     settings.contact.address;
   const mapSrc =
-    "https://www.google.com/maps?q=39.9184269,32.8543523&hl=tr&z=17&output=embed";
+    "https://www.google.com/maps?q=Me%C5%9Frutiyet%2C%20Atat%C3%BCrk%20Blv%20No%3A109%20D%3A16%2C%2006420%20%C3%87ankaya%2FAnkara&hl=tr&z=17&output=embed";
 
   return (
     <>
@@ -51,7 +51,7 @@ export default async function ContactPage() {
         eyebrow={hero.eyebrow}
         title={hero.title}
         description={hero.description}
-        image={hero.image}
+        image="/media/headers/iletisim.webp"
         video={hero.video}
         animation={hero.animation}
         template={hero.template}

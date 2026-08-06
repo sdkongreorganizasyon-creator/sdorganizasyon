@@ -7276,3 +7276,192 @@ body:has(.admin-shell) {
     padding: 0.9rem;
   }
 }
+
+
+/* Requested 13-item document changes — 2026-08-07 */
+
+/* Corporate detail pages use the same dark boxed content rhythm as services. */
+.corporate-detail-page {
+  background: #07121d !important;
+  color: #ffffff;
+}
+
+.corporate-detail-page .corporate-page-intro {
+  background: #07121d;
+  padding-top: clamp(1rem, 2vw, 1.35rem);
+}
+
+.corporate-detail-page .corporate-page-intro .content-layout {
+  border: 1px solid rgb(242 182 50 / 20%);
+  border-radius: 0.8rem;
+  background: linear-gradient(155deg, #0a1d2e, #07121d);
+  padding: clamp(0.95rem, 2vw, 1.3rem);
+}
+
+.corporate-detail-page .corporate-page-intro .prose {
+  gap: 0.48rem;
+}
+
+.corporate-detail-page .corporate-page-intro .prose p {
+  margin: 0;
+  color: rgb(255 255 255 / 68%);
+  font-size: clamp(0.76rem, 0.95vw, 0.86rem);
+  line-height: 1.55;
+}
+
+.corporate-detail-page > .corporate-page-intro:last-child {
+  padding-bottom: clamp(1rem, 2vw, 1.35rem);
+}
+
+.corporate-detail-page .service-style-value-cards {
+  background: #07121d !important;
+  padding-top: clamp(0.75rem, 1.4vw, 1rem);
+  padding-bottom: clamp(1rem, 2vw, 1.35rem);
+}
+
+.service-style-value-cards .card-grid {
+  align-items: start;
+  gap: clamp(0.65rem, 1.2vw, 0.9rem);
+}
+
+.service-style-value-cards .info-card {
+  align-self: start;
+  min-height: 0;
+  border: 1px solid rgb(242 182 50 / 28%);
+  border-radius: 0.8rem;
+  background: linear-gradient(155deg, #0a1d2e, #07121d);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 18%);
+  padding: 0.85rem 0.9rem 0.95rem;
+  text-align: center;
+}
+
+.service-style-value-cards .info-card h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.service-style-value-cards .info-card p,
+.section--soft.service-style-value-cards .info-card p {
+  margin: 0.48rem 0 0;
+  color: rgb(255 255 255 / 66%);
+  font-size: 0.76rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.about-mission-vision-cards .card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.corporate-values-cards,
+.why-us-service-cards {
+  padding-top: clamp(0.75rem, 1.4vw, 1rem) !important;
+}
+
+/* Service cards stop at the end of their content. */
+.service-page-section--compact .service-page-grid {
+  align-items: start;
+}
+
+.service-page-section--compact .service-card {
+  align-self: start;
+  min-height: 0;
+}
+
+.service-page-section--compact .service-card__body {
+  align-content: start;
+  padding-bottom: 0.75rem !important;
+}
+
+/* Organization process details are plain bullet lists and have no output box. */
+.process-timeline {
+  align-items: start;
+}
+
+.process-step {
+  align-self: start;
+  min-height: 0;
+}
+
+.process-step__content {
+  align-content: start;
+  padding-bottom: 0.75rem;
+}
+
+.process-step__items,
+.process-groups ul {
+  display: block;
+  margin: 0;
+  padding-left: 1.05rem;
+  list-style: disc;
+}
+
+.process-step__items li,
+.process-groups li {
+  display: list-item;
+  margin-top: 0.28rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  color: rgb(255 255 255 / 64%);
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+/* Reference empty state remains available without dominating the page. */
+.references-page-section .empty-state {
+  max-width: 24rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.9rem;
+}
+
+.references-page-section .empty-state__icon {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.references-page-section .empty-state__icon svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.references-page-section .empty-state h2 {
+  margin-top: 0.45rem;
+  font-size: 0.9rem;
+}
+
+.references-page-section .empty-state p {
+  margin-top: 0.35rem;
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+.references-page-section .empty-state__action {
+  margin-top: 0.55rem;
+}
+
+.references-page-section .empty-state__action .button {
+  min-height: 2rem;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.66rem;
+}
+
+/* Legal documents begin closer to their header. */
+.legal-content-section {
+  padding-top: clamp(1rem, 2vw, 1.5rem) !important;
+}
+
+.legal-content-section .legal-document {
+  margin-top: 0;
+}
+
+@media (max-width: 48rem) {
+  .about-mission-vision-cards .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

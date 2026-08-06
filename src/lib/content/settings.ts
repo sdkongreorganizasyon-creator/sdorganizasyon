@@ -344,7 +344,16 @@ function resolveNavigation(value: unknown): readonly ResolvedNavigationItem[] {
         ...mergedChildren,
         ...(saved.children ?? []).filter(
           (child) =>
-            !knownChildIds.has(child.id) && !knownChildHrefs.has(child.href),
+            !knownChildIds.has(child.id) &&
+            !knownChildHrefs.has(child.href) &&
+            !(
+              fallback.id === "corporate" &&
+              ["mission", "vision"].includes(child.id)
+            ) &&
+            ![
+              "/kurumsal/misyon",
+              "/kurumsal/vizyon",
+            ].includes(child.href),
         ),
       ],
     };

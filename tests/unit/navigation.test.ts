@@ -10,8 +10,6 @@ const expectedLabels = [
   "KURUMSAL",
   "Hakkımızda",
   "Hikayemiz",
-  "Misyon",
-  "Vizyon",
   "Değerlerimiz",
   "NEDEN BİZ",
   "HİZMETLERİMİZ",

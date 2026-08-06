@@ -70,16 +70,7 @@ export function ProcessTimeline({ steps }: ProcessTimelineProps) {
               <p className="process-step__closing">{step.closing}</p>
             ) : null}
 
-            {step.outputs.length ? (
-              <div className="process-step__outputs">
-                <h3>Bu Aşamanın Çıktıları</h3>
-                <ul>
-                  {step.outputs.map((output) => (
-                    <li key={output}>{output}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+
           </div>
         </article>
       ))}

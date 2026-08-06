@@ -60,8 +60,6 @@ const lockedLabels = [
   "KURUMSAL",
   "Hakkımızda",
   "Hikayemiz",
-  "Misyon",
-  "Vizyon",
   "Değerlerimiz",
   "NEDEN BİZ",
   "HİZMETLERİMİZ",
@@ -137,7 +135,7 @@ if (fs.existsSync(seedPath)) {
   const seed = JSON.parse(fs.readFileSync(seedPath, "utf8"));
   const expectedCounts = {
     siteSettings: 1,
-    pages: 6,
+    pages: 4,
     services: 15,
     processSteps: 6,
     legalDocuments: 5,

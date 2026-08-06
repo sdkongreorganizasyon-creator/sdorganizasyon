@@ -5,8 +5,6 @@ const routes = [
   "/kurumsal",
   "/kurumsal/hakkimizda",
   "/kurumsal/hikayemiz",
-  "/kurumsal/misyon",
-  "/kurumsal/vizyon",
   "/kurumsal/degerlerimiz",
   "/neden-biz",
   "/hizmetlerimiz",

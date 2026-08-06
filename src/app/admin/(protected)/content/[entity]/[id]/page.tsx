@@ -39,8 +39,8 @@ function stringOr<T extends string | null>(
 function previewPathForPage(pageKey: string, slug: string) {
   if (pageKey === "why-us") return "/neden-biz";
   if (
-    ["about", "story", "mission", "vision", "values"].includes(pageKey) ||
-    ["hakkimizda", "hikayemiz", "misyon", "vizyon", "degerlerimiz"].includes(slug)
+    ["about", "story", "values"].includes(pageKey) ||
+    ["hakkimizda", "hikayemiz", "degerlerimiz"].includes(slug)
   ) {
     return `/kurumsal#${slug}`;
   }

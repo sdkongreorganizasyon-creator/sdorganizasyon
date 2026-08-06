@@ -23,9 +23,16 @@ export function SiteHeader({
     return () => window.removeEventListener("scroll", update);
   }, []);
 
-  const desktopNavigation = settings.navigation
-    .filter((item) => item.visible && item.showInHeader)
-    .slice(0, 7);
+  const headerNavigation = settings.navigation.filter(
+    (item) => item.visible && item.showInHeader,
+  );
+  const contactNavigation = settings.navigation.find(
+    (item) => item.id === "contact" && item.visible,
+  );
+  const desktopNavigation = [
+    ...headerNavigation.filter((item) => item.id !== "contact"),
+    ...(contactNavigation ? [contactNavigation] : []),
+  ];
 
   return (
     <header

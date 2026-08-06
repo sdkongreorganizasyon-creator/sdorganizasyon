@@ -33,16 +33,6 @@ export const navigation: readonly NavigationItem[] = [
         href: "/kurumsal/hikayemiz",
       },
       {
-        id: "mission",
-        label: "Misyon",
-        href: "/kurumsal/misyon",
-      },
-      {
-        id: "vision",
-        label: "Vizyon",
-        href: "/kurumsal/vizyon",
-      },
-      {
         id: "values",
         label: "Değerlerimiz",
         href: "/kurumsal/degerlerimiz",

@@ -78,7 +78,7 @@ export default async function WhyUsPage() {
           className="page-intro page-intro--why-us"
           paragraphs={content.paragraphs}
         />
-        <ValueCards items={content.items} />
+        <ValueCards className="service-style-value-cards why-us-service-cards" items={content.items} />
         <CmsPageSections sections={content.sections} />
       </main>
     </>

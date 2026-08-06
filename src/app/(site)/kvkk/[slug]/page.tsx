@@ -67,7 +67,7 @@ export default async function LegalDetailPage({ params }: PageProps) {
         ]}
       />
 
-      <section className="section">
+      <section className="section legal-content-section">
         <div className="container legal-container">
           <LegalDocument document={document} />
         </div>

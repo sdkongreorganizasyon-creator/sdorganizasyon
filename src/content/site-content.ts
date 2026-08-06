@@ -21,7 +21,17 @@ export const corporatePages = {
       "Bugün kamu kurumlarından üniversitelere, sağlık kuruluşlarından meslek örgütlerine, derneklerden özel sektör markalarına kadar geniş bir müşteri portföyüne hizmet veriyor; her projemizde aynı kalite standartlarını koruyarak güvenilir iş ortaklıkları kuruyoruz.",
       "SD Kongre olarak biz, yalnızca etkinlik düzenleyen bir firma değil; kurumların hedeflerine ulaşmasını sağlayan, süreçleri kolaylaştıran ve başarıyı görünür hale getiren güçlü bir çözüm ortağıyız."
     ],
-    "heroImage": "/media/corporate/hakkimizda.webp"
+    "heroImage": "/media/corporate/hakkimizda.webp",
+    "values": [
+      {
+        "title": "Misyonumuz",
+        "description": "Kurumların ihtiyaçlarına özel, yenilikçi, sürdürülebilir ve sonuç odaklı organizasyon çözümleri geliştirerek her projeyi uluslararası kalite standartlarında hayata geçirmek. Planlama gücümüzü, operasyonel deneyimimizi, teknolojik altyapılarımızı ve uzman insan kaynağımızı bir araya getirerek müşterilerimize maksimum verimlilik, minimum operasyonel yük ve ölçülebilir başarı sunmak. Her organizasyonu, müşterilerimizin kurumsal hedeflerine ulaşmasını sağlayan stratejik bir yatırım olarak değerlendiriyor ve bu doğrultuda değer üretmeye odaklanıyoruz."
+      },
+      {
+        "title": "Vizyonumuz",
+        "description": "Kongre, etkinlik ve organizasyon yönetimi sektöründe yenilikçi yaklaşımı, güçlü teknoloji altyapısı, sürdürülebilir operasyon modeli ve yüksek hizmet kalitesi ile Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak. Ulusal ve uluslararası ölçekte yürütülen projelerde kalite, güven, şeffaflık ve operasyonel mükemmeliyet denildiğinde akla gelen ilk çözüm ortağı haline gelmek. Sektöre yön veren uygulamalar geliştirerek organizasyon yönetiminin geleceğini şekillendiren öncü markalar arasında yer almak."
+      }
+    ]
   },
   "hikayemiz": {
     "pageKey": "story",
@@ -41,30 +51,6 @@ export const corporatePages = {
       "Çünkü her başarılı organizasyonun sonunda yalnızca bir etkinlik değil, uzun vadeli bir iş ortaklığı doğduğuna inanıyoruz."
     ],
     "heroImage": "/media/corporate/hikayemiz.webp"
-  },
-  "misyon": {
-    "pageKey": "mission",
-    "title": "Misyonumuz",
-    "eyebrow": "KURUMSAL",
-    "headline": "",
-    "paragraphs": [
-      "Kurumların ihtiyaçlarına özel, yenilikçi, sürdürülebilir ve sonuç odaklı organizasyon çözümleri geliştirerek her projeyi uluslararası kalite standartlarında hayata geçirmek.",
-      "Planlama gücümüzü, operasyonel deneyimimizi, teknolojik altyapılarımızı ve uzman insan kaynağımızı bir araya getirerek müşterilerimize maksimum verimlilik, minimum operasyonel yük ve ölçülebilir başarı sunmak.",
-      "Her organizasyonu, müşterilerimizin kurumsal hedeflerine ulaşmasını sağlayan stratejik bir yatırım olarak değerlendiriyor ve bu doğrultuda değer üretmeye odaklanıyoruz."
-    ],
-    "heroImage": "/media/corporate/misyon.webp"
-  },
-  "vizyon": {
-    "pageKey": "vision",
-    "title": "Vizyonumuz",
-    "eyebrow": "KURUMSAL",
-    "headline": "",
-    "paragraphs": [
-      "Kongre, etkinlik ve organizasyon yönetimi sektöründe yenilikçi yaklaşımı, güçlü teknoloji altyapısı, sürdürülebilir operasyon modeli ve yüksek hizmet kalitesi ile Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak.",
-      "Ulusal ve uluslararası ölçekte yürütülen projelerde kalite, güven, şeffaflık ve operasyonel mükemmeliyet denildiğinde akla gelen ilk çözüm ortağı haline gelmek.",
-      "Sektöre yön veren uygulamalar geliştirerek organizasyon yönetiminin geleceğini şekillendiren öncü markalar arasında yer almak."
-    ],
-    "heroImage": "/media/corporate/vizyon.webp"
   },
   "degerlerimiz": {
     "pageKey": "values",

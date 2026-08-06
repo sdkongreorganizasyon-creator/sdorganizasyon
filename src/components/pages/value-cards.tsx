@@ -6,11 +6,16 @@ type ValueCardsProps = Readonly<{
     description: string;
     icon?: string;
   }>[];
+  className?: string;
 }>;
 
-export function ValueCards({ items }: ValueCardsProps) {
+export function ValueCards({ items, className }: ValueCardsProps) {
   return (
-    <section className="section section--soft">
+    <section
+      className={`section section--soft value-cards${
+        className ? ` ${className}` : ""
+      }`}
+    >
       <div className="container card-grid card-grid--three">
         {items.map((item, index) => (
           <Reveal delay={index * 0.05} key={item.title}>

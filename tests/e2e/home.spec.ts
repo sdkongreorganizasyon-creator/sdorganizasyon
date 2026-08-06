@@ -35,6 +35,9 @@ test("top navigation shows process and the corporate submenu", async ({
       exact: true,
     }),
   ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "İLETİŞİM", exact: true }),
+  ).toBeVisible();
 
   const corporateButton = page.getByRole("button", {
     name: "KURUMSAL",
@@ -48,6 +51,12 @@ test("top navigation shows process and the corporate submenu", async ({
   await expect(
     page.getByRole("menuitem", { name: "Değerlerimiz", exact: true }),
   ).toBeVisible();
+  await expect(
+    page.getByRole("menuitem", { name: "Misyon", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("menuitem", { name: "Vizyon", exact: true }),
+  ).toHaveCount(0);
 
   await page.locator(".approved-hero").hover();
   await expect(page.locator(".site-header__dropdown-menu")).toHaveCount(0);

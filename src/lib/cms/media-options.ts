@@ -101,18 +101,6 @@ export const staticAdminMediaOptions: readonly AdminMediaOption[] = [
     mimeType: "image/webp",
   },
   {
-    id: "local-corporate-mission",
-    label: "Kurumsal — Misyon",
-    url: "/media/corporate/misyon.webp",
-    mimeType: "image/webp",
-  },
-  {
-    id: "local-corporate-vision",
-    label: "Kurumsal — Vizyon",
-    url: "/media/corporate/vizyon.webp",
-    mimeType: "image/webp",
-  },
-  {
     id: "local-corporate-values",
     label: "Kurumsal — Değerlerimiz",
     url: "/media/corporate/degerlerimiz.webp",

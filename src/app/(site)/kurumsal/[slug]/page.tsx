@@ -26,6 +26,9 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+
+  if (slug === "misyon" || slug === "vizyon") return {};
+
   const page = corporatePages[slug as keyof typeof corporatePages];
 
   if (!page) return {};
@@ -39,6 +42,11 @@ export async function generateMetadata({
 
 export default async function CorporateDetailPage({ params }: PageProps) {
   const { slug } = await params;
+
+  if (slug === "misyon" || slug === "vizyon") {
+    notFound();
+  }
+
   const [page, settings] = await Promise.all([
     getCorporatePage(slug),
     getResolvedSiteSettings(),
@@ -62,9 +70,11 @@ export default async function CorporateDetailPage({ params }: PageProps) {
         : "fade",
   });
   const design = page.design;
+  const isAboutPage = slug === "hakkimizda";
+  const isValuesPage = slug === "degerlerimiz";
   const style = {
-    background: design?.background || undefined,
-    color: design?.textColor || undefined,
+    background: "#07121d",
+    color: "#ffffff",
     "--page-accent": design?.accentColor || undefined,
     "--page-heading-scale": String(design?.headingScale ?? 1),
     "--page-body-scale": String(design?.bodyScale ?? 1),
@@ -99,13 +109,23 @@ export default async function CorporateDetailPage({ params }: PageProps) {
       />
 
       <main
-        className={`cms-page cms-page--${design?.template ?? "standard"}`}
+        className={`cms-page corporate-detail-page corporate-detail-page--${slug} cms-page--${design?.template ?? "standard"}`}
         data-heading-font={design?.headingFont ?? "system"}
         data-body-font={design?.bodyFont ?? "system"}
         style={style}
       >
-        <ProseContent paragraphs={page.paragraphs} />
-        {page.values?.length ? <ValueCards items={page.values} /> : null}
+        <ProseContent
+          className="page-intro corporate-page-intro"
+          paragraphs={page.paragraphs}
+        />
+        {page.values?.length ? (
+          <ValueCards
+            className={`service-style-value-cards${
+              isAboutPage ? " about-mission-vision-cards" : ""
+            }${isValuesPage ? " corporate-values-cards" : ""}`}
+            items={page.values}
+          />
+        ) : null}
         <CmsPageSections sections={page.sections} />
       </main>
     </>
