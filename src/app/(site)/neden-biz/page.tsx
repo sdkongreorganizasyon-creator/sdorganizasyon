@@ -25,10 +25,9 @@ export default async function WhyUsPage() {
     getResolvedSiteSettings(),
   ]);
   const hero = getPageHero(settings, "/neden-biz", {
-    eyebrow: "NEDEN BİZ",
-    title: content.headline,
-    description:
-      "Planlamadan raporlamaya kadar her adımda profesyonel proje yönetimi.",
+    eyebrow: "SDKONGRE",
+    title: "NEDEN BİZ",
+    description: content.headline,
     image: "/media/headers/neden-biz.webp",
     video: null,
     animation: "fade",
@@ -48,10 +47,10 @@ export default async function WhyUsPage() {
   return (
     <>
       <InteriorHero
-        eyebrow={hero.eyebrow}
-        title={hero.title}
-        description={hero.description}
-        image={hero.image}
+        eyebrow="SDKONGRE"
+        title="NEDEN BİZ"
+        description={content.headline}
+        image="/media/headers/neden-biz.webp"
         video={hero.video}
         animation={hero.animation}
         template={hero.template}

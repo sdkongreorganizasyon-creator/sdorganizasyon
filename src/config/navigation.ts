@@ -25,27 +25,27 @@ export const navigation: readonly NavigationItem[] = [
       {
         id: "about",
         label: "Hakkımızda",
-        href: "/kurumsal#hakkimizda",
+        href: "/kurumsal/hakkimizda",
       },
       {
         id: "story",
         label: "Hikayemiz",
-        href: "/kurumsal#hikayemiz",
+        href: "/kurumsal/hikayemiz",
       },
       {
         id: "mission",
         label: "Misyon",
-        href: "/kurumsal#misyon",
+        href: "/kurumsal/misyon",
       },
       {
         id: "vision",
         label: "Vizyon",
-        href: "/kurumsal#vizyon",
+        href: "/kurumsal/vizyon",
       },
       {
         id: "values",
         label: "Değerlerimiz",
-        href: "/kurumsal#degerlerimiz",
+        href: "/kurumsal/degerlerimiz",
       },
     ],
   },

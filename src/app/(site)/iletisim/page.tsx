@@ -42,6 +42,22 @@ export default async function ContactPage() {
     settings.contact.mobile ||
     settings.contact.email ||
     settings.contact.address;
+  const mapQuery = [
+    settings.contact.address,
+    settings.contact.district,
+    settings.contact.city,
+  ]
+    .filter(Boolean)
+    .join(", ");
+  const mapSrc = mapQuery
+    ? `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`
+    : settings.contact.mapUrl?.includes("/embed")
+      ? settings.contact.mapUrl
+      : settings.contact.mapUrl
+        ? `https://www.google.com/maps?q=${encodeURIComponent(
+            settings.contact.mapUrl,
+          )}&output=embed`
+        : null;
 
   return (
     <>
@@ -154,6 +170,22 @@ export default async function ContactPage() {
           <ContactForm />
         </div>
       </section>
+
+      {mapSrc ? (
+        <section className="section contact-map-section">
+          <div className="container">
+            <div className="contact-map">
+              <iframe
+                src={mapSrc}
+                title="SDKONGRE adresi Google Maps haritası"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </section>
+      ) : null}
     </>
   );
 }

@@ -220,10 +220,6 @@ export function SiteFooter({
           {settings.footer.copyrightText ||
             "SDKONGRE Organizasyon Hizmetleri. Tüm hakları saklıdır."}
         </p>
-        <div>
-          <Link href="/kvkk">KVKK</Link>
-          <Link href="/kvkk/gizlilik-politikasi">Gizlilik</Link>
-        </div>
       </div>
     </footer>
   );

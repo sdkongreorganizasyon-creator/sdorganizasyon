@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { InteriorHero } from "@/components/pages/interior-hero";
+import { ProseContent } from "@/components/pages/prose-content";
 import { ReferenceGrid } from "@/components/pages/reference-grid";
 import { ButtonLink } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -25,9 +26,9 @@ export default async function ReferencesPage() {
     getResolvedSiteSettings(),
   ]);
   const hero = getPageHero(settings, "/referanslar", {
-    eyebrow: "REFERANSLAR",
-    title: referencesIntro.headline,
-    description: referencesIntro.paragraphs.join(" "),
+    eyebrow: "SDKONGRE",
+    title: "REFERANSLAR",
+    description: referencesIntro.headline,
     image: "/media/headers/referanslar.webp",
     video: null,
     animation: "fade",
@@ -36,10 +37,10 @@ export default async function ReferencesPage() {
   return (
     <>
       <InteriorHero
-        eyebrow={hero.eyebrow}
-        title={hero.title}
-        description={hero.description}
-        image={hero.image}
+        eyebrow="SDKONGRE"
+        title="REFERANSLAR"
+        description={referencesIntro.headline}
+        image="/media/headers/referanslar.webp"
         video={hero.video}
         animation={hero.animation}
         template={hero.template}
@@ -56,6 +57,8 @@ export default async function ReferencesPage() {
           { label: "REFERANSLAR" },
         ]}
       />
+
+      <ProseContent paragraphs={referencesIntro.paragraphs} />
 
       <section className="section">
         <div className="container">

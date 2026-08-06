@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
 import { InteriorHero } from "@/components/pages/interior-hero";
+import { ProseContent } from "@/components/pages/prose-content";
 import { ServiceCard } from "@/components/pages/service-card";
+import { servicesIntro } from "@/content/site-content";
 import {
   getPageHero,
   getResolvedSiteSettings,
@@ -22,10 +24,9 @@ export default async function ServicesPage() {
     getResolvedSiteSettings(),
   ]);
   const hero = getPageHero(settings, "/hizmetlerimiz", {
-    eyebrow: "HİZMETLERİMİZ",
-    title: "Tüm Organizasyon Hizmetleri Tek Sayfada",
-    description:
-      "Planlamadan uygulamaya kadar sunduğumuz hizmetleri, açıklamaları ve görselleriyle birlikte inceleyin.",
+    eyebrow: "SDKONGRE",
+    title: "HİZMETLERİMİZ",
+    description: servicesIntro.headline,
     image: "/media/headers/hizmetlerimiz.webp",
     video: null,
     animation: "fade",
@@ -34,10 +35,10 @@ export default async function ServicesPage() {
   return (
     <>
       <InteriorHero
-        eyebrow={hero.eyebrow}
-        title={hero.title}
-        description={hero.description}
-        image={hero.image}
+        eyebrow="SDKONGRE"
+        title="HİZMETLERİMİZ"
+        description={servicesIntro.headline}
+        image="/media/headers/hizmetlerimiz.webp"
         video={hero.video}
         animation={hero.animation}
         template={hero.template}
@@ -54,6 +55,8 @@ export default async function ServicesPage() {
           { label: "HİZMETLERİMİZ" },
         ]}
       />
+
+      <ProseContent paragraphs={servicesIntro.paragraphs} />
 
       <section className="section service-page-section">
         <div className="container service-page-grid">

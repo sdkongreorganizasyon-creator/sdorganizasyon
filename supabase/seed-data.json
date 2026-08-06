@@ -48,7 +48,7 @@
           "primaryButtonUrl": "/hizmetlerimiz",
           "secondaryButtonLabel": "BİZİ TANIYIN",
           "secondaryButtonUrl": "/kurumsal/hakkimizda",
-          "poster": "/media/home/sdkongre-approved-hero.webp",
+          "poster": "/media/headers/anasayfa.webp",
           "desktopVideo": "",
           "mobileVideo": ""
         },
@@ -95,7 +95,7 @@
           }
         ],
         "footer": {
-          "description": "Ulusal ve uluslararası kongre, toplantı ve etkinlik organizasyonlarında planlamadan uygulamaya profesyonel çözümler sunuyoruz.",
+          "description": "Doğru İş Ortakları ile Kusursuz Sonuçlar",
           "copyrightText": "SDKONGRE Organizasyon Hizmetleri. Tüm hakları saklıdır.",
           "showQuickMenu": true,
           "showLegalLinks": true,
@@ -105,7 +105,7 @@
         "seo": {
           "defaultTitle": "SDKONGRE | Kongre ve Etkinlik Organizasyonu",
           "defaultDescription": "Kongre, toplantı, sempozyum, kurumsal etkinlik ve dijital organizasyon süreçlerinde uçtan uca profesyonel çözümler.",
-          "ogImage": "/media/home/sdkongre-approved-hero.webp",
+          "ogImage": "/media/headers/anasayfa.webp",
           "canonicalBaseUrl": "https://www.sdkongre.com",
           "indexable": false
         },
@@ -125,23 +125,27 @@
       "title": "Hakkımızda",
       "slug": "hakkimizda",
       "eyebrow": "KURUMSAL",
-      "summary": "Organizasyon Yönetiminde Güvenilir Çözüm Ortağınız",
+      "summary": "Organizasyon Yönetiminde Güvenilir ve Stratejik Çözüm Ortağınız",
       "content_json": {
-        "headline": "Organizasyon Yönetiminde Güvenilir Çözüm Ortağınız",
+        "headline": "Organizasyon Yönetiminde Güvenilir ve Stratejik Çözüm Ortağınız",
         "paragraphs": [
-          "SD Kongre, kongre, sempozyum, toplantı, lansman, fuar, kurumsal etkinlik ve seyahat organizasyonlarında uçtan uca hizmet sunan profesyonel bir organizasyon ve etkinlik yönetim şirketidir.",
-          "Kurulduğumuz günden bu yana temel amacımız; kurumların organizasyon süreçlerini daha verimli, daha kontrollü ve daha başarılı hale getirmektir. Organizasyonların yalnızca etkinlik günü değil, fikir aşamasından sonuç raporuna kadar geçen tüm süreçlerinin profesyonel şekilde yönetilmesi gerektiğine inanıyoruz.",
-          "Bu anlayışla; planlama, bütçe yönetimi, tedarikçi koordinasyonu, konaklama çözümleri, dijital kayıt sistemleri, saha operasyonları ve raporlama süreçlerini tek merkezden yönetiyor, müşterilerimize zaman ve maliyet avantajı sağlıyoruz.",
-          "Kamu kurumlarından özel sektöre, meslek örgütlerinden akademik kuruluşlara kadar geniş bir yelpazede hizmet verirken her projeyi kendi dinamikleri içerisinde değerlendiriyor ve kurumlara özel çözümler geliştiriyoruz.",
-          "SD Kongre olarak biz, yalnızca organizasyon düzenleyen bir firma değil; kurumların hedeflerine ulaşmasını sağlayan stratejik bir çözüm ortağı olmayı hedefliyoruz."
-        ]
+          "SD Kongre, kongre, sempozyum, kurumsal toplantı, eğitim programı, lansman, fuar, sergi, çalıştay ve seyahat organizasyonlarında uçtan uca hizmet sunan profesyonel bir organizasyon ve etkinlik yönetim şirketidir.",
+          "Günümüzde başarılı bir organizasyon yalnızca iyi bir fikirden ibaret değildir. Başarı; doğru planlama, güçlü koordinasyon, etkin bütçe yönetimi, deneyimli operasyon ekipleri ve kusursuz uygulama süreçleri ile mümkün olmaktadır. SD Kongre olarak tam da bu noktada devreye giriyor, kurumların tüm organizasyon süreçlerini tek merkezden yöneterek iş yükünü azaltıyor, verimliliği artırıyor ve hedeflerine ulaşmalarına katkı sağlıyoruz.",
+          "Kurulduğumuz günden bu yana temel amacımız, organizasyon yönetimini daha sistematik, daha ölçülebilir ve daha sürdürülebilir hale getirmektir. Bir organizasyonun yalnızca etkinlik gününde değil, fikir aşamasından sonuç raporuna kadar geçen tüm süreçlerinin aynı profesyonellik anlayışıyla yönetilmesi gerektiğine inanıyoruz.",
+          "Bu anlayış doğrultusunda; stratejik planlama, proje yönetimi, bütçe kontrolü, tedarikçi koordinasyonu, kayıt ve katılımcı yönetimi, konaklama ve seyahat planlaması, dijital altyapı çözümleri, operasyon yönetimi, veri analizi ve raporlama süreçlerinin tamamını profesyonel ekiplerimizle yürütüyor, kurumlarımıza zaman ve maliyet avantajı sağlıyoruz.",
+          "Her organizasyon bizim için bağımsız bir projedir. Bu nedenle standart çözümler yerine sektör, kurum yapısı, hedef kitle ve proje hedeflerine göre özel çözümler geliştiriyor; organizasyonları yalnızca gerçekleştirmiyor, aynı zamanda stratejik bir başarı hikayesine dönüştürüyoruz.",
+          "Bugün kamu kurumlarından üniversitelere, sağlık kuruluşlarından meslek örgütlerine, derneklerden özel sektör markalarına kadar geniş bir müşteri portföyüne hizmet veriyor; her projemizde aynı kalite standartlarını koruyarak güvenilir iş ortaklıkları kuruyoruz.",
+          "SD Kongre olarak biz, yalnızca etkinlik düzenleyen bir firma değil; kurumların hedeflerine ulaşmasını sağlayan, süreçleri kolaylaştıran ve başarıyı görünür hale getiren güçlü bir çözüm ortağıyız."
+        ],
+        "values": [],
+        "heroImage": "/media/corporate/hakkimizda.webp"
       },
       "status": "published",
       "seo_json": {
         "title": "Hakkımızda",
-        "description": "Organizasyon Yönetiminde Güvenilir Çözüm Ortağınız"
+        "description": "Organizasyon Yönetiminde Güvenilir ve Stratejik Çözüm Ortağınız"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "page_key": "story",
@@ -149,67 +153,78 @@
       "title": "Hikayemiz",
       "slug": "hikayemiz",
       "eyebrow": "KURUMSAL",
-      "summary": "Bir Organizasyondan Daha Fazlası",
+      "summary": "Bir Organizasyondan Çok Daha Fazlasını İnşa Ettik",
       "content_json": {
-        "headline": "Bir Organizasyondan Daha Fazlası",
+        "headline": "Bir Organizasyondan Çok Daha Fazlasını İnşa Ettik",
         "paragraphs": [
-          "SD Kongre'nin hikayesi, profesyonel organizasyon yönetimine duyulan ihtiyaçtan doğdu.",
-          "Kuruluşumuzun temelinde; kurumların farklı tedarikçilerle çalışırken yaşadığı koordinasyon sorunlarını, bütçe kontrolündeki zorlukları ve operasyonel yükleri azaltma fikri bulunmaktadır.",
-          "İlk günden itibaren yalnızca etkinlik organizasyonu gerçekleştirmeyi değil, süreç yönetimi konusunda fark yaratmayı hedefledik. Bu nedenle organizasyon sektörünü teknoloji, raporlama ve veri yönetimiyle birleştirerek daha ölçülebilir ve daha sürdürülebilir bir yapı oluşturduk.",
-          "Yıllar içerisinde gerçekleştirdiğimiz toplantılar, kongreler, sempozyumlar, eğitim programları, kurumsal etkinlikler ve lansmanlar sayesinde sektörde önemli bir deneyim birikimi elde ettik.",
-          "Bugün geldiğimiz noktada SD Kongre; planlama gücü, güçlü operasyon ağı, dijital altyapıları ve uzman ekibiyle Türkiye'nin farklı şehirlerinde başarılı organizasyonlara imza atan güvenilir bir marka haline gelmiştir.",
-          "Ancak bizim için başarı, tamamlanan organizasyon sayısından çok müşterilerimizin bize yeniden güvenmesi ve bizi tavsiye etmesidir."
-        ]
+          "SD Kongre'nin hikayesi, organizasyon sektöründe sıklıkla karşılaşılan bir soruna çözüm üretme isteğiyle başladı.",
+          "Kurumlar büyük organizasyonlar planlarken çoğu zaman farklı tedarikçiler, farklı operasyon ekipleri ve birbirinden bağımsız süreçlerle çalışmak zorunda kalıyor; bu durum hem zaman kaybına hem de maliyetlerin kontrol edilmesinde ciddi zorluklara neden oluyordu.",
+          "Biz ise bu karmaşık yapıyı daha yönetilebilir hale getirmek için yola çıktık.",
+          "Kuruluşumuzun temelinde; organizasyon süreçlerini tek çatı altında toplayan, teknolojiyle destekleyen ve profesyonel proje yönetimi yaklaşımıyla yöneten bir sistem kurma fikri bulunmaktadır.",
+          "İlk günden itibaren hedefimiz yalnızca organizasyon düzenlemek olmadı. Süreçleri analiz eden, riskleri öngören, operasyonları yöneten, verileri raporlayan ve müşterilerine ölçülebilir sonuçlar sunan bir organizasyon yönetim modeli oluşturmayı hedefledik.",
+          "Bu vizyon doğrultusunda teknoloji yatırımlarımızı artırdık, operasyon ağımızı geliştirdik ve organizasyon yönetimini klasik hizmet anlayışının ötesine taşıdık.",
+          "Yıllar içerisinde gerçekleştirdiğimiz kongreler, sempozyumlar, bilimsel toplantılar, eğitim programları, kurumsal etkinlikler, fuarlar ve lansman projeleri sayesinde yalnızca operasyonel deneyim değil, aynı zamanda güçlü bir kurumsal bilgi birikimi oluşturduk.",
+          "Bugün Türkiye'nin farklı şehirlerinde yürüttüğümüz başarılı projelerle sektörün güvenilir markalarından biri haline gelmiş bulunuyoruz.",
+          "Ancak bizim için başarı; tamamlanan organizasyon sayısından çok, müşterilerimizin bize duyduğu güven, tekrar çalışma tercihleri ve tavsiyeleridir.",
+          "Çünkü her başarılı organizasyonun sonunda yalnızca bir etkinlik değil, uzun vadeli bir iş ortaklığı doğduğuna inanıyoruz."
+        ],
+        "values": [],
+        "heroImage": "/media/corporate/hikayemiz.webp"
       },
       "status": "published",
       "seo_json": {
         "title": "Hikayemiz",
-        "description": "Bir Organizasyondan Daha Fazlası"
+        "description": "Bir Organizasyondan Çok Daha Fazlasını İnşa Ettik"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "page_key": "mission",
       "locale": "tr",
-      "title": "Misyon",
+      "title": "Misyonumuz",
       "slug": "misyon",
       "eyebrow": "KURUMSAL",
-      "summary": "Kurumların ihtiyaçlarına özel, yenilikçi ve sürdürülebilir organizasyon çözümleri geliştirerek her projeyi yüksek kalite standartlarında hayata geçirmek.",
+      "summary": "",
       "content_json": {
-        "headline": "Kurumların ihtiyaçlarına özel, yenilikçi ve sürdürülebilir organizasyon çözümleri geliştirerek her projeyi yüksek kalite standartlarında hayata geçirmek.",
+        "headline": "",
         "paragraphs": [
-          "Kurumların ihtiyaçlarına özel, yenilikçi ve sürdürülebilir organizasyon çözümleri geliştirerek her projeyi yüksek kalite standartlarında hayata geçirmek.",
-          "Planlama, koordinasyon, teknoloji ve operasyon gücümüzü bir araya getirerek müşterilerimize maksimum verimlilik, minimum operasyonel yük ve ölçülebilir başarı sunmak.",
-          "Organizasyon süreçlerinde güvenilir bir iş ortağı olarak müşterilerimizin hedeflerine ulaşmalarına katkı sağlamak."
-        ]
+          "Kurumların ihtiyaçlarına özel, yenilikçi, sürdürülebilir ve sonuç odaklı organizasyon çözümleri geliştirerek her projeyi uluslararası kalite standartlarında hayata geçirmek.",
+          "Planlama gücümüzü, operasyonel deneyimimizi, teknolojik altyapılarımızı ve uzman insan kaynağımızı bir araya getirerek müşterilerimize maksimum verimlilik, minimum operasyonel yük ve ölçülebilir başarı sunmak.",
+          "Her organizasyonu, müşterilerimizin kurumsal hedeflerine ulaşmasını sağlayan stratejik bir yatırım olarak değerlendiriyor ve bu doğrultuda değer üretmeye odaklanıyoruz."
+        ],
+        "values": [],
+        "heroImage": "/media/corporate/misyon.webp"
       },
       "status": "published",
       "seo_json": {
-        "title": "Misyon",
-        "description": "Kurumların ihtiyaçlarına özel, yenilikçi ve sürdürülebilir organizasyon çözümleri geliştirerek her projeyi yüksek kalite standartlarında hayata geçirmek."
+        "title": "Misyonumuz",
+        "description": "Kurumların ihtiyaçlarına özel, yenilikçi, sürdürülebilir ve sonuç odaklı organizasyon çözümleri geliştirerek her projeyi uluslararası kalite standartlarında hayata geçirmek."
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "page_key": "vision",
       "locale": "tr",
-      "title": "Vizyon",
+      "title": "Vizyonumuz",
       "slug": "vizyon",
       "eyebrow": "KURUMSAL",
-      "summary": "Kongre ve etkinlik yönetimi sektöründe yenilikçi yaklaşımı, teknolojik altyapıları ve operasyonel mükemmeliyetiyle Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak.",
+      "summary": "",
       "content_json": {
-        "headline": "Kongre ve etkinlik yönetimi sektöründe yenilikçi yaklaşımı, teknolojik altyapıları ve operasyonel mükemmeliyetiyle Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak.",
+        "headline": "",
         "paragraphs": [
-          "Kongre ve etkinlik yönetimi sektöründe yenilikçi yaklaşımı, teknolojik altyapıları ve operasyonel mükemmeliyetiyle Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak.",
-          "Ulusal ve uluslararası ölçekte yürütülen projelerde kalite, güven ve sürdürülebilirlik denildiğinde akla gelen ilk çözüm ortağı haline gelmek."
-        ]
+          "Kongre, etkinlik ve organizasyon yönetimi sektöründe yenilikçi yaklaşımı, güçlü teknoloji altyapısı, sürdürülebilir operasyon modeli ve yüksek hizmet kalitesi ile Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak.",
+          "Ulusal ve uluslararası ölçekte yürütülen projelerde kalite, güven, şeffaflık ve operasyonel mükemmeliyet denildiğinde akla gelen ilk çözüm ortağı haline gelmek.",
+          "Sektöre yön veren uygulamalar geliştirerek organizasyon yönetiminin geleceğini şekillendiren öncü markalar arasında yer almak."
+        ],
+        "values": [],
+        "heroImage": "/media/corporate/vizyon.webp"
       },
       "status": "published",
       "seo_json": {
-        "title": "Vizyon",
-        "description": "Kongre ve etkinlik yönetimi sektöründe yenilikçi yaklaşımı, teknolojik altyapıları ve operasyonel mükemmeliyetiyle Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak."
+        "title": "Vizyonumuz",
+        "description": "Kongre, etkinlik ve organizasyon yönetimi sektöründe yenilikçi yaklaşımı, güçlü teknoloji altyapısı, sürdürülebilir operasyon modeli ve yüksek hizmet kalitesi ile Türkiye'nin en güçlü ve en çok tercih edilen organizasyon yönetim markalarından biri olmak."
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "page_key": "values",
@@ -217,43 +232,59 @@
       "title": "Değerlerimiz",
       "slug": "degerlerimiz",
       "eyebrow": "KURUMSAL",
-      "summary": "Değerlerimiz",
+      "summary": "Başarıya Giden Yolun Temel İlkeleri",
       "content_json": {
-        "headline": "Değerlerimiz",
-        "paragraphs": [],
+        "headline": "Başarıya Giden Yolun Temel İlkeleri",
+        "paragraphs": [
+          "SD Kongre olarak gerçekleştirdiğimiz her organizasyonun merkezinde yalnızca operasyonel mükemmeliyet değil; güçlü değerler, sürdürülebilir iş anlayışı ve uzun vadeli güven ilişkileri bulunmaktadır. İş yapış şeklimizi belirleyen bu değerler, müşterilerimizle kurduğumuz her iş birliğinin temelini oluşturur.",
+          "Kurulduğumuz günden bu yana tüm projelerimizi aynı profesyonel yaklaşım ve sorumluluk bilinciyle yönetiyor, her adımda kurumlarımıza değer katmayı hedefliyoruz."
+        ],
         "values": [
           {
             "title": "Güven",
-            "description": "İşimizin temelinde güven yer alır. Verdiğimiz sözleri zamanında yerine getirir, süreçleri şeffaf biçimde yönetir ve müşterilerimizle uzun vadeli ilişkiler kurarız."
+            "description": "Her Başarılı İş Birliğinin Temelinde Güven Yatar. Bizim için güven, yalnızca bir değer değil; tüm faaliyetlerimizin temelidir. Müşterilerimize verdiğimiz sözleri zamanında yerine getirir, süreçleri şeffaf şekilde yönetir ve her aşamada açık iletişim kurarız. Organizasyonların en kritik anlarında dahi çözüm odaklı yaklaşımımızı korur, sorumluluğumuzu eksiksiz şekilde yerine getiririz. Uzun yıllara dayanan müşteri ilişkilerimizin ve tekrar eden iş birliklerimizin arkasındaki en büyük güç, kazandığımız güvendir."
           },
           {
             "title": "Şeffaflık",
-            "description": "Bütçe, planlama, satın alma ve raporlama süreçlerinin tamamında açık iletişim prensibiyle hareket ederiz."
+            "description": "Her Süreçte Açık ve Hesap Verebilir Yönetim. Başarılı organizasyonların temelinde açık iletişim ve şeffaf süreç yönetimi bulunmaktadır. Bütçe planlamasından satın alma süreçlerine, tedarikçi yönetiminden raporlamaya kadar tüm aşamaları müşterilerimizle paylaşırız. Harcamalar, planlamalar ve operasyonel süreçler her zaman kontrol edilebilir ve izlenebilir yapıdadır. Bu yaklaşım sayesinde müşterilerimiz organizasyonun her aşamasına hakim olur ve süreçleri güvenle takip edebilir."
           },
           {
             "title": "Profesyonellik",
-            "description": "Her organizasyona aynı ciddiyet ve sorumluluk bilinciyle yaklaşırız."
-          },
-          {
-            "title": "Yenilikçilik",
-            "description": "Teknolojik gelişmeleri yakından takip eder, organizasyon süreçlerine yenilikçi çözümler entegre ederiz."
-          },
-          {
-            "title": "Sürdürülebilirlik",
-            "description": "Planlama ve operasyon süreçlerinde kaynakların verimli kullanımını esas alırız."
+            "description": "Her Projeye Aynı Ciddiyet ve Sorumlulukla Yaklaşıyoruz. Küçük bir toplantı da büyük ölçekli bir uluslararası kongre de bizim için aynı öneme sahiptir. Her projeye titizlikle hazırlanır, detayları önceden planlar ve süreçleri uzman ekiplerimizle yönetiriz. Karşılaşılabilecek riskleri önceden değerlendirerek alternatif çözümler geliştirir ve organizasyonların kesintisiz ilerlemesini sağlarız. Profesyonellik anlayışımız, yalnızca etkinlik gününde değil, projenin başlangıcından sonuç raporuna kadar tüm süreçlerde kendini göstermektedir."
           },
           {
             "title": "Müşteri Odaklılık",
-            "description": "Başarımızın merkezinde müşteri memnuniyeti bulunmaktadır."
+            "description": "Önce Dinliyor, Sonra Çözüm Üretiyoruz. Her kurumun ihtiyaçlarının farklı olduğuna inanıyoruz. Bu nedenle hazır kalıplar yerine müşterilerimizin hedeflerini, beklentilerini ve önceliklerini analiz ederek kurumlara özel çözümler geliştiriyoruz. Başarımızı yalnızca tamamlanan organizasyonlarla değil, müşterilerimizin memnuniyeti ve hedeflerine ulaşmasıyla ölçüyoruz. Her projeyi kendi projemiz gibi sahipleniyor ve maksimum katma değer üretmeye odaklanıyoruz."
+          },
+          {
+            "title": "Yenilikçilik",
+            "description": "Sürekli Gelişiyor, Sürekli Daha İyisini Arıyoruz. Organizasyon sektörü sürekli değişmekte ve gelişmektedir. SD Kongre olarak yeni teknolojileri, global organizasyon trendlerini ve sektördeki yenilikleri yakından takip ediyoruz. Dijital kayıt sistemlerinden hibrit etkinlik çözümlerine, QR kod uygulamalarından veri analiz araçlarına kadar yenilikçi teknolojileri organizasyon süreçlerine entegre ediyoruz. Amacımız, müşterilerimize yalnızca bugünün değil, geleceğin organizasyon çözümlerini sunmaktır."
+          },
+          {
+            "title": "Kalite",
+            "description": "Mükemmelliği Standart Haline Getiriyoruz. Kalite anlayışımız, sunduğumuz her hizmetin merkezinde yer alır. Planlamadan operasyona, teknik altyapıdan katılımcı deneyimine kadar tüm süreçlerde yüksek standartlarla çalışırız. Her organizasyonu detaylı kontrol mekanizmalarıyla yönetir, mükemmel sonuçlar elde etmek için sürekli iyileştirme yaklaşımını benimseriz. Bizim için kalite, bir hedef değil; vazgeçilmez bir çalışma prensibidir."
+          },
+          {
+            "title": "Sürdürülebilirlik",
+            "description": "Bugünü Yönetirken Geleceği de Düşünüyoruz. Kaynakların doğru kullanılması ve süreçlerin verimli yönetilmesi başarılı organizasyonların temel unsurlarından biridir. SD Kongre olarak çevresel, ekonomik ve operasyonel sürdürülebilirliği organizasyon yönetiminin ayrılmaz bir parçası olarak görüyoruz. Dijital çözümleri yaygınlaştırıyor, israfı azaltıyor ve kaynakların verimli kullanımını destekleyen uygulamalar geliştiriyoruz. Sürdürülebilir yaklaşımımız sayesinde hem müşterilerimize hem de gelecek nesillere karşı sorumluluğumuzu yerine getiriyoruz."
+          },
+          {
+            "title": "Takım Ruhu",
+            "description": "Başarı, Güçlü Ekiplerin Ortak Üretimidir. Başarılı organizasyonlar bireysel çabalarla değil, uyum içerisinde çalışan ekiplerin ortak başarısıyla ortaya çıkar. Proje yöneticilerimizden saha ekiplerimize, teknik uzmanlarımızdan çözüm ortaklarımıza kadar tüm paydaşlarımızla ortak hedef doğrultusunda hareket ediyoruz. İş birliği kültürünü destekliyor, iletişimin gücüne inanıyor ve ekip ruhunu başarımızın önemli bir parçası olarak görüyoruz."
+          },
+          {
+            "title": "Sonuç Odaklılık",
+            "description": "Hedefimiz Etkinlik Değil, Başarıdır. Her organizasyonun arkasında ulaşılması gereken kurumsal hedefler bulunmaktadır. Bu nedenle yalnızca organizasyonu gerçekleştirmeye değil, organizasyonun sağlayacağı sonuçlara odaklanıyoruz. Katılımcı memnuniyeti, operasyonel verimlilik, bütçe başarısı ve kurumsal hedeflere katkı gibi tüm kriterleri değerlendirerek ölçülebilir başarılar üretmeyi amaçlıyoruz."
           }
-        ]
+        ],
+        "heroImage": "/media/corporate/degerlerimiz.webp"
       },
       "status": "published",
       "seo_json": {
         "title": "Değerlerimiz",
-        "description": "Değerlerimiz"
+        "description": "Başarıya Giden Yolun Temel İlkeleri"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "page_key": "why-us",
@@ -261,52 +292,54 @@
       "title": "Neden Biz",
       "slug": "neden-biz",
       "eyebrow": "NEDEN BİZ",
-      "summary": "Her Detayı Yönetiyor, Her Süreci Kontrol Ediyoruz",
+      "summary": "Sadece Organizasyon Yönetmiyoruz, Başarı Yönetiyoruz",
       "content_json": {
-        "headline": "Her Detayı Yönetiyor, Her Süreci Kontrol Ediyoruz",
+        "headline": "Sadece Organizasyon Yönetmiyoruz, Başarı Yönetiyoruz",
         "paragraphs": [
-          "Bir organizasyonun başarısı yalnızca etkinlik günündeki kusursuz uygulamayla değil, öncesinde yapılan doğru planlama ve profesyonel koordinasyonla mümkündür.",
-          "SD Kongre olarak müşterilerimize yalnızca organizasyon hizmeti değil, bütüncül proje yönetimi sunuyoruz."
+          "Bir organizasyonun başarısı yalnızca etkinlik günüyle ölçülmez.",
+          "Gerçek başarı; doğru planlama, etkili koordinasyon, kontrollü bütçe yönetimi, profesyonel uygulama ve detaylı raporlama süreçlerinin tamamında ortaya çıkar.",
+          "SD Kongre olarak müşterilerimize yalnızca bir hizmet sağlayıcı değil, organizasyonun her aşamasında yanında olan stratejik bir iş ortağı yaklaşımı sunuyoruz."
         ],
         "items": [
           {
             "title": "Tek Noktadan Yönetim",
-            "description": "Farklı tedarikçiler, farklı ekipler ve ayrı koordinasyon süreçleri yerine tüm organizasyon tek merkezden yönetilir.",
+            "description": "Tüm süreçler tek merkezden planlanır ve yönetilir. Böylece farklı tedarikçiler arasında koordinasyon kaybı yaşanmaz, süreçler daha hızlı ve daha kontrollü ilerler.",
             "icon": "network"
           },
           {
             "title": "Türkiye Genelinde Operasyon Gücü",
-            "description": "Ankara merkezli yapımız ve geniş çözüm ortağı ağımız sayesinde ülke genelinde aynı kalite standartlarında hizmet veriyoruz.",
+            "description": "Türkiye genelindeki çözüm ortaklarımız ve saha ekiplerimiz sayesinde organizasyonlarınızı nerede gerçekleştirirseniz gerçekleştirin aynı kalite standartlarıyla hizmet sunuyoruz.",
             "icon": "map"
           },
           {
             "title": "Teknoloji Destekli Süreçler",
-            "description": "Online kayıt sistemleri, QR kod uygulamaları, dijital davet çözümleri ve raporlama sistemleriyle süreçleri daha verimli yönetiyoruz.",
+            "description": "Online kayıt sistemleri, QR kod çözümleri, katılımcı panelleri, dijital raporlama sistemleri ve hibrit etkinlik altyapıları sayesinde süreçleri daha verimli hale getiriyoruz.",
             "icon": "cpu"
           },
           {
             "title": "Şeffaf Bütçe Yönetimi",
-            "description": "Harcamaların her aşaması kontrol altında tutulur ve düzenli raporlanır.",
+            "description": "Her harcama kalemi planlanır, izlenir ve raporlanır. Böylece bütçeniz üzerinde tam kontrol sağlarsınız.",
             "icon": "wallet"
           },
           {
             "title": "Deneyimli Uzman Kadro",
-            "description": "Alanında uzman proje yöneticileri, operasyon ekipleri ve teknik destek personelleri ile tüm süreçler profesyonel şekilde yürütülür.",
+            "description": "Yılların deneyimine sahip proje yöneticileri, operasyon uzmanları ve teknik ekiplerimizle süreçlerin her aşamasını profesyonel şekilde yönetiyoruz.",
             "icon": "users"
           },
           {
             "title": "Ölçülebilir Sonuçlar",
-            "description": "Her organizasyon sonunda detaylı raporlama sunularak yatırımın geri dönüşü analiz edilir.",
+            "description": "Her organizasyon sonrasında performans verileri, bütçe analizleri, katılımcı istatistikleri ve memnuniyet raporları sunarak yatırımınızın karşılığını somut verilerle ortaya koyuyoruz.",
             "icon": "chart"
           }
-        ]
+        ],
+        "heroImage": "/media/headers/neden-biz.webp"
       },
       "status": "published",
       "seo_json": {
         "title": "Neden Biz",
-        "description": "Her Detayı Yönetiyor, Her Süreci Kontrol Ediyoruz"
+        "description": "Sadece Organizasyon Yönetmiyoruz, Başarı Yönetiyoruz"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     }
   ],
   "services": [
@@ -315,337 +348,389 @@
       "locale": "tr",
       "title": "Lansman ve Kurumsal Etkinlikler",
       "slug": "lansman-ve-kurumsal-etkinlikler",
-      "summary": "Yeni ürün, hizmet veya marka tanıtımlarında hedef kitleniz üzerinde güçlü ve kalıcı etkiler bırakacak profesyonel etkinlikler tasarlıyoruz.",
+      "summary": "Markanızın Hikâyesini Etkileyici Bir Deneyime Dönüştürüyoruz.",
       "body_json": {
         "paragraphs": [
-          "Etkinlik konseptinin oluşturulmasından mekan seçimine, sahne tasarımından teknik altyapıya, davet süreçlerinden medya koordinasyonuna kadar tüm organizasyon detaylarını yönetiyoruz.",
-          "Markanızın kurumsal kimliğini ve mesajını doğru şekilde yansıtan etkinlik deneyimleri sunuyoruz."
+          "Yeni bir ürünün, hizmetin veya markanın pazara sunulması, kurumunuz için kritik öneme sahip stratejik bir adımdır. İlk izlenimlerin güçlü olduğu, hedef kitlenin markanızla duygusal bağ kurduğu bu süreçte profesyonel organizasyon yönetimi büyük fark yaratır.",
+          "SD Kongre olarak markanızın vizyonunu, kurumsal kimliğini ve vermek istediği mesajı analiz ederek hedef kitleniz üzerinde güçlü etki bırakacak etkinlikler tasarlıyoruz.",
+          "Etkinliğin ilk konsept çalışmasından son misafir uğurlanana kadar tüm süreçleri titizlikle yönetiyoruz.",
+          "Amacımız yalnızca bir etkinlik düzenlemek değil; markanızın hedef kitlesiyle güçlü bağ kurmasını sağlayan unutulmaz deneyimler oluşturmaktır."
         ],
-        "features": []
+        "features": [],
+        "imageUrl": "/media/services/physical/lansman-ve-kurumsal-etkinlikler.webp",
+        "imageAlt": "Lansman ve Kurumsal Etkinlikler hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "sparkles",
       "order_no": 1,
       "status": "published",
       "seo_json": {
         "title": "Lansman ve Kurumsal Etkinlikler",
-        "description": "Yeni ürün, hizmet veya marka tanıtımlarında hedef kitleniz üzerinde güçlü ve kalıcı etkiler bırakacak profesyonel etkinlikler tasarlıyoruz."
+        "description": "Markanızın Hikâyesini Etkileyici Bir Deneyime Dönüştürüyoruz."
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "physical",
       "locale": "tr",
       "title": "Kongre Organizasyonları",
       "slug": "kongre-organizasyonlari",
-      "summary": "Bilimsel, akademik, mesleki ve sektörel kongrelerin tüm süreçlerini profesyonel standartlarda yönetiyoruz.",
+      "summary": "Organizasyonlarınızda profesyonel yönetim anlayışıyla mükemmel sonuçlar hedefliyoruz.",
       "body_json": {
-        "paragraphs": [],
-        "features": [
-          "Bilimsel kurul koordinasyonu",
-          "Kongre sekretaryası",
-          "Katılımcı yönetimi",
-          "Bildiri yönetim sistemleri",
-          "Konuşmacı koordinasyonu",
-          "Sponsorluk yönetimi",
-          "Kayıt sistemleri",
-          "Konaklama planlaması",
-          "Teknik altyapı yönetimi",
-          "Sergi alanı organizasyonu",
-          "Bütçe ve raporlama süreçleri"
-        ]
+        "paragraphs": [
+          "Kongre organizasyonları, yüksek katılımcı sayısı, çok paydaşlı yapısı ve detaylı operasyon süreçleri nedeniyle profesyonel yönetim gerektiren etkinliklerdir.",
+          "SD Kongre olarak ulusal ve uluslararası kongrelerin tüm planlama ve uygulama süreçlerini uzman ekiplerimizle yönetiyor, akademik ve bilimsel organizasyonların başarıyla yürütülmesini sağlıyoruz.",
+          "Bilimsel kurulların koordinasyonundan sponsorluk yönetimine, kayıt sistemlerinden katılımcı deneyimine kadar tüm süreçleri tek merkezden kontrol ediyoruz.",
+          "Kongrenizin akademik başarısını destekleyen, katılımcı deneyimini güçlendiren ve kurumsal itibarınızı yükselten profesyonel çözümler sunuyoruz."
+        ],
+        "features": [],
+        "imageUrl": "/media/services/physical/kongre-organizasyonlari.webp",
+        "imageAlt": "Kongre Organizasyonları hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "presentation",
       "order_no": 2,
       "status": "published",
       "seo_json": {
         "title": "Kongre Organizasyonları",
-        "description": "Bilimsel, akademik, mesleki ve sektörel kongrelerin tüm süreçlerini profesyonel standartlarda yönetiyoruz."
+        "description": "Organizasyonlarınızda profesyonel yönetim anlayışıyla mükemmel sonuçlar hedefliyoruz."
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "physical",
       "locale": "tr",
-      "title": "Toplantı  ve Sempozyum Yönetimi",
+      "title": "Toplantı ve Sempozyum Yönetimi",
       "slug": "toplanti-ve-sempozyum-yonetimi",
-      "summary": "Kurumsal toplantılar, eğitim seminerleri ve sempozyum organizasyonlarında verimlilik odaklı çözümler sunuyoruz.",
+      "summary": "Verimli, Kontrollü ve Hedef Odaklı Organizasyonlar için buradayız.",
       "body_json": {
         "paragraphs": [
-          "Katılımcı deneyimini artıran, kurumsal hedeflere katkı sağlayan profesyonel toplantı organizasyonları gerçekleştiriyoruz."
+          "Kurumsal toplantılar ve sempozyumlar, bilgi paylaşımının yanı sıra kurumların stratejik hedeflerine ulaşmasına katkı sağlayan önemli organizasyonlardır.",
+          "SD Kongre olarak toplantılarınızın her aşamasını planlıyor, katılımcı deneyimini artıran ve operasyonel verimliliği sağlayan profesyonel çözümler geliştiriyoruz.",
+          "İster küçük ölçekli yönetici toplantıları ister yüzlerce kişinin katıldığı kapsamlı sempozyumlar olsun; organizasyonun tüm süreçlerini eksiksiz şekilde yönetiyoruz."
         ],
-        "features": []
+        "features": [],
+        "imageUrl": "/media/services/physical/toplanti-ve-sempozyum-yonetimi.webp",
+        "imageAlt": "Toplantı ve Sempozyum Yönetimi hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "messages",
       "order_no": 3,
       "status": "published",
       "seo_json": {
-        "title": "Toplantı  ve Sempozyum Yönetimi",
-        "description": "Kurumsal toplantılar, eğitim seminerleri ve sempozyum organizasyonlarında verimlilik odaklı çözümler sunuyoruz."
+        "title": "Toplantı ve Sempozyum Yönetimi",
+        "description": "Verimli, Kontrollü ve Hedef Odaklı Organizasyonlar için buradayız."
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "physical",
       "locale": "tr",
       "title": "Workshop Organizasyonları",
       "slug": "workshop-organizasyonlari",
-      "summary": "Katılımcı etkileşiminin yüksek olduğu workshop ve eğitim etkinliklerinde tüm operasyonel süreçleri planlıyor ve yönetiyoruz.",
+      "summary": "Etkileşimi ve Öğrenmeyi Güçlendiren Profesyonel Çözümler sunmak için her türlü talebinizi eksiksiz olarak yönetiyoruz.",
       "body_json": {
         "paragraphs": [
-          "Mekan planlaması, teknik ekipman tedariği, kayıt süreçleri ve saha yönetimi eksiksiz olarak yürütülmektedir."
+          "Workshop ve eğitim etkinlikleri, katılımcılarla doğrudan etkileşim kurulmasını sağlayan özel organizasyonlardır. Bu tür etkinliklerde teknik detaylar ve operasyonel süreçlerin kusursuz yönetimi büyük önem taşır.",
+          "SD Kongre olarak eğitim ve workshop organizasyonlarında verimli öğrenme ortamları oluşturuyor, katılımcı deneyimini üst seviyeye taşıyoruz."
         ],
-        "features": []
+        "features": [],
+        "imageUrl": "/media/services/physical/workshop-organizasyonlari.webp",
+        "imageAlt": "Workshop Organizasyonları hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "workflow",
       "order_no": 4,
       "status": "published",
       "seo_json": {
         "title": "Workshop Organizasyonları",
-        "description": "Katılımcı etkileşiminin yüksek olduğu workshop ve eğitim etkinliklerinde tüm operasyonel süreçleri planlıyor ve yönetiyoruz."
+        "description": "Etkileşimi ve Öğrenmeyi Güçlendiren Profesyonel Çözümler sunmak için her türlü talebinizi eksiksiz olarak yönetiyoruz."
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "physical",
       "locale": "tr",
       "title": "Fuar ve Sergi Organizasyonları",
       "slug": "fuar-ve-sergi-organizasyonlari",
-      "summary": "Markanızın görünürlüğünü artıracak fuar ve sergi organizasyonlarını yaratıcı çözümlerle destekliyoruz.",
+      "summary": "Markanızı Daha Fazla Kişiyle Buluşturuyoruz",
       "body_json": {
         "paragraphs": [
-          "Stand tasarımlarından teknik kurulumlara, ziyaretçi yönetiminden operasyonel koordinasyona kadar tüm süreçler kontrol altında tutulmaktadır."
+          "Fuarlar ve sergiler, markaların görünürlüğünü artırdığı, potansiyel müşterilerle doğrudan iletişim kurduğu ve sektördeki konumunu güçlendirdiği önemli platformlardır.",
+          "SD Kongre olarak yaratıcı tasarım anlayışını profesyonel operasyon yönetimiyle birleştirerek markanızın hedef kitlesi üzerinde güçlü etki yaratmasını sağlıyoruz."
         ],
-        "features": []
+        "features": [],
+        "imageUrl": "/media/services/physical/fuar-ve-sergi-organizasyonlari.webp",
+        "imageAlt": "Fuar ve Sergi Organizasyonları hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "landmark",
       "order_no": 5,
       "status": "published",
       "seo_json": {
         "title": "Fuar ve Sergi Organizasyonları",
-        "description": "Markanızın görünürlüğünü artıracak fuar ve sergi organizasyonlarını yaratıcı çözümlerle destekliyoruz."
+        "description": "Markanızı Daha Fazla Kişiyle Buluşturuyoruz"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "physical",
       "locale": "tr",
       "title": "Seyahat ve Konaklama Yönetimi",
       "slug": "seyahat-ve-konaklama-yonetimi",
-      "summary": "Katılımcı, konuşmacı ve davetlilerin tüm seyahat süreçlerini profesyonel biçimde planlıyoruz.",
+      "summary": "Katılımcılarınız İçin Kusursuz Seyahat Deneyimi",
       "body_json": {
-        "paragraphs": [],
-        "features": [
-          "Uçak bileti organizasyonu",
-          "Otel rezervasyonları",
-          "VIP konaklama çözümleri",
-          "Grup rezervasyonları",
-          "Karşılama hizmetleri",
-          "Transfer koordinasyonu"
-        ]
+        "paragraphs": [
+          "Başarılı bir organizasyonun temel unsurlarından biri de katılımcıların seyahat ve konaklama süreçlerinin eksiksiz yönetilmesidir.",
+          "SD Kongre olarak konuşmacılar, davetliler, protokol üyeleri ve katılımcılar için profesyonel seyahat planlaması gerçekleştiriyor, tüm süreçlerin sorunsuz ilerlemesini sağlıyoruz.",
+          "Katılımcılarınızın etkinliğe odaklanmasını sağlıyor, tüm lojistik detayları sizin yerinize yönetiyoruz."
+        ],
+        "features": [],
+        "imageUrl": "/media/services/physical/seyahat-ve-konaklama-yonetimi.webp",
+        "imageAlt": "Seyahat ve Konaklama Yönetimi hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "hotel",
       "order_no": 6,
       "status": "published",
       "seo_json": {
         "title": "Seyahat ve Konaklama Yönetimi",
-        "description": "Katılımcı, konuşmacı ve davetlilerin tüm seyahat süreçlerini profesyonel biçimde planlıyoruz."
+        "description": "Katılımcılarınız İçin Kusursuz Seyahat Deneyimi"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "physical",
       "locale": "tr",
-      "title": "Transfer ve lojistik Yönetimi",
+      "title": "Transfer ve Lojistik Yönetimi",
       "slug": "transfer-ve-lojistik-yonetimi",
-      "summary": "Etkinliklerin görünmeyen ancak en kritik süreçlerinden biri olan lojistik yönetimini profesyonel ekiplerle yürütüyoruz.",
+      "summary": "Organizasyonun Görünmeyen Gücünü Yönetiyoruz",
       "body_json": {
         "paragraphs": [
-          "Katılımcı transferlerinden ekipman taşımalarına kadar tüm süreçler detaylı planlarla yönetilmektedir."
+          "Organizasyonların başarısında lojistik süreçler kritik rol oynar. Doğru planlanmamış transfer ve lojistik operasyonları, etkinliğin genel başarısını doğrudan etkileyebilir.",
+          "SD Kongre olarak tüm lojistik süreçleri detaylı operasyon planları doğrultusunda yürütüyor, katılımcı hareketlerini ve ekipman akışını kusursuz şekilde yönetiyoruz."
         ],
-        "features": []
+        "features": [],
+        "imageUrl": "/media/services/physical/transfer-ve-lojistik-yonetimi.webp",
+        "imageAlt": "Transfer ve Lojistik Yönetimi hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "bus",
       "order_no": 7,
       "status": "published",
       "seo_json": {
-        "title": "Transfer ve lojistik Yönetimi",
-        "description": "Etkinliklerin görünmeyen ancak en kritik süreçlerinden biri olan lojistik yönetimini profesyonel ekiplerle yürütüyoruz."
+        "title": "Transfer ve Lojistik Yönetimi",
+        "description": "Organizasyonun Görünmeyen Gücünü Yönetiyoruz"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "physical",
       "locale": "tr",
       "title": "Tedarikçi ve Operasyon Yönetimi",
       "slug": "tedarikci-ve-operasyon-yonetimi",
-      "summary": "Organizasyon başarısının temelinde doğru tedarikçi seçimi yer alır.",
+      "summary": "Doğru İş Ortaklarıyla Kusursuz Sonuçlar",
       "body_json": {
         "paragraphs": [
-          "SD Kongre olarak teknik ekiplerden catering hizmetlerine, dekorasyon firmalarından ulaşım sağlayıcılarına kadar tüm tedarikçi yönetimini gerçekleştiriyoruz."
+          "Organizasyonların başarısı yalnızca iyi bir planlamaya değil, aynı zamanda doğru tedarikçilerin etkin şekilde yönetilmesine bağlıdır.",
+          "SD Kongre olarak yıllar içerisinde oluşturduğumuz güçlü iş ortaklığı ağı sayesinde organizasyonun ihtiyaç duyduğu tüm hizmetleri kalite standartları çerçevesinde yönetiyoruz.",
+          "Teknik ekiplerden dekorasyon firmalarına, catering hizmetlerinden ulaşım sağlayıcılarına kadar tüm tedarikçilerin seçimi, koordinasyonu ve performans takibini gerçekleştiriyoruz.",
+          "SD Kongre ile çalıştığınızda yalnızca bir organizasyon firmasıyla değil; onlarca farklı süreci sizin adınıza yöneten, riskleri azaltan ve etkinliğinizin başarısını güvence altına alan profesyonel bir proje yönetim ekibiyle çalışmış olursunuz. Bu sayede siz hedeflerinize odaklanırken, biz organizasyonunuzun her detayını kusursuz şekilde yönetiriz."
         ],
-        "features": []
+        "features": [],
+        "imageUrl": "/media/services/physical/tedarikci-ve-operasyon-yonetimi.webp",
+        "imageAlt": "Tedarikçi ve Operasyon Yönetimi hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "clipboard",
       "order_no": 8,
       "status": "published",
       "seo_json": {
         "title": "Tedarikçi ve Operasyon Yönetimi",
-        "description": "Organizasyon başarısının temelinde doğru tedarikçi seçimi yer alır."
+        "description": "Doğru İş Ortaklarıyla Kusursuz Sonuçlar"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "digital",
       "locale": "tr",
       "title": "Katılımcı ve Kayıt Yönetimi",
       "slug": "katilimci-ve-kayit-yonetimi",
-      "summary": "Katılımcı kayıt süreçlerini tamamen dijital ortama taşıyarak zaman kaybını ve operasyonel yükü azaltıyoruz.",
+      "summary": "Katılımcı Deneyimini Başlangıç Noktasında Güçlendiriyoruz",
       "body_json": {
         "paragraphs": [
-          "Katılım formları, ödeme sistemleri, kayıt takibi ve anlık raporlama tek platform üzerinden yönetilmektedir."
+          "Bir organizasyonun başarısı, katılımcının ilk kayıt işlemiyle başlar. Karmaşık ve zaman alan kayıt süreçleri hem katılımcı memnuniyetini düşürür hem de organizasyon ekibine ek operasyonel yük oluşturur.",
+          "SD Kongre tarafından geliştirilen dijital kayıt sistemleri sayesinde katılımcılar hızlı ve kolay şekilde kayıt oluşturabilirken organizasyon ekipleri de tüm süreci anlık olarak takip edebilmektedir.",
+          "Sağladığımız çözümler; online kayıt sistemleri, kişiselleştirilebilir katılım formları, online ödeme entegrasyonları, katılımcı veri yönetimi ve dijital check-in çözümleridir.",
+          "Bu sayede kayıt süreçleri daha hızlı ilerlerken hata oranları minimum seviyeye indirilmektedir."
         ],
-        "features": []
+        "features": [],
+        "imageUrl": "/media/services/digital/katilimci-ve-kayit-yonetimi.webp",
+        "imageAlt": "Katılımcı ve Kayıt Yönetimi hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "user-check",
       "order_no": 1,
       "status": "published",
       "seo_json": {
         "title": "Katılımcı ve Kayıt Yönetimi",
-        "description": "Katılımcı kayıt süreçlerini tamamen dijital ortama taşıyarak zaman kaybını ve operasyonel yükü azaltıyoruz."
+        "description": "Katılımcı Deneyimini Başlangıç Noktasında Güçlendiriyoruz"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "digital",
       "locale": "tr",
       "title": "Dijital Altyapı ve Etkinlik Teknolojileri",
       "slug": "dijital-altyapi-ve-etkinlik-teknolojileri",
-      "summary": "Modern organizasyonların ihtiyaç duyduğu tüm teknolojik çözümleri sunuyoruz.",
+      "summary": "Organizasyonlarınızı Geleceğin Teknolojileriyle Güçlendiriyoruz",
       "body_json": {
-        "paragraphs": [],
-        "features": [
-          "Kayıt yazılımları",
-          "Mobil uygulamalar",
-          "Canlı yayın sistemleri",
-          "Hibrit etkinlik çözümleri",
-          "Katılımcı yönetim panelleri"
-        ]
+        "paragraphs": [
+          "Günümüz etkinlik dünyasında teknoloji artık bir tercih değil, bir gereklilik haline gelmiştir. SD Kongre olarak organizasyonlarınıza yenilikçi teknolojiler entegre ederek katılımcı deneyimini artırıyor, operasyonel yönetimi kolaylaştırıyor ve organizasyon performansını üst seviyeye taşıyoruz.",
+          "Sunulan teknolojik çözümler; kayıt ve yönetim yazılımları, canlı yayın sistemleri, online katılım altyapıları, hibrit etkinlik çözümleri, etkinlik web siteleri, dijital sponsorluk alanları, etkileşim ve geri bildirim sistemleridir.",
+          "Teknoloji destekli çözümlerimiz sayesinde hem fiziksel hem dijital katılımcılar için kesintisiz etkinlik deneyimi sunuyoruz."
+        ],
+        "features": [],
+        "imageUrl": "/media/services/digital/dijital-altyapi-ve-etkinlik-teknolojileri.webp",
+        "imageAlt": "Dijital Altyapı ve Etkinlik Teknolojileri hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "monitor",
       "order_no": 2,
       "status": "published",
       "seo_json": {
         "title": "Dijital Altyapı ve Etkinlik Teknolojileri",
-        "description": "Modern organizasyonların ihtiyaç duyduğu tüm teknolojik çözümleri sunuyoruz."
+        "description": "Organizasyonlarınızı Geleceğin Teknolojileriyle Güçlendiriyoruz"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "digital",
       "locale": "tr",
       "title": "QR Kod ve Yaka Kart Sistemleri",
       "slug": "qr-kod-ve-yaka-kart-sistemleri",
-      "summary": "Katılımcı girişlerini hızlandıran ve hata oranını en aza indiren dijital kontrol sistemleri sağlıyoruz.",
+      "summary": "Hızlı, Güvenli ve Temassız Katılım Yönetimi",
       "body_json": {
         "paragraphs": [
-          "QR kod entegrasyonlu yaka kartları sayesinde anlık giriş takibi ve raporlama yapılabilmektedir."
+          "Yüksek katılımcı sayısına sahip etkinliklerde giriş süreçlerinin hızlı ve hatasız yönetilmesi büyük önem taşır. QR kod entegrasyonlu dijital kontrol sistemlerimiz sayesinde katılımcı girişleri saniyeler içerisinde gerçekleştirilebilir ve tüm süreç anlık olarak izlenebilir.",
+          "Bu sistemler sayesinde organizasyonlar daha kontrollü, güvenli ve profesyonel şekilde yönetilmektedir."
         ],
-        "features": []
+        "features": [],
+        "imageUrl": "/media/services/digital/qr-kod-ve-yaka-kart-sistemleri.webp",
+        "imageAlt": "QR Kod ve Yaka Kart Sistemleri hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "qr",
       "order_no": 3,
       "status": "published",
       "seo_json": {
         "title": "QR Kod ve Yaka Kart Sistemleri",
-        "description": "Katılımcı girişlerini hızlandıran ve hata oranını en aza indiren dijital kontrol sistemleri sağlıyoruz."
+        "description": "Hızlı, Güvenli ve Temassız Katılım Yönetimi"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "digital",
       "locale": "tr",
       "title": "Online Davet ve İletişim Yönetimi",
       "slug": "online-davet-ve-iletisim-yonetimi",
-      "summary": "Profesyonel tasarıma sahip dijital davet sistemleri ve toplu iletişim çözümleri ile katılımcılarla etkin iletişim kuruyoruz.",
+      "summary": "Katılımcılarınızla Güçlü ve Kesintisiz İletişim Kurun",
       "body_json": {
-        "paragraphs": [],
-        "features": []
+        "paragraphs": [
+          "Organizasyon başarısında doğru iletişim stratejileri kritik rol oynar. Katılımcılarla zamanında ve etkili iletişim kurulması, katılım oranlarını doğrudan etkileyen faktörlerden biridir.",
+          "SD Kongre olarak davet süreçlerini dijital platformlara taşıyor, profesyonel tasarımlı iletişim sistemleri ile hedef kitlenizle güçlü bağlar kurmanızı sağlıyoruz."
+        ],
+        "features": [],
+        "imageUrl": "/media/services/digital/online-davet-ve-iletisim-yonetimi.webp",
+        "imageAlt": "Online Davet ve İletişim Yönetimi hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "mail",
       "order_no": 4,
       "status": "published",
       "seo_json": {
         "title": "Online Davet ve İletişim Yönetimi",
-        "description": "Profesyonel tasarıma sahip dijital davet sistemleri ve toplu iletişim çözümleri ile katılımcılarla etkin iletişim kuruyoruz."
+        "description": "Katılımcılarınızla Güçlü ve Kesintisiz İletişim Kurun"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "digital",
       "locale": "tr",
       "title": "Organizasyon Takip Sistemleri",
       "slug": "organizasyon-takip-sistemleri",
-      "summary": "Tüm proje süreçleri dijital olarak izlenebilir hale getirilir.",
+      "summary": "Projenizin Her Aşamasını Gerçek Zamanlı Olarak Yönetin",
       "body_json": {
         "paragraphs": [
-          "Bu sayede organizasyonun hangi aşamada olduğu gerçek zamanlı olarak takip edilebilir."
+          "Büyük ölçekli organizasyonlarda onlarca farklı sürecin eş zamanlı yürütülmesi gerekmektedir.",
+          "SD Kongre tarafından kullanılan dijital proje takip sistemleri sayesinde organizasyonun hangi aşamada olduğu, hangi görevlerin tamamlandığı ve hangi süreçlerin devam ettiği anlık olarak görüntülenebilmektedir.",
+          "Bu yapı sayesinde müşterilerimiz süreçler üzerinde tam görünürlük elde ederken proje yönetimi daha kontrollü hale gelmektedir."
         ],
-        "features": []
+        "features": [],
+        "imageUrl": "/media/services/digital/organizasyon-takip-sistemleri.webp",
+        "imageAlt": "Organizasyon Takip Sistemleri hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "list-checks",
       "order_no": 5,
       "status": "published",
       "seo_json": {
         "title": "Organizasyon Takip Sistemleri",
-        "description": "Tüm proje süreçleri dijital olarak izlenebilir hale getirilir."
+        "description": "Projenizin Her Aşamasını Gerçek Zamanlı Olarak Yönetin"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "digital",
       "locale": "tr",
       "title": "Veri ve Raporlama Sistemleri",
       "slug": "veri-ve-raporlama-sistemleri",
-      "summary": "Etkinlik sonunda yalnızca organizasyonu tamamlamıyor, ölçülebilir sonuçlar da sunuyoruz.",
+      "summary": "Organizasyonlarınızı Verilerle Ölçülebilir Hale Getiriyoruz",
       "body_json": {
-        "paragraphs": [],
-        "features": [
-          "Katılımcı analizleri",
-          "Katılım oranları",
-          "Operasyon raporları",
-          "Bütçe raporları",
-          "Performans değerlendirmeleri"
-        ]
+        "paragraphs": [
+          "Başarılı organizasyonlar yalnızca uygulanan değil, analiz edilen organizasyonlardır.",
+          "Bu nedenle etkinlik sonunda kapsamlı veri analizleri ve profesyonel raporlama hizmetleri sunuyoruz.",
+          "Elde edilen veriler sayesinde kurumlar yatırım geri dönüşlerini değerlendirebilir, güçlü yönlerini görebilir ve gelecekteki projelerini daha verimli planlayabilir."
+        ],
+        "features": [],
+        "imageUrl": "/media/services/digital/veri-ve-raporlama-sistemleri.webp",
+        "imageAlt": "Veri ve Raporlama Sistemleri hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "chart",
       "order_no": 6,
       "status": "published",
       "seo_json": {
         "title": "Veri ve Raporlama Sistemleri",
-        "description": "Etkinlik sonunda yalnızca organizasyonu tamamlamıyor, ölçülebilir sonuçlar da sunuyoruz."
+        "description": "Organizasyonlarınızı Verilerle Ölçülebilir Hale Getiriyoruz"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     },
     {
       "category": "digital",
       "locale": "tr",
       "title": "Veri Güvenliği ve Merkezi Yönetim",
       "slug": "veri-guvenligi-ve-merkezi-yonetim",
-      "summary": "Tüm katılımcı verileri güvenli sunucularda saklanmakta ve KVKK hükümlerine uygun şekilde işlenmektedir.",
+      "summary": "Verilerinizi En Yüksek Güvenlik Standartlarıyla Koruyoruz",
       "body_json": {
         "paragraphs": [
-          "Kurumsal verileriniz en yüksek güvenlik standartlarıyla korunmaktadır."
+          "Dijitalleşmenin en önemli unsurlarından biri veri güvenliğidir.",
+          "SD Kongre olarak tüm katılımcı ve kurumsal verileri güvenli altyapılarda saklıyor, KVKK ve ilgili mevzuat hükümlerine uygun şekilde işliyoruz.",
+          "Veri güvenliğini yalnızca teknik bir gereklilik değil, kurumsal sorumluluğumuzun ayrılmaz bir parçası olarak görüyoruz. Güvenlik yaklaşımımız; KVKK uyumlu veri yönetimi, yetkilendirilmiş erişim sistemleri, güvenli veri saklama altyapıları, merkezi yönetim panelleri ve veri erişim kontrol mekanizmalarından oluşmaktadır."
         ],
-        "features": []
+        "features": [],
+        "imageUrl": "/media/services/digital/veri-guvenligi-ve-merkezi-yonetim.webp",
+        "imageAlt": "Veri Güvenliği ve Merkezi Yönetim hizmetini temsil eden görsel",
+        "animation": "fade"
       },
       "icon": "shield",
       "order_no": 7,
       "status": "published",
       "seo_json": {
         "title": "Veri Güvenliği ve Merkezi Yönetim",
-        "description": "Tüm katılımcı verileri güvenli sunucularda saklanmakta ve KVKK hükümlerine uygun şekilde işlenmektedir."
+        "description": "Verilerinizi En Yüksek Güvenlik Standartlarıyla Koruyoruz"
       },
-      "published_at": "2026-08-04T00:00:00.000Z"
+      "published_at": "2026-08-06T00:00:00.000Z"
     }
   ],
   "processSteps": [

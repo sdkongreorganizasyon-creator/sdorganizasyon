@@ -310,18 +310,35 @@ function resolveNavigation(value: unknown): readonly ResolvedNavigationItem[] {
     const savedChildrenByHref = new Map(
       (saved.children ?? []).map((child) => [child.href, child]),
     );
-    const mergedChildren = defaultChildren.map((child) => ({
-      ...child,
-      ...(savedChildrenById.get(child.id) ??
-        savedChildrenByHref.get(child.href) ??
-        {}),
-    }));
+    const mergedChildren = defaultChildren.map((child) => {
+      const savedChild =
+        savedChildrenById.get(child.id) ??
+        savedChildrenByHref.get(child.href);
+
+      if (fallback.id === "corporate") {
+        return {
+          ...child,
+          visible: savedChild?.visible ?? child.visible,
+        };
+      }
+
+      return {
+        ...child,
+        ...(savedChild ?? {}),
+      };
+    });
     const knownChildIds = new Set(defaultChildren.map((child) => child.id));
     const knownChildHrefs = new Set(defaultChildren.map((child) => child.href));
 
     return {
       ...fallback,
       ...saved,
+      ...(fallback.id === "corporate"
+        ? {
+            label: fallback.label,
+            href: fallback.href,
+          }
+        : {}),
       children: [
         ...mergedChildren,
         ...(saved.children ?? []).filter(
@@ -677,14 +694,13 @@ export const fallbackSiteSettings: ResolvedSiteSettings = {
     primaryButtonLabel: "HİZMETLERİMİZİ KEŞFET",
     primaryButtonUrl: "/hizmetlerimiz",
     secondaryButtonLabel: "BİZİ TANIYIN",
-    secondaryButtonUrl: "/kurumsal",
+    secondaryButtonUrl: "/kurumsal/hakkimizda",
     poster: siteConfig.hero.poster || approvedHeroPoster,
     desktopVideo: siteConfig.hero.desktopVideo,
     mobileVideo: siteConfig.hero.mobileVideo,
   },
   footer: {
-    description:
-      "Ulusal ve uluslararası kongre, toplantı ve etkinlik organizasyonlarında planlamadan uygulamaya profesyonel çözümler sunuyoruz.",
+    description: "Doğru İş Ortakları ile Kusursuz Sonuçlar",
     copyrightText: "SDKONGRE Organizasyon Hizmetleri. Tüm hakları saklıdır.",
     showQuickMenu: true,
     showLegalLinks: true,

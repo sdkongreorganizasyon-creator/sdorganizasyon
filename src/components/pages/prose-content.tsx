@@ -10,7 +10,7 @@ type ProseContentProps = Readonly<{
 export function ProseContent({ paragraphs, aside }: ProseContentProps) {
   return (
     <section className="content-section">
-      <div className="container content-layout">
+      <div className={`container content-layout${aside ? "" : " content-layout--single"}`}>
         <div className="prose">
           {paragraphs.map((paragraph, index) => (
             <Reveal delay={index * 0.04} key={`${paragraph.slice(0, 30)}-${index}`}>

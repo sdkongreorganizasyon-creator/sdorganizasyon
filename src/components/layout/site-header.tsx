@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -43,11 +43,35 @@ export function SiteHeader({
         </Link>
 
         <nav className="site-header__desktop-nav" aria-label="Ana menü">
-          {desktopNavigation.map((item) => (
-            <Link href={item.href} key={item.id}>
-              {item.label}
-            </Link>
-          ))}
+          {desktopNavigation.map((item) => {
+            const visibleChildren = item.children?.filter(
+              (child) => child.visible,
+            );
+
+            if (item.id === "corporate" && visibleChildren?.length) {
+              return (
+                <details className="site-header__dropdown" key={item.id}>
+                  <summary>
+                    <span>{item.label}</span>
+                    <ChevronDown aria-hidden="true" size={14} />
+                  </summary>
+                  <div className="site-header__dropdown-menu">
+                    {visibleChildren.map((child) => (
+                      <Link href={child.href} key={child.id}>
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              );
+            }
+
+            return (
+              <Link href={item.href} key={item.id}>
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="site-header__actions">
