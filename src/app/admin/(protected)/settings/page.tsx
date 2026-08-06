@@ -8,12 +8,13 @@ import {
   isSupabaseAdminConfigured,
   isSupabaseConfigured,
 } from "@/lib/supabase/config";
+import { getAdminMediaOptions } from "@/lib/cms/media-options";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function AdminSettingsPage() {
   const supabase = await createClient();
 
-  const [{ data: published, error }, { data: draft }, { data: media }] =
+  const [{ data: published, error }, { data: draft }, availableMedia] =
     await Promise.all([
       supabase
         .from("site_settings")
@@ -27,11 +28,7 @@ export default async function AdminSettingsPage() {
         .eq("key", "global_draft")
         .eq("locale", "tr")
         .maybeSingle(),
-      supabase
-        .from("media_assets")
-        .select("id,bucket,path,file_name,mime_type")
-        .order("created_at", { ascending: false })
-        .limit(200),
+      getAdminMediaOptions(200),
     ]);
 
   const settings = draft?.value_json
@@ -42,30 +39,11 @@ export default async function AdminSettingsPage() {
         ? fallbackSiteSettings
         : await getResolvedSiteSettings();
 
-  const mediaOptions = [
-    {
-      label: "Orijinal SDKONGRE Logo",
-      value: "/brand/sdkongre-logo-web.png",
-      type: "image/png",
-    },
-    {
-      label: "SDKONGRE 8K Logo",
-      value: "/brand/sdkongre-logo-8k.png",
-      type: "image/png",
-    },
-    {
-      label: "Onaylı Ana Sayfa Hero",
-      value: "/media/home/sdkongre-approved-hero.webp",
-      type: "image/webp",
-    },
-    ...(media ?? []).map((item) => ({
-      label: item.file_name || item.path,
-      value: supabase.storage
-        .from(item.bucket)
-        .getPublicUrl(item.path).data.publicUrl,
-      type: item.mime_type || "application/octet-stream",
-    })),
-  ];
+  const mediaOptions = availableMedia.map((item) => ({
+    label: item.label,
+    value: item.url,
+    type: item.mimeType || "application/octet-stream",
+  }));
 
   return (
     <SettingsForm

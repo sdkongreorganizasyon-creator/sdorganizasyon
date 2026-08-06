@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
 import type { ServiceContent } from "@/types/content";
 
@@ -18,7 +19,13 @@ export function ServiceCard({ service }: ServiceCardProps) {
   const style = {
     background: service.cardBackground || undefined,
     color: service.textColor || undefined,
-  };
+    "--service-card-padding-local":
+      service.cardPadding !== undefined ? `${service.cardPadding}px` : undefined,
+    "--service-media-height-local":
+      service.mediaHeight !== undefined ? `${service.mediaHeight}px` : undefined,
+    "--service-card-gap-local":
+      service.contentGap !== undefined ? `${service.contentGap}px` : undefined,
+  } as CSSProperties;
 
   return (
     <article

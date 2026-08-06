@@ -117,6 +117,12 @@ export function EntityForm({
     typeof content.cardBackground === "string" ? content.cardBackground : "#0b1c2b";
   const serviceTextColor =
     typeof content.textColor === "string" ? content.textColor : "#ffffff";
+  const serviceCardPadding =
+    typeof content.cardPadding === "number" ? content.cardPadding : 18;
+  const serviceMediaHeight =
+    typeof content.mediaHeight === "number" ? content.mediaHeight : 220;
+  const serviceContentGap =
+    typeof content.contentGap === "number" ? content.contentGap : 12;
   const imageOptions = mediaOptions.filter((item) =>
     item.type.startsWith("image"),
   );
@@ -208,7 +214,6 @@ export function EntityForm({
             label="Başlık"
             name="title"
             defaultValue={record.title}
-            required
           />
 
           {entity === "pages" ? (
@@ -254,7 +259,6 @@ export function EntityForm({
                   name="serviceSlug"
                   defaultValue={record.slug ?? ""}
                   hint="Örnek: kongre-organizasyonlari"
-                  required
                 />
                 <TextInput
                   label="Sıra"
@@ -374,6 +378,30 @@ export function EntityForm({
                     defaultValue={serviceTextColor}
                   />
                 </label>
+                <TextInput
+                  label="Kart İç Boşluğu (px)"
+                  name="serviceCardPadding"
+                  type="number"
+                  min={0}
+                  max={120}
+                  defaultValue={serviceCardPadding}
+                />
+                <TextInput
+                  label="Görsel / Video Yüksekliği (px)"
+                  name="serviceMediaHeight"
+                  type="number"
+                  min={120}
+                  max={900}
+                  defaultValue={serviceMediaHeight}
+                />
+                <TextInput
+                  label="İçerik Öğeleri Arası Boşluk (px)"
+                  name="serviceContentGap"
+                  type="number"
+                  min={0}
+                  max={120}
+                  defaultValue={serviceContentGap}
+                />
               </div>
               <TextInput
                 label="Görsel Alt Metni"
@@ -412,7 +440,6 @@ export function EntityForm({
                   </div>
                 )}
                 <div>
-                  <span>{record.orderNo ?? "—"}</span>
                   <h3>{record.title}</h3>
                   <p>{record.summary}</p>
                 </div>

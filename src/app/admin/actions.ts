@@ -198,6 +198,9 @@ export async function saveGenericContentAction(
       animation: stringValue(formData, "serviceAnimation") || "fade",
       cardBackground: stringValue(formData, "serviceCardBackground"),
       textColor: stringValue(formData, "serviceTextColor"),
+      cardPadding: Number(stringValue(formData, "serviceCardPadding")) || 18,
+      mediaHeight: Number(stringValue(formData, "serviceMediaHeight")) || 220,
+      contentGap: Number(stringValue(formData, "serviceContentGap")) || 12,
     };
   }
 
@@ -206,10 +209,16 @@ export async function saveGenericContentAction(
     title: parsed.data.seoTitle || null,
     description: parsed.data.seoDescription || null,
   };
+  const effectiveStatus =
+    intent === "publish" && parsed.data.status === "draft"
+      ? "published"
+      : parsed.data.status;
   const publishedAt =
-    intent === "publish" ? new Date().toISOString() : null;
+    intent === "publish" && effectiveStatus === "published"
+      ? new Date().toISOString()
+      : null;
   const scheduledAt =
-    parsed.data.status === "scheduled"
+    effectiveStatus === "scheduled"
       ? scheduledLocalToIso(parsed.data.scheduledAt ?? "")
       : null;
 
@@ -234,7 +243,7 @@ export async function saveGenericContentAction(
       eyebrow: parsed.data.eyebrow || null,
       summary: parsed.data.summary || null,
       content_json: contentJson,
-      status: parsed.data.status,
+      status: effectiveStatus,
       seo_json: seoJson,
       scheduled_at: scheduledAt,
       published_at: publishedAt,
@@ -246,7 +255,7 @@ export async function saveGenericContentAction(
       order_no: Number.isFinite(rawOrderNo) ? rawOrderNo : 0,
       summary: parsed.data.summary || null,
       body_json: contentJson,
-      status: parsed.data.status,
+      status: effectiveStatus,
       seo_json: seoJson,
       scheduled_at: scheduledAt,
       published_at: publishedAt,
@@ -256,7 +265,7 @@ export async function saveGenericContentAction(
       subtitle: parsed.data.subtitle || null,
       description: parsed.data.summary || null,
       content_json: contentJson,
-      status: parsed.data.status,
+      status: effectiveStatus,
       scheduled_at: scheduledAt,
     },
     legal_documents: {
@@ -264,7 +273,7 @@ export async function saveGenericContentAction(
       body_json: contentJson,
       version: parsed.data.version || "1.0",
       effective_date: parsed.data.effectiveDate || null,
-      status: parsed.data.status,
+      status: effectiveStatus,
       seo_json: seoJson,
       scheduled_at: scheduledAt,
       published_at: publishedAt,
@@ -962,6 +971,11 @@ export async function saveSettingsAction(
       container: stringValue(formData, "themeContainer"),
       headingScale: stringValue(formData, "themeHeadingScale"),
       bodyScale: stringValue(formData, "themeBodyScale"),
+      sectionSpacing: stringValue(formData, "themeSectionSpacing"),
+      cardPadding: stringValue(formData, "themeCardPadding"),
+      cardGap: stringValue(formData, "themeCardGap"),
+      contentGap: stringValue(formData, "themeContentGap"),
+      heroSpacing: stringValue(formData, "themeHeroSpacing"),
     },
     motion: {
       enabled: booleanValue(formData, "motionEnabled"),
@@ -973,24 +987,16 @@ export async function saveSettingsAction(
   });
 
   if (!parsed.success) {
+    const firstIssue = parsed.error.issues[0];
     return {
       success: false,
-      message: "Ayar alanlarını kontrol edin.",
+      message: firstIssue
+        ? `Ayar kaydedilemedi: ${firstIssue.path.join(".")} ${firstIssue.message}`
+        : "Ayarlar kaydedilemedi.",
       fieldErrors: parsed.error.flatten().fieldErrors as Record<
         string,
         string[] | undefined
       >,
-    };
-  }
-
-  const activeCount = parsed.data.homeValues.filter(
-    (item) => item.active,
-  ).length;
-
-  if (activeCount !== 5) {
-    return {
-      success: false,
-      message: "Ana sayfada tam olarak beş aktif kart bulunmalıdır.",
     };
   }
 

@@ -11,21 +11,27 @@ type LogoProps = Readonly<{
 }>;
 
 export function Logo({
+  variant = "light",
   compact = false,
   className,
   src,
   priority = false,
 }: LogoProps) {
-  const resolvedSrc =
-    src || (compact ? brandAssets.compactLogo : brandAssets.headerLogo);
+  const defaultSrc =
+    variant === "dark"
+      ? "/brand/sdkongre-logo-light.png"
+      : compact
+        ? brandAssets.compactLogo
+        : brandAssets.headerLogo;
+  const resolvedSrc = src || defaultSrc;
 
   return (
     <Image
       className={className}
       src={resolvedSrc}
       alt="SD Kongre Organizasyon Hizmetleri"
-      width={1424}
-      height={1172}
+      width={1509}
+      height={1042}
       priority={priority}
       sizes={compact ? "150px" : "280px"}
     />

@@ -26,7 +26,7 @@ export default async function DigitalServicesPage() {
     title: "Etkinlik Teknolojileri ve Dijital Çözümler",
     description:
       "Kayıt, iletişim, takip ve raporlama süreçlerini tek sayfada açıklamalarıyla birlikte inceleyin.",
-    image: "/media/pages/organizasyon-sureci.webp",
+    image: "/media/headers/dijital-hizmetler.webp",
     video: null,
     animation: "fade",
   });
@@ -40,6 +40,15 @@ export default async function DigitalServicesPage() {
         image={hero.image}
         video={hero.video}
         animation={hero.animation}
+        template={hero.template}
+        headingFont={hero.headingFont}
+        bodyFont={hero.bodyFont}
+        background={hero.background}
+        textColor={hero.textColor}
+        accentColor={hero.accentColor}
+        headingScale={hero.headingScale}
+        bodyScale={hero.bodyScale}
+        heroSpacing={hero.heroSpacing}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "DİJİTAL HİZMETLER" },

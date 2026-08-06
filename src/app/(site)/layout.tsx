@@ -64,6 +64,11 @@ export default async function SiteLayout({ children }: SiteLayoutProps) {
     "--site-section-title-min": `${1.8 * headingScale}rem`,
     "--site-section-title-max": `${3.6 * headingScale}rem`,
     "--site-body-scale": String(settings.theme.bodyScale),
+    "--site-section-spacing": `${settings.theme.sectionSpacing}px`,
+    "--site-card-padding": `${settings.theme.cardPadding}px`,
+    "--site-card-gap": `${settings.theme.cardGap}px`,
+    "--site-content-gap": `${settings.theme.contentGap}px`,
+    "--site-hero-spacing": `${settings.theme.heroSpacing}px`,
     "--site-motion-duration": `${settings.motion.duration}ms`,
   } as CSSProperties;
 

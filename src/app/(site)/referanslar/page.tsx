@@ -28,7 +28,7 @@ export default async function ReferencesPage() {
     eyebrow: "REFERANSLAR",
     title: referencesIntro.headline,
     description: referencesIntro.paragraphs.join(" "),
-    image: "/media/pages/referanslar.webp",
+    image: "/media/headers/referanslar.webp",
     video: null,
     animation: "fade",
   });
@@ -42,6 +42,15 @@ export default async function ReferencesPage() {
         image={hero.image}
         video={hero.video}
         animation={hero.animation}
+        template={hero.template}
+        headingFont={hero.headingFont}
+        bodyFont={hero.bodyFont}
+        background={hero.background}
+        textColor={hero.textColor}
+        accentColor={hero.accentColor}
+        headingScale={hero.headingScale}
+        bodyScale={hero.bodyScale}
+        heroSpacing={hero.heroSpacing}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "REFERANSLAR" },

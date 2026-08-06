@@ -33,7 +33,7 @@ export default async function ContactPage() {
     title: "Bizimle İletişime Geçin",
     description:
       "Sorularınızı, proje kapsamınızı veya iş birliği talebinizi güvenli form üzerinden bize iletin.",
-    image: "/media/pages/iletisim.webp",
+    image: "/media/headers/iletisim.webp",
     video: null,
     animation: "fade",
   });
@@ -52,6 +52,15 @@ export default async function ContactPage() {
         image={hero.image}
         video={hero.video}
         animation={hero.animation}
+        template={hero.template}
+        headingFont={hero.headingFont}
+        bodyFont={hero.bodyFont}
+        background={hero.background}
+        textColor={hero.textColor}
+        accentColor={hero.accentColor}
+        headingScale={hero.headingScale}
+        bodyScale={hero.bodyScale}
+        heroSpacing={hero.heroSpacing}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "İLETİŞİM" },

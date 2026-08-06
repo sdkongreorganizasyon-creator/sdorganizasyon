@@ -48,6 +48,24 @@ export const pageHeroSchema = z.object({
     .enum(["fade", "slide", "scale", "none"])
     .catch("fade")
     .default("fade"),
+  template: z
+    .enum(["standard", "split", "editorial", "minimal"])
+    .catch("standard")
+    .default("standard"),
+  headingFont: z
+    .enum(["system", "serif", "geometric", "humanist"])
+    .catch("system")
+    .default("system"),
+  bodyFont: z
+    .enum(["system", "serif", "geometric", "humanist"])
+    .catch("system")
+    .default("system"),
+  background: text(),
+  textColor: text(),
+  accentColor: text(),
+  headingScale: number(1),
+  bodyScale: number(1),
+  heroSpacing: number(72),
 });
 
 export const siteSettingsSchema = z.object({

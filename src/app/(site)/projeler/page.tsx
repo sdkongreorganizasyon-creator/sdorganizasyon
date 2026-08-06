@@ -28,7 +28,7 @@ export default async function ProjectsPage() {
     eyebrow: "PROJELER",
     title: projectsIntro.headline,
     description: projectsIntro.paragraphs.join(" "),
-    image: "/media/pages/projeler.webp",
+    image: "/media/headers/projeler.webp",
     video: null,
     animation: "fade",
   });
@@ -42,6 +42,15 @@ export default async function ProjectsPage() {
         image={hero.image}
         video={hero.video}
         animation={hero.animation}
+        template={hero.template}
+        headingFont={hero.headingFont}
+        bodyFont={hero.bodyFont}
+        background={hero.background}
+        textColor={hero.textColor}
+        accentColor={hero.accentColor}
+        headingScale={hero.headingScale}
+        bodyScale={hero.bodyScale}
+        heroSpacing={hero.heroSpacing}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "PROJELER" },

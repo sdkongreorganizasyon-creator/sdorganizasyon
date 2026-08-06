@@ -35,6 +35,15 @@ export type ResolvedPageHero = Readonly<{
   image: string;
   video: string | null;
   animation: "fade" | "slide" | "scale" | "none";
+  template?: "standard" | "split" | "editorial" | "minimal";
+  headingFont?: "system" | "serif" | "geometric" | "humanist";
+  bodyFont?: "system" | "serif" | "geometric" | "humanist";
+  background?: string;
+  textColor?: string;
+  accentColor?: string;
+  headingScale?: number;
+  bodyScale?: number;
+  heroSpacing?: number;
 }>;
 
 export type ResolvedSiteSettings = Readonly<{
@@ -253,44 +262,129 @@ function defaultResolvedNavigation(): readonly ResolvedNavigationItem[] {
 }
 
 function resolveNavigation(value: unknown): readonly ResolvedNavigationItem[] {
-  if (!Array.isArray(value)) return defaultResolvedNavigation();
+  const stored = Array.isArray(value)
+    ? value.flatMap((item, index) => {
+        const source = record(item);
+        const label = text(source, "label", "");
+        const href = text(source, "href", "");
+        if (!label || !href) return [];
 
-  const normalized = value.flatMap((item, index) => {
-    const source = record(item);
-    const label = text(source, "label", "");
-    const href = text(source, "href", "");
-    if (!label || !href) return [];
+        const rawChildren = Array.isArray(source.children) ? source.children : [];
+        const children = rawChildren.flatMap((child, childIndex) => {
+          const childSource = record(child);
+          const childLabel = text(childSource, "label", "");
+          const childHref = text(childSource, "href", "");
+          if (!childLabel || !childHref) return [];
+          return [{
+            id: text(childSource, "id", `child-${index}-${childIndex}`),
+            label: childLabel,
+            href: childHref,
+            visible: bool(childSource, "visible", true),
+          }];
+        });
 
-    const rawChildren = Array.isArray(source.children) ? source.children : [];
-    const children = rawChildren.flatMap((child, childIndex) => {
-      const childSource = record(child);
-      const childLabel = text(childSource, "label", "");
-      const childHref = text(childSource, "href", "");
-      if (!childLabel || !childHref) return [];
-      return [{
-        id: text(childSource, "id", `child-${index}-${childIndex}`),
-        label: childLabel,
-        href: childHref,
-        visible: bool(childSource, "visible", true),
-      }];
-    });
+        return [{
+          id: text(source, "id", `menu-${index}`),
+          label,
+          href,
+          visible: bool(source, "visible", true),
+          showInHeader: bool(source, "showInHeader", true),
+          showInFooter: bool(source, "showInFooter", true),
+          children,
+        }];
+      })
+    : [];
 
-    return [{
-      id: text(source, "id", `menu-${index}`),
-      label,
-      href,
-      visible: bool(source, "visible", true),
-      showInHeader: bool(source, "showInHeader", true),
-      showInFooter: bool(source, "showInFooter", true),
-      children,
-    }];
+  const defaults = defaultResolvedNavigation();
+  const storedById = new Map(stored.map((item) => [item.id, item]));
+  const storedByHref = new Map(stored.map((item) => [item.href, item]));
+
+  const merged = defaults.map((fallback) => {
+    const saved = storedById.get(fallback.id) ?? storedByHref.get(fallback.href);
+    if (!saved) return fallback;
+
+    const defaultChildren = fallback.children ?? [];
+    const savedChildrenById = new Map(
+      (saved.children ?? []).map((child) => [child.id, child]),
+    );
+    const savedChildrenByHref = new Map(
+      (saved.children ?? []).map((child) => [child.href, child]),
+    );
+    const mergedChildren = defaultChildren.map((child) => ({
+      ...child,
+      ...(savedChildrenById.get(child.id) ??
+        savedChildrenByHref.get(child.href) ??
+        {}),
+    }));
+    const knownChildIds = new Set(defaultChildren.map((child) => child.id));
+    const knownChildHrefs = new Set(defaultChildren.map((child) => child.href));
+
+    return {
+      ...fallback,
+      ...saved,
+      children: [
+        ...mergedChildren,
+        ...(saved.children ?? []).filter(
+          (child) =>
+            !knownChildIds.has(child.id) && !knownChildHrefs.has(child.href),
+        ),
+      ],
+    };
   });
 
-  return normalized;
+  const knownIds = new Set(defaults.map((item) => item.id));
+  const knownHrefs = new Set(defaults.map((item) => item.href));
+
+  return [
+    ...merged,
+    ...stored.filter(
+      (item) => !knownIds.has(item.id) && !knownHrefs.has(item.href),
+    ),
+  ];
 }
 
 
 const defaultPageHeroes: readonly ResolvedPageHero[] = [
+  {
+    id: "corporate",
+    path: "/kurumsal",
+    eyebrow: "KURUMSAL",
+    title: "SDKONGRE'yi Yakından Tanıyın",
+    description:
+      "Hikayemizi, yaklaşımımızı, misyonumuzu, vizyonumuzu ve değerlerimizi tek sayfada inceleyin.",
+    image: "/media/headers/kurumsal.webp",
+    video: null,
+    animation: "fade",
+    template: "split",
+    headingFont: "system",
+    bodyFont: "system",
+    background: "#07111d",
+    textColor: "#ffffff",
+    accentColor: "#f2b632",
+    headingScale: 1,
+    bodyScale: 1,
+    heroSpacing: 72,
+  },
+  {
+    id: "why-us",
+    path: "/neden-biz",
+    eyebrow: "NEDEN BİZ",
+    title: "Deneyim, güven ve kontrollü operasyon",
+    description:
+      "Planlamadan raporlamaya kadar her adımda profesyonel proje yönetimi.",
+    image: "/media/headers/neden-biz.webp",
+    video: null,
+    animation: "fade",
+    template: "standard",
+    headingFont: "system",
+    bodyFont: "system",
+    background: "#07111d",
+    textColor: "#ffffff",
+    accentColor: "#f2b632",
+    headingScale: 1,
+    bodyScale: 1,
+    heroSpacing: 72,
+  },
   {
     id: "services",
     path: "/hizmetlerimiz",
@@ -298,9 +392,18 @@ const defaultPageHeroes: readonly ResolvedPageHero[] = [
     title: "Tüm Organizasyon Hizmetleri Tek Sayfada",
     description:
       "Planlamadan uygulamaya kadar sunduğumuz hizmetleri, açıklamaları ve görselleriyle birlikte inceleyin.",
-    image: "/media/pages/kurumsal.webp",
+    image: "/media/headers/hizmetlerimiz.webp",
     video: null,
     animation: "fade",
+    template: "standard",
+    headingFont: "system",
+    bodyFont: "system",
+    background: "#07111d",
+    textColor: "#ffffff",
+    accentColor: "#f2b632",
+    headingScale: 1,
+    bodyScale: 1,
+    heroSpacing: 72,
   },
   {
     id: "digital-services",
@@ -309,9 +412,18 @@ const defaultPageHeroes: readonly ResolvedPageHero[] = [
     title: "Etkinlik Teknolojileri ve Dijital Çözümler",
     description:
       "Kayıt, iletişim, takip ve raporlama süreçlerini tek sayfada açıklamalarıyla birlikte inceleyin.",
-    image: "/media/pages/organizasyon-sureci.webp",
+    image: "/media/headers/dijital-hizmetler.webp",
     video: null,
     animation: "fade",
+    template: "standard",
+    headingFont: "system",
+    bodyFont: "system",
+    background: "#07111d",
+    textColor: "#ffffff",
+    accentColor: "#f2b632",
+    headingScale: 1,
+    bodyScale: 1,
+    heroSpacing: 72,
   },
   {
     id: "process",
@@ -320,9 +432,18 @@ const defaultPageHeroes: readonly ResolvedPageHero[] = [
     title: "Organizasyon Süreci",
     description:
       "Brief, planlama, teklif, onay, operasyon ve raporlama aşamalarından oluşan profesyonel organizasyon yönetimi.",
-    image: "/media/pages/organizasyon-sureci.webp",
+    image: "/media/headers/organizasyon-sureci.webp",
     video: null,
     animation: "fade",
+    template: "standard",
+    headingFont: "system",
+    bodyFont: "system",
+    background: "#07111d",
+    textColor: "#ffffff",
+    accentColor: "#f2b632",
+    headingScale: 1,
+    bodyScale: 1,
+    heroSpacing: 72,
   },
   {
     id: "projects",
@@ -331,9 +452,18 @@ const defaultPageHeroes: readonly ResolvedPageHero[] = [
     title: "Projeler",
     description:
       "Kullanım izni bulunan gerçek proje kayıtlarımızı inceleyin.",
-    image: "/media/pages/projeler.webp",
+    image: "/media/headers/projeler.webp",
     video: null,
     animation: "fade",
+    template: "standard",
+    headingFont: "system",
+    bodyFont: "system",
+    background: "#07111d",
+    textColor: "#ffffff",
+    accentColor: "#f2b632",
+    headingScale: 1,
+    bodyScale: 1,
+    heroSpacing: 72,
   },
   {
     id: "references",
@@ -342,9 +472,18 @@ const defaultPageHeroes: readonly ResolvedPageHero[] = [
     title: "Referanslar",
     description:
       "Güven ve kalite odaklı iş birliklerimizi inceleyin.",
-    image: "/media/pages/referanslar.webp",
+    image: "/media/headers/referanslar.webp",
     video: null,
     animation: "fade",
+    template: "standard",
+    headingFont: "system",
+    bodyFont: "system",
+    background: "#07111d",
+    textColor: "#ffffff",
+    accentColor: "#f2b632",
+    headingScale: 1,
+    bodyScale: 1,
+    heroSpacing: 72,
   },
   {
     id: "contact",
@@ -353,9 +492,18 @@ const defaultPageHeroes: readonly ResolvedPageHero[] = [
     title: "Bizimle İletişime Geçin",
     description:
       "Sorularınızı, proje kapsamınızı veya iş birliği talebinizi güvenli form üzerinden bize iletin.",
-    image: "/media/pages/iletisim.webp",
+    image: "/media/headers/iletisim.webp",
     video: null,
     animation: "fade",
+    template: "standard",
+    headingFont: "system",
+    bodyFont: "system",
+    background: "#07111d",
+    textColor: "#ffffff",
+    accentColor: "#f2b632",
+    headingScale: 1,
+    bodyScale: 1,
+    heroSpacing: 72,
   },
   {
     id: "quote",
@@ -364,44 +512,116 @@ const defaultPageHeroes: readonly ResolvedPageHero[] = [
     title: "Organizasyonunuzu Birlikte Planlayalım",
     description:
       "Etkinliğinizin temel bilgilerini paylaşın. Ekibimiz ihtiyaçlarınızı değerlendirerek sizinle iletişime geçsin.",
-    image: "/media/pages/iletisim.webp",
+    image: "/media/headers/teklif-al.webp",
     video: null,
     animation: "fade",
+    template: "standard",
+    headingFont: "system",
+    bodyFont: "system",
+    background: "#07111d",
+    textColor: "#ffffff",
+    accentColor: "#f2b632",
+    headingScale: 1,
+    bodyScale: 1,
+    heroSpacing: 72,
+  },
+  {
+    id: "privacy",
+    path: "/kvkk",
+    eyebrow: "KVKK",
+    title: "Kişisel Verilerin Korunması",
+    description:
+      "Aydınlatma, gizlilik, çerez ve açık rıza metinlerini inceleyin.",
+    image: "/media/headers/kvkk.webp",
+    video: null,
+    animation: "fade",
+    template: "standard",
+    headingFont: "system",
+    bodyFont: "system",
+    background: "#07111d",
+    textColor: "#ffffff",
+    accentColor: "#f2b632",
+    headingScale: 1,
+    bodyScale: 1,
+    heroSpacing: 72,
   },
 ];
 
 function resolvePageHeroes(value: unknown): readonly ResolvedPageHero[] {
-  if (!Array.isArray(value)) return defaultPageHeroes;
+  const stored = Array.isArray(value)
+    ? value.flatMap((item, index) => {
+        const source = record(item);
+        const path = text(source, "path", "");
+        if (!path) return [];
 
-  const normalized = value.flatMap((item, index) => {
-    const source = record(item);
-    const path = text(source, "path", "");
-    const title = text(source, "title", "");
-    if (!path) return [];
+        const rawAnimation = text(source, "animation", "fade");
+        const animation =
+          rawAnimation === "slide" ||
+          rawAnimation === "scale" ||
+          rawAnimation === "none"
+            ? rawAnimation
+            : "fade";
+        const template = enumValue(
+          source,
+          "template",
+          ["standard", "split", "editorial", "minimal"] as const,
+          "standard",
+        );
+        const headingFont = enumValue(
+          source,
+          "headingFont",
+          ["system", "serif", "geometric", "humanist"] as const,
+          "system",
+        );
+        const bodyFont = enumValue(
+          source,
+          "bodyFont",
+          ["system", "serif", "geometric", "humanist"] as const,
+          "system",
+        );
 
-    const rawAnimation = text(source, "animation", "fade");
-    const animation =
-      rawAnimation === "slide" ||
-      rawAnimation === "scale" ||
-      rawAnimation === "none"
-        ? rawAnimation
-        : "fade";
+        return [
+          {
+            id: text(source, "id", `page-hero-${index}`),
+            path,
+            eyebrow: text(source, "eyebrow", ""),
+            title: text(source, "title", ""),
+            description: text(source, "description", ""),
+            image: text(source, "image", ""),
+            video: nullableText(source, "video", null),
+            animation,
+            template,
+            headingFont,
+            bodyFont,
+            background: text(source, "background", "#07111d"),
+            textColor: text(source, "textColor", "#ffffff"),
+            accentColor: text(source, "accentColor", "#f2b632"),
+            headingScale: numberValue(source, "headingScale", 1, 0.5, 2),
+            bodyScale: numberValue(source, "bodyScale", 1, 0.5, 2),
+            heroSpacing: numberValue(source, "heroSpacing", 72, 0, 240),
+          } satisfies ResolvedPageHero,
+        ];
+      })
+    : [];
 
-    return [
-      {
-        id: text(source, "id", `page-hero-${index}`),
-        path,
-        eyebrow: text(source, "eyebrow", ""),
-        title,
-        description: text(source, "description", ""),
-        image: text(source, "image", ""),
-        video: nullableText(source, "video", null),
-        animation,
-      } satisfies ResolvedPageHero,
-    ];
+  const byPath = new Map(stored.map((item) => [item.path, item]));
+  const legacyHeroImages = new Set([
+    "",
+    "/fallback/hero-poster.svg",
+    "/media/home/sdkongre-approved-hero.webp",
+  ]);
+  const merged = defaultPageHeroes.map((fallback) => {
+    const saved = byPath.get(fallback.path);
+    if (!saved) return fallback;
+
+    return {
+      ...fallback,
+      ...saved,
+      image: legacyHeroImages.has(saved.image) ? fallback.image : saved.image,
+    };
   });
-
-  return normalized;
+  const knownPaths = new Set(defaultPageHeroes.map((item) => item.path));
+  return [...merged, ...stored.filter((item) => !knownPaths.has(item.path))];
 }
 
 export function getPageHero(

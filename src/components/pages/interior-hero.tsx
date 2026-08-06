@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 import { Container } from "@/components/ui/container";
 
@@ -11,6 +12,15 @@ type InteriorHeroProps = Readonly<{
   image?: string | null;
   video?: string | null;
   animation?: "fade" | "slide" | "scale" | "none";
+  template?: "standard" | "split" | "editorial" | "minimal";
+  headingFont?: "system" | "serif" | "geometric" | "humanist";
+  bodyFont?: "system" | "serif" | "geometric" | "humanist";
+  background?: string;
+  textColor?: string;
+  accentColor?: string;
+  headingScale?: number;
+  bodyScale?: number;
+  heroSpacing?: number;
   breadcrumbs?: readonly Readonly<{
     label: string;
     href?: string;
@@ -24,10 +34,34 @@ export function InteriorHero({
   image,
   video,
   animation = "fade",
+  template = "standard",
+  headingFont = "system",
+  bodyFont = "system",
+  background = "#07111d",
+  textColor = "#ffffff",
+  accentColor = "#f2b632",
+  headingScale = 1,
+  bodyScale = 1,
+  heroSpacing = 72,
   breadcrumbs,
 }: InteriorHeroProps) {
+  const style = {
+    "--interior-hero-background": background,
+    "--interior-hero-text": textColor,
+    "--interior-hero-accent": accentColor,
+    "--interior-hero-heading-scale": String(headingScale),
+    "--interior-hero-body-scale": String(bodyScale),
+    "--interior-hero-spacing": `${heroSpacing}px`,
+  } as CSSProperties;
+
   return (
-    <section className="interior-hero" data-animation={animation}>
+    <section
+      className={`interior-hero interior-hero--${template}`}
+      data-animation={animation}
+      data-heading-font={headingFont}
+      data-body-font={bodyFont}
+      style={style}
+    >
       {video || image ? (
         <div className="interior-hero__media" aria-hidden="true">
           {video ? (

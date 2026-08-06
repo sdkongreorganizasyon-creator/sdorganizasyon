@@ -212,7 +212,6 @@ export function SettingsForm({
                 label="Site Adı"
                 name="siteName"
                 defaultValue={settings.general.siteName}
-                required
               />
               <TextInput
                 label="Ticari / Yasal Unvan"
@@ -431,19 +430,16 @@ export function SettingsForm({
                 label="Başlık 1"
                 name="heroTitleLine1"
                 defaultValue={settings.hero.titleLine1}
-                required
               />
               <TextInput
                 label="Başlık 2"
                 name="heroTitleLine2"
                 defaultValue={settings.hero.titleLine2}
-                required
               />
               <TextInput
                 label="Vurgulu Başlık"
                 name="heroTitleHighlight"
                 defaultValue={settings.hero.titleHighlight}
-                required
               />
             </div>
             <Textarea
@@ -542,14 +538,12 @@ export function SettingsForm({
                     label="Başlık"
                     name={`homeValue${index}Title`}
                     defaultValue={item.title}
-                    required
                   />
                   <Textarea
                     label="Açıklama"
                     name={`homeValue${index}Description`}
                     rows={4}
                     defaultValue={item.description}
-                    required
                   />
                   <MediaSelect
                     label="Kart Görseli"
@@ -749,6 +743,51 @@ export function SettingsForm({
                 max={1.2}
                 step={0.05}
                 defaultValue={settings.theme.bodyScale}
+              />
+              <TextInput
+                label="Bölüm Dikey Boşluğu (px)"
+                name="themeSectionSpacing"
+                type="number"
+                min={0}
+                max={240}
+                step={4}
+                defaultValue={settings.theme.sectionSpacing}
+              />
+              <TextInput
+                label="Kart İç Boşluğu (px)"
+                name="themeCardPadding"
+                type="number"
+                min={0}
+                max={120}
+                step={2}
+                defaultValue={settings.theme.cardPadding}
+              />
+              <TextInput
+                label="Kartlar Arası Boşluk (px)"
+                name="themeCardGap"
+                type="number"
+                min={0}
+                max={120}
+                step={2}
+                defaultValue={settings.theme.cardGap}
+              />
+              <TextInput
+                label="İçerik Kolon Boşluğu (px)"
+                name="themeContentGap"
+                type="number"
+                min={0}
+                max={160}
+                step={2}
+                defaultValue={settings.theme.contentGap}
+              />
+              <TextInput
+                label="Hero Dikey Boşluğu (px)"
+                name="themeHeroSpacing"
+                type="number"
+                min={0}
+                max={240}
+                step={4}
+                defaultValue={settings.theme.heroSpacing}
               />
               <Select
                 label="Animasyon Stili"

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 
 import type { CmsPageSection } from "@/types/content";
@@ -22,12 +23,21 @@ export function CmsPageSections({
           background: section.background || undefined,
           color: section.textColor || undefined,
           textAlign: section.align || undefined,
-        } as const;
+          "--cms-section-padding-top": `${section.paddingTop ?? 64}px`,
+          "--cms-section-padding-bottom": `${section.paddingBottom ?? 64}px`,
+          "--cms-section-gap": `${section.contentGap ?? 32}px`,
+          "--cms-section-copy-padding": `${section.contentPadding ?? 0}px`,
+          "--cms-section-media-height": `${section.mediaHeight ?? 360}px`,
+          "--cms-section-heading-scale": String(section.headingScale ?? 1),
+          "--cms-section-body-scale": String(section.bodyScale ?? 1),
+        } as CSSProperties;
 
         return (
           <section
-            className={`cms-page-section cms-page-section--${section.type}`}
+            className={`cms-page-section cms-page-section--${section.type} cms-page-section--template-${section.template ?? "standard"}`}
             data-animation={section.animation ?? "fade"}
+            data-heading-font={section.headingFont ?? "system"}
+            data-body-font={section.bodyFont ?? "system"}
             id={section.id}
             key={section.id}
             style={style}

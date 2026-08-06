@@ -13,6 +13,26 @@ export type SeoData = Readonly<{
   noindex?: boolean;
 }>;
 
+export type FontPreset = "system" | "serif" | "geometric" | "humanist";
+
+export type PageTemplate = "standard" | "split" | "editorial" | "cards";
+
+export type PageDesign = Readonly<{
+  template?: PageTemplate;
+  headingFont?: FontPreset;
+  bodyFont?: FontPreset;
+  background?: string;
+  textColor?: string;
+  accentColor?: string;
+  contentWidth?: "narrow" | "standard" | "wide";
+  headingScale?: number;
+  bodyScale?: number;
+  sectionSpacing?: number;
+  cardGap?: number;
+  cardPadding?: number;
+  heroSpacing?: number;
+}>;
+
 export type ValueItem = Readonly<{
   title: string;
   description: string;
@@ -37,6 +57,11 @@ export type CmsPageSection = Readonly<{
   contentGap?: number;
   contentPadding?: number;
   mediaHeight?: number;
+  template?: PageTemplate;
+  headingFont?: FontPreset;
+  bodyFont?: FontPreset;
+  headingScale?: number;
+  bodyScale?: number;
   active?: boolean;
 }>;
 
@@ -51,6 +76,7 @@ export type CorporatePageContent = Readonly<{
   heroImage?: string;
   heroVideo?: string;
   heroAnimation?: string;
+  design?: PageDesign;
 }>;
 
 export type ServiceContent = Readonly<{

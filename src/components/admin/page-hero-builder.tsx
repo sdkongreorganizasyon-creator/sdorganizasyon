@@ -61,10 +61,10 @@ export function PageHeroBuilder({
 
       <div className="admin-navigation-builder__toolbar">
         <div>
-          <h3>Sayfa Başlıkları ve Hero Medyası</h3>
+          <h3>Tüm Menü Sayfalarının Başlık ve Hero Ayarları</h3>
           <p>
-            İç sayfalardaki üst etiket, başlık, açıklama, görsel, video ve
-            animasyonu yönetin.
+            Kurumsal dahil tüm ana menü sayfalarının başlık, açıklama, görsel,
+            şablon, yazı tipi, renk ve boşluklarını yönetin.
           </p>
         </div>
         <button
@@ -82,6 +82,15 @@ export function PageHeroBuilder({
                 image: "",
                 video: null,
                 animation: "fade",
+                template: "standard",
+                headingFont: "system",
+                bodyFont: "system",
+                background: "#07111d",
+                textColor: "#ffffff",
+                accentColor: "#f2b632",
+                headingScale: 1,
+                bodyScale: 1,
+                heroSpacing: 72,
               },
             ])
           }
@@ -217,6 +226,24 @@ export function PageHeroBuilder({
               </label>
 
               <label className="field">
+                <span>Hero Şablonu</span>
+                <select
+                  value={item.template ?? "standard"}
+                  onChange={(event) =>
+                    update(index, {
+                      template: event.target
+                        .value as NonNullable<EditablePageHero["template"]>,
+                    })
+                  }
+                >
+                  <option value="standard">Standart</option>
+                  <option value="split">Bölünmüş</option>
+                  <option value="editorial">Editoryal</option>
+                  <option value="minimal">Minimal</option>
+                </select>
+              </label>
+
+              <label className="field">
                 <span>Animasyon</span>
                 <select
                   value={item.animation}
@@ -232,6 +259,123 @@ export function PageHeroBuilder({
                   <option value="scale">Scale</option>
                   <option value="none">Animasyonsuz</option>
                 </select>
+              </label>
+
+              <label className="field">
+                <span>Başlık Yazı Tipi</span>
+                <select
+                  value={item.headingFont ?? "system"}
+                  onChange={(event) =>
+                    update(index, {
+                      headingFont: event.target
+                        .value as NonNullable<EditablePageHero["headingFont"]>,
+                    })
+                  }
+                >
+                  <option value="system">Modern Sistem</option>
+                  <option value="geometric">Geometrik</option>
+                  <option value="humanist">Humanist</option>
+                  <option value="serif">Serif</option>
+                </select>
+              </label>
+
+              <label className="field">
+                <span>Metin Yazı Tipi</span>
+                <select
+                  value={item.bodyFont ?? "system"}
+                  onChange={(event) =>
+                    update(index, {
+                      bodyFont: event.target
+                        .value as NonNullable<EditablePageHero["bodyFont"]>,
+                    })
+                  }
+                >
+                  <option value="system">Modern Sistem</option>
+                  <option value="geometric">Geometrik</option>
+                  <option value="humanist">Humanist</option>
+                  <option value="serif">Serif</option>
+                </select>
+              </label>
+
+              <label className="admin-color-field">
+                <span>Arka Plan</span>
+                <input
+                  type="color"
+                  value={item.background ?? "#07111d"}
+                  onChange={(event) =>
+                    update(index, { background: event.target.value })
+                  }
+                />
+              </label>
+
+              <label className="admin-color-field">
+                <span>Metin Rengi</span>
+                <input
+                  type="color"
+                  value={item.textColor ?? "#ffffff"}
+                  onChange={(event) =>
+                    update(index, { textColor: event.target.value })
+                  }
+                />
+              </label>
+
+              <label className="admin-color-field">
+                <span>Vurgu Rengi</span>
+                <input
+                  type="color"
+                  value={item.accentColor ?? "#f2b632"}
+                  onChange={(event) =>
+                    update(index, { accentColor: event.target.value })
+                  }
+                />
+              </label>
+
+              <label className="field">
+                <span>Başlık Ölçeği</span>
+                <input
+                  type="number"
+                  min={0.5}
+                  max={2}
+                  step={0.05}
+                  value={item.headingScale ?? 1}
+                  onChange={(event) =>
+                    update(index, {
+                      headingScale: Number(event.target.value) || 1,
+                    })
+                  }
+                />
+              </label>
+
+              <label className="field">
+                <span>Metin Ölçeği</span>
+                <input
+                  type="number"
+                  min={0.5}
+                  max={2}
+                  step={0.05}
+                  value={item.bodyScale ?? 1}
+                  onChange={(event) =>
+                    update(index, {
+                      bodyScale: Number(event.target.value) || 1,
+                    })
+                  }
+                />
+              </label>
+
+              <label className="field">
+                <span>Hero Dikey Boşluğu (px)</span>
+                <input
+                  type="number"
+                  min={0}
+                  max={240}
+                  step={4}
+                  value={item.heroSpacing ?? 72}
+                  onChange={(event) =>
+                    update(index, {
+                      heroSpacing: Number(event.target.value) || 0,
+                    })
+                  }
+                />
               </label>
             </div>
           </article>

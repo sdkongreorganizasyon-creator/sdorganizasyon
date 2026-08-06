@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import { EntityForm } from "@/components/admin/entity-form";
 import { cmsDraftKey } from "@/lib/cms/drafts";
+import { getAdminMediaOptions } from "@/lib/cms/media-options";
 import { createClient } from "@/lib/supabase/server";
 import type { ContentStatus, Json } from "@/types/database";
 
@@ -58,12 +59,8 @@ export default async function AdminContentEditorPage({
   const entity = rawEntity as Entity;
   const supabase = await createClient();
 
-  const [{ data: mediaRows }, { data: draftRow }] = await Promise.all([
-    supabase
-      .from("media_assets")
-      .select("bucket,path,file_name,mime_type")
-      .order("created_at", { ascending: false })
-      .limit(200),
+  const [availableMedia, { data: draftRow }] = await Promise.all([
+    getAdminMediaOptions(200),
     supabase
       .from("site_settings")
       .select("value_json")
@@ -73,12 +70,10 @@ export default async function AdminContentEditorPage({
   ]);
 
   const draft = objectValue(draftRow?.value_json as Json | undefined);
-  const mediaOptions = (mediaRows ?? []).map((item) => ({
-    label: item.file_name || item.path,
-    value: supabase.storage
-      .from(item.bucket)
-      .getPublicUrl(item.path).data.publicUrl,
-    type: item.mime_type || "application/octet-stream",
+  const mediaOptions = availableMedia.map((item) => ({
+    label: item.label,
+    value: item.url,
+    type: item.mimeType || "application/octet-stream",
   }));
 
   if (entity === "pages") {

@@ -1,11 +1,11 @@
 import type { HomeValue } from "@/types/content";
 
-export const approvedHeroPoster = "/media/home/sdkongre-approved-hero.webp";
+export const approvedHeroPoster = "/media/headers/anasayfa.webp";
 
 export const brandAssets = {
-  headerLogo: "/brand/sdkongre-logo-web.png",
-  footerLogo: "/brand/sdkongre-logo-web.png",
-  compactLogo: "/brand/sdkongre-logo-web.png",
+  headerLogo: "/brand/sdkongre-logo-dark.png",
+  footerLogo: "/brand/sdkongre-logo-dark.png",
+  compactLogo: "/brand/sdkongre-logo-dark.png",
   favicon: "/brand/sdkongre-favicon.png",
   source8k: "/brand/sdkongre-logo-8k.png",
 } as const;

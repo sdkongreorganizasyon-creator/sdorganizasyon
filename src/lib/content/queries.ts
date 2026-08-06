@@ -21,6 +21,8 @@ import type {
   ProjectRecord,
   ReferenceRecord,
   ServiceContent,
+  PageDesign,
+  ValueItem,
 } from "@/types/content";
 import type { Json } from "@/types/database";
 
@@ -116,6 +118,73 @@ function asRecord(value: Json | null | undefined): Record<string, unknown> {
     : {};
 }
 
+
+
+function numberField(
+  source: Record<string, unknown>,
+  key: string,
+  fallback: number,
+) {
+  const value = source[key];
+  const parsed =
+    typeof value === "number"
+      ? value
+      : typeof value === "string"
+        ? Number(value)
+        : Number.NaN;
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+function pageDesign(value: unknown): PageDesign | undefined {
+  const source =
+    value && typeof value === "object" && !Array.isArray(value)
+      ? (value as Record<string, unknown>)
+      : null;
+  if (!source) return undefined;
+
+  const template =
+    source.template === "split" ||
+    source.template === "editorial" ||
+    source.template === "cards"
+      ? source.template
+      : "standard";
+  const headingFont =
+    source.headingFont === "serif" ||
+    source.headingFont === "geometric" ||
+    source.headingFont === "humanist"
+      ? source.headingFont
+      : "system";
+  const bodyFont =
+    source.bodyFont === "serif" ||
+    source.bodyFont === "geometric" ||
+    source.bodyFont === "humanist"
+      ? source.bodyFont
+      : "system";
+  const contentWidth =
+    source.contentWidth === "narrow" || source.contentWidth === "wide"
+      ? source.contentWidth
+      : "standard";
+
+  return {
+    template,
+    headingFont,
+    bodyFont,
+    background:
+      typeof source.background === "string" ? source.background : undefined,
+    textColor:
+      typeof source.textColor === "string" ? source.textColor : undefined,
+    accentColor:
+      typeof source.accentColor === "string" ? source.accentColor : undefined,
+    contentWidth,
+    headingScale: numberField(source, "headingScale", 1),
+    bodyScale: numberField(source, "bodyScale", 1),
+    sectionSpacing: numberField(source, "sectionSpacing", 72),
+    cardGap: numberField(source, "cardGap", 16),
+    cardPadding: numberField(source, "cardPadding", 18),
+    heroSpacing: numberField(source, "heroSpacing", 72),
+  };
+}
+
 function stringArray(value: unknown): string[] {
   return Array.isArray(value)
     ? value.filter((item): item is string => typeof item === "string")
@@ -175,10 +244,14 @@ export async function getCorporatePage(
       typeof content.heroAnimation === "string"
         ? content.heroAnimation
         : undefined,
+    design: pageDesign(content.design),
   };
 }
 
-export async function getWhyUsContent() {
+type WhyUsPageContent = CorporatePageContent &
+  Readonly<{ items: readonly ValueItem[] }>;
+
+export async function getWhyUsContent(): Promise<WhyUsPageContent> {
   if (!isSupabaseConfigured()) return whyUsContent;
 
   const preview = await isCmsPreviewEnabled();
@@ -213,7 +286,9 @@ export async function getWhyUsContent() {
     items: Array.isArray(content.items)
       ? (content.items as unknown as typeof whyUsContent.items)
       : whyUsContent.items,
-    sections: Array.isArray(content.sections) ? content.sections : [],
+    sections: Array.isArray(content.sections)
+      ? (content.sections as unknown as CorporatePageContent["sections"])
+      : [],
     heroImage:
       typeof content.heroImage === "string" ? content.heroImage : undefined,
     heroVideo:
@@ -222,6 +297,7 @@ export async function getWhyUsContent() {
       typeof content.heroAnimation === "string"
         ? content.heroAnimation
         : undefined,
+    design: pageDesign(content.design),
   };
 }
 
@@ -317,6 +393,9 @@ export async function getServices(
           : undefined,
       textColor:
         typeof body.textColor === "string" ? body.textColor : undefined,
+      cardPadding: numberField(body, "cardPadding", 18),
+      mediaHeight: numberField(body, "mediaHeight", 220),
+      contentGap: numberField(body, "contentGap", 12),
     };
   });
 }

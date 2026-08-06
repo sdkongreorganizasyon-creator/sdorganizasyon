@@ -26,7 +26,7 @@ export default async function ServicesPage() {
     title: "Tüm Organizasyon Hizmetleri Tek Sayfada",
     description:
       "Planlamadan uygulamaya kadar sunduğumuz hizmetleri, açıklamaları ve görselleriyle birlikte inceleyin.",
-    image: "/media/pages/kurumsal.webp",
+    image: "/media/headers/hizmetlerimiz.webp",
     video: null,
     animation: "fade",
   });
@@ -40,6 +40,15 @@ export default async function ServicesPage() {
         image={hero.image}
         video={hero.video}
         animation={hero.animation}
+        template={hero.template}
+        headingFont={hero.headingFont}
+        bodyFont={hero.bodyFont}
+        background={hero.background}
+        textColor={hero.textColor}
+        accentColor={hero.accentColor}
+        headingScale={hero.headingScale}
+        bodyScale={hero.bodyScale}
+        heroSpacing={hero.heroSpacing}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "HİZMETLERİMİZ" },
