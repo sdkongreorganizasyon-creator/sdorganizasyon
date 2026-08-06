@@ -29,7 +29,7 @@ export default async function QuotePage({ searchParams }: PageProps) {
     title: "Organizasyonunuzu Birlikte Planlayalım",
     description:
       "Etkinliğinizin temel bilgilerini paylaşın. Ekibimiz ihtiyaçlarınızı değerlendirerek kapsam ve çözüm yaklaşımı için sizinle iletişime geçsin.",
-    image: "/media/headers/teklif-al.webp",
+    image: "/media/headers/teklif-al.png",
     video: null,
     animation: "fade",
   });
@@ -40,7 +40,7 @@ export default async function QuotePage({ searchParams }: PageProps) {
         eyebrow={hero.eyebrow}
         title={hero.title}
         description={hero.description}
-        image={hero.image}
+        image="/media/headers/teklif-al.png"
         video={hero.video}
         animation={hero.animation}
         template={hero.template}

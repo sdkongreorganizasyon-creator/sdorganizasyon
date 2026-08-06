@@ -539,7 +539,7 @@ const defaultPageHeroes: readonly ResolvedPageHero[] = [
     title: "Organizasyonunuzu Birlikte Planlayalım",
     description:
       "Etkinliğinizin temel bilgilerini paylaşın. Ekibimiz ihtiyaçlarınızı değerlendirerek sizinle iletişime geçsin.",
-    image: "/media/headers/teklif-al.webp",
+    image: "/media/headers/teklif-al.png",
     video: null,
     animation: "fade",
     template: "standard",

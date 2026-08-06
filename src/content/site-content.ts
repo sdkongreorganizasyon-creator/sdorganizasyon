@@ -257,9 +257,7 @@ export const physicalServices = [
     "summary": "Doğru İş Ortaklarıyla Kusursuz Sonuçlar",
     "paragraphs": [
       "Organizasyonların başarısı yalnızca iyi bir planlamaya değil, aynı zamanda doğru tedarikçilerin etkin şekilde yönetilmesine bağlıdır.",
-      "SD Kongre olarak yıllar içerisinde oluşturduğumuz güçlü iş ortaklığı ağı sayesinde organizasyonun ihtiyaç duyduğu tüm hizmetleri kalite standartları çerçevesinde yönetiyoruz.",
-      "Teknik ekiplerden dekorasyon firmalarına, catering hizmetlerinden ulaşım sağlayıcılarına kadar tüm tedarikçilerin seçimi, koordinasyonu ve performans takibini gerçekleştiriyoruz.",
-      "SD Kongre ile çalıştığınızda yalnızca bir organizasyon firmasıyla değil; onlarca farklı süreci sizin adınıza yöneten, riskleri azaltan ve etkinliğinizin başarısını güvence altına alan profesyonel bir proje yönetim ekibiyle çalışmış olursunuz. Bu sayede siz hedeflerinize odaklanırken, biz organizasyonunuzun her detayını kusursuz şekilde yönetiriz."
+      "SD Kongre olarak yıllar içerisinde oluşturduğumuz güçlü iş ortaklığı ağı sayesinde organizasyonun ihtiyaç duyduğu tüm hizmetleri kalite standartları çerçevesinde yönetiyoruz."
     ],
     "features": []
   }

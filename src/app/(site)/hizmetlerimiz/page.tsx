@@ -61,7 +61,7 @@ export default async function ServicesPage() {
         paragraphs={servicesIntro.paragraphs}
       />
 
-      <section className="section service-page-section service-page-section--compact">
+      <section className="section service-page-section service-page-section--compact service-page-section--physical">
         <div className="container service-page-grid">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />

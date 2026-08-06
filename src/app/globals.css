@@ -7465,3 +7465,57 @@ body:has(.admin-shell) {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Requested four-item update — 2026-08-07 */
+
+/* Neden Biz sayfasında beyaz yüzey bırakma; hizmet kartlarının koyu tasarımını kullan. */
+.why-us-page {
+  background: #07121d !important;
+  color: #ffffff !important;
+}
+
+.why-us-page .section--soft,
+.why-us-page .why-us-service-cards {
+  background: #07121d !important;
+  color: #ffffff !important;
+}
+
+.why-us-page .why-us-service-cards .info-card {
+  border: 1px solid rgb(242 182 50 / 28%);
+  background: linear-gradient(155deg, #0a1d2e, #07121d) !important;
+  box-shadow: 0 12px 30px rgb(0 0 0 / 18%);
+}
+
+.why-us-page .why-us-service-cards .info-card h2 {
+  color: #ffffff;
+}
+
+.why-us-page .why-us-service-cards .info-card p {
+  color: rgb(255 255 255 / 66%) !important;
+}
+
+/* Hizmetlerimiz sayfasında aynı sıradaki kartları eşit yükseklikte tut. */
+.service-page-section--compact.service-page-section--physical
+  .service-page-grid {
+  align-items: stretch;
+}
+
+.service-page-section--compact.service-page-section--physical
+  .service-card {
+  display: flex;
+  height: 100%;
+  min-height: 100%;
+  align-self: stretch;
+  flex-direction: column;
+}
+
+.service-page-section--compact.service-page-section--physical
+  .service-card__media {
+  flex: 0 0 auto;
+}
+
+.service-page-section--compact.service-page-section--physical
+  .service-card__body {
+  flex: 1;
+}
