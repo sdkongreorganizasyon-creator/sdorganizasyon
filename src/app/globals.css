@@ -4863,3 +4863,457 @@ body {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/* Minimal premium public refinement                                           */
+/* -------------------------------------------------------------------------- */
+
+.site-header__logo {
+  width: 6.8rem;
+  height: auto;
+  object-fit: contain;
+}
+
+.site-footer__logo {
+  width: 7.4rem;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Controlled hero typography */
+.approved-hero,
+.approved-hero__layout {
+  min-height: clamp(36rem, 63vw, 44rem);
+}
+
+.approved-hero__layout {
+  grid-template-columns: minmax(0, 1.18fr) minmax(17rem, 0.52fr);
+  gap: clamp(2rem, 4vw, 4.5rem);
+  padding-top: calc(var(--header-height) + 3.2rem);
+  padding-bottom: 4rem;
+}
+
+.approved-hero__copy {
+  max-width: 43rem;
+}
+
+.approved-hero__eyebrow {
+  margin-bottom: 1rem;
+  font-size: clamp(0.67rem, 0.8vw, 0.78rem);
+  letter-spacing: 0.2em;
+}
+
+.approved-hero h1 {
+  max-width: 16ch;
+  gap: 0.12rem;
+  font-size: clamp(2.5rem, 4.1vw, 4.15rem);
+  font-weight: 780;
+  letter-spacing: -0.038em;
+  line-height: 1.02;
+}
+
+.approved-hero__lead {
+  max-width: 31rem;
+  margin-top: 1.15rem;
+  font-size: clamp(0.9rem, 1.08vw, 1.02rem);
+  line-height: 1.62;
+}
+
+.approved-hero__actions {
+  margin-top: 1.45rem;
+}
+
+.approved-button {
+  min-height: 3rem;
+  padding-inline: 1.15rem;
+  font-size: 0.75rem;
+}
+
+.why-panel {
+  max-width: 25rem;
+  border-radius: 0.9rem;
+  padding: 1.25rem 1.4rem;
+}
+
+.why-panel h2 {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.why-panel li {
+  display: block;
+  padding: 0.72rem 0;
+}
+
+.why-panel__icon {
+  display: none;
+}
+
+.why-panel strong {
+  margin-bottom: 0.16rem;
+  font-size: 0.83rem;
+}
+
+.why-panel p {
+  font-size: 0.71rem;
+  line-height: 1.45;
+}
+
+/* Home cards: image, title and description only */
+.approved-service-section {
+  margin-top: -1.6rem;
+  padding-bottom: 0.8rem;
+}
+
+.approved-service-grid {
+  gap: 0.75rem;
+}
+
+.approved-service-card {
+  grid-template-rows: 6.8rem auto;
+  min-height: 16.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 30px rgb(0 0 0 / 22%);
+}
+
+.approved-service-card:hover {
+  translate: 0 -3px;
+}
+
+.approved-service-card__top {
+  display: none;
+}
+
+.approved-service-card__media {
+  order: 0;
+}
+
+.approved-service-card__content {
+  order: 1;
+  justify-content: flex-start;
+  padding: 0.9rem 1rem 1rem;
+}
+
+.approved-service-card h3 {
+  margin: 0 0 0.42rem;
+  font-size: clamp(0.86rem, 0.95vw, 0.98rem);
+  font-weight: 650;
+  letter-spacing: -0.012em;
+  line-height: 1.18;
+  text-transform: none;
+}
+
+.approved-service-card p {
+  font-size: 0.7rem;
+  line-height: 1.48;
+}
+
+/* Interior hero: quieter, smaller and more refined */
+.interior-hero {
+  min-height: 23rem;
+  padding: calc(var(--header-height) + 4.5rem) 0 3.6rem;
+}
+
+.interior-hero h1 {
+  max-width: 22ch;
+  margin-top: 0.65rem;
+  font-size: clamp(2rem, 3.75vw, 3.65rem);
+  font-weight: 680;
+  letter-spacing: -0.038em;
+  line-height: 1.04;
+}
+
+.interior-hero__lead {
+  max-width: 42rem;
+  margin-top: 1rem;
+  font-size: clamp(0.9rem, 1.12vw, 1.02rem);
+  line-height: 1.62;
+}
+
+.breadcrumbs {
+  margin-bottom: 1.4rem;
+}
+
+.breadcrumbs ol {
+  font-size: 0.67rem;
+}
+
+/* Service cards: smaller media, tighter spacing, no icons or numbered markers */
+.service-page-section {
+  padding-block: clamp(3rem, 5vw, 5rem);
+}
+
+.service-page-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.service-card {
+  border-radius: 0.8rem;
+  box-shadow: 0 12px 30px rgb(0 0 0 / 18%);
+}
+
+.service-card__media {
+  aspect-ratio: 16 / 7.5;
+}
+
+.service-card__body {
+  padding: 1rem 1.05rem 1.1rem;
+}
+
+.service-card__icon,
+.info-card__icon {
+  display: none;
+}
+
+.service-card h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.service-card p {
+  margin-top: 0.55rem;
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.service-card__features {
+  color: rgb(255 255 255 / 52%) !important;
+  font-size: 0.69rem !important;
+  line-height: 1.48 !important;
+}
+
+.service-card ul {
+  display: none;
+}
+
+/* Other public cards share the same compact premium rhythm */
+.info-card,
+.navigation-card,
+.project-card,
+.reference-card {
+  border-radius: 0.8rem;
+  padding: 1.15rem;
+}
+
+.info-card h2,
+.navigation-card h2 {
+  margin-top: 0;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.info-card p,
+.navigation-card p {
+  margin-top: 0.55rem;
+  font-size: 0.78rem;
+  line-height: 1.58;
+}
+
+/* Corporate: all institutional content on one continuous page */
+.corporate-page {
+  background: #071019;
+}
+
+.corporate-section {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+  border-bottom: 1px solid rgb(255 255 255 / 7%);
+  padding: clamp(3rem, 6vw, 5.5rem) 0;
+}
+
+.corporate-section__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.corporate-section--reverse .corporate-section__media {
+  order: 2;
+}
+
+.corporate-section__media {
+  position: relative;
+  min-height: 18rem;
+  overflow: hidden;
+  border: 1px solid rgb(242 182 50 / 20%);
+  border-radius: 0.85rem;
+  box-shadow: 0 18px 44px rgb(0 0 0 / 24%);
+}
+
+.corporate-section__media img {
+  object-fit: cover;
+}
+
+.corporate-section__copy {
+  max-width: 48rem;
+}
+
+.corporate-section__copy .eyebrow {
+  margin-bottom: 0.7rem;
+  font-size: 0.68rem;
+}
+
+.corporate-section__copy h2 {
+  max-width: 25ch;
+  margin: 0;
+  font-size: clamp(1.45rem, 2.5vw, 2.35rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.corporate-section__prose {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.15rem;
+}
+
+.corporate-section__prose p {
+  margin: 0;
+  color: rgb(255 255 255 / 66%);
+  font-size: 0.84rem;
+  line-height: 1.68;
+}
+
+
+.corporate-section--text-only .corporate-section__layout {
+  grid-template-columns: 1fr;
+}
+
+.corporate-section--text-only .corporate-section__copy {
+  max-width: 54rem;
+}
+
+.corporate-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.corporate-values-grid article {
+  border: 1px solid rgb(242 182 50 / 20%);
+  border-radius: 0.72rem;
+  background: rgb(255 255 255 / 2.5%);
+  padding: 1rem;
+}
+
+.corporate-values-grid h3 {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.corporate-values-grid p {
+  margin: 0.45rem 0 0;
+  color: rgb(255 255 255 / 60%);
+  font-size: 0.72rem;
+  line-height: 1.52;
+}
+
+@media (min-width: 1500px) {
+  .service-page-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1240px) {
+  .approved-service-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .service-page-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1040px) {
+  .approved-hero,
+  .approved-hero__layout {
+    min-height: auto;
+  }
+
+  .approved-hero__layout {
+    grid-template-columns: 1fr;
+    padding-top: calc(var(--header-height) + 3rem);
+  }
+
+  .why-panel {
+    width: min(100%, 38rem);
+    max-width: none;
+  }
+
+  .service-page-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .corporate-section__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .corporate-section--reverse .corporate-section__media {
+    order: 0;
+  }
+
+  .corporate-section__media {
+    min-height: 16rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header__brand {
+    width: 5.9rem;
+    min-width: 5.9rem;
+  }
+
+  .site-header__logo {
+    width: 5.7rem;
+  }
+
+  .approved-hero__layout {
+    padding-top: calc(var(--header-height) + 2.5rem);
+    padding-bottom: 2.5rem;
+  }
+
+  .approved-hero h1 {
+    max-width: 13ch;
+    font-size: clamp(2.05rem, 9.2vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .approved-service-grid,
+  .service-page-grid,
+  .corporate-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .approved-service-card {
+    grid-template-rows: 9rem auto;
+    min-height: 0;
+  }
+
+  .interior-hero {
+    min-height: 20rem;
+    padding: calc(var(--header-height) + 3.3rem) 0 2.8rem;
+  }
+
+  .interior-hero h1 {
+    font-size: clamp(1.85rem, 8.8vw, 2.75rem);
+  }
+
+  .corporate-section {
+    padding-block: 2.75rem;
+  }
+
+  .corporate-section__media {
+    min-height: 13rem;
+  }
+
+  .corporate-section__copy h2 {
+    font-size: 1.45rem;
+  }
+}
+
