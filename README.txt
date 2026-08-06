@@ -1,13 +1,18 @@
-SDKONGRE Admin TypeScript Düzeltmesi
+SDKONGRE Admin Tip Modeli Senkronizasyonu
 
-Güncellenen dosya:
-src/app/admin/actions.ts
+Logdaki 27 TypeScript hatasının nedeni:
+- Boşluk kontrollerini kullanan bileşenler GitHub'a yüklenmiş.
+- Bu yeni alanları tanımlayan TypeScript tip ve doğrulama dosyaları eski kalmış.
 
-Düzeltilen GitHub Actions hataları:
-1. Yeni proje taslağı oluşturulurken "draft" durumu TypeScript tarafından genel string
-   olarak genişliyordu. Literal tür korunacak şekilde düzeltildi.
-2. projectId oluşturma işleminden sonra string olduğu açıkça doğrulandı.
-3. referenceId oluşturma işleminden sonra string olduğu açıkça doğrulandı.
+Bu paket yalnız şu dosyaları senkronize eder:
+- src/types/content.ts
+- src/lib/content/settings.ts
+- src/lib/validation/site-settings.ts
+- src/lib/validation/admin.ts
 
-Bu paket yalnız TypeScript derleme hatalarını düzeltir.
-Admin tasarımı, public site, Supabase şeması ve Vercel ayarları değişmez.
+Tanımlanan alanlar:
+- Tema: sectionSpacing, cardPadding, cardGap, contentGap, heroSpacing
+- Sayfa bölümü: paddingTop, paddingBottom, contentGap, contentPadding, mediaHeight
+- Hizmet kartı: cardPadding, mediaHeight, contentGap
+
+Public tasarım, içerikler, Supabase verileri ve Vercel ayarları değiştirilmez.
