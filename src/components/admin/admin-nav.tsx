@@ -51,7 +51,7 @@ const items: readonly NavItem[] = [
   { href: "/admin/media", label: "Medya", icon: ImageIcon, roles: contentRoles },
   {
     href: "/admin/settings",
-    label: "Ayarlar",
+    label: "Tasarım & Menü",
     icon: Settings,
     roles: ["super_admin", "admin", "editor"],
   },

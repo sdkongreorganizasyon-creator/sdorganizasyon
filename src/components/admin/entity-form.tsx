@@ -3,8 +3,10 @@
 import {
   CheckCircle2,
   ExternalLink,
+  Eye,
   ImageIcon,
   Loader2,
+  Rocket,
   Save,
 } from "lucide-react";
 import Link from "next/link";
@@ -14,6 +16,11 @@ import {
   saveGenericContentAction,
   type ActionState,
 } from "@/app/admin/actions";
+import { PageBuilder } from "@/components/admin/page-builder";
+import {
+  LegalContentBuilder,
+  ProcessContentBuilder,
+} from "@/components/admin/structured-content-builders";
 import { Button } from "@/components/ui/button";
 import { Select, Textarea, TextInput } from "@/components/ui/field";
 import { utcToIstanbulDateTimeLocal } from "@/lib/utils/format";
@@ -46,6 +53,7 @@ type EntityRecord = Readonly<{
   seoJson?: Json;
   version?: string | null;
   effectiveDate?: string | null;
+  previewPath: string;
 }>;
 
 type EntityFormProps = Readonly<{
@@ -101,17 +109,32 @@ export function EntityForm({
     typeof content.imageAlt === "string" ? content.imageAlt : "";
   const serviceParagraphs = stringList(content.paragraphs).join("\n");
   const serviceFeatures = stringList(content.features).join("\n");
+  const serviceVideoUrl =
+    typeof content.videoUrl === "string" ? content.videoUrl : "";
+  const serviceAnimation =
+    typeof content.animation === "string" ? content.animation : "fade";
+  const serviceCardBackground =
+    typeof content.cardBackground === "string" ? content.cardBackground : "#0b1c2b";
+  const serviceTextColor =
+    typeof content.textColor === "string" ? content.textColor : "#ffffff";
   const imageOptions = mediaOptions.filter((item) =>
     item.type.startsWith("image"),
+  );
+  const videoOptions = mediaOptions.filter((item) =>
+    item.type.startsWith("video"),
   );
   const currentInOptions =
     !serviceImageUrl ||
     imageOptions.some((option) => option.value === serviceImageUrl);
+  const currentVideoInOptions =
+    !serviceVideoUrl ||
+    videoOptions.some((option) => option.value === serviceVideoUrl);
 
   return (
     <form action={action} className="admin-form">
       <input type="hidden" name="id" value={record.id} />
       <input type="hidden" name="entity" value={entity} />
+      <input type="hidden" name="previewPath" value={record.previewPath} />
 
       <div className="admin-form__header">
         <div>
@@ -122,23 +145,46 @@ export function EntityForm({
           </p>
         </div>
         <div className="admin-form__header-actions">
-          <Link className="button button--secondary" href="/" target="_blank">
+          <Link className="button button--secondary" href={record.previewPath} target="_blank">
             <ExternalLink aria-hidden="true" size={17} />
-            Siteyi Gör
+            Canlı Sayfa
           </Link>
-          {entity === "services" ? (
-            <Link className="button button--secondary" href="/admin/media">
-              <ImageIcon aria-hidden="true" size={17} />
-              Medya
-            </Link>
-          ) : null}
-          <Button disabled={pending} type="submit">
+          <Link className="button button--secondary" href="/admin/media">
+            <ImageIcon aria-hidden="true" size={17} />
+            Medya
+          </Link>
+          <Button
+            variant="secondary"
+            disabled={pending}
+            name="intent"
+            value="draft"
+            type="submit"
+          >
             {pending ? (
               <Loader2 className="spin" aria-hidden="true" />
             ) : (
-              <Save aria-hidden="true" size={18} />
+              <Save aria-hidden="true" size={17} />
             )}
-            Kaydet
+            Taslak Kaydet
+          </Button>
+          <Button
+            variant="secondary"
+            disabled={pending}
+            name="intent"
+            value="preview"
+            type="submit"
+          >
+            <Eye aria-hidden="true" size={17} />
+            Önizle
+          </Button>
+          <Button
+            disabled={pending}
+            name="intent"
+            value="publish"
+            type="submit"
+          >
+            <Rocket aria-hidden="true" size={17} />
+            Yayımla
           </Button>
         </div>
       </div>
@@ -286,6 +332,49 @@ export function EntityForm({
                   </option>
                 ))}
               </Select>
+              <Select
+                label="Kart Videosu"
+                name="serviceVideoUrl"
+                defaultValue={serviceVideoUrl}
+              >
+                <option value="">Video seçilmedi</option>
+                {!currentVideoInOptions && serviceVideoUrl ? (
+                  <option value={serviceVideoUrl}>{serviceVideoUrl}</option>
+                ) : null}
+                {videoOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </Select>
+              <div className="form-grid form-grid--two">
+                <Select
+                  label="Animasyon"
+                  name="serviceAnimation"
+                  defaultValue={serviceAnimation}
+                >
+                  <option value="fade">Fade</option>
+                  <option value="slide">Slide</option>
+                  <option value="scale">Scale</option>
+                  <option value="none">Animasyonsuz</option>
+                </Select>
+                <label className="admin-color-field">
+                  <span>Kart Arka Planı</span>
+                  <input
+                    type="color"
+                    name="serviceCardBackground"
+                    defaultValue={serviceCardBackground}
+                  />
+                </label>
+                <label className="admin-color-field">
+                  <span>Metin Rengi</span>
+                  <input
+                    type="color"
+                    name="serviceTextColor"
+                    defaultValue={serviceTextColor}
+                  />
+                </label>
+              </div>
               <TextInput
                 label="Görsel Alt Metni"
                 name="serviceImageAlt"
@@ -330,20 +419,26 @@ export function EntityForm({
               </article>
             </section>
           </>
-        ) : (
-          <section className="admin-panel">
-            <h2>İçerik Yapısı</h2>
-            <p className="admin-help">
-              Yapılandırılmış içerik JSON biçiminde saklanır. Geçersiz JSON
-              kaydedilmez.
-            </p>
-            <Textarea
-              label="İçerik JSON"
-              name="body"
-              rows={26}
-              defaultValue={JSON.stringify(record.contentJson, null, 2)}
-              spellCheck={false}
+        ) : entity === "pages" ? (
+          <section className="admin-panel admin-panel--wide">
+            <PageBuilder
+              initial={record.contentJson}
+              mediaOptions={mediaOptions}
             />
+            <input type="hidden" name="features" value="" />
+            <input type="hidden" name="outputs" value="" />
+          </section>
+        ) : entity === "process_steps" ? (
+          <section className="admin-panel admin-panel--wide">
+            <h2>Süreç İçeriği</h2>
+            <ProcessContentBuilder initial={record.contentJson} />
+            <input type="hidden" name="features" value="" />
+            <input type="hidden" name="outputs" value="" />
+          </section>
+        ) : (
+          <section className="admin-panel admin-panel--wide">
+            <h2>Yasal Metin İçeriği</h2>
+            <LegalContentBuilder initial={record.contentJson} />
             <input type="hidden" name="features" value="" />
             <input type="hidden" name="outputs" value="" />
           </section>

@@ -3,14 +3,24 @@ import Link from "next/link";
 
 import { deleteProjectAction } from "@/app/admin/actions";
 import { ButtonLink } from "@/components/ui/button";
+import { cmsDraftKey } from "@/lib/cms/drafts";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function AdminProjectsPage() {
   const supabase = await createClient();
-  const { data: projects } = await supabase
-    .from("projects")
-    .select("id,title,slug,status,client_name,start_date,updated_at")
-    .order("updated_at", { ascending: false });
+  const [{ data: projects }, { data: draftRows }] = await Promise.all([
+    supabase
+      .from("projects")
+      .select("id,title,slug,status,client_name,start_date,updated_at")
+      .order("updated_at", { ascending: false }),
+    supabase
+      .from("site_settings")
+      .select("key")
+      .like("key", "draft:projects:%")
+      .eq("locale", "tr"),
+  ]);
+
+  const draftKeys = new Set((draftRows ?? []).map((row) => row.key));
 
   return (
     <>
@@ -51,6 +61,11 @@ export default async function AdminProjectsPage() {
                       <span className={`status-badge status-${project.status}`}>
                         {project.status}
                       </span>
+                      {draftKeys.has(cmsDraftKey("projects", project.id)) ? (
+                        <span className="status-badge status-review">
+                          Yayımlanmamış değişiklik
+                        </span>
+                      ) : null}
                     </td>
                     <td>{project.start_date || "—"}</td>
                     <td>

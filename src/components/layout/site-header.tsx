@@ -6,17 +6,7 @@ import { useEffect, useState } from "react";
 
 import { Logo } from "@/components/brand/logo";
 import { MenuOverlay } from "@/components/layout/menu-overlay";
-import { navigation } from "@/config/navigation";
 import type { ResolvedSiteSettings } from "@/lib/content/settings";
-
-const desktopIds = new Set([
-  "home",
-  "corporate",
-  "services",
-  "digital-services",
-  "references",
-  "contact",
-]);
 
 export function SiteHeader({
   settings,
@@ -33,9 +23,9 @@ export function SiteHeader({
     return () => window.removeEventListener("scroll", update);
   }, []);
 
-  const desktopNavigation = navigation.filter((item) =>
-    desktopIds.has(item.id),
-  );
+  const desktopNavigation = settings.navigation
+    .filter((item) => item.visible && item.showInHeader)
+    .slice(0, 7);
 
   return (
     <header
@@ -69,7 +59,10 @@ export function SiteHeader({
             <ArrowRight aria-hidden="true" size={18} />
           </Link>
 
-          <MenuOverlay buttonLabel={settings.header.menuButtonLabel} />
+          <MenuOverlay
+            buttonLabel={settings.header.menuButtonLabel}
+            navigation={settings.navigation}
+          />
         </div>
       </div>
     </header>

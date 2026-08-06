@@ -14,11 +14,15 @@ import {
   useState,
 } from "react";
 
-import { navigation } from "@/config/navigation";
+import type { ResolvedNavigationItem } from "@/lib/content/settings";
 
 export function MenuOverlay({
   buttonLabel = "Menü",
-}: Readonly<{ buttonLabel?: string }>) {
+  navigation,
+}: Readonly<{
+  buttonLabel?: string;
+  navigation: readonly ResolvedNavigationItem[];
+}>) {
   const [open, setOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const dialogId = useId();
@@ -57,6 +61,8 @@ export function MenuOverlay({
   function closeMenu() {
     setOpen(false);
   }
+
+  const visibleNavigation = navigation.filter((item) => item.visible);
 
   return (
     <>
@@ -105,7 +111,7 @@ export function MenuOverlay({
 
             <div className="menu-overlay__scroll">
               <nav className="menu-overlay__grid" aria-label="Tüm sayfalar">
-                {navigation.map((item, index) => (
+                {visibleNavigation.map((item) => (
                   <section
                     className="menu-group"
                     key={item.id}
@@ -117,23 +123,22 @@ export function MenuOverlay({
                       id={`menu-${item.id}`}
                       onClick={closeMenu}
                     >
-                      <span className="menu-group__number">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
                       <span>{item.label}</span>
                       <ArrowUpRight aria-hidden="true" size={18} />
                     </Link>
 
-                    {item.children?.length ? (
+                    {item.children?.some((child) => child.visible) ? (
                       <ul>
-                        {item.children.map((child) => (
-                          <li key={child.id}>
-                            <Link href={child.href} onClick={closeMenu}>
-                              <ChevronRight aria-hidden="true" size={15} />
-                              <span>{child.label}</span>
-                            </Link>
-                          </li>
-                        ))}
+                        {item.children
+                          .filter((child) => child.visible)
+                          .map((child) => (
+                            <li key={child.id}>
+                              <Link href={child.href} onClick={closeMenu}>
+                                <ChevronRight aria-hidden="true" size={15} />
+                                <span>{child.label}</span>
+                              </Link>
+                            </li>
+                          ))}
                       </ul>
                     ) : null}
                   </section>

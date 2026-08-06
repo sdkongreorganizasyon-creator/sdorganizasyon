@@ -13,7 +13,6 @@ import {
   LinkedInIcon,
   YouTubeIcon,
 } from "@/components/icons/social-icons";
-import { navigation } from "@/config/navigation";
 import type { ResolvedSiteSettings } from "@/lib/content/settings";
 import {
   normalizePhoneForLink,
@@ -23,9 +22,11 @@ import {
 export function SiteFooter({
   settings,
 }: Readonly<{ settings: ResolvedSiteSettings }>) {
-  const legalMenu = navigation.find((item) => item.id === "privacy");
-  const quickMenu = navigation.filter((item) =>
-    ["home", "corporate", "services", "digital-services", "process", "projects", "references", "contact"].includes(item.id),
+  const legalMenu = settings.navigation.find(
+    (item) => item.id === "privacy" && item.visible,
+  );
+  const quickMenu = settings.navigation.filter(
+    (item) => item.visible && item.showInFooter && item.id !== "privacy",
   );
 
   const hasContact = Boolean(
@@ -120,7 +121,7 @@ export function SiteFooter({
           <section>
             <h2>Yasal Metinler</h2>
             <ul className="site-footer__links">
-              {legalMenu?.children?.map((item) => (
+              {legalMenu?.children?.filter((item) => item.visible).map((item) => (
                 <li key={item.id}>
                   <Link href={item.href}>{item.label}</Link>
                 </li>

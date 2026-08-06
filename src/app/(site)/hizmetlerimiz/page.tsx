@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 
 import { InteriorHero } from "@/components/pages/interior-hero";
 import { ServiceCard } from "@/components/pages/service-card";
+import {
+  getPageHero,
+  getResolvedSiteSettings,
+} from "@/lib/content/settings";
 import { getServices } from "@/lib/content/queries";
 import { createMetadata } from "@/lib/seo/metadata";
 
@@ -13,15 +17,29 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default async function ServicesPage() {
-  const services = await getServices("physical");
+  const [services, settings] = await Promise.all([
+    getServices("physical"),
+    getResolvedSiteSettings(),
+  ]);
+  const hero = getPageHero(settings, "/hizmetlerimiz", {
+    eyebrow: "HİZMETLERİMİZ",
+    title: "Tüm Organizasyon Hizmetleri Tek Sayfada",
+    description:
+      "Planlamadan uygulamaya kadar sunduğumuz hizmetleri, açıklamaları ve görselleriyle birlikte inceleyin.",
+    image: "/media/pages/kurumsal.webp",
+    video: null,
+    animation: "fade",
+  });
 
   return (
     <>
       <InteriorHero
-        eyebrow="HİZMETLERİMİZ"
-        title="Tüm Organizasyon Hizmetleri Tek Sayfada"
-        description="Planlamadan uygulamaya kadar sunduğumuz hizmetleri, açıklamaları ve görselleriyle birlikte inceleyin."
-        image="/media/pages/kurumsal.webp"
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
+        image={hero.image}
+        video={hero.video}
+        animation={hero.animation}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "HİZMETLERİMİZ" },

@@ -10,8 +10,10 @@ import {
   digitalServiceImages,
   physicalServiceImages,
 } from "@/config/media";
+import { getCmsDraft, isCmsPreviewEnabled } from "@/lib/cms/drafts";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createPublicClient } from "@/lib/supabase/public";
+import { createClient } from "@/lib/supabase/server";
 import type {
   CorporatePageContent,
   LegalDocumentContent,
@@ -23,7 +25,10 @@ import type {
 import type { Json } from "@/types/database";
 
 type PageRow = {
+  id: string;
   page_key: string;
+  slug: string;
+  status: string;
   title: string;
   eyebrow: string | null;
   summary: string | null;
@@ -31,6 +36,8 @@ type PageRow = {
 };
 
 type ServiceRow = {
+  id: string;
+  status: string;
   category: "physical" | "digital";
   title: string;
   slug: string;
@@ -41,6 +48,8 @@ type ServiceRow = {
 };
 
 type ProcessRow = {
+  id: string;
+  status: string;
   step_key: string;
   title: string;
   subtitle: string | null;
@@ -50,6 +59,8 @@ type ProcessRow = {
 };
 
 type LegalRow = {
+  id: string;
+  status: string;
   document_key: string;
   title: string;
   body_json: Json;
@@ -57,6 +68,7 @@ type LegalRow = {
 
 type ProjectRow = {
   id: string;
+  status: string;
   slug: string;
   title: string;
   client_name: string | null;
@@ -89,6 +101,7 @@ type MediaAssetRow = {
 
 type ReferenceRow = {
   id: string;
+  visible: boolean;
   name: string;
   website: string | null;
   category: string | null;
@@ -117,66 +130,98 @@ export async function getCorporatePage(
 
   if (!isSupabaseConfigured()) return fallback;
 
-  const supabase = createPublicClient();
-  const { data } = await supabase
+  const preview = await isCmsPreviewEnabled();
+  const supabase = preview ? await createClient() : createPublicClient();
+  let query = supabase
     .from("pages")
-    .select("page_key,title,eyebrow,summary,content_json")
+    .select("id,page_key,slug,status,title,eyebrow,summary,content_json")
     .eq("slug", slug)
-    .eq("locale", "tr")
-    .eq("status", "published")
-    .maybeSingle();
+    .eq("locale", "tr");
 
+  if (!preview) query = query.eq("status", "published");
+
+  const { data } = await query.maybeSingle();
   const row = data as PageRow | null;
   if (!row) return fallback;
 
-  const content = asRecord(row.content_json);
+  const draft = preview ? await getCmsDraft("pages", row.id) : null;
+  const effective = draft && typeof draft === "object" && !Array.isArray(draft)
+    ? ({ ...row, ...draft } as PageRow)
+    : row;
+  const content = asRecord(effective.content_json);
   const fallbackValues =
     fallback && "values" in fallback ? fallback.values : undefined;
 
   return {
-    pageKey: row.page_key,
-    title: row.title,
-    eyebrow: row.eyebrow ?? "KURUMSAL",
+    pageKey: effective.page_key,
+    title: effective.title,
+    eyebrow: effective.eyebrow ?? "KURUMSAL",
     headline:
       typeof content.headline === "string"
         ? content.headline
-        : row.summary ?? row.title,
+        : effective.summary ?? effective.title,
     paragraphs: stringArray(content.paragraphs),
     values: Array.isArray(content.values)
       ? (content.values as CorporatePageContent["values"])
       : fallbackValues,
+    sections: Array.isArray(content.sections)
+      ? (content.sections as CorporatePageContent["sections"])
+      : [],
+    heroImage:
+      typeof content.heroImage === "string" ? content.heroImage : undefined,
+    heroVideo:
+      typeof content.heroVideo === "string" ? content.heroVideo : undefined,
+    heroAnimation:
+      typeof content.heroAnimation === "string"
+        ? content.heroAnimation
+        : undefined,
   };
 }
 
 export async function getWhyUsContent() {
   if (!isSupabaseConfigured()) return whyUsContent;
 
-  const supabase = createPublicClient();
-  const { data } = await supabase
+  const preview = await isCmsPreviewEnabled();
+  const supabase = preview ? await createClient() : createPublicClient();
+  let query = supabase
     .from("pages")
-    .select("page_key,title,eyebrow,summary,content_json")
+    .select("id,page_key,slug,status,title,eyebrow,summary,content_json")
     .eq("page_key", "why-us")
-    .eq("locale", "tr")
-    .eq("status", "published")
-    .maybeSingle();
+    .eq("locale", "tr");
 
+  if (!preview) query = query.eq("status", "published");
+
+  const { data } = await query.maybeSingle();
   const row = data as PageRow | null;
   if (!row) return whyUsContent;
 
-  const content = asRecord(row.content_json);
+  const draft = preview ? await getCmsDraft("pages", row.id) : null;
+  const effective = draft && typeof draft === "object" && !Array.isArray(draft)
+    ? ({ ...row, ...draft } as PageRow)
+    : row;
+  const content = asRecord(effective.content_json);
 
   return {
-    pageKey: row.page_key,
-    title: row.title,
-    eyebrow: row.eyebrow ?? "NEDEN BİZ",
+    pageKey: effective.page_key,
+    title: effective.title,
+    eyebrow: effective.eyebrow ?? "NEDEN BİZ",
     headline:
       typeof content.headline === "string"
         ? content.headline
-        : row.summary ?? row.title,
+        : effective.summary ?? effective.title,
     paragraphs: stringArray(content.paragraphs),
     items: Array.isArray(content.items)
       ? (content.items as unknown as typeof whyUsContent.items)
       : whyUsContent.items,
+    sections: Array.isArray(content.sections) ? content.sections : [],
+    heroImage:
+      typeof content.heroImage === "string" ? content.heroImage : undefined,
+    heroVideo:
+      typeof content.heroVideo === "string" ? content.heroVideo : undefined,
+    heroAnimation:
+      typeof content.heroAnimation === "string"
+        ? content.heroAnimation
+        : undefined,
   };
 }
 
@@ -199,16 +244,31 @@ export async function getServices(
     }));
   }
 
-  const supabase = createPublicClient();
-  const { data } = await supabase
+  const preview = await isCmsPreviewEnabled();
+  const supabase = preview ? await createClient() : createPublicClient();
+  let query = supabase
     .from("services")
-    .select("category,title,slug,summary,body_json,icon,order_no")
+    .select("id,status,category,title,slug,summary,body_json,icon,order_no")
     .eq("category", category)
-    .eq("locale", "tr")
-    .eq("status", "published")
-    .order("order_no");
+    .eq("locale", "tr");
 
-  const rows = (data ?? []) as ServiceRow[];
+  if (!preview) query = query.eq("status", "published");
+
+  const { data } = await query.order("order_no");
+  let rows = (data ?? []) as ServiceRow[];
+
+  if (preview) {
+    rows = await Promise.all(
+      rows.map(async (row) => {
+        const draft = await getCmsDraft("services", row.id);
+        return draft && typeof draft === "object" && !Array.isArray(draft)
+          ? ({ ...row, ...draft } as ServiceRow)
+          : row;
+      }),
+    );
+    rows = rows.filter((row) => row.status !== "archived");
+  }
+
   if (!rows.length) {
     const imageMap =
       category === "physical"
@@ -224,7 +284,6 @@ export async function getServices(
 
   return rows.map((item) => {
     const body = asRecord(item.body_json);
-
     const imageMap =
       item.category === "physical"
         ? physicalServiceImages
@@ -246,6 +305,18 @@ export async function getServices(
         typeof body.imageAlt === "string" && body.imageAlt.trim()
           ? body.imageAlt.trim()
           : `${item.title} hizmetini temsil eden etkinlik görseli`,
+      videoUrl:
+        typeof body.videoUrl === "string" && body.videoUrl.trim()
+          ? body.videoUrl.trim()
+          : undefined,
+      animation:
+        typeof body.animation === "string" ? body.animation : "fade",
+      cardBackground:
+        typeof body.cardBackground === "string"
+          ? body.cardBackground
+          : undefined,
+      textColor:
+        typeof body.textColor === "string" ? body.textColor : undefined,
     };
   });
 }
@@ -261,17 +332,32 @@ export async function getService(
 export async function getProcessSteps(): Promise<readonly ProcessStep[]> {
   if (!isSupabaseConfigured()) return processSteps;
 
-  const supabase = createPublicClient();
-  const { data } = await supabase
+  const preview = await isCmsPreviewEnabled();
+  const supabase = preview ? await createClient() : createPublicClient();
+  let query = supabase
     .from("process_steps")
     .select(
-      "step_key,title,subtitle,description,content_json,order_no",
+      "id,status,step_key,title,subtitle,description,content_json,order_no",
     )
-    .eq("locale", "tr")
-    .eq("status", "published")
-    .order("order_no");
+    .eq("locale", "tr");
 
-  const rows = (data ?? []) as ProcessRow[];
+  if (!preview) query = query.eq("status", "published");
+
+  const { data } = await query.order("order_no");
+  let rows = (data ?? []) as ProcessRow[];
+
+  if (preview) {
+    rows = await Promise.all(
+      rows.map(async (row) => {
+        const draft = await getCmsDraft("process_steps", row.id);
+        return draft && typeof draft === "object" && !Array.isArray(draft)
+          ? ({ ...row, ...draft } as ProcessRow)
+          : row;
+      }),
+    );
+    rows = rows.filter((row) => row.status !== "archived");
+  }
+
   if (!rows.length) return processSteps;
 
   return rows.map((item, index) => {
@@ -305,25 +391,31 @@ export async function getLegalDocument(
 
   if (!isSupabaseConfigured()) return fallback;
 
-  const supabase = createPublicClient();
-  const { data } = await supabase
+  const preview = await isCmsPreviewEnabled();
+  const supabase = preview ? await createClient() : createPublicClient();
+  let query = supabase
     .from("legal_documents")
-    .select("document_key,title,body_json")
+    .select("id,status,document_key,title,body_json")
     .eq("slug", slug)
-    .eq("locale", "tr")
-    .eq("status", "published")
-    .maybeSingle();
+    .eq("locale", "tr");
 
+  if (!preview) query = query.eq("status", "published");
+
+  const { data } = await query.maybeSingle();
   const row = data as LegalRow | null;
   if (!row) return fallback;
 
-  const body = asRecord(row.body_json);
+  const draft = preview ? await getCmsDraft("legal_documents", row.id) : null;
+  const effective = draft && typeof draft === "object" && !Array.isArray(draft)
+    ? ({ ...row, ...draft } as LegalRow)
+    : row;
+  const body = asRecord(effective.body_json);
 
   return {
-    documentKey: row.document_key,
-    title: row.title,
+    documentKey: effective.document_key,
+    title: effective.title,
     headline:
-      typeof body.headline === "string" ? body.headline : row.title,
+      typeof body.headline === "string" ? body.headline : effective.title,
     sections: Array.isArray(body.sections)
       ? (body.sections as LegalDocumentContent["sections"])
       : fallback?.sections ?? [],
@@ -333,17 +425,32 @@ export async function getLegalDocument(
 export async function getProjects(): Promise<ProjectRecord[]> {
   if (!isSupabaseConfigured()) return [];
 
-  const supabase = createPublicClient();
-  const { data } = await supabase
+  const preview = await isCmsPreviewEnabled();
+  const supabase = preview ? await createClient() : createPublicClient();
+  let query = supabase
     .from("projects")
     .select(
-      "id,slug,title,client_name,event_type,city,venue,start_date,end_date,summary,challenge,solution,result_json,cover_media_id",
+      "id,status,slug,title,client_name,event_type,city,venue,start_date,end_date,summary,challenge,solution,result_json,cover_media_id",
     )
-    .eq("locale", "tr")
-    .eq("status", "published")
-    .order("start_date", { ascending: false });
+    .eq("locale", "tr");
 
-  const rows = (data ?? []) as ProjectRow[];
+  if (!preview) query = query.eq("status", "published");
+
+  const { data } = await query.order("start_date", { ascending: false });
+  let rows = (data ?? []) as ProjectRow[];
+
+  if (preview) {
+    rows = await Promise.all(
+      rows.map(async (row) => {
+        const draft = await getCmsDraft("projects", row.id);
+        return draft && typeof draft === "object" && !Array.isArray(draft)
+          ? ({ ...row, ...draft } as ProjectRow)
+          : row;
+      }),
+    );
+    rows = rows.filter((row) => row.status !== "archived");
+  }
+
   if (!rows.length) return [];
 
   const coverIds = rows
@@ -391,27 +498,97 @@ export async function getProject(
 ): Promise<ProjectRecord | null> {
   if (!isSupabaseConfigured()) return null;
 
-  const supabase = createPublicClient();
-  const { data } = await supabase
-    .from("projects")
-    .select(
-      "id,slug,title,client_name,event_type,city,venue,start_date,end_date,summary,challenge,solution,result_json,cover_media_id",
-    )
-    .eq("slug", slug)
-    .eq("locale", "tr")
-    .eq("status", "published")
-    .maybeSingle();
+  const preview = await isCmsPreviewEnabled();
+  const supabase = preview ? await createClient() : createPublicClient();
 
-  const project = data as ProjectRow | null;
+  let project: ProjectRow | null = null;
+  let draftGallery: ProjectMediaRow[] | null = null;
+
+  if (preview) {
+    const { data } = await supabase
+      .from("projects")
+      .select(
+        "id,status,slug,title,client_name,event_type,city,venue,start_date,end_date,summary,challenge,solution,result_json,cover_media_id",
+      )
+      .eq("locale", "tr");
+
+    const effectiveRows = await Promise.all(
+      ((data ?? []) as ProjectRow[]).map(async (row) => {
+        const draft = await getCmsDraft("projects", row.id);
+        if (!draft || typeof draft !== "object" || Array.isArray(draft)) {
+          return { row, gallery: null };
+        }
+
+        const record = draft as Record<string, Json | undefined>;
+        const gallery = Array.isArray(record.gallery_media)
+          ? record.gallery_media.flatMap((item, index) => {
+              if (!item || typeof item !== "object" || Array.isArray(item)) {
+                return [];
+              }
+              const media = item as Record<string, Json | undefined>;
+              const mediaId =
+                typeof media.media_id === "string" ? media.media_id : "";
+              if (!mediaId) return [];
+
+              return [
+                {
+                  id: `draft-${index}-${mediaId}`,
+                  media_id: mediaId,
+                  media_type:
+                    media.media_type === "video" ? "video" : "image",
+                  caption:
+                    typeof media.caption === "string" ? media.caption : null,
+                  order_no:
+                    typeof media.order_no === "number"
+                      ? media.order_no
+                      : index + 1,
+                } satisfies ProjectMediaRow,
+              ];
+            })
+          : null;
+
+        return {
+          row: { ...row, ...record } as ProjectRow,
+          gallery,
+        };
+      }),
+    );
+
+    const match = effectiveRows.find(
+      (item) => item.row.slug === slug && item.row.status !== "archived",
+    );
+    project = match?.row ?? null;
+    draftGallery = match?.gallery ?? null;
+  } else {
+    const { data } = await supabase
+      .from("projects")
+      .select(
+        "id,status,slug,title,client_name,event_type,city,venue,start_date,end_date,summary,challenge,solution,result_json,cover_media_id",
+      )
+      .eq("slug", slug)
+      .eq("locale", "tr")
+      .eq("status", "published")
+      .maybeSingle();
+
+    project = data as ProjectRow | null;
+  }
+
   if (!project) return null;
 
-  const { data: projectMediaData } = await supabase
-    .from("project_media")
-    .select("id,media_id,media_type,caption,order_no")
-    .eq("project_id", project.id)
-    .order("order_no");
+  let projectMedia: ProjectMediaRow[];
 
-  const projectMedia = (projectMediaData ?? []) as ProjectMediaRow[];
+  if (draftGallery) {
+    projectMedia = draftGallery;
+  } else {
+    const { data: projectMediaData } = await supabase
+      .from("project_media")
+      .select("id,media_id,media_type,caption,order_no")
+      .eq("project_id", project.id)
+      .order("order_no");
+
+    projectMedia = (projectMediaData ?? []) as ProjectMediaRow[];
+  }
+
   const mediaIds = [
     ...(project.cover_media_id ? [project.cover_media_id] : []),
     ...projectMedia.map((item) => item.media_id),
@@ -483,15 +660,32 @@ export async function getProject(
 export async function getReferences(): Promise<ReferenceRecord[]> {
   if (!isSupabaseConfigured()) return [];
 
-  const supabase = createPublicClient();
-  const { data } = await supabase
+  const preview = await isCmsPreviewEnabled();
+  const supabase = preview ? await createClient() : createPublicClient();
+  let query = supabase
     .from("references")
-    .select("id,name,website,category,story,logo_media_id,order_no")
-    .eq("locale", "tr")
-    .eq("visible", true)
-    .order("order_no");
+    .select(
+      "id,visible,name,website,category,story,logo_media_id,order_no",
+    )
+    .eq("locale", "tr");
 
-  const rows = (data ?? []) as ReferenceRow[];
+  if (!preview) query = query.eq("visible", true);
+
+  const { data } = await query.order("order_no");
+  let rows = (data ?? []) as ReferenceRow[];
+
+  if (preview) {
+    rows = await Promise.all(
+      rows.map(async (row) => {
+        const draft = await getCmsDraft("references", row.id);
+        return draft && typeof draft === "object" && !Array.isArray(draft)
+          ? ({ ...row, ...draft } as ReferenceRow)
+          : row;
+      }),
+    );
+    rows = rows.filter((row) => row.visible);
+  }
+
   if (!rows.length) return [];
 
   const logoIds = rows

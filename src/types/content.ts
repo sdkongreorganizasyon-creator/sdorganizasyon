@@ -19,6 +19,22 @@ export type ValueItem = Readonly<{
   icon?: string;
 }>;
 
+export type CmsPageSection = Readonly<{
+  id: string;
+  type: "text" | "media-text" | "feature-grid" | "quote";
+  eyebrow?: string;
+  title?: string;
+  body?: string;
+  imageUrl?: string;
+  videoUrl?: string;
+  imageAlt?: string;
+  background?: string;
+  textColor?: string;
+  animation?: "fade" | "slide" | "scale" | "none";
+  align?: "left" | "center" | "right";
+  active?: boolean;
+}>;
+
 export type CorporatePageContent = Readonly<{
   pageKey: string;
   title: string;
@@ -26,6 +42,10 @@ export type CorporatePageContent = Readonly<{
   headline: string;
   paragraphs: readonly string[];
   values?: readonly ValueItem[];
+  sections?: readonly CmsPageSection[];
+  heroImage?: string;
+  heroVideo?: string;
+  heroAnimation?: string;
 }>;
 
 export type ServiceContent = Readonly<{
@@ -38,6 +58,10 @@ export type ServiceContent = Readonly<{
   features: readonly string[];
   imageUrl?: string;
   imageAlt?: string;
+  videoUrl?: string;
+  animation?: string;
+  cardBackground?: string;
+  textColor?: string;
 }>;
 
 export type ProcessGroup = Readonly<{

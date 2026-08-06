@@ -1,11 +1,14 @@
-import { Edit3 } from "lucide-react";
+import { Edit3, Eye } from "lucide-react";
 import Link from "next/link";
 
+import { cmsDraftKey } from "@/lib/cms/drafts";
 import { createClient } from "@/lib/supabase/server";
+
+type Entity = "pages" | "services" | "process_steps" | "legal_documents";
 
 type Group = Readonly<{
   title: string;
-  entity: "pages" | "services" | "process_steps" | "legal_documents";
+  entity: Entity;
   items: readonly Readonly<{
     id: string;
     title: string;
@@ -17,7 +20,7 @@ type Group = Readonly<{
 export default async function AdminContentPage() {
   const supabase = await createClient();
 
-  const [pages, services, process, legal] = await Promise.all([
+  const [pages, services, process, legal, drafts] = await Promise.all([
     supabase
       .from("pages")
       .select("id,title,status,updated_at")
@@ -35,8 +38,13 @@ export default async function AdminContentPage() {
       .from("legal_documents")
       .select("id,title,status,updated_at")
       .order("title"),
+    supabase
+      .from("site_settings")
+      .select("key")
+      .like("key", "draft:%"),
   ]);
 
+  const draftKeys = new Set((drafts.data ?? []).map((item) => item.key));
   const groups: Group[] = [
     { title: "Kurumsal ve Genel Sayfalar", entity: "pages", items: pages.data ?? [] },
     { title: "Hizmetler", entity: "services", items: services.data ?? [] },
@@ -50,15 +58,29 @@ export default async function AdminContentPage() {
         <div>
           <p className="eyebrow">İÇERİK YÖNETİMİ</p>
           <h1>Sayfa İçerikleri</h1>
-          <p>Kaynak metinleri, yayın durumlarını ve SEO alanlarını yönetin.</p>
+          <p>
+            İçerikleri taslak olarak düzenleyin, gerçek sayfada önizleyin ve
+            onayladığınızda yayımlayın.
+          </p>
         </div>
+        <Link
+          className="button button--secondary"
+          href="/api/admin/preview?path=/"
+          prefetch={false}
+        >
+          <Eye aria-hidden="true" size={17} />
+          Taslak Siteyi Önizle
+        </Link>
       </div>
 
       <div className="admin-content-groups">
         {groups.map((group) => (
           <section className="admin-panel" key={group.entity}>
             <div className="admin-panel__heading">
-              <h2>{group.title}</h2>
+              <div>
+                <h2>{group.title}</h2>
+                <p>Taslak ve yayın durumlarını tek listede takip edin.</p>
+              </div>
               <span>{group.items.length} kayıt</span>
             </div>
 
@@ -68,43 +90,57 @@ export default async function AdminContentPage() {
                   <thead>
                     <tr>
                       <th>Başlık</th>
-                      <th>Durum</th>
+                      <th>Canlı Durum</th>
+                      <th>Taslak</th>
                       <th>Güncelleme</th>
                       <th aria-label="İşlem" />
                     </tr>
                   </thead>
                   <tbody>
-                    {group.items.map((item) => (
-                      <tr key={item.id}>
-                        <td>{item.title}</td>
-                        <td>
-                          <span className={`status-badge status-${item.status}`}>
-                            {item.status}
-                          </span>
-                        </td>
-                        <td>
-                          {new Intl.DateTimeFormat("tr-TR", {
-                            dateStyle: "medium",
-                          }).format(new Date(item.updated_at))}
-                        </td>
-                        <td>
-                          <Link
-                            className="admin-icon-link"
-                            href={`/admin/content/${group.entity}/${item.id}`}
-                            aria-label={`${item.title} içeriğini düzenle`}
-                          >
-                            <Edit3 aria-hidden="true" size={17} />
-                          </Link>
-                        </td>
-                      </tr>
-                    ))}
+                    {group.items.map((item) => {
+                      const hasDraft = draftKeys.has(
+                        cmsDraftKey(group.entity, item.id),
+                      );
+                      return (
+                        <tr key={item.id}>
+                          <td>{item.title}</td>
+                          <td>
+                            <span className={`status-badge status-${item.status}`}>
+                              {item.status}
+                            </span>
+                          </td>
+                          <td>
+                            {hasDraft ? (
+                              <span className="status-badge status-review">
+                                Yayımlanmamış
+                              </span>
+                            ) : (
+                              <span className="admin-help">—</span>
+                            )}
+                          </td>
+                          <td>
+                            {new Intl.DateTimeFormat("tr-TR", {
+                              dateStyle: "medium",
+                            }).format(new Date(item.updated_at))}
+                          </td>
+                          <td>
+                            <Link
+                              className="admin-icon-link"
+                              href={`/admin/content/${group.entity}/${item.id}`}
+                              aria-label={`${item.title} içeriğini düzenle`}
+                            >
+                              <Edit3 aria-hidden="true" size={17} />
+                            </Link>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
             ) : (
               <p className="admin-help">
-                Kayıt bulunamadı. Önce `npm run seed:supabase` komutunu
-                çalıştırın.
+                Bu bölümde henüz içerik kaydı bulunmuyor.
               </p>
             )}
           </section>

@@ -8,6 +8,7 @@ import {
   canPublish,
   requireAdmin,
 } from "@/lib/auth/require-admin";
+import { cmsDraftKey } from "@/lib/cms/drafts";
 import { SITE_SETTINGS_TAG } from "@/lib/content/settings";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
@@ -128,6 +129,8 @@ export async function saveGenericContentAction(
 ): Promise<ActionState> {
   const context = await requireAdmin();
   const role = context.profile?.role;
+  const intent = stringValue(formData, "intent") || "draft";
+  const previewPath = stringValue(formData, "previewPath") || "/";
 
   const raw = {
     id: stringValue(formData, "id"),
@@ -157,7 +160,7 @@ export async function saveGenericContentAction(
     };
   }
 
-  if (parsed.data.status === "published" && !canPublish(role)) {
+  if (intent === "publish" && !canPublish(role)) {
     return {
       success: false,
       message: "Bu rolün yayınlama yetkisi bulunmuyor.",
@@ -191,6 +194,10 @@ export async function saveGenericContentAction(
       features,
       imageUrl: stringValue(formData, "serviceImageUrl"),
       imageAlt: stringValue(formData, "serviceImageAlt"),
+      videoUrl: stringValue(formData, "serviceVideoUrl"),
+      animation: stringValue(formData, "serviceAnimation") || "fade",
+      cardBackground: stringValue(formData, "serviceCardBackground"),
+      textColor: stringValue(formData, "serviceTextColor"),
     };
   }
 
@@ -200,61 +207,133 @@ export async function saveGenericContentAction(
     description: parsed.data.seoDescription || null,
   };
   const publishedAt =
-    parsed.data.status === "published" ? new Date().toISOString() : null;
+    intent === "publish" ? new Date().toISOString() : null;
   const scheduledAt =
     parsed.data.status === "scheduled"
       ? scheduledLocalToIso(parsed.data.scheduledAt ?? "")
       : null;
+
+  const serviceSlug = stringValue(formData, "serviceSlug");
+  const serviceIcon = stringValue(formData, "serviceIcon");
+  const rawOrderNo = Number(stringValue(formData, "serviceOrderNo"));
+
+  if (
+    parsed.data.entity === "services" &&
+    serviceSlug &&
+    !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(serviceSlug)
+  ) {
+    return {
+      success: false,
+      message: "Anchor slug yalnız küçük harf, rakam ve tire içerebilir.",
+    };
+  }
+
+  const payloadByEntity: Record<string, Json> = {
+    pages: {
+      title: parsed.data.title,
+      eyebrow: parsed.data.eyebrow || null,
+      summary: parsed.data.summary || null,
+      content_json: contentJson,
+      status: parsed.data.status,
+      seo_json: seoJson,
+      scheduled_at: scheduledAt,
+      published_at: publishedAt,
+    },
+    services: {
+      title: parsed.data.title,
+      slug: serviceSlug || null,
+      icon: serviceIcon || null,
+      order_no: Number.isFinite(rawOrderNo) ? rawOrderNo : 0,
+      summary: parsed.data.summary || null,
+      body_json: contentJson,
+      status: parsed.data.status,
+      seo_json: seoJson,
+      scheduled_at: scheduledAt,
+      published_at: publishedAt,
+    },
+    process_steps: {
+      title: parsed.data.title,
+      subtitle: parsed.data.subtitle || null,
+      description: parsed.data.summary || null,
+      content_json: contentJson,
+      status: parsed.data.status,
+      scheduled_at: scheduledAt,
+    },
+    legal_documents: {
+      title: parsed.data.title,
+      body_json: contentJson,
+      version: parsed.data.version || "1.0",
+      effective_date: parsed.data.effectiveDate || null,
+      status: parsed.data.status,
+      seo_json: seoJson,
+      scheduled_at: scheduledAt,
+      published_at: publishedAt,
+    },
+  };
+
+  const payload = payloadByEntity[parsed.data.entity];
+  if (!payload) {
+    return {
+      success: false,
+      message: "Desteklenmeyen içerik türü.",
+    };
+  }
+
+  const draftKey = cmsDraftKey(
+    parsed.data.entity as
+      | "pages"
+      | "services"
+      | "process_steps"
+      | "legal_documents",
+    parsed.data.id,
+  );
+
+  if (intent !== "publish") {
+    const { error } = await supabase.from("site_settings").upsert(
+      {
+        key: draftKey,
+        locale: "tr",
+        value_json: payload,
+        updated_by: context.user?.id ?? null,
+      },
+      { onConflict: "key,locale" },
+    );
+
+    if (error) {
+      return {
+        success: false,
+        message: `Taslak kaydedilemedi: ${error.message}`,
+      };
+    }
+
+    if (intent === "preview") {
+      redirect(
+        `/admin/preview?path=${encodeURIComponent(previewPath)}`,
+      );
+    }
+
+    revalidatePath("/admin/content");
+    return {
+      success: true,
+      message:
+        "Taslak kaydedildi. Canlı site değiştirilmedi; önizleme ile kontrol edebilirsiniz.",
+    };
+  }
 
   let errorMessage: string | null = null;
 
   if (parsed.data.entity === "pages") {
     const { error } = await supabase
       .from("pages")
-      .update({
-        title: parsed.data.title,
-        eyebrow: parsed.data.eyebrow || null,
-        summary: parsed.data.summary || null,
-        content_json: contentJson,
-        status: parsed.data.status,
-        seo_json: seoJson,
-        scheduled_at: scheduledAt,
-        published_at: publishedAt,
-      })
+      .update(payload)
       .eq("id", parsed.data.id);
     errorMessage = error?.message ?? null;
   }
 
   if (parsed.data.entity === "services") {
-    const serviceSlug = stringValue(formData, "serviceSlug");
-    const serviceIcon = stringValue(formData, "serviceIcon");
-    const rawOrderNo = Number(stringValue(formData, "serviceOrderNo"));
-
-    if (
-      serviceSlug &&
-      !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(serviceSlug)
-    ) {
-      return {
-        success: false,
-        message:
-          "Anchor slug yalnız küçük harf, rakam ve tire içerebilir.",
-      };
-    }
-
     const { error } = await supabase
       .from("services")
-      .update({
-        title: parsed.data.title,
-        slug: serviceSlug || undefined,
-        icon: serviceIcon || null,
-        order_no: Number.isFinite(rawOrderNo) ? rawOrderNo : undefined,
-        summary: parsed.data.summary || null,
-        body_json: contentJson,
-        status: parsed.data.status,
-        seo_json: seoJson,
-        scheduled_at: scheduledAt,
-        published_at: publishedAt,
-      })
+      .update(payload)
       .eq("id", parsed.data.id);
     errorMessage = error?.message ?? null;
   }
@@ -262,14 +341,7 @@ export async function saveGenericContentAction(
   if (parsed.data.entity === "process_steps") {
     const { error } = await supabase
       .from("process_steps")
-      .update({
-        title: parsed.data.title,
-        subtitle: parsed.data.subtitle || null,
-        description: parsed.data.summary || null,
-        content_json: contentJson,
-        status: parsed.data.status,
-        scheduled_at: scheduledAt,
-      })
+      .update(payload)
       .eq("id", parsed.data.id);
     errorMessage = error?.message ?? null;
   }
@@ -277,16 +349,7 @@ export async function saveGenericContentAction(
   if (parsed.data.entity === "legal_documents") {
     const { error } = await supabase
       .from("legal_documents")
-      .update({
-        title: parsed.data.title,
-        body_json: contentJson,
-        version: parsed.data.version || "1.0",
-        effective_date: parsed.data.effectiveDate || null,
-        status: parsed.data.status,
-        seo_json: seoJson,
-        scheduled_at: scheduledAt,
-        published_at: publishedAt,
-      })
+      .update(payload)
       .eq("id", parsed.data.id);
     errorMessage = error?.message ?? null;
   }
@@ -294,16 +357,23 @@ export async function saveGenericContentAction(
   if (errorMessage) {
     return {
       success: false,
-      message: `Kayıt güncellenemedi: ${errorMessage}`,
+      message: `Kayıt yayımlanamadı: ${errorMessage}`,
     };
   }
 
-  revalidatePath("/");
+  await supabase
+    .from("site_settings")
+    .delete()
+    .eq("key", draftKey)
+    .eq("locale", "tr");
+
+  revalidatePath("/", "layout");
+  revalidatePath(previewPath);
   revalidatePath("/admin/content");
 
   return {
     success: true,
-    message: "İçerik başarıyla kaydedildi.",
+    message: "İçerik yayımlandı ve canlı site güncellendi.",
   };
 }
 
@@ -313,6 +383,7 @@ export async function saveProjectAction(
 ): Promise<ActionState> {
   const context = await requireAdmin();
   const role = context.profile?.role;
+  const intent = stringValue(formData, "intent") || "draft";
 
   const parsed = projectAdminSchema.safeParse({
     id: stringValue(formData, "id") || undefined,
@@ -343,14 +414,39 @@ export async function saveProjectAction(
     };
   }
 
-  if (parsed.data.status === "published" && !canPublish(role)) {
+  if (intent === "publish" && !canPublish(role)) {
     return {
       success: false,
       message: "Bu rolün yayınlama yetkisi bulunmuyor.",
     };
   }
 
-  const supabase = await createClient();
+  const galleryRows = (parsed.data.galleryMediaIds ?? "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .flatMap((line, index) => {
+      const [mediaId, rawType, ...captionParts] = line
+        .split("|")
+        .map((part) => part.trim());
+
+      if (!mediaId || !/^[0-9a-f-]{36}$/i.test(mediaId)) return [];
+
+      return [
+        {
+          media_id: mediaId,
+          media_type: rawType === "video" ? "video" : "image",
+          caption: captionParts.join("|") || null,
+          order_no: index + 1,
+        },
+      ];
+    });
+
+  const status =
+    intent === "publish" && parsed.data.status === "draft"
+      ? "published"
+      : parsed.data.status;
+
   const payload = {
     locale: "tr",
     title: parsed.data.title,
@@ -369,58 +465,103 @@ export async function saveProjectAction(
       : {},
     cover_media_id: parsed.data.coverMediaId || null,
     featured: parsed.data.featured,
-    status: parsed.data.status,
+    status,
     seo_json: {},
     scheduled_at:
-      parsed.data.status === "scheduled"
+      status === "scheduled"
         ? scheduledLocalToIso(parsed.data.scheduledAt ?? "")
         : null,
     published_at:
-      parsed.data.status === "published" ? new Date().toISOString() : null,
-  } as const;
+      status === "published" ? new Date().toISOString() : null,
+  };
 
-  const result = parsed.data.id
-    ? await supabase
-        .from("projects")
-        .update(payload)
-        .eq("id", parsed.data.id)
-        .select("id")
-        .single()
-    : await supabase
-        .from("projects")
-        .insert(payload)
-        .select("id")
-        .single();
+  const supabase = await createClient();
+  let projectId = parsed.data.id;
 
-  if (result.error || !result.data) {
+  if (!projectId) {
+    const basePayload =
+      intent === "publish"
+        ? payload
+        : {
+            ...payload,
+            status: "draft",
+            published_at: null,
+            scheduled_at: null,
+          };
+
+    const { data, error } = await supabase
+      .from("projects")
+      .insert(basePayload)
+      .select("id")
+      .single();
+
+    if (error || !data) {
+      return {
+        success: false,
+        message: `Proje oluşturulamadı: ${error?.message ?? "Kayıt oluşturulamadı."}`,
+      };
+    }
+
+    projectId = data.id;
+  }
+
+  const draftKey = cmsDraftKey("projects", projectId);
+
+  if (intent !== "publish") {
+    const draftPayload: Json = {
+      ...payload,
+      gallery_media: galleryRows,
+    };
+
+    const { error } = await supabase.from("site_settings").upsert(
+      {
+        key: draftKey,
+        locale: "tr",
+        value_json: draftPayload,
+        updated_by: context.user?.id ?? null,
+      },
+      { onConflict: "key,locale" },
+    );
+
+    if (error) {
+      return {
+        success: false,
+        message: `Proje taslağı kaydedilemedi: ${error.message}`,
+      };
+    }
+
+    revalidatePath("/admin/projects");
+
+    if (intent === "preview") {
+      redirect(
+        `/admin/preview?path=${encodeURIComponent(`/projeler/${parsed.data.slug}`)}`,
+      );
+    }
+
+    if (!parsed.data.id) {
+      redirect(`/admin/projects/${projectId}`);
+    }
+
     return {
-      success: false,
-      message: `Proje kaydedilemedi: ${result.error?.message ?? "Kayıt oluşturulamadı."}`,
+      success: true,
+      message:
+        "Proje taslağı kaydedildi. Canlı proje değiştirilmedi.",
     };
   }
 
-  const projectId = result.data.id;
-  const galleryRows = (parsed.data.galleryMediaIds ?? "")
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .flatMap((line, index) => {
-      const [mediaId, rawType, ...captionParts] = line
-        .split("|")
-        .map((part) => part.trim());
+  if (parsed.data.id) {
+    const { error } = await supabase
+      .from("projects")
+      .update(payload)
+      .eq("id", projectId);
 
-      if (!mediaId || !/^[0-9a-f-]{36}$/i.test(mediaId)) return [];
-
-      return [
-        {
-          project_id: projectId,
-          media_id: mediaId,
-          media_type: rawType === "video" ? "video" : "image",
-          caption: captionParts.join("|") || null,
-          order_no: index + 1,
-        },
-      ];
-    });
+    if (error) {
+      return {
+        success: false,
+        message: `Proje yayımlanamadı: ${error.message}`,
+      };
+    }
+  }
 
   const { error: deleteMediaError } = await supabase
     .from("project_media")
@@ -430,29 +571,45 @@ export async function saveProjectAction(
   if (deleteMediaError) {
     return {
       success: false,
-      message: `Proje kaydedildi ancak galeri güncellenemedi: ${deleteMediaError.message}`,
+      message: `Proje yayımlandı ancak galeri güncellenemedi: ${deleteMediaError.message}`,
     };
   }
 
   if (galleryRows.length) {
     const { error: galleryError } = await supabase
       .from("project_media")
-      .insert(galleryRows);
+      .insert(
+        galleryRows.map((row) => ({
+          ...row,
+          project_id: projectId,
+        })),
+      );
 
     if (galleryError) {
       return {
         success: false,
-        message: `Proje kaydedildi ancak galeri eklenemedi: ${galleryError.message}`,
+        message: `Proje yayımlandı ancak galeri eklenemedi: ${galleryError.message}`,
       };
     }
   }
 
+  await supabase
+    .from("site_settings")
+    .delete()
+    .eq("key", draftKey)
+    .eq("locale", "tr");
+
   revalidatePath("/projeler");
+  revalidatePath(`/projeler/${parsed.data.slug}`);
   revalidatePath("/admin/projects");
+
+  if (!parsed.data.id) {
+    redirect(`/admin/projects/${projectId}`);
+  }
 
   return {
     success: true,
-    message: "Proje başarıyla kaydedildi.",
+    message: "Proje yayımlandı ve canlı site güncellendi.",
   };
 }
 
@@ -466,7 +623,14 @@ export async function deleteProjectAction(formData: FormData) {
   if (!id) return;
 
   const supabase = await createClient();
-  await supabase.from("projects").delete().eq("id", id);
+  await Promise.all([
+    supabase.from("projects").delete().eq("id", id),
+    supabase
+      .from("site_settings")
+      .delete()
+      .eq("key", cmsDraftKey("projects", id))
+      .eq("locale", "tr"),
+  ]);
   revalidatePath("/admin/projects");
   revalidatePath("/projeler");
 }
@@ -475,7 +639,8 @@ export async function saveReferenceAction(
   _state: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  await requireAdmin();
+  const context = await requireAdmin();
+  const intent = stringValue(formData, "intent") || "draft";
 
   const parsed = referenceAdminSchema.safeParse({
     id: stringValue(formData, "id") || undefined,
@@ -495,7 +660,13 @@ export async function saveReferenceAction(
     };
   }
 
-  const supabase = await createClient();
+  if (intent === "publish" && !canPublish(context.profile?.role)) {
+    return {
+      success: false,
+      message: "Bu rolün yayınlama yetkisi bulunmuyor.",
+    };
+  }
+
   const payload = {
     locale: "tr",
     name: parsed.data.name,
@@ -506,32 +677,96 @@ export async function saveReferenceAction(
     visible: parsed.data.visible,
   };
 
-  const result = parsed.data.id
-    ? await supabase
-        .from("references")
-        .update(payload)
-        .eq("id", parsed.data.id)
-        .select("id")
-        .single()
-    : await supabase
-        .from("references")
-        .insert(payload)
-        .select("id")
-        .single();
+  const supabase = await createClient();
+  let referenceId = parsed.data.id;
 
-  if (result.error) {
+  if (!referenceId) {
+    const { data, error } = await supabase
+      .from("references")
+      .insert({
+        ...payload,
+        visible: intent === "publish" ? payload.visible : false,
+      })
+      .select("id")
+      .single();
+
+    if (error || !data) {
+      return {
+        success: false,
+        message: `Referans oluşturulamadı: ${error?.message ?? "Kayıt oluşturulamadı."}`,
+      };
+    }
+
+    referenceId = data.id;
+  }
+
+  const draftKey = cmsDraftKey("references", referenceId);
+
+  if (intent !== "publish") {
+    const { error } = await supabase.from("site_settings").upsert(
+      {
+        key: draftKey,
+        locale: "tr",
+        value_json: payload as Json,
+        updated_by: context.user?.id ?? null,
+      },
+      { onConflict: "key,locale" },
+    );
+
+    if (error) {
+      return {
+        success: false,
+        message: `Referans taslağı kaydedilemedi: ${error.message}`,
+      };
+    }
+
+    revalidatePath("/admin/references");
+
+    if (intent === "preview") {
+      redirect("/admin/preview?path=/referanslar");
+    }
+
+    if (!parsed.data.id) {
+      redirect(`/admin/references/${referenceId}`);
+    }
+
     return {
-      success: false,
-      message: `Referans kaydedilemedi: ${result.error.message}`,
+      success: true,
+      message:
+        "Referans taslağı kaydedildi. Canlı referanslar değiştirilmedi.",
     };
   }
+
+  if (parsed.data.id) {
+    const { error } = await supabase
+      .from("references")
+      .update(payload)
+      .eq("id", referenceId);
+
+    if (error) {
+      return {
+        success: false,
+        message: `Referans yayımlanamadı: ${error.message}`,
+      };
+    }
+  }
+
+  await supabase
+    .from("site_settings")
+    .delete()
+    .eq("key", draftKey)
+    .eq("locale", "tr");
 
   revalidatePath("/referanslar");
   revalidatePath("/admin/references");
 
+  if (!parsed.data.id) {
+    redirect(`/admin/references/${referenceId}`);
+  }
+
   return {
     success: true,
-    message: "Referans başarıyla kaydedildi.",
+    message: "Referans yayımlandı ve canlı site güncellendi.",
   };
 }
 
@@ -543,7 +778,14 @@ export async function deleteReferenceAction(formData: FormData) {
   if (!id) return;
 
   const supabase = await createClient();
-  await supabase.from("references").delete().eq("id", id);
+  await Promise.all([
+    supabase.from("references").delete().eq("id", id),
+    supabase
+      .from("site_settings")
+      .delete()
+      .eq("key", cmsDraftKey("references", id))
+      .eq("locale", "tr"),
+  ]);
   revalidatePath("/referanslar");
   revalidatePath("/admin/references");
 }
@@ -589,6 +831,7 @@ export async function saveSettingsAction(
   formData: FormData,
 ): Promise<ActionState> {
   const context = await requireAdmin();
+  const intent = stringValue(formData, "intent") || "draft";
 
   if (!canPublish(context.profile?.role)) {
     return {
@@ -605,6 +848,20 @@ export async function saveSettingsAction(
     image: stringValue(formData, `homeValue${index}Image`),
     active: booleanValue(formData, `homeValue${index}Active`),
   }));
+
+  let navigation: Json = [];
+  let pageHeroes: Json = [];
+
+  try {
+    navigation = parseJson(stringValue(formData, "navigationJson"), []);
+    pageHeroes = parseJson(stringValue(formData, "pageHeroesJson"), []);
+  } catch {
+    return {
+      success: false,
+      message:
+        "Menü veya sayfa başlıkları yapısı geçerli JSON biçiminde değildir.",
+    };
+  }
 
   const parsed = siteSettingsSchema.safeParse({
     general: {
@@ -677,6 +934,28 @@ export async function saveSettingsAction(
       compactLogoUrl: stringValue(formData, "compactLogoUrl"),
       faviconUrl: stringValue(formData, "faviconUrl"),
     },
+    theme: {
+      background: stringValue(formData, "themeBackground"),
+      surface: stringValue(formData, "themeSurface"),
+      surfaceAlt: stringValue(formData, "themeSurfaceAlt"),
+      accent: stringValue(formData, "themeAccent"),
+      text: stringValue(formData, "themeText"),
+      muted: stringValue(formData, "themeMuted"),
+      border: stringValue(formData, "themeBorder"),
+      headingFont: stringValue(formData, "themeHeadingFont"),
+      bodyFont: stringValue(formData, "themeBodyFont"),
+      radius: stringValue(formData, "themeRadius"),
+      container: stringValue(formData, "themeContainer"),
+      headingScale: stringValue(formData, "themeHeadingScale"),
+      bodyScale: stringValue(formData, "themeBodyScale"),
+    },
+    motion: {
+      enabled: booleanValue(formData, "motionEnabled"),
+      preset: stringValue(formData, "motionPreset"),
+      duration: stringValue(formData, "motionDuration"),
+    },
+    navigation,
+    pageHeroes,
   });
 
   if (!parsed.success) {
@@ -702,9 +981,10 @@ export async function saveSettingsAction(
   }
 
   const supabase = await createClient();
+  const targetKey = intent === "publish" ? "global" : "global_draft";
   const { error } = await supabase.from("site_settings").upsert(
     {
-      key: "global",
+      key: targetKey,
       locale: "tr",
       value_json: parsed.data as Json,
       updated_by: context.user?.id ?? null,
@@ -719,17 +999,35 @@ export async function saveSettingsAction(
     };
   }
 
-  updateTag(SITE_SETTINGS_TAG);
-  revalidatePath("/", "layout");
-  revalidatePath("/admin/settings");
-  revalidatePath("/iletisim");
-  revalidatePath("/hizmetlerimiz");
-  revalidatePath("/dijital-hizmetler");
+  if (intent === "preview") {
+    redirect("/admin/preview?path=/");
+  }
 
+  if (intent === "publish") {
+    await supabase
+      .from("site_settings")
+      .delete()
+      .eq("key", "global_draft")
+      .eq("locale", "tr");
+
+    updateTag(SITE_SETTINGS_TAG);
+    revalidatePath("/", "layout");
+    revalidatePath("/admin/settings");
+    revalidatePath("/iletisim");
+    revalidatePath("/hizmetlerimiz");
+    revalidatePath("/dijital-hizmetler");
+
+    return {
+      success: true,
+      message: "Ayarlar yayımlandı ve canlı site güncellendi.",
+    };
+  }
+
+  revalidatePath("/admin/settings");
   return {
     success: true,
     message:
-      "Ayarlar kaydedildi. Public site yeni verileri yeniden deploy olmadan kullanacaktır.",
+      "Taslak ayarlar kaydedildi. Canlı site değişmedi; önizleme ile kontrol edebilirsiniz.",
   };
 }
 

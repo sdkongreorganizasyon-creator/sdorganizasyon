@@ -5,6 +5,10 @@ import { ProjectCard } from "@/components/pages/project-card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { ButtonLink } from "@/components/ui/button";
 import { projectsIntro } from "@/content/site-content";
+import {
+  getPageHero,
+  getResolvedSiteSettings,
+} from "@/lib/content/settings";
 import { getProjects } from "@/lib/content/queries";
 import { createMetadata } from "@/lib/seo/metadata";
 
@@ -16,15 +20,28 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default async function ProjectsPage() {
-  const projects = await getProjects();
+  const [projects, settings] = await Promise.all([
+    getProjects(),
+    getResolvedSiteSettings(),
+  ]);
+  const hero = getPageHero(settings, "/projeler", {
+    eyebrow: "PROJELER",
+    title: projectsIntro.headline,
+    description: projectsIntro.paragraphs.join(" "),
+    image: "/media/pages/projeler.webp",
+    video: null,
+    animation: "fade",
+  });
 
   return (
     <>
       <InteriorHero
-        eyebrow="PROJELER"
-        title={projectsIntro.headline}
-        description={projectsIntro.paragraphs.join(" ")}
-        image="/media/pages/projeler.webp"
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
+        image={hero.image}
+        video={hero.video}
+        animation={hero.animation}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "PROJELER" },

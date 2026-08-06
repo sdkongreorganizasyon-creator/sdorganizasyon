@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { CmsPageSections } from "@/components/pages/cms-page-sections";
 import { InteriorHero } from "@/components/pages/interior-hero";
 import { ProseContent } from "@/components/pages/prose-content";
 import { ValueCards } from "@/components/pages/value-cards";

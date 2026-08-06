@@ -2,6 +2,7 @@ import { SettingsForm } from "@/components/admin/settings-form";
 import {
   fallbackSiteSettings,
   getResolvedSiteSettings,
+  resolveSiteSettingsValue,
 } from "@/lib/content/settings";
 import {
   isSupabaseAdminConfigured,
@@ -12,23 +13,34 @@ import { createClient } from "@/lib/supabase/server";
 export default async function AdminSettingsPage() {
   const supabase = await createClient();
 
-  const [{ data, error }, { data: media }] = await Promise.all([
-    supabase
-      .from("site_settings")
-      .select("value_json")
-      .eq("key", "global")
-      .eq("locale", "tr")
-      .maybeSingle(),
-    supabase
-      .from("media_assets")
-      .select("id,bucket,path,file_name,mime_type")
-      .order("created_at", { ascending: false })
-      .limit(200),
-  ]);
+  const [{ data: published, error }, { data: draft }, { data: media }] =
+    await Promise.all([
+      supabase
+        .from("site_settings")
+        .select("value_json")
+        .eq("key", "global")
+        .eq("locale", "tr")
+        .maybeSingle(),
+      supabase
+        .from("site_settings")
+        .select("value_json")
+        .eq("key", "global_draft")
+        .eq("locale", "tr")
+        .maybeSingle(),
+      supabase
+        .from("media_assets")
+        .select("id,bucket,path,file_name,mime_type")
+        .order("created_at", { ascending: false })
+        .limit(200),
+    ]);
 
-  const settings = error
-    ? fallbackSiteSettings
-    : await getResolvedSiteSettings();
+  const settings = draft?.value_json
+    ? resolveSiteSettingsValue(draft.value_json)
+    : published?.value_json
+      ? resolveSiteSettingsValue(published.value_json)
+      : error
+        ? fallbackSiteSettings
+        : await getResolvedSiteSettings();
 
   const mediaOptions = [
     {
@@ -58,6 +70,7 @@ export default async function AdminSettingsPage() {
   return (
     <SettingsForm
       settings={settings}
+      hasDraft={Boolean(draft?.value_json)}
       loadError={error?.message ?? null}
       mediaOptions={mediaOptions}
       integrations={{

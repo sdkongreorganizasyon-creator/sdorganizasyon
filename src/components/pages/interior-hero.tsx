@@ -9,6 +9,8 @@ type InteriorHeroProps = Readonly<{
   title: string;
   description?: string;
   image?: string | null;
+  video?: string | null;
+  animation?: "fade" | "slide" | "scale" | "none";
   breadcrumbs?: readonly Readonly<{
     label: string;
     href?: string;
@@ -20,13 +22,28 @@ export function InteriorHero({
   title,
   description,
   image,
+  video,
+  animation = "fade",
   breadcrumbs,
 }: InteriorHeroProps) {
   return (
-    <section className="interior-hero">
-      {image ? (
+    <section className="interior-hero" data-animation={animation}>
+      {video || image ? (
         <div className="interior-hero__media" aria-hidden="true">
-          <Image src={image} alt="" fill priority sizes="100vw" />
+          {video ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster={image || undefined}
+            >
+              <source src={video} />
+            </video>
+          ) : image ? (
+            <Image src={image} alt="" fill priority sizes="100vw" />
+          ) : null}
         </div>
       ) : null}
       <div className="interior-hero__shade" aria-hidden="true" />
@@ -53,7 +70,9 @@ export function InteriorHero({
 
         <p className="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
-        {description ? <p className="interior-hero__lead">{description}</p> : null}
+        {description ? (
+          <p className="interior-hero__lead">{description}</p>
+        ) : null}
       </Container>
     </section>
   );

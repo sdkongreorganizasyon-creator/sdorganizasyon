@@ -3,8 +3,11 @@
 import {
   CheckCircle2,
   ExternalLink,
+  Eye,
   ImageIcon,
   Loader2,
+  Palette,
+  Rocket,
   Save,
   Settings2,
 } from "lucide-react";
@@ -15,6 +18,8 @@ import {
   saveSettingsAction,
   type ActionState,
 } from "@/app/admin/actions";
+import { NavigationBuilder } from "@/components/admin/navigation-builder";
+import { PageHeroBuilder } from "@/components/admin/page-hero-builder";
 import { Button } from "@/components/ui/button";
 import { Select, Textarea, TextInput } from "@/components/ui/field";
 import type { ResolvedSiteSettings } from "@/lib/content/settings";
@@ -28,6 +33,7 @@ type MediaOption = Readonly<{
 type SettingsFormProps = Readonly<{
   settings: ResolvedSiteSettings;
   loadError?: string | null;
+  hasDraft?: boolean;
   mediaOptions?: readonly MediaOption[];
   integrations: {
     supabasePublic: boolean;
@@ -52,6 +58,9 @@ const tabs = [
   ["values", "Ana Sayfa Değerleri"],
   ["footer", "Footer"],
   ["seo", "SEO"],
+  ["pageHeroes", "Sayfa Başlıkları"],
+  ["design", "Tasarım"],
+  ["navigation", "Menü Yönetimi"],
   ["integrations", "Entegrasyon Durumu"],
 ] as const;
 
@@ -94,6 +103,7 @@ function MediaSelect({
 export function SettingsForm({
   settings,
   loadError,
+  hasDraft = false,
   mediaOptions = [],
   integrations,
 }: SettingsFormProps) {
@@ -135,8 +145,8 @@ export function SettingsForm({
           <p className="eyebrow">SİTE AYARLARI</p>
           <h1>Global İçerik ve Marka Yönetimi</h1>
           <p>
-            Bu ekrandaki veriler Supabase&apos;te saklanır ve public siteye
-            yeniden deploy gerektirmeden yansır.
+            İçerik, tasarım ve menü ayarlarını önce taslak olarak kaydedin,
+            gerçek site görünümünde önizleyin ve onayladığınızda yayımlayın.
           </p>
         </div>
         <div className="admin-form__header-actions">
@@ -154,6 +164,14 @@ export function SettingsForm({
       {loadError ? (
         <div className="admin-alert is-error" role="alert">
           Ayar verileri okunamadı: {loadError}
+        </div>
+      ) : null}
+
+      {hasDraft ? (
+        <div className="admin-alert is-info" role="status">
+          <Eye aria-hidden="true" size={18} />
+          Yayımlanmamış bir taslak bulunuyor. Önizleme ile kontrol edip
+          yayımlayabilirsiniz.
         </div>
       ) : null}
 
@@ -630,6 +648,150 @@ export function SettingsForm({
 
           <section
             className={
+              activeTab === "pageHeroes"
+                ? "admin-panel"
+                : "admin-panel is-hidden"
+            }
+          >
+            <PageHeroBuilder
+              initial={settings.pageHeroes}
+              mediaOptions={mediaOptions}
+            />
+          </section>
+
+          <section
+            className={activeTab === "design" ? "admin-panel" : "admin-panel is-hidden"}
+          >
+            <div className="admin-panel__heading">
+              <div>
+                <h2>Renk, Tipografi ve Animasyon</h2>
+                <p>
+                  Seçimler site genelinde CSS değişkenleri olarak uygulanır.
+                  Güvenli font aileleri ve kontrollü animasyon seçenekleri kullanılır.
+                </p>
+              </div>
+              <Palette aria-hidden="true" />
+            </div>
+
+            <div className="admin-theme-grid">
+              {[
+                ["Arka Plan", "themeBackground", settings.theme.background],
+                ["Ana Yüzey", "themeSurface", settings.theme.surface],
+                ["İkincil Yüzey", "themeSurfaceAlt", settings.theme.surfaceAlt],
+                ["Vurgu Rengi", "themeAccent", settings.theme.accent],
+                ["Ana Metin", "themeText", settings.theme.text],
+                ["Soluk Metin", "themeMuted", settings.theme.muted],
+                ["Çizgi / Border", "themeBorder", settings.theme.border],
+              ].map(([label, name, value]) => (
+                <label className="admin-color-field" key={name}>
+                  <span>{label}</span>
+                  <div>
+                    <input type="color" name={name} defaultValue={value} />
+                    <code>{value}</code>
+                  </div>
+                </label>
+              ))}
+            </div>
+
+            <div className="form-grid form-grid--two">
+              <Select
+                label="Başlık Fontu"
+                name="themeHeadingFont"
+                defaultValue={settings.theme.headingFont}
+              >
+                <option value="system">Modern Sistem</option>
+                <option value="geometric">Geometrik</option>
+                <option value="humanist">Humanist</option>
+                <option value="serif">Serif</option>
+              </Select>
+              <Select
+                label="Gövde Fontu"
+                name="themeBodyFont"
+                defaultValue={settings.theme.bodyFont}
+              >
+                <option value="system">Modern Sistem</option>
+                <option value="geometric">Geometrik</option>
+                <option value="humanist">Humanist</option>
+                <option value="serif">Serif</option>
+              </Select>
+              <Select
+                label="Köşe Yuvarlaklığı"
+                name="themeRadius"
+                defaultValue={settings.theme.radius}
+              >
+                <option value="compact">Kompakt</option>
+                <option value="soft">Yumuşak</option>
+                <option value="rounded">Yuvarlak</option>
+              </Select>
+              <Select
+                label="İçerik Genişliği"
+                name="themeContainer"
+                defaultValue={settings.theme.container}
+              >
+                <option value="narrow">Dar</option>
+                <option value="standard">Standart</option>
+                <option value="wide">Geniş</option>
+              </Select>
+              <TextInput
+                label="Başlık Ölçeği"
+                name="themeHeadingScale"
+                type="number"
+                min={0.75}
+                max={1.25}
+                step={0.05}
+                defaultValue={settings.theme.headingScale}
+              />
+              <TextInput
+                label="Metin Ölçeği"
+                name="themeBodyScale"
+                type="number"
+                min={0.85}
+                max={1.2}
+                step={0.05}
+                defaultValue={settings.theme.bodyScale}
+              />
+              <Select
+                label="Animasyon Stili"
+                name="motionPreset"
+                defaultValue={settings.motion.preset}
+              >
+                <option value="fade">Fade</option>
+                <option value="slide">Slide</option>
+                <option value="scale">Scale</option>
+                <option value="none">Animasyonsuz</option>
+              </Select>
+              <TextInput
+                label="Animasyon Süresi (ms)"
+                name="motionDuration"
+                type="number"
+                min={100}
+                max={1600}
+                step={50}
+                defaultValue={settings.motion.duration}
+              />
+            </div>
+            <label className="admin-switch-row">
+              <input
+                type="checkbox"
+                name="motionEnabled"
+                defaultChecked={settings.motion.enabled}
+              />
+              <span>Public sayfalarda animasyonları etkinleştir</span>
+            </label>
+          </section>
+
+          <section
+            className={
+              activeTab === "navigation"
+                ? "admin-panel"
+                : "admin-panel is-hidden"
+            }
+          >
+            <NavigationBuilder initial={settings.navigation} />
+          </section>
+
+          <section
+            className={
               activeTab === "integrations"
                 ? "admin-panel"
                 : "admin-panel is-hidden"
@@ -668,17 +830,53 @@ export function SettingsForm({
 
       <div className="admin-settings__savebar">
         <div>
-          <strong>{dirty ? "Kaydedilmemiş değişiklikler var" : "Tüm değişiklikler kayıtlı"}</strong>
-          <span>Kaydetme sonrası public cache anında yenilenir.</span>
+          <strong>
+            {dirty
+              ? "Kaydedilmemiş değişiklikler var"
+              : hasDraft
+                ? "Yayımlanmamış taslak hazır"
+                : "Tüm değişiklikler kayıtlı"}
+          </strong>
+          <span>
+            Taslak kaydı canlı siteyi değiştirmez. Önizleme gerçek public
+            sayfalarda açılır.
+          </span>
         </div>
-        <Button disabled={pending || !dirty} type="submit">
-          {pending ? (
-            <Loader2 className="spin" aria-hidden="true" />
-          ) : (
-            <Save aria-hidden="true" size={18} />
-          )}
-          Kaydet
-        </Button>
+        <div className="admin-publish-actions">
+          <Button
+            variant="secondary"
+            disabled={pending}
+            name="intent"
+            value="draft"
+            type="submit"
+          >
+            {pending ? (
+              <Loader2 className="spin" aria-hidden="true" />
+            ) : (
+              <Save aria-hidden="true" size={17} />
+            )}
+            Taslak Kaydet
+          </Button>
+          <Button
+            variant="secondary"
+            disabled={pending}
+            name="intent"
+            value="preview"
+            type="submit"
+          >
+            <Eye aria-hidden="true" size={17} />
+            Önizle
+          </Button>
+          <Button
+            disabled={pending}
+            name="intent"
+            value="publish"
+            type="submit"
+          >
+            <Rocket aria-hidden="true" size={17} />
+            Yayımla
+          </Button>
+        </div>
       </div>
     </form>
   );

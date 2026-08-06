@@ -9,7 +9,10 @@ import type { Metadata } from "next";
 
 import { ContactForm } from "@/components/forms/contact-form";
 import { InteriorHero } from "@/components/pages/interior-hero";
-import { getResolvedSiteSettings } from "@/lib/content/settings";
+import {
+  getPageHero,
+  getResolvedSiteSettings,
+} from "@/lib/content/settings";
 import {
   normalizePhoneForLink,
   normalizeWhatsapp,
@@ -25,6 +28,15 @@ export const metadata: Metadata = createMetadata({
 
 export default async function ContactPage() {
   const settings = await getResolvedSiteSettings();
+  const hero = getPageHero(settings, "/iletisim", {
+    eyebrow: "İLETİŞİM",
+    title: "Bizimle İletişime Geçin",
+    description:
+      "Sorularınızı, proje kapsamınızı veya iş birliği talebinizi güvenli form üzerinden bize iletin.",
+    image: "/media/pages/iletisim.webp",
+    video: null,
+    animation: "fade",
+  });
   const hasContact =
     settings.contact.phone ||
     settings.contact.mobile ||
@@ -34,10 +46,12 @@ export default async function ContactPage() {
   return (
     <>
       <InteriorHero
-        eyebrow="İLETİŞİM"
-        title="Bizimle İletişime Geçin"
-        description="Sorularınızı, proje kapsamınızı veya iş birliği talebinizi güvenli form üzerinden bize iletin."
-        image="/media/pages/iletisim.webp"
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
+        image={hero.image}
+        video={hero.video}
+        animation={hero.animation}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "İLETİŞİM" },

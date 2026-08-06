@@ -3,15 +3,28 @@ import Link from "next/link";
 
 import { deleteReferenceAction } from "@/app/admin/actions";
 import { ReferenceForm } from "@/components/admin/reference-form";
+import { cmsDraftKey } from "@/lib/cms/drafts";
+import { getAdminMediaOptions } from "@/lib/cms/media-options";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function AdminReferencesPage() {
   const supabase = await createClient();
-  const { data: references } = await supabase
-    .from("references")
-    .select("id,name,category,website,visible,updated_at")
-    .order("order_no")
-    .order("name");
+  const [{ data: references }, { data: draftRows }, mediaOptions] =
+    await Promise.all([
+      supabase
+        .from("references")
+        .select("id,name,category,website,visible,updated_at")
+        .order("order_no")
+        .order("name"),
+      supabase
+        .from("site_settings")
+        .select("key")
+        .like("key", "draft:references:%")
+        .eq("locale", "tr"),
+      getAdminMediaOptions(),
+    ]);
+
+  const draftKeys = new Set((draftRows ?? []).map((row) => row.key));
 
   return (
     <>
@@ -21,12 +34,19 @@ export default async function AdminReferencesPage() {
           <h1>Referans Yönetimi</h1>
           <p>
             Yalnız logo kullanım izni doğrulanmış gerçek kurum ve firmaları
-            ekleyin.
+            ekleyin. Taslaklar önizlenmeden canlıya çıkmaz.
           </p>
         </div>
+        <Link
+          className="button button--secondary"
+          href="/admin/preview?path=/referanslar"
+          prefetch={false}
+        >
+          Taslak Referansları Önizle
+        </Link>
       </div>
 
-      <ReferenceForm />
+      <ReferenceForm mediaOptions={mediaOptions} />
 
       <section className="admin-panel">
         <h2>Mevcut Referanslar</h2>
@@ -44,7 +64,14 @@ export default async function AdminReferencesPage() {
               <tbody>
                 {references.map((reference) => (
                   <tr key={reference.id}>
-                    <td>{reference.name}</td>
+                    <td>
+                      <strong>{reference.name}</strong>
+                      {draftKeys.has(
+                        cmsDraftKey("references", reference.id),
+                      ) ? (
+                        <small>Yayımlanmamış değişiklik</small>
+                      ) : null}
+                    </td>
                     <td>{reference.category || "—"}</td>
                     <td>{reference.visible ? "Görünür" : "Gizli"}</td>
                     <td>

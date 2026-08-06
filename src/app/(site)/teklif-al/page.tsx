@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 
 import { QuoteForm } from "@/components/forms/quote-form";
 import { InteriorHero } from "@/components/pages/interior-hero";
+import {
+  getPageHero,
+  getResolvedSiteSettings,
+} from "@/lib/content/settings";
 import { createMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = createMetadata({
@@ -16,15 +20,29 @@ type PageProps = Readonly<{
 }>;
 
 export default async function QuotePage({ searchParams }: PageProps) {
-  const { hizmet } = await searchParams;
+  const [{ hizmet }, settings] = await Promise.all([
+    searchParams,
+    getResolvedSiteSettings(),
+  ]);
+  const hero = getPageHero(settings, "/teklif-al", {
+    eyebrow: "TEKLİF AL",
+    title: "Organizasyonunuzu Birlikte Planlayalım",
+    description:
+      "Etkinliğinizin temel bilgilerini paylaşın. Ekibimiz ihtiyaçlarınızı değerlendirerek kapsam ve çözüm yaklaşımı için sizinle iletişime geçsin.",
+    image: "/media/pages/iletisim.webp",
+    video: null,
+    animation: "fade",
+  });
 
   return (
     <>
       <InteriorHero
-        eyebrow="TEKLİF AL"
-        title="Organizasyonunuzu Birlikte Planlayalım"
-        description="Etkinliğinizin temel bilgilerini paylaşın. Ekibimiz ihtiyaçlarınızı değerlendirerek kapsam ve çözüm yaklaşımı için sizinle iletişime geçsin."
-        image="/media/pages/iletisim.webp"
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
+        image={hero.image}
+        video={hero.video}
+        animation={hero.animation}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "TEKLİF AL" },

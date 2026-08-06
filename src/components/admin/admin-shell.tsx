@@ -2,6 +2,7 @@
 
 import {
   ExternalLink,
+  Eye,
   Menu,
   PanelLeftClose,
   PanelLeftOpen,
@@ -34,6 +35,7 @@ const pageLabels: Record<string, string> = {
   "/admin/settings": "Site Ayarları",
   "/admin/users": "Kullanıcılar",
   "/admin/audit": "Audit Log",
+  "/admin/preview": "Taslak Önizleme",
 };
 
 export function AdminShell({
@@ -130,9 +132,13 @@ export function AdminShell({
           </div>
 
           <div className="admin-topbar__actions">
+            <Link href="/admin/preview?path=/" prefetch={false}>
+              <Eye aria-hidden="true" size={17} />
+              <span>Taslak Önizle</span>
+            </Link>
             <Link href="/" target="_blank">
               <ExternalLink aria-hidden="true" size={17} />
-              <span>Siteyi Görüntüle</span>
+              <span>Canlı Site</span>
             </Link>
             <span className="admin-role">{role ?? "viewer"}</span>
           </div>

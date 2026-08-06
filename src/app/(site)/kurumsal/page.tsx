@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
+import { CmsPageSections } from "@/components/pages/cms-page-sections";
 import { InteriorHero } from "@/components/pages/interior-hero";
 import { corporatePages } from "@/content/site-content";
 import { getCorporatePage } from "@/lib/content/queries";
@@ -79,6 +80,8 @@ export default async function CorporateIndexPage() {
                   </div>
                 </div>
               </div>
+
+              <CmsPageSections sections={page.sections} />
 
               {values?.length ? (
                 <div className="container corporate-values-grid">
