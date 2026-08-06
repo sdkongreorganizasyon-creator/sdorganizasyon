@@ -24,7 +24,7 @@
           "postalCode": "",
           "workingDays": "",
           "workingHours": "",
-          "mapUrl": ""
+          "mapUrl": "https://www.google.com/maps/place/Me%C5%9Frutiyet,+Atat%C3%BCrk+Blv+No:109+D:16,+06420+%C3%87ankaya%2FAnkara/@39.918431,32.8517774,17z/data=!4m5!3m4!1s0x14d34faa6d9b9587:0x47c2d3c596b0c6!8m2!3d39.9184269!4d32.8543523!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D"
         },
         "social": {
           "instagram": "",
@@ -296,9 +296,9 @@
       "content_json": {
         "headline": "Sadece Organizasyon Yönetmiyoruz, Başarı Yönetiyoruz",
         "paragraphs": [
-          "Bir organizasyonun başarısı yalnızca etkinlik günüyle ölçülmez.",
-          "Gerçek başarı; doğru planlama, etkili koordinasyon, kontrollü bütçe yönetimi, profesyonel uygulama ve detaylı raporlama süreçlerinin tamamında ortaya çıkar.",
-          "SD Kongre olarak müşterilerimize yalnızca bir hizmet sağlayıcı değil, organizasyonun her aşamasında yanında olan stratejik bir iş ortağı yaklaşımı sunuyoruz."
+          "SD Kongre olarak organizasyon yönetimini yalnızca bir etkinlik planlama süreci olarak değil, kurumların hedeflerine ulaşmasını sağlayan stratejik bir yatırım olarak görüyoruz. Her projeye öncelikle ihtiyaçları analiz ederek başlıyor, kurumun beklentilerini, hedef kitlesini ve organizasyondan elde etmek istediği sonuçları detaylı şekilde değerlendiriyoruz. Bu yaklaşım sayesinde standart çözümler sunmak yerine her projeye özel planlama yapıyor, organizasyonun ilk aşamasından son raporlama sürecine kadar tüm detayları profesyonel bir proje yönetimi anlayışıyla yönetiyoruz. Böylece kurumlar operasyonel yüklerle uğraşmak yerine kendi önceliklerine odaklanırken, süreçlerin tamamı uzman ekiplerimiz tarafından kontrol altında tutuluyor.",
+          "Yıllar içerisinde kongrelerden sempozyumlara, kurumsal toplantılardan lansmanlara, fuarlardan eğitim programlarına kadar farklı ölçeklerde sayısız organizasyonda edindiğimiz deneyim sayesinde karşılaşılabilecek riskleri önceden öngörebiliyor ve süreci kesintisiz şekilde yönetebiliyoruz. Güçlü tedarikçi ağımız, deneyimli proje ekiplerimiz ve teknoloji destekli altyapılarımız sayesinde kayıt yönetiminden konaklamaya, transfer organizasyonlarından teknik kurulumlara kadar tüm hizmetleri tek merkezden sunuyoruz. Şeffaf bütçe yönetimi anlayışımızla her harcama kalemini kontrol altında tutarken, müşterilerimize süreçlerin her aşamasında tam görünürlük ve güven sağlıyoruz.",
+          "Bizi tercih eden kurumlar yalnızca başarılı bir organizasyon değil, aynı zamanda güvenilir bir iş ortağı kazanır. Katılımcı deneyimini merkeze alan yaklaşımımız, detaylara verdiğimiz önem, hızlı çözüm üretme kabiliyetimiz ve ölçülebilir sonuçlara odaklanan çalışma modelimiz sayesinde her organizasyonu sürdürülebilir bir başarı hikâyesine dönüştürüyoruz. SD Kongre olarak amacımız yalnızca etkinliklerin kusursuz şekilde gerçekleşmesini sağlamak değil; kurumların itibarını güçlendiren, hedeflerine katkı sağlayan ve uzun yıllar boyunca değer yaratmaya devam eden organizasyonlar gerçekleştirmektir. Bu nedenle her projede aynı heyecan, aynı sorumluluk ve aynı profesyonellik anlayışıyla çalışıyor, müşterilerimizin başarısını kendi başarımız olarak görüyoruz."
         ],
         "items": [
           {
@@ -962,72 +962,224 @@
       "title": "KVKK Aydınlatma Metni",
       "slug": "aydinlatma-metni",
       "body_json": {
-        "headline": "Kişisel Verilerin Korunması ve İşlenmesine İlişkin Aydınlatma Metni",
+        "headline": "Kişisel Verilerin Korunması ve İşlenmesi Aydınlatma Metni",
         "sections": [
           {
             "title": null,
             "paragraphs": [
-              "SD Kongre Organizasyon ve Etkinlik Yönetimi (\"SD Kongre\") olarak özel hayatın gizliliğine ve kişisel verilerin korunmasına önem vermekteyiz. Bu kapsamda, 6698 Sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") uyarınca veri sorumlusu sıfatıyla kişisel verilerinizi aşağıda belirtilen çerçevede işlemekteyiz."
+              "SD Kongre Organizasyon ve Etkinlik Yönetimi (\"SD Kongre\") olarak, özel hayatın gizliliğinin korunmasına ve kişisel verilerin güvenliğine büyük önem vermekteyiz. İşbu Aydınlatma Metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") başta olmak üzere ilgili mevzuat hükümleri kapsamında, veri sorumlusu sıfatıyla kişisel verilerinizin hangi kapsamda işlendiği, hangi amaçlarla kullanıldığı, kimlere aktarılabileceği ve veri sahibi olarak sahip olduğunuz haklar hakkında sizleri bilgilendirmek amacıyla hazırlanmıştır."
             ]
           },
           {
-            "title": "İşlenen Kişisel Veriler",
-            "bullets": [
-              "Ad, soyad",
-              "T.C. Kimlik numarası",
-              "Telefon numarası",
-              "E-posta adresi",
-              "Kurum ve görev bilgileri",
-              "Konaklama ve seyahat bilgileri",
-              "Katılımcı kayıt bilgileri",
-              "Finansal ve faturalandırma bilgileri",
-              "IP adresi ve internet kullanım verileri",
-              "Fotoğraf ve video kayıtları"
-            ]
-          },
-          {
-            "title": "Kişisel Verilerin İşlenme Amaçları",
+            "title": "1. Veri Sorumlusunun Kimliği",
             "paragraphs": [
-              "Kişisel verileriniz aşağıdaki amaçlarla işlenebilmektedir."
+              "6698 sayılı Kişisel Verilerin Korunması Kanunu uyarınca kişisel verileriniz, veri sorumlusu sıfatıyla; SD Kongre Organizasyon ve Etkinlik Yönetimi tarafından aşağıda açıklanan kapsamda işlenebilecektir."
+            ]
+          },
+          {
+            "title": "2. İşlenen Kişisel Veriler",
+            "paragraphs": [
+              "Faaliyetlerimizin niteliğine bağlı olarak aşağıdaki kişisel verileriniz işlenebilmektedir:"
+            ],
+            "subsections": [
+              {
+                "title": "Kimlik Bilgileri",
+                "bullets": [
+                  "Adı ve soyadı",
+                  "T.C. Kimlik Numarası",
+                  "Pasaport bilgileri (gerekli olması halinde)",
+                  "Doğum tarihi"
+                ]
+              },
+              {
+                "title": "İletişim Bilgileri",
+                "bullets": [
+                  "Telefon numarası",
+                  "Cep telefonu numarası",
+                  "E-posta adresi",
+                  "Adres bilgileri"
+                ]
+              },
+              {
+                "title": "Mesleki Bilgiler",
+                "bullets": [
+                  "Çalışılan kurum bilgisi",
+                  "Görev unvanı",
+                  "Bölüm bilgisi",
+                  "Mesleki uzmanlık alanı"
+                ]
+              },
+              {
+                "title": "Katılımcı ve Organizasyon Bilgileri",
+                "bullets": [
+                  "Kongre, toplantı ve etkinlik kayıt bilgileri",
+                  "Katılım tercihleri",
+                  "Oturum ve program seçimleri",
+                  "Davet ve akreditasyon bilgileri"
+                ]
+              },
+              {
+                "title": "Seyahat ve Konaklama Bilgileri",
+                "bullets": [
+                  "Uçuş bilgileri",
+                  "Transfer bilgileri",
+                  "Konaklama rezervasyon bilgileri",
+                  "Vize işlemlerine ilişkin bilgiler (gerektiğinde)"
+                ]
+              },
+              {
+                "title": "Finansal Bilgiler",
+                "bullets": [
+                  "Fatura bilgileri",
+                  "Vergi numarası",
+                  "Banka hesap bilgileri (ödeme süreçlerinin gerektirmesi halinde)",
+                  "Ödeme ve tahsilat bilgileri"
+                ]
+              },
+              {
+                "title": "Görsel ve İşitsel Kayıtlar",
+                "bullets": [
+                  "Fotoğraf kayıtları",
+                  "Video kayıtları",
+                  "Ses kayıtları"
+                ]
+              },
+              {
+                "title": "Dijital ve Teknik Veriler",
+                "bullets": [
+                  "IP adresi",
+                  "Çerez (cookie) verileri",
+                  "İnternet sitesi kullanım bilgileri",
+                  "Log kayıtları",
+                  "Cihaz ve tarayıcı bilgileri"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "3. Kişisel Verilerin İşlenme Amaçları",
+            "paragraphs": [
+              "Kişisel verileriniz, KVKK'nın 4, 5 ve 6'ncı maddelerinde belirtilen temel ilkelere uygun olarak aşağıdaki amaçlarla işlenebilmektedir:"
             ],
             "bullets": [
-              "Kongre, toplantı ve etkinlik organizasyonlarının yürütülmesi",
-              "Katılımcı kayıt süreçlerinin yönetilmesi",
-              "Konaklama ve ulaşım hizmetlerinin sağlanması",
-              "Bilgilendirme ve duyuru faaliyetlerinin gerçekleştirilmesi",
-              "Sözleşmesel yükümlülüklerin yerine getirilmesi",
-              "Finans ve muhasebe süreçlerinin yürütülmesi",
-              "Müşteri memnuniyetinin artırılması",
-              "Yasal yükümlülüklerin yerine getirilmesi",
-              "Bilgi güvenliği süreçlerinin sağlanması"
+              "Kongre, seminer, toplantı, eğitim ve benzeri organizasyon faaliyetlerinin planlanması, yürütülmesi ve sonuçlandırılması,",
+              "Katılımcı başvuru, kayıt ve akreditasyon süreçlerinin yönetilmesi,",
+              "Konaklama, ulaşım, transfer ve seyahat organizasyonlarının gerçekleştirilmesi,",
+              "Davetiye, duyuru, bilgilendirme ve hatırlatma faaliyetlerinin yürütülmesi,",
+              "Sponsorluk, iş ortaklığı ve organizasyon koordinasyon süreçlerinin yönetilmesi,",
+              "Katılımcılar ile iletişimin sağlanması,",
+              "Faturalandırma, muhasebe ve finans süreçlerinin yürütülmesi,",
+              "Ödeme ve tahsilat işlemlerinin gerçekleştirilmesi,",
+              "Müşteri ilişkileri ve memnuniyet süreçlerinin yönetilmesi,",
+              "Organizasyon kalitesinin artırılması ve hizmet geliştirme çalışmalarının yürütülmesi,",
+              "Hukuki yükümlülüklerin yerine getirilmesi,",
+              "Yetkili kamu kurum ve kuruluşlarının taleplerinin karşılanması,",
+              "Bilgi güvenliği süreçlerinin yürütülmesi,",
+              "Hukuki uyuşmazlıklarda delil teşkil etmesi amacıyla kayıtların saklanması,",
+              "Şirket içi denetim, raporlama ve operasyonel faaliyetlerin yürütülmesi."
             ]
           },
           {
-            "title": "Kişisel Verilerin Aktarılması",
+            "title": "4. Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi",
             "paragraphs": [
-              "Kişisel verileriniz ilgili mevzuat hükümleri çerçevesinde aşağıdaki kişi ve kuruluşlara aktarılabilmektedir."
+              "Kişisel verileriniz;"
             ],
             "bullets": [
-              "Yetkili kamu kurum ve kuruluşlarına",
-              "İş ortaklarına",
-              "Konaklama ve ulaşım hizmet sağlayıcılarına",
-              "Teknoloji altyapı hizmet sağlayıcılarına",
-              "Hukuken yetkili kişi ve kurumlara"
+              "İnternet sitesi üzerinden yapılan başvurular,",
+              "Elektronik kayıt formları,",
+              "E-posta yazışmaları,",
+              "Telefon görüşmeleri,",
+              "Mobil uygulamalar,",
+              "Fiziki başvuru formları,",
+              "Sözleşmeler,",
+              "Sosyal medya platformları,",
+              "Etkinlik ve kongre kayıt masaları"
+            ],
+            "subsections": [
+              {
+                "title": "Hukuki Sebepler",
+                "paragraphs": [
+                  "aracılığıyla sözlü, yazılı veya elektronik ortamda toplanabilmektedir. Kişisel verileriniz;"
+                ],
+                "bullets": [
+                  "Kanunlarda açıkça öngörülmesi,",
+                  "Bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması,",
+                  "Veri sorumlusunun hukuki yükümlülüğünü yerine getirmesi,",
+                  "Bir hakkın tesisi, kullanılması veya korunması için veri işlemenin zorunlu olması,",
+                  "Veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması,",
+                  "Açık rızanızın bulunması"
+                ]
+              }
+            ],
+            "closingParagraphs": [
+              "hukuki sebeplerine dayanılarak işlenebilmektedir."
             ]
           },
           {
-            "title": "Veri Sahibinin Hakları",
+            "title": "5. Kişisel Verilerin Aktarılması",
             "paragraphs": [
-              "KVKK'nın 11. maddesi kapsamında veri sahipleri aşağıdaki haklara sahiptir."
+              "Kişisel verileriniz, KVKK'nın 8 ve 9'uncu maddeleri kapsamında ve gerekli güvenlik tedbirleri alınmak suretiyle aşağıdaki kişi ve kuruluşlara aktarılabilecektir:"
             ],
             "bullets": [
-              "Kişisel verilerinin işlenip işlenmediğini öğrenme",
-              "İşlenen verilere ilişkin bilgi talep etme",
-              "İşleme amacını öğrenme",
-              "Yanlış veya eksik işlenen verilerin düzeltilmesini isteme",
-              "Verilerin silinmesini veya yok edilmesini talep etme",
-              "İşlemenin hukuka uygunluğunu sorgulama",
-              "Zarara uğraması halinde tazminat talep etme"
+              "Yetkili kamu kurum ve kuruluşlarına,",
+              "Mahkemeler, icra daireleri ve diğer adli mercilere,",
+              "Hukuken yetkili kişi, kurum ve kuruluşlara,",
+              "Organizasyon kapsamında hizmet alınan otel, konaklama ve seyahat şirketlerine,",
+              "Havayolu şirketleri ve transfer hizmet sağlayıcılarına,",
+              "Sponsorlara (açık rızanız bulunması halinde),",
+              "Bilgi teknolojileri ve yazılım altyapı hizmet sağlayıcılarına,",
+              "Bulut bilişim ve veri barındırma hizmeti sunan firmalara,",
+              "Mali müşavirlik ve bağımsız denetim hizmeti veren kuruluşlara,",
+              "İş ortaklarına ve çözüm ortaklarına."
+            ],
+            "closingParagraphs": [
+              "Yurt dışına veri aktarımının gerekli olması halinde, ilgili mevzuat hükümlerine uygun şekilde gerekli teknik ve idari tedbirler alınarak hareket edilecektir."
+            ]
+          },
+          {
+            "title": "6. Kişisel Verilerin Saklanması ve Güvenliği",
+            "paragraphs": [
+              "SD Kongre, kişisel verilerin hukuka aykırı olarak işlenmesini ve erişilmesini önlemek, kişisel verilerin muhafazasını sağlamak amacıyla gerekli teknik ve idari tedbirleri almaktadır.",
+              "Bu kapsamda başta;"
+            ],
+            "bullets": [
+              "Yetki matrisi uygulamaları,",
+              "Erişim kontrol sistemleri,",
+              "Şifreleme yöntemleri,",
+              "Ağ güvenlik önlemleri,",
+              "Loglama faaliyetleri,",
+              "Periyodik sızma testleri,",
+              "Personel gizlilik yükümlülükleri,",
+              "Veri işleme politikaları"
+            ],
+            "closingParagraphs": [
+              "olmak üzere uygun güvenlik mekanizmaları kullanılmaktadır.",
+              "Kişisel verileriniz, işleme amacının gerektirdiği süre boyunca ve ilgili mevzuatta öngörülen yasal saklama süreleri kadar muhafaza edilir. Saklama süresinin sona ermesi halinde veriler mevzuata uygun olarak silinir, yok edilir veya anonim hale getirilir."
+            ]
+          },
+          {
+            "title": "7. Veri Sahibinin Hakları",
+            "paragraphs": [
+              "KVKK'nın 11'inci maddesi uyarınca veri sahibi olarak aşağıdaki haklara sahipsiniz:"
+            ],
+            "bullets": [
+              "Kişisel verilerinizin işlenip işlenmediğini öğrenme,",
+              "İşlenmişse buna ilişkin bilgi talep etme,",
+              "İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,",
+              "Yurt içinde veya yurt dışında verilerin aktarıldığı üçüncü kişileri öğrenme,",
+              "Eksik veya yanlış işlenmiş verilerin düzeltilmesini isteme,",
+              "KVKK'nın 7'nci maddesi kapsamında verilerin silinmesini veya yok edilmesini isteme,",
+              "Düzeltme, silme veya yok etme işlemlerinin aktarılan üçüncü kişilere bildirilmesini isteme,",
+              "İşlenen verilerin münhasıran otomatik sistemler aracılığıyla analiz edilmesi nedeniyle ortaya çıkan sonuçlara itiraz etme,",
+              "Kanuna aykırı veri işlenmesi nedeniyle zarara uğramanız hâlinde zararınızın giderilmesini talep etme."
+            ]
+          },
+          {
+            "title": "8. Başvuru Usulü",
+            "paragraphs": [
+              "KVKK kapsamında sahip olduğunuz haklarınıza ilişkin taleplerinizi, kimliğinizi tevsik edici bilgi ve belgeler ile birlikte KVKK mevzuatında öngörülen yöntemlere uygun olarak SD Kongre'ye iletebilirsiniz.",
+              "Başvurularınız, niteliğine göre en kısa sürede ve en geç otuz (30) gün içerisinde ücretsiz olarak sonuçlandırılacaktır. Ancak işlemin ayrıca bir maliyet gerektirmesi halinde, Kişisel Verileri Koruma Kurulu tarafından belirlenen tarifedeki ücret talep edilebilecektir.",
+              "SD Kongre Organizasyon ve Etkinlik Yönetimi, kişisel verilerin işlenmesine ilişkin süreçlerini yürürlükte bulunan veri koruma mevzuatına uygun şekilde sürdürmekte olup, işbu Aydınlatma Metni üzerinde mevzuat değişiklikleri veya operasyonel gereklilikler doğrultusunda güncelleme yapma hakkını saklı tutar."
             ]
           }
         ]
@@ -1037,7 +1189,7 @@
       "status": "published",
       "seo_json": {
         "title": "KVKK Aydınlatma Metni",
-        "description": "Kişisel Verilerin Korunması ve İşlenmesine İlişkin Aydınlatma Metni"
+        "description": "Kişisel Verilerin Korunması ve İşlenmesi Aydınlatma Metni"
       },
       "published_at": "2026-08-04T00:00:00.000Z"
     },
@@ -1047,38 +1199,127 @@
       "title": "Gizlilik Politikası",
       "slug": "gizlilik-politikasi",
       "body_json": {
-        "headline": "Bilgileriniz Bizim İçin Değerlidir",
+        "headline": "Gizlilik ve Veri Güvenliği Politikası",
         "sections": [
           {
             "title": null,
             "paragraphs": [
-              "SD Kongre, web sitesini ziyaret eden kullanıcıların ve hizmetlerinden yararlanan müşterilerinin kişisel bilgilerinin güvenliğini sağlamayı temel ilkelerinden biri olarak kabul etmektedir.",
-              "Web sitemiz üzerinden paylaşılan bilgiler yalnızca hizmet sunulması, iletişim faaliyetlerinin yürütülmesi, organizasyon süreçlerinin yönetilmesi ve yasal yükümlülüklerin yerine getirilmesi amacıyla kullanılmaktadır."
+              "SD Kongre Organizasyon ve Etkinlik Yönetimi (\"SD Kongre\"), web sitesini ziyaret eden kullanıcıların, katılımcıların, müşterilerin ve iş ortaklarının kişisel verilerinin gizliliğini ve güvenliğini korumayı temel kurumsal ilkelerinden biri olarak kabul etmektedir. Bu kapsamda SD Kongre, yürürlükte bulunan 6698 Sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\"), ilgili ikincil mevzuat ve diğer yasal düzenlemelere uygun şekilde hareket etmeyi taahhüt etmektedir."
             ]
           },
           {
-            "title": "Toplanan Bilgilerin Korunması",
-            "bullets": [
-              "Yetkisiz erişime karşı korunur",
-              "Güvenli sistemlerde saklanır",
-              "Üçüncü kişilerle izinsiz paylaşılmaz",
-              "Yasal zorunluluklar dışında aktarılmaz"
-            ],
+            "title": "1. Gizlilik İlkesi",
             "paragraphs": [
-              "SD Kongre, kişisel verilerin korunmasına ilişkin tüm teknik ve idari tedbirleri uygulamayı taahhüt eder."
+              "SD Kongre tarafından internet sitesi, elektronik iletişim kanalları, kayıt formları, etkinlik başvuruları ve diğer iletişim araçları vasıtasıyla elde edilen kişisel veriler, yalnızca belirli, açık ve meşru amaçlar doğrultusunda işlenmektedir.",
+              "Toplanan bilgiler;"
+            ],
+            "bullets": [
+              "Kongre, sempozyum, toplantı ve etkinlik organizasyonlarının planlanması ve yürütülmesi,",
+              "Katılımcı kayıt süreçlerinin yönetilmesi,",
+              "Konaklama, ulaşım ve transfer hizmetlerinin sağlanması,",
+              "Bilgilendirme, duyuru ve iletişim faaliyetlerinin gerçekleştirilmesi,",
+              "Faturalandırma ve finansal işlemlerin yürütülmesi,",
+              "Müşteri ilişkileri ve memnuniyet süreçlerinin yönetilmesi,",
+              "Bilgi güvenliği faaliyetlerinin sürdürülmesi,",
+              "Hukuki ve idari yükümlülüklerin yerine getirilmesi"
+            ],
+            "closingParagraphs": [
+              "amaçlarıyla kullanılmaktadır. Kişisel verileriniz, ilgili mevzuatta öngörülen haller dışında veri sahibinin açık rızası olmaksızın üçüncü kişilerle paylaşılmamakta, satılmamakta veya ticari amaçlarla kullandırılmamaktadır."
             ]
           },
           {
-            "title": "Veri Güvenliği",
+            "title": "2. Toplanan Bilgilerin Korunması",
             "paragraphs": [
-              "Kurumumuz aşağıdaki uygulamalarla verilerinizin korunmasını sağlamaktadır."
+              "SD Kongre, işlenen kişisel verilerin gizliliğinin, bütünlüğünün ve erişilebilirliğinin korunması amacıyla uygun teknik ve idari tedbirleri uygulamaktadır. Bu kapsamda kişisel veriler;"
             ],
             "bullets": [
-              "SSL güvenlik sertifikaları",
-              "Güncel güvenlik altyapıları",
-              "Erişim yetkilendirme sistemleri",
-              "Veri yedekleme uygulamaları",
-              "Düzenli güvenlik kontrolleri"
+              "Yetkisiz erişimlere karşı korunmakta,",
+              "Güvenli sunucular ve bilgi sistemleri üzerinde muhafaza edilmekte,",
+              "Verilere erişim yalnızca görevleri gereği yetkilendirilmiş kişiler ile sınırlandırılmakta,",
+              "Üçüncü kişilere hukuka aykırı şekilde aktarılmamakta,",
+              "Gizlilik yükümlülüğü bulunan personel tarafından işlenmekte,",
+              "Mevzuatta öngörülen saklama süreleri boyunca muhafaza edilmekte,",
+              "Saklama süresi sonunda ilgili mevzuata uygun olarak silinmekte, yok edilmekte veya anonim hale getirilmektedir."
+            ]
+          },
+          {
+            "title": "3. Veri Güvenliği Tedbirleri",
+            "paragraphs": [
+              "SD Kongre, kişisel verilerin hukuka aykırı olarak işlenmesini ve erişilmesini önlemek amacıyla güncel teknolojik imkanlar doğrultusunda gerekli güvenlik önlemlerini uygulamaktadır. Bu kapsamda kullanılan başlıca güvenlik tedbirleri şunlardır:"
+            ],
+            "subsections": [
+              {
+                "title": "Teknik Tedbirler",
+                "bullets": [
+                  "SSL/TLS güvenlik sertifikaları ile veri iletiminin şifrelenmesi,",
+                  "Güvenlik duvarı (Firewall) sistemlerinin kullanılması,",
+                  "Güncel antivirüs ve zararlı yazılım koruma sistemleri,",
+                  "Ağ ve sistem güvenliği uygulamaları,",
+                  "Şifreleme ve veri maskeleme yöntemleri,",
+                  "Düzenli veri yedekleme faaliyetleri,",
+                  "Log kayıtlarının tutulması ve izlenmesi,",
+                  "Düzenli güvenlik testleri ve denetimleri,",
+                  "Yetkisiz erişim girişimlerinin takip edilmesi ve engellenmesi."
+                ]
+              },
+              {
+                "title": "İdari Tedbirler",
+                "bullets": [
+                  "Yetki ve erişim kontrol mekanizmalarının uygulanması,",
+                  "Personel için gizlilik ve bilgi güvenliği yükümlülükleri oluşturulması,",
+                  "KVKK ve bilgi güvenliği konusunda personel eğitimleri verilmesi,",
+                  "Veri işleyen üçüncü taraflarla gerekli sözleşmelerin yapılması,",
+                  "Risk analizi ve iç denetim faaliyetlerinin yürütülmesi,",
+                  "Kişisel veri işleme süreçlerinin düzenli olarak gözden geçirilmesi."
+                ]
+              }
+            ]
+          },
+          {
+            "title": "4. Üçüncü Taraflara Aktarım",
+            "paragraphs": [
+              "Kişisel verileriniz;"
+            ],
+            "bullets": [
+              "İlgili mevzuatın zorunlu kıldığı durumlarda yetkili kamu kurum ve kuruluşlarına,",
+              "Mahkemeler ve hukuken yetkili mercilere,",
+              "Hizmetin sunulabilmesi amacıyla konaklama, ulaşım ve teknoloji hizmet sağlayıcılarına,",
+              "Muhasebe, denetim ve danışmanlık hizmeti alınan kuruluşlara"
+            ],
+            "closingParagraphs": [
+              "KVKK'nın 8 ve 9'uncu maddeleri çerçevesinde ve gerekli güvenlik önlemleri alınarak aktarılabilmektedir. Bu aktarımlarda veri minimizasyonu ilkesi esas alınmakta ve yalnızca gerekli olan bilgiler paylaşılmaktadır."
+            ]
+          },
+          {
+            "title": "5. Çerezler ve İnternet Sitesi Kullanımı",
+            "paragraphs": [
+              "Web sitemizi ziyaret ettiğinizde kullanıcı deneyiminin geliştirilmesi, internet sitesinin güvenliğinin sağlanması ve hizmet kalitesinin artırılması amacıyla çerezler (cookies) ve benzeri teknolojiler kullanılabilmektedir.",
+              "Çerezler aracılığıyla elde edilen bilgiler;"
+            ],
+            "bullets": [
+              "İnternet sitesinin etkin şekilde çalıştırılması,",
+              "Kullanıcı tercih ve ayarlarının hatırlanması,",
+              "Site performansının ölçülmesi,",
+              "Güvenlik kontrollerinin gerçekleştirilmesi,",
+              "İstatistiksel analizlerin yapılması"
+            ],
+            "closingParagraphs": [
+              "amaçlarıyla kullanılmaktadır. Çerezlerin kullanımına ilişkin detaylı bilgiler ayrıca yayımlanan Çerez Politikası kapsamında kullanıcıların bilgisine sunulmaktadır."
+            ]
+          },
+          {
+            "title": "6. Kullanıcının Sorumluluğu",
+            "paragraphs": [
+              "Kullanıcılar, web sitesi üzerinden paylaştıkları bilgilerin doğru, güncel ve kendilerine ait olduğunu kabul ederler. Kullanıcı hesaplarının korunmasına ilişkin gerekli önlemlerin alınması kullanıcının sorumluluğundadır.",
+              "Yetkisiz erişim, bilgi güvenliği ihlali veya kişisel verilerin kötüye kullanıldığına ilişkin bir durumun tespiti halinde SD Kongre'ye derhal bildirim yapılması gerekmektedir."
+            ]
+          },
+          {
+            "title": "7. Politika Değişiklikleri",
+            "paragraphs": [
+              "SD Kongre, yasal düzenlemelerde meydana gelen değişiklikler, Kişisel Verileri Koruma Kurulu kararları veya kurumsal ihtiyaçlar doğrultusunda işbu Gizlilik ve Veri Güvenliği Politikası'nı güncelleme hakkını saklı tutar. Güncel politika metni internet sitesinde yayımlandığı tarihten itibaren yürürlüğe girer.",
+              "SD Kongre Organizasyon ve Etkinlik Yönetimi\nE-posta: info@sdkongre.com\nWeb: www.sdkongre.com\nAdres: Meşrutiyet Mahallesi Atatürk Bulvarı No:109/16 Çankaya/Ankara, Türkiye\nTelefon: +90 544 971 53 13",
+              "Bu metin, KVKK Aydınlatma Metni ile birlikte kullanılabilecek şekilde kurumsal ve hukuki standartlara uygun olarak düzenlenmiştir."
             ]
           }
         ]
@@ -1088,7 +1329,7 @@
       "status": "published",
       "seo_json": {
         "title": "Gizlilik Politikası",
-        "description": "Bilgileriniz Bizim İçin Değerlidir"
+        "description": "Gizlilik ve Veri Güvenliği Politikası"
       },
       "published_at": "2026-08-04T00:00:00.000Z"
     },
@@ -1101,41 +1342,156 @@
         "headline": "Çerez Kullanımı Hakkında Bilgilendirme",
         "sections": [
           {
-            "title": null,
+            "title": "1. Çerez Politikası Hakkında",
             "paragraphs": [
-              "Bu web sitesi kullanıcı deneyimini geliştirmek, site performansını analiz etmek ve sunulan hizmetleri iyileştirmek amacıyla çerezler kullanmaktadır.",
-              "Çerezler, ziyaret ettiğiniz internet sitesi tarafından cihazınıza kaydedilen küçük veri dosyalarıdır."
+              "Bu Çerez Politikası, SD Kongre Organizasyon ve Etkinlik Yönetimi (\"SD Kongre\") tarafından işletilen internet sitesini ziyaret eden kullanıcıların, site kullanımları sırasında kullanılan çerezler ve benzeri teknolojiler hakkında bilgilendirilmesi amacıyla hazırlanmıştır. Web sitemiz, kullanıcı deneyimini geliştirmek, internet sitesinin güvenliğini sağlamak, performansını analiz etmek ve sunulan hizmetlerin kalitesini artırmak amacıyla çerezler kullanmaktadır. İnternet sitemizi kullanmaya devam etmeniz halinde, işbu Çerez Politikası kapsamında açıklanan çerez kullanımını kabul etmiş sayılırsınız. Çerez tercihlerinizi dilediğiniz zaman tarayıcı ayarlarınız üzerinden değiştirebilirsiniz."
             ]
           },
           {
-            "title": "Zorunlu Çerezler",
+            "title": "2. Çerez Nedir?",
             "paragraphs": [
-              "Web sitesinin temel işlevlerinin çalışabilmesi için gereklidir."
+              "Çerezler (cookies), bir internet sitesini ziyaret ettiğinizde tarayıcınız aracılığıyla bilgisayarınıza, tabletinize, cep telefonunuza veya diğer cihazlarınıza kaydedilen küçük metin dosyalarıdır. Çerezler sayesinde internet sitesi;"
+            ],
+            "bullets": [
+              "Kullanıcı tercihlerini hatırlayabilir,",
+              "Oturum yönetimini sağlayabilir,",
+              "Site performansını ölçebilir,",
+              "Güvenliği artırabilir,",
+              "Kullanıcı deneyimini iyileştirebilir,",
+              "Hizmetlerini geliştirebilir."
+            ],
+            "closingParagraphs": [
+              "Çerezler, cihazınızda depolanan bilgiler aracılığıyla internet sitesinin daha verimli çalışmasına katkı sağlamaktadır."
             ]
           },
           {
-            "title": "Performans ve Analitik Çerezleri",
-            "paragraphs": [
-              "Kullanıcıların web sitesini nasıl kullandığına ilişkin anonim veriler sağlar."
+            "title": "3. Kullanılan Çerez Türleri",
+            "subsections": [
+              {
+                "title": "A. Zorunlu Çerezler",
+                "paragraphs": [
+                  "Zorunlu çerezler, internet sitesinin güvenli ve düzgün şekilde çalışabilmesi için gerekli olan çerezlerdir. Bu çerezler sayesinde;"
+                ],
+                "bullets": [
+                  "Kullanıcı oturumları yönetilebilir,",
+                  "Güvenlik doğrulamaları gerçekleştirilebilir,",
+                  "Form ve başvuru işlemleri tamamlanabilir,",
+                  "Site içi gezinme fonksiyonları çalıştırılabilir."
+                ],
+                "closingParagraphs": [
+                  "Bu çerezlerin kullanımı için ayrıca kullanıcı onayı alınmasına gerek bulunmamaktadır."
+                ]
+              },
+              {
+                "title": "B. Performans ve Analitik Çerezleri",
+                "paragraphs": [
+                  "Performans ve analitik çerezleri, internet sitesinin kullanımına ilişkin istatistiksel verilerin elde edilmesini sağlar. Bu çerezler aracılığıyla;"
+                ],
+                "bullets": [
+                  "Ziyaretçi sayısı ölçülebilir,",
+                  "Sayfa görüntüleme istatistikleri analiz edilebilir,",
+                  "Kullanıcıların siteyi kullanım şekilleri değerlendirilebilir,",
+                  "Teknik sorunlar tespit edilebilir,",
+                  "Site performansı geliştirilebilir."
+                ],
+                "closingParagraphs": [
+                  "Analitik amaçlı kullanılan veriler mümkün olduğunca anonim veya kimliği belirlenemeyecek şekilde işlenmektedir."
+                ]
+              },
+              {
+                "title": "C. İşlevsel Çerezler",
+                "paragraphs": [
+                  "İşlevsel çerezler, kullanıcıların internet sitesi üzerindeki tercihlerini hatırlayarak daha kişiselleştirilmiş bir kullanım deneyimi sunulmasını sağlar. Bu kapsamda;"
+                ],
+                "bullets": [
+                  "Dil tercihleri,",
+                  "Bölge tercihleri,",
+                  "Kullanıcı ayarları,",
+                  "Oturum bilgileri"
+                ],
+                "closingParagraphs": [
+                  "hatırlanabilir ve sonraki ziyaretlerde kullanıcıya kolaylık sağlanabilir."
+                ]
+              },
+              {
+                "title": "D. Pazarlama ve Reklam Çerezleri",
+                "paragraphs": [
+                  "Pazarlama çerezleri, kullanıcıların ilgi alanlarını analiz etmek ve daha ilgili içeriklerin sunulmasını sağlamak amacıyla kullanılabilmektedir. Bu çerezler;"
+                ],
+                "bullets": [
+                  "Reklam kampanyalarının etkinliğinin ölçülmesi,",
+                  "Kullanıcı ilgi alanlarının belirlenmesi,",
+                  "Kişiselleştirilmiş içerik ve reklam gösterimi,",
+                  "Yeniden pazarlama faaliyetlerinin yürütülmesi"
+                ],
+                "closingParagraphs": [
+                  "amaçlarıyla kullanılabilir. Bu tür çerezlerin kullanılması durumunda gerekli hallerde kullanıcı açık rızası alınmaktadır."
+                ]
+              }
             ]
           },
           {
-            "title": "İşlevsel Çerezler",
+            "title": "4. Çerezler Aracılığıyla İşlenen Veriler",
             "paragraphs": [
-              "Tercihlerinizin hatırlanmasına yardımcı olur."
+              "Çerezler aracılığıyla aşağıdaki bilgiler işlenebilmektedir:"
+            ],
+            "bullets": [
+              "IP adresi,",
+              "Tarayıcı türü ve sürümü,",
+              "İşletim sistemi bilgileri,",
+              "Cihaz bilgileri,",
+              "Ziyaret edilen sayfalar,",
+              "Ziyaret tarihi ve saati,",
+              "Sitede geçirilen süre,",
+              "Kullanıcı tercihleri,",
+              "Trafik ve kullanım verileri."
+            ],
+            "closingParagraphs": [
+              "Bu veriler, kişisel verilerin korunmasına ilişkin mevzuata uygun olarak işlenmektedir."
             ]
           },
           {
-            "title": "Pazarlama Çerezleri",
+            "title": "5. Çerezlerin Saklama Süreleri",
             "paragraphs": [
-              "Sunulan içeriklerin ve reklamların ilgi alanlarınıza göre özelleştirilmesini sağlar."
+              "Çerezler kullanım amaçlarına göre farklı sürelerle saklanabilmektedir."
+            ],
+            "bullets": [
+              "Oturum Çerezleri: Tarayıcı kapatıldığında silinir.",
+              "Kalıcı Çerezler: Belirlenen süre boyunca cihazda saklanır veya kullanıcı tarafından silinene kadar muhafaza edilir.",
+              "Üçüncü Taraf Çerezleri: İlgili hizmet sağlayıcının belirlediği süre boyunca saklanabilir."
+            ],
+            "closingParagraphs": [
+              "Çerezlerin saklama süreleri kullanım amacı ile sınırlı olup ilgili mevzuata uygun şekilde belirlenmektedir."
             ]
           },
           {
-            "title": "Çerez Yönetimi",
+            "title": "6. Çerez Yönetimi ve Tercihler",
             "paragraphs": [
-              "Tarayıcı ayarlarınızı değiştirerek çerezleri silebilir, engelleyebilir veya kullanımını sınırlandırabilirsiniz.",
-              "Çerezleri devre dışı bırakmanız halinde web sitesinin bazı özelliklerinden tam olarak yararlanamayabilirsiniz."
+              "Kullanıcılar çerez tercihlerini diledikleri zaman değiştirebilir, mevcut çerezleri silebilir veya yeni çerezlerin cihazlarına kaydedilmesini engelleyebilirler. Çerez ayarları internet tarayıcınız üzerinden yönetilebilmektedir. Çerezleri;"
+            ],
+            "bullets": [
+              "Kabul edebilir,",
+              "Reddedebilir,",
+              "Belirli çerez türlerini engelleyebilir,",
+              "Daha önce kaydedilmiş çerezleri silebilirsiniz."
+            ],
+            "closingParagraphs": [
+              "Ancak çerezlerin devre dışı bırakılması halinde internet sitesinin bazı özellikleri tam olarak çalışmayabilir, kullanıcı deneyimi olumsuz etkilenebilir ve sunulan hizmetlerin bir kısmından yararlanılamayabilir."
+            ]
+          },
+          {
+            "title": "7. Üçüncü Taraf Çerezler",
+            "paragraphs": [
+              "Web sitemizde analiz, performans ölçümü, içerik yönetimi veya reklam hizmetleri kapsamında üçüncü taraf hizmet sağlayıcılar tarafından yerleştirilen çerezler kullanılabilmektedir.",
+              "Bu çerezlerin kullanımına ilişkin sorumluluk ilgili üçüncü taraf hizmet sağlayıcılara ait olup, söz konusu şirketlerin gizlilik ve çerez politikalarının ayrıca incelenmesi tavsiye edilmektedir."
+            ]
+          },
+          {
+            "title": "8. İletişim",
+            "paragraphs": [
+              "Çerez Politikası hakkında soru, talep veya görüşlerinizi aşağıdaki iletişim kanalları aracılığıyla iletebilirsiniz:",
+              "SD Kongre Organizasyon ve Etkinlik Yönetimi\nE-posta: info@sdkongre.com\nWeb: www.sdkongre.com\nAdres: Meşrutiyet Mahallesi Atatürk Bulvarı No:109/16 Çankaya/Ankara, Türkiye\nTelefon: +90 544 971 53 13",
+              "SD Kongre, mevzuat değişiklikleri, teknolojik gelişmeler veya operasyonel gereklilikler doğrultusunda işbu Çerez Politikası'nı güncelleme hakkını saklı tutar. Güncel metin internet sitesinde yayımlandığı tarihte yürürlüğe girer."
             ]
           }
         ]
@@ -1160,21 +1516,44 @@
           {
             "title": null,
             "paragraphs": [
-              "6698 Sayılı Kişisel Verilerin Korunması Kanunu kapsamında tarafıma sunulan Aydınlatma Metni'ni okuduğumu ve anladığımı kabul ederim.",
-              "Bu kapsamda aşağıdaki verilerimin SD Kongre tarafından ilgili mevzuata uygun şekilde işlenmesine, saklanmasına ve gerekli durumlarda belirtilen üçüncü kişilerle paylaşılmasına özgür irademle açık rıza verdiğimi kabul ederim."
+              "6698 Sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") kapsamında, SD Kongre Organizasyon ve Etkinlik Yönetimi (\"SD Kongre\") tarafından tarafıma sunulan Kişisel Verilerin Korunması ve İşlenmesi Aydınlatma Metni'ni okuduğumu, anladığımı ve bu metin ile kişisel verilerimin işlenmesine ilişkin olarak yeterli şekilde bilgilendirildiğimi kabul ve beyan ederim. Bu kapsamda;"
             ],
             "bullets": [
-              "Kimlik bilgilerimin",
-              "İletişim bilgilerimin",
-              "Katılım ve kayıt bilgilerimin",
-              "Organizasyon süreçlerine ilişkin verilerimin",
-              "Görsel ve işitsel kayıtlarımın"
+              "Kimlik bilgilerimin,",
+              "İletişim bilgilerimin,",
+              "Kurum ve görev bilgilerimin,",
+              "Katılım, kayıt ve organizasyon bilgilerimin,",
+              "Konaklama, seyahat ve ulaşım bilgilerimin,",
+              "Finansal ve faturalandırma bilgilerimin,",
+              "Fotoğraf, video ve diğer görsel/işitsel kayıtlarımın,",
+              "Elektronik ortamda elde edilen internet kullanım ve teknik verilerimin,"
             ]
           },
           {
             "title": null,
             "paragraphs": [
-              "Vermiş olduğum açık rızayı dilediğim zaman geri çekme hakkına sahip olduğumu biliyorum."
+              "SD Kongre tarafından;"
+            ],
+            "bullets": [
+              "Kongre, seminer, toplantı, eğitim ve diğer organizasyon faaliyetlerinin planlanması ve yürütülmesi,",
+              "Katılımcı kayıt ve akreditasyon süreçlerinin gerçekleştirilmesi,",
+              "Konaklama, ulaşım ve transfer organizasyonlarının sağlanması,",
+              "Bilgilendirme, duyuru ve iletişim faaliyetlerinin yürütülmesi,",
+              "Tanıtım, kurumsal iletişim ve etkinlik raporlama faaliyetlerinin gerçekleştirilmesi,",
+              "Fotoğraf ve video kayıtlarının kongre, etkinlik ve kurumsal tanıtım faaliyetleri kapsamında kullanılması,",
+              "Finans, muhasebe ve faturalandırma süreçlerinin yürütülmesi,",
+              "Müşteri memnuniyeti ve hizmet kalitesinin geliştirilmesi,",
+              "Hukuki yükümlülüklerin yerine getirilmesi,",
+              "Bilgi güvenliği ve denetim süreçlerinin yürütülmesi"
+            ]
+          },
+          {
+            "title": null,
+            "paragraphs": [
+              "amaçlarıyla işlenmesine, gerektiğinde ilgili mevzuat hükümleri çerçevesinde iş ortakları, hizmet sağlayıcılar, organizasyon kapsamında görev alan tedarikçiler ve hukuken yetkili kamu kurum ve kuruluşları ile paylaşılmasına açık rıza verdiğimi kabul, beyan ve taahhüt ederim.",
+              "Ayrıca, etkinlikler sırasında çekilen fotoğraf, video ve ses kayıtlarının; SD Kongre'nin kurumsal internet sitesi, sosyal medya hesapları, basılı tanıtım materyalleri, faaliyet raporları, kongre yayınları ve diğer kurumsal iletişim mecralarında kullanılmasına ve yayımlanmasına açık rıza gösterdiğimi kabul ederim.",
+              "İşbu açık rızanın, herhangi bir baskı altında kalmaksızın, tamamen özgür irademle verildiğini; KVKK'nın 11'inci maddesi kapsamında sahip olduğum haklar hakkında bilgilendirildiğimi ve vermiş olduğum açık rızayı geleceğe etkili olacak şekilde dilediğim zaman geri çekme hakkına sahip olduğumu bildiğimi kabul ve beyan ederim.",
+              "Not: KVKK uygulamalarında, \"Aydınlatma Metni\" ile \"Açık Rıza Metni\"nin ayrı dokümanlar olarak düzenlenmesi ve özellikle fotoğraf/video kullanımı ile tanıtım amaçlı veri işleme faaliyetleri için ayrıca açık rıza alınması tavsiye edilmektedir."
             ]
           }
         ]
@@ -1204,27 +1583,12 @@
           },
           {
             "title": "Dayanak Alınan Mevzuatlar",
-            "items": [
-              {
-                "title": "6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK)",
-                "description": "Kişisel verilerin işlenmesine ilişkin temel usul ve esasları belirlemektedir."
-              },
-              {
-                "title": "Türk Borçlar Kanunu",
-                "description": "Müşteri ve hizmet sağlayıcı arasındaki sözleşmesel ilişkilerin yürütülmesine ilişkin hükümleri kapsar."
-              },
-              {
-                "title": "Türk Ticaret Kanunu",
-                "description": "Ticari faaliyetler kapsamında tutulması gereken kayıtlar ve yükümlülükleri düzenler."
-              },
-              {
-                "title": "Vergi Usul Kanunu",
-                "description": "Muhasebe ve mali kayıtların saklanmasıyla ilgili yükümlülükleri belirler."
-              },
-              {
-                "title": "Elektronik Ticaretin Düzenlenmesi Hakkında Kanun",
-                "description": "Elektronik ortamda yürütülen iletişim ve ticari faaliyetlere ilişkin hükümleri düzenler."
-              }
+            "bullets": [
+              "6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) — Kişisel verilerin işlenmesine ilişkin temel usul ve esasları belirlemektedir.",
+              "Türk Borçlar Kanunu — Müşteri ve hizmet sağlayıcı arasındaki sözleşmesel ilişkilerin yürütülmesine ilişkin hükümleri kapsar.",
+              "Türk Ticaret Kanunu — Ticari faaliyetler kapsamında tutulması gereken kayıtlar ve yükümlülükleri düzenler.",
+              "Vergi Usul Kanunu — Muhasebe ve mali kayıtların saklanmasıyla ilgili yükümlülükleri belirler.",
+              "Elektronik Ticaretin Düzenlenmesi Hakkında Kanun — Elektronik ortamda yürütülen iletişim ve ticari faaliyetlere ilişkin hükümleri düzenler."
             ]
           },
           {

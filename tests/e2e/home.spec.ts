@@ -23,20 +23,32 @@ test("home page follows the approved SDKONGRE composition", async ({ page }) => 
   ).toHaveCount(0);
 });
 
-test("full menu opens and preserves key headings", async ({ page }) => {
+test("top navigation shows process and the corporate submenu", async ({
+  page,
+}) => {
   await page.goto("/");
-  await page.locator("button.menu-trigger").click();
 
-  const menuDialog = page.getByRole("dialog", { name: "Site menüsü" });
-
-  await expect(menuDialog).toBeVisible();
+  await expect(page.locator("button.menu-trigger")).toHaveCount(0);
   await expect(
-    menuDialog.getByText("HİZMETLERİMİZ", { exact: true }),
-  ).toBeVisible();
-  await expect(
-    menuDialog.getByText("ORGANİZASYON SURECİ", { exact: true }),
+    page.getByRole("link", {
+      name: "ORGANİZASYON SURECİ",
+      exact: true,
+    }),
   ).toBeVisible();
 
-  await page.keyboard.press("Escape");
-  await expect(menuDialog).toHaveCount(0);
+  const corporateButton = page.getByRole("button", {
+    name: "KURUMSAL",
+    exact: true,
+  });
+
+  await corporateButton.click();
+  await expect(
+    page.getByRole("menuitem", { name: "Hakkımızda", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("menuitem", { name: "Değerlerimiz", exact: true }),
+  ).toBeVisible();
+
+  await page.locator(".approved-hero").hover();
+  await expect(page.locator(".site-header__dropdown-menu")).toHaveCount(0);
 });

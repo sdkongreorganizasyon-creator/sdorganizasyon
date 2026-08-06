@@ -5,13 +5,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { Logo } from "@/components/brand/logo";
-import { MenuOverlay } from "@/components/layout/menu-overlay";
 import type { ResolvedSiteSettings } from "@/lib/content/settings";
 
 export function SiteHeader({
   settings,
 }: Readonly<{ settings: ResolvedSiteSettings }>) {
   const [scrolled, setScrolled] = useState(false);
+  const [corporateOpen, setCorporateOpen] = useState(false);
 
   useEffect(() => {
     function update() {
@@ -50,19 +50,41 @@ export function SiteHeader({
 
             if (item.id === "corporate" && visibleChildren?.length) {
               return (
-                <details className="site-header__dropdown" key={item.id}>
-                  <summary>
+                <div
+                  className={`site-header__dropdown${
+                    corporateOpen ? " is-open" : ""
+                  }`}
+                  key={item.id}
+                  onPointerLeave={() => setCorporateOpen(false)}
+                >
+                  <button
+                    type="button"
+                    aria-expanded={corporateOpen}
+                    aria-haspopup="menu"
+                    onClick={() => setCorporateOpen(true)}
+                  >
                     <span>{item.label}</span>
                     <ChevronDown aria-hidden="true" size={14} />
-                  </summary>
-                  <div className="site-header__dropdown-menu">
-                    {visibleChildren.map((child) => (
-                      <Link href={child.href} key={child.id}>
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                </details>
+                  </button>
+
+                  {corporateOpen ? (
+                    <div
+                      className="site-header__dropdown-menu"
+                      role="menu"
+                    >
+                      {visibleChildren.map((child) => (
+                        <Link
+                          href={child.href}
+                          key={child.id}
+                          onClick={() => setCorporateOpen(false)}
+                          role="menuitem"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
               );
             }
 
@@ -82,11 +104,6 @@ export function SiteHeader({
             <span>{settings.header.quoteButtonLabel || "Teklif Al"}</span>
             <ArrowRight aria-hidden="true" size={18} />
           </Link>
-
-          <MenuOverlay
-            buttonLabel={settings.header.menuButtonLabel}
-            navigation={settings.navigation}
-          />
         </div>
       </div>
     </header>

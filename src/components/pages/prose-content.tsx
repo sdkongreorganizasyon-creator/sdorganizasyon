@@ -5,11 +5,18 @@ import { Reveal } from "@/components/ui/reveal";
 type ProseContentProps = Readonly<{
   paragraphs: readonly string[];
   aside?: ReactNode;
+  className?: string;
 }>;
 
-export function ProseContent({ paragraphs, aside }: ProseContentProps) {
+export function ProseContent({
+  paragraphs,
+  aside,
+  className,
+}: ProseContentProps) {
   return (
-    <section className="content-section">
+    <section
+      className={`content-section${className ? ` ${className}` : ""}`}
+    >
       <div className={`container content-layout${aside ? "" : " content-layout--single"}`}>
         <div className="prose">
           {paragraphs.map((paragraph, index) => (

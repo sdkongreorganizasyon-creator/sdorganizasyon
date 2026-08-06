@@ -42,22 +42,8 @@ export default async function ContactPage() {
     settings.contact.mobile ||
     settings.contact.email ||
     settings.contact.address;
-  const mapQuery = [
-    settings.contact.address,
-    settings.contact.district,
-    settings.contact.city,
-  ]
-    .filter(Boolean)
-    .join(", ");
-  const mapSrc = mapQuery
-    ? `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`
-    : settings.contact.mapUrl?.includes("/embed")
-      ? settings.contact.mapUrl
-      : settings.contact.mapUrl
-        ? `https://www.google.com/maps?q=${encodeURIComponent(
-            settings.contact.mapUrl,
-          )}&output=embed`
-        : null;
+  const mapSrc =
+    "https://www.google.com/maps?q=39.9184269,32.8543523&hl=tr&z=17&output=embed";
 
   return (
     <>

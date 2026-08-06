@@ -115,10 +115,19 @@ export type ProcessStep = Readonly<{
   outputs: readonly string[];
 }>;
 
+export type LegalSubsection = Readonly<{
+  title: string;
+  paragraphs?: readonly string[];
+  bullets?: readonly string[];
+  closingParagraphs?: readonly string[];
+}>;
+
 export type LegalSection = Readonly<{
   title?: string | null;
   paragraphs?: readonly string[];
   bullets?: readonly string[];
+  closingParagraphs?: readonly string[];
+  subsections?: readonly LegalSubsection[];
   items?: readonly Readonly<{
     title: string;
     description: string;

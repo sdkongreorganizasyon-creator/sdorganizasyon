@@ -58,9 +58,12 @@ export default async function ReferencesPage() {
         ]}
       />
 
-      <ProseContent paragraphs={referencesIntro.paragraphs} />
+      <ProseContent
+        className="page-intro page-intro--references"
+        paragraphs={referencesIntro.paragraphs}
+      />
 
-      <section className="section">
+      <section className="section references-page-section">
         <div className="container">
           {references.length ? (
             <ReferenceGrid references={references} />

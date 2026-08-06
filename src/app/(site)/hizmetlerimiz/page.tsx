@@ -56,9 +56,12 @@ export default async function ServicesPage() {
         ]}
       />
 
-      <ProseContent paragraphs={servicesIntro.paragraphs} />
+      <ProseContent
+        className="page-intro page-intro--services"
+        paragraphs={servicesIntro.paragraphs}
+      />
 
-      <section className="section service-page-section">
+      <section className="section service-page-section service-page-section--compact">
         <div className="container service-page-grid">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />

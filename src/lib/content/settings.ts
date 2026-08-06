@@ -250,6 +250,7 @@ function defaultResolvedNavigation(): readonly ResolvedNavigationItem[] {
       "corporate",
       "services",
       "digital-services",
+      "process",
       "references",
       "contact",
     ].includes(item.id),

@@ -207,7 +207,11 @@ export function ContactForm() {
         </div>
       ) : null}
 
-      <Button disabled={isSubmitting} type="submit">
+      <Button
+        className="contact-submit-button"
+        disabled={isSubmitting}
+        type="submit"
+      >
         {isSubmitting ? (
           <>
             <Loader2 className="spin" aria-hidden="true" />

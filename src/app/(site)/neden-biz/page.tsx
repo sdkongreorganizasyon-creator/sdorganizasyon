@@ -69,12 +69,15 @@ export default async function WhyUsPage() {
       />
 
       <main
-        className={`cms-page cms-page--${design?.template ?? "standard"}`}
+        className={`cms-page why-us-page cms-page--${design?.template ?? "standard"}`}
         data-heading-font={design?.headingFont ?? "system"}
         data-body-font={design?.bodyFont ?? "system"}
         style={style}
       >
-        <ProseContent paragraphs={content.paragraphs} />
+        <ProseContent
+          className="page-intro page-intro--why-us"
+          paragraphs={content.paragraphs}
+        />
         <ValueCards items={content.items} />
         <CmsPageSections sections={content.sections} />
       </main>

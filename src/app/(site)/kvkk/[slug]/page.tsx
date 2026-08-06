@@ -12,6 +12,14 @@ type PageProps = Readonly<{
   params: Promise<{ slug: string }>;
 }>;
 
+const legalHeroImages: Record<string, string> = {
+  "aydinlatma-metni": "/media/legal/aydinlatma-metni.webp",
+  "gizlilik-politikasi": "/media/legal/gizlilik-politikasi.webp",
+  "cerez-politikasi": "/media/legal/cerez-politikasi.webp",
+  "acik-riza-metni": "/media/legal/acik-riza-metni.webp",
+  "yasal-dayanaklar": "/media/legal/yasal-dayanaklar.webp",
+};
+
 export function generateStaticParams() {
   return Object.keys(legalDocuments).map((slug) => ({ slug }));
 }
@@ -51,7 +59,7 @@ export default async function LegalDetailPage({ params }: PageProps) {
         eyebrow="KVKK"
         title={document.title}
         description={document.headline}
-        image="/media/pages/kvkk.webp"
+        image={legalHeroImages[slug] ?? "/media/pages/kvkk.webp"}
         breadcrumbs={[
           { label: "ANA SAYFA", href: "/" },
           { label: "KVKK", href: "/kvkk" },
@@ -61,11 +69,6 @@ export default async function LegalDetailPage({ params }: PageProps) {
 
       <section className="section">
         <div className="container legal-container">
-          <p className="legal-review-notice">
-            Bu metin sağlanan kaynak dokümandan aktarılmıştır. Canlı yayından
-            önce yetkili hukuk danışmanı veya kurum sorumlusu tarafından
-            güncellik kontrolü yapılmalıdır.
-          </p>
           <LegalDocument document={document} />
         </div>
       </section>

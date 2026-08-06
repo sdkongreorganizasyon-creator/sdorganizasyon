@@ -23,6 +23,35 @@ export function LegalDocument({ document }: LegalDocumentProps) {
             </ul>
           ) : null}
 
+          {section.subsections?.map((subsection) => (
+            <section
+              className="legal-document__subsection"
+              key={subsection.title}
+            >
+              <h3>{subsection.title}</h3>
+
+              {subsection.paragraphs?.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+
+              {subsection.bullets?.length ? (
+                <ul>
+                  {subsection.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              ) : null}
+
+              {subsection.closingParagraphs?.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </section>
+          ))}
+
+          {section.closingParagraphs?.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+
           {section.items?.length ? (
             <div className="legal-document__items">
               {section.items.map((item) => (

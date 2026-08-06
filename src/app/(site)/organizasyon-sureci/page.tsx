@@ -37,7 +37,7 @@ export default async function ProcessPage() {
         eyebrow={hero.eyebrow}
         title={hero.title}
         description={hero.description}
-        image={hero.image}
+        image="/media/headers/organizasyon-sureci.webp"
         video={hero.video}
         animation={hero.animation}
         template={hero.template}
