@@ -1,0 +1,22 @@
+SDKONGRE GitHub Actions kalite kontrol düzeltmesi
+
+1. GitHub'da sdkongreorganizasyon-creator/sdorganizasyon deposunu açın.
+2. Add file > Upload files seçeneğine tıklayın.
+3. Bu paketteki tests klasörünü yükleme alanına sürükleyin.
+4. Mevcut tests/unit/content.test.ts dosyasının değiştirilmesini onaylayın.
+5. Commit mesajı olarak şunu yazın:
+   fix: align corporate content test with approved pages
+6. Commit changes düğmesine tıklayın.
+
+Bu düzeltme, kurumsal içerikte onaylı üç sayfa bulunmasına rağmen testin eski
+beş sayfalık yapıyı beklemesi nedeniyle oluşan GitHub Actions hatasını giderir.
+
+Doğrulama sonucu:
+- Proje kuralları: başarılı (46/46 dosya, 33/33 menü etiketi)
+- TypeScript: başarılı
+- ESLint: başarılı
+- Birim testleri: 8/8 başarılı
+- Next.js üretim derlemesi: başarılı
+
+Vercel GitHub deposuna bağlıysa commit sonrasında otomatik deployment başlar.
+Supabase gizli anahtarlarını bu pakete veya GitHub'a eklemeyin.

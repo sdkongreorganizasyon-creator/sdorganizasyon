@@ -11,7 +11,7 @@ import {
 
 describe("source content", () => {
   it("contains all approved content groups", () => {
-    expect(Object.keys(corporatePages)).toHaveLength(5);
+    expect(Object.keys(corporatePages)).toHaveLength(3);
     expect(physicalServices).toHaveLength(8);
     expect(digitalServices).toHaveLength(7);
     expect(processSteps).toHaveLength(6);
