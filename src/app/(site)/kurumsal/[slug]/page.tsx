@@ -123,6 +123,14 @@ export default async function CorporateDetailPage({ params }: PageProps) {
             className={`service-style-value-cards${
               isAboutPage ? " about-mission-vision-cards" : ""
             }${isValuesPage ? " corporate-values-cards" : ""}`}
+            images={
+              isAboutPage
+                ? {
+                    Misyonumuz: "/media/corporate/misyon-karti.png",
+                    Vizyonumuz: "/media/corporate/vizyon-karti.png",
+                  }
+                : undefined
+            }
             items={page.values}
           />
         ) : null}

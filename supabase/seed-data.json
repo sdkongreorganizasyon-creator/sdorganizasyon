@@ -698,27 +698,13 @@
       "step_key": "brief",
       "title": "BRIEF",
       "subtitle": "İhtiyaçların Doğru Analizi ile Sağlam Bir Başlangıç",
-      "description": "Her başarılı organizasyonun temelinde doğru bir ihtiyaç analizi bulunur. Bu nedenle proje sürecine başlamadan önce kurumun beklentilerini, hedeflerini ve organizasyonun genel kapsamını detaylı şekilde değerlendiriyoruz.",
+      "description": "Her başarılı organizasyonun temelinde doğru bir ihtiyaç analizi bulunur. Bu nedenle proje sürecine başlamadan önce kurumun beklentilerini, hedeflerini ve organizasyonun genel kapsamını detaylı şekilde değerlendiriyoruz. Gerçekleştirdiğimiz detaylı brief toplantıları sayesinde organizasyonun yol haritasını oluşturarak sonraki süreçlerin eksiksiz ilerlemesini sağlıyoruz.",
       "content_json": {
         "number": "01",
-        "items": [
-          "Organizasyonun amacı ve hedefleri belirlenir.",
-          "Hedef katılımcı profili analiz edilir.",
-          "Etkinliğin türü, kapsamı ve büyüklüğü netleştirilir.",
-          "Tarih ve lokasyon alternatifleri değerlendirilir.",
-          "Kurumsal beklentiler ve özel talepler kayıt altına alınır.",
-          "Operasyonel ihtiyaçlar ve olası riskler belirlenir.",
-          "Bütçe çerçevesi ve mali beklentiler analiz edilir."
-        ],
+        "items": [],
         "groups": [],
-        "closing": "Gerçekleştirdiğimiz detaylı brief toplantıları sayesinde organizasyonun yol haritasını oluşturarak sonraki süreçlerin eksiksiz ilerlemesini sağlıyoruz.",
-        "outputs": [
-          "İhtiyaç Analiz Raporu",
-          "Hedef Kitle Belirleme",
-          "Organizasyon Kapsamı",
-          "İlk Operasyon Taslağı",
-          "Ön Bütçe Çalışması"
-        ]
+        "closing": "",
+        "outputs": []
       },
       "icon": "workflow",
       "order_no": 1,
@@ -729,30 +715,13 @@
       "step_key": "planlama",
       "title": "PLANLAMA",
       "subtitle": "Her Detayın Önceden Tasarlandığı Profesyonel Hazırlık Süreci",
-      "description": "Planlama aşaması, organizasyonun başarısını doğrudan etkileyen en kritik süreçlerden biridir. Bu aşamada tüm operasyonel ve teknik detaylar sistematik şekilde oluşturulur.",
+      "description": "Planlama aşaması, organizasyonun başarısını doğrudan etkileyen en kritik süreçlerden biridir. Bu aşamada tüm operasyonel ve teknik detaylar sistematik şekilde oluşturulur. Planlama sürecinde tüm paydaşlar arasında koordinasyon sağlanarak organizasyon gününe kadar gerçekleşecek her adım netleştirilir.",
       "content_json": {
         "number": "02",
-        "items": [
-          "Organizasyon takvimini hazırlar.",
-          "Görev ve sorumluluk dağılımlarını belirler.",
-          "Mekân planlamasını yapar.",
-          "Teknik altyapı ihtiyaçlarını tespit eder.",
-          "Konaklama ve ulaşım planlarını oluşturur.",
-          "Tedarikçi ve çözüm ortaklarını belirler.",
-          "Risk ve kriz yönetim planlarını hazırlar.",
-          "Satın alma süreçlerini planlar.",
-          "Kaynak ve bütçe yönetimini oluşturur."
-        ],
+        "items": [],
         "groups": [],
-        "closing": "Planlama sürecinde tüm paydaşlar arasında koordinasyon sağlanarak organizasyon gününe kadar gerçekleşecek her adım netleştirilir.",
-        "outputs": [
-          "Operasyon Takvimi",
-          "Görev ve Sorumluluk Planı",
-          "Bütçe Planı",
-          "Risk Yönetim Planı",
-          "Teknik Altyapı Planlaması",
-          "Lojistik ve Transfer Planı"
-        ]
+        "closing": "",
+        "outputs": []
       },
       "icon": "workflow",
       "order_no": 2,
@@ -763,29 +732,13 @@
       "step_key": "teklif",
       "title": "TEKLİF",
       "subtitle": "Şeffaf, Anlaşılır ve İhtiyaca Özel Çözümler",
-      "description": "Planlama çalışmaları tamamlandıktan sonra organizasyonun tüm kapsamını içeren detaylı teklif dosyası hazırlanır.",
+      "description": "Planlama çalışmaları tamamlandıktan sonra organizasyonun tüm kapsamını içeren detaylı teklif dosyası hazırlanır. Amacımız yalnızca maliyet sunmak değil; kurumun ihtiyaçlarına uygun, maksimum verim sağlayacak sürdürülebilir bir çözüm modeli geliştirmektir.",
       "content_json": {
         "number": "03",
-        "items": [
-          "Hizmet kapsamı detaylandırılır.",
-          "Alternatif uygulama senaryoları hazırlanır.",
-          "Bütçe kalemleri açık şekilde listelenir.",
-          "Operasyonel süreçler tanımlanır.",
-          "Teknik ihtiyaçlar belirlenir.",
-          "İnsan kaynağı planlaması sunulur.",
-          "Zaman çizelgesi oluşturulur."
-        ],
+        "items": [],
         "groups": [],
-        "closing": "Amacımız yalnızca maliyet sunmak değil; kurumun ihtiyaçlarına uygun, maksimum verim sağlayacak sürdürülebilir bir çözüm modeli geliştirmektir.",
-        "outputs": [
-          "Organizasyon Konsepti",
-          "Hizmet Kapsamı",
-          "Teknik ve Operasyonel Çözümler",
-          "Personel Planlaması",
-          "Konaklama ve Seyahat Yönetimi",
-          "Detaylı Bütçe Analizi",
-          "Uygulama Takvimi"
-        ]
+        "closing": "",
+        "outputs": []
       },
       "icon": "workflow",
       "order_no": 3,
@@ -796,27 +749,13 @@
       "step_key": "onay",
       "title": "ONAY",
       "subtitle": "Sürecin Netleştirildiği ve Projenin Başlatıldığı Aşama",
-      "description": "Teklif değerlendirme sürecinin ardından proje detayları karşılıklı olarak gözden geçirilir ve son hali oluşturulur.",
+      "description": "Teklif değerlendirme sürecinin ardından proje detayları karşılıklı olarak gözden geçirilir ve son hali oluşturulur. Hizmet kapsamı kesinleştirilir. Operasyon ekibi oluşturulur. İş planları kesinleştirilir. İletişim ve koordinasyon süreçleri tanımlanır. Onay aşaması sayesinde tüm paydaşlar aynı hedef doğrultusunda hareket eder ve uygulama süreci kontrollü şekilde başlatılır.",
       "content_json": {
         "number": "04",
-        "items": [
-          "Hizmet kapsamı kesinleştirilir.",
-          "Bütçe kalemleri onaylanır.",
-          "Uygulama takvimi netleştirilir.",
-          "Tedarikçi seçimleri tamamlanır.",
-          "Operasyon ekibi oluşturulur.",
-          "İş planları kesinleştirilir.",
-          "İletişim ve koordinasyon süreçleri tanımlanır."
-        ],
+        "items": [],
         "groups": [],
-        "closing": "Onay aşaması sayesinde tüm paydaşlar aynı hedef doğrultusunda hareket eder ve uygulama süreci kontrollü şekilde başlatılır.",
-        "outputs": [
-          "Onaylanmış Proje Planı",
-          "Kesin Bütçe Çalışması",
-          "Operasyon Organizasyon Şeması",
-          "Uygulama Takvimi",
-          "Tedarikçi ve Çözüm Ortakları Listesi"
-        ]
+        "closing": "",
+        "outputs": []
       },
       "icon": "workflow",
       "order_no": 4,
@@ -831,48 +770,9 @@
       "content_json": {
         "number": "05",
         "items": [],
-        "groups": [
-          {
-            "title": "Etkinlik Öncesi",
-            "items": [
-              "Mekân hazırlıkları gerçekleştirilir.",
-              "Teknik ekipman kurulumları yapılır.",
-              "Kayıt alanları oluşturulur.",
-              "Yaka kartları ve materyaller hazırlanır.",
-              "Transfer planları uygulanır.",
-              "Konaklama organizasyonları tamamlanır."
-            ]
-          },
-          {
-            "title": "Etkinlik Sırasında",
-            "items": [
-              "Katılımcı kayıt süreçleri yönetilir.",
-              "Konuşmacı koordinasyonu sağlanır.",
-              "Teknik ekipler yönetilir.",
-              "Protokol organizasyonu yürütülür.",
-              "Sahne ve program akışı takip edilir.",
-              "Anlık kriz ve risk yönetimi gerçekleştirilir."
-            ]
-          },
-          {
-            "title": "Etkinlik Sonrasında",
-            "items": [
-              "Kapanış operasyonları tamamlanır.",
-              "Demontaj süreçleri yürütülür.",
-              "Katılımcı verileri konsolide edilir.",
-              "Tedarikçi kapanış işlemleri gerçekleştirilir."
-            ]
-          }
-        ],
+        "groups": [],
         "closing": "",
-        "outputs": [
-          "Tek Merkezden Koordinasyon",
-          "Anlık Süreç Takibi",
-          "Profesyonel Saha Yönetimi",
-          "Kriz ve Risk Yönetimi",
-          "Katılımcı Memnuniyeti Odaklı Hizmet",
-          "Tam Operasyonel Kontrol"
-        ]
+        "outputs": []
       },
       "icon": "workflow",
       "order_no": 5,
@@ -883,31 +783,13 @@
       "step_key": "raporlama",
       "title": "RAPORLAMA",
       "subtitle": "Ölçülebilir Sonuçlar ve Stratejik Değerlendirme",
-      "description": "Bir organizasyonun başarısı yalnızca tamamlanmış olmasıyla değil, elde edilen çıktılarla değerlendirilir. Bu nedenle proje sonunda kapsamlı raporlama ve analiz çalışmaları gerçekleştiriyoruz.",
+      "description": "Bir organizasyonun başarısı yalnızca tamamlanmış olmasıyla değil, elde edilen çıktılarla değerlendirilir. Bu nedenle proje sonunda kapsamlı raporlama ve analiz çalışmaları gerçekleştiriyoruz. Sunulan raporlar sayesinde kurumlar organizasyon yatırımlarının çıktılarını somut verilerle değerlendirebilir ve gelecekteki projelerini daha verimli planlayabilir.",
       "content_json": {
         "number": "06",
-        "items": [
-          "Katılımcı istatistikleri hazırlanır.",
-          "Kayıt ve katılım oranları analiz edilir.",
-          "Operasyon performansı değerlendirilir.",
-          "Bütçe gerçekleşme raporları oluşturulur.",
-          "Tedarikçi performans analizleri yapılır.",
-          "Memnuniyet anketleri değerlendirilir.",
-          "Güçlü yönler ve geliştirme alanları belirlenir.",
-          "Gelecek organizasyonlar için öneriler hazırlanır."
-        ],
+        "items": [],
         "groups": [],
-        "closing": "Sunulan raporlar sayesinde kurumlar organizasyon yatırımlarının çıktılarını somut verilerle değerlendirebilir ve gelecekteki projelerini daha verimli planlayabilir.",
-        "outputs": [
-          "Katılımcı ve Kayıt Analizleri",
-          "Etkinlik Performans Değerlendirmesi",
-          "Bütçe Gerçekleşme Raporu",
-          "Operasyon Sonuç Raporu",
-          "Memnuniyet ve Geri Bildirim Analizi",
-          "Fotoğraf ve Medya Arşivi",
-          "Yönetici Özet Raporu",
-          "Gelecek Dönem Önerileri"
-        ]
+        "closing": "",
+        "outputs": []
       },
       "icon": "workflow",
       "order_no": 6,

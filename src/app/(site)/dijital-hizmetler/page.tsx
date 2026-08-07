@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { InteriorHero } from "@/components/pages/interior-hero";
-import { ProseContent } from "@/components/pages/prose-content";
 import { ServiceCard } from "@/components/pages/service-card";
 import { digitalServicesIntro } from "@/content/site-content";
 import {
@@ -56,12 +55,7 @@ export default async function DigitalServicesPage() {
         ]}
       />
 
-      <ProseContent
-        className="page-intro page-intro--digital"
-        paragraphs={digitalServicesIntro.paragraphs}
-      />
-
-      <section className="section service-page-section service-page-section--compact">
+      <section className="section service-page-section service-page-section--compact service-page-section--hero-tight">
         <div className="container service-page-grid">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />

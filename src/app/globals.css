@@ -7527,3 +7527,41 @@ body:has(.admin-shell) {
   font-size: clamp(0.88rem, 1.05vw, 0.98rem);
   line-height: 1.65;
 }
+
+
+/* Requested five-item update — 2026-08-07 */
+
+/* Hakkımızda Misyon / Vizyon: Hizmetlerimiz kart tasarımı. */
+.about-mission-vision-cards .info-card {
+  overflow: hidden;
+  border: 1px solid rgb(242 182 50 / 28%);
+  border-radius: 0.8rem;
+  background: linear-gradient(155deg, #0a1d2e, #07121d);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 18%);
+  padding: 0 !important;
+}
+
+.about-mission-vision-cards .info-card__media {
+  position: relative;
+  aspect-ratio: 16 / 7.5;
+  overflow: hidden;
+}
+
+.about-mission-vision-cards .info-card__media img {
+  object-fit: cover;
+}
+
+.about-mission-vision-cards .info-card__body {
+  padding: 1rem 1.05rem 1.1rem;
+  text-align: center;
+}
+
+/* Hizmet / Dijital Hizmet kartlarını header'a mümkün olduğunca yaklaştır. */
+.service-page-section--hero-tight {
+  padding-top: clamp(0.45rem, 0.8vw, 0.7rem) !important;
+}
+
+/* Referanslar giriş metni ortalı. */
+.page-intro--references .prose {
+  text-align: center;
+}

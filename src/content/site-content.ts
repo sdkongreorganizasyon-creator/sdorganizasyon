@@ -374,101 +374,44 @@ export const processSteps = [
     "number": "01",
     "title": "BRIEF",
     "subtitle": "İhtiyaçların Doğru Analizi ile Sağlam Bir Başlangıç",
-    "description": "Her başarılı organizasyonun temelinde doğru bir ihtiyaç analizi bulunur. Bu nedenle proje sürecine başlamadan önce kurumun beklentilerini, hedeflerini ve organizasyonun genel kapsamını detaylı şekilde değerlendiriyoruz.",
-    "items": [
-      "Organizasyonun amacı ve hedefleri belirlenir.",
-      "Hedef katılımcı profili analiz edilir.",
-      "Etkinliğin türü, kapsamı ve büyüklüğü netleştirilir.",
-      "Tarih ve lokasyon alternatifleri değerlendirilir.",
-      "Kurumsal beklentiler ve özel talepler kayıt altına alınır.",
-      "Operasyonel ihtiyaçlar ve olası riskler belirlenir.",
-      "Bütçe çerçevesi ve mali beklentiler analiz edilir."
-    ],
-    "closing": "Gerçekleştirdiğimiz detaylı brief toplantıları sayesinde organizasyonun yol haritasını oluşturarak sonraki süreçlerin eksiksiz ilerlemesini sağlıyoruz.",
-    "outputs": [
-      "İhtiyaç Analiz Raporu",
-      "Hedef Kitle Belirleme",
-      "Organizasyon Kapsamı",
-      "İlk Operasyon Taslağı",
-      "Ön Bütçe Çalışması"
-    ]
+    "description": "Her başarılı organizasyonun temelinde doğru bir ihtiyaç analizi bulunur. Bu nedenle proje sürecine başlamadan önce kurumun beklentilerini, hedeflerini ve organizasyonun genel kapsamını detaylı şekilde değerlendiriyoruz. Gerçekleştirdiğimiz detaylı brief toplantıları sayesinde organizasyonun yol haritasını oluşturarak sonraki süreçlerin eksiksiz ilerlemesini sağlıyoruz.",
+    "items": [],
+    "groups": [],
+    "closing": "",
+    "outputs": []
   },
   {
     "stepKey": "planlama",
     "number": "02",
     "title": "PLANLAMA",
     "subtitle": "Her Detayın Önceden Tasarlandığı Profesyonel Hazırlık Süreci",
-    "description": "Planlama aşaması, organizasyonun başarısını doğrudan etkileyen en kritik süreçlerden biridir. Bu aşamada tüm operasyonel ve teknik detaylar sistematik şekilde oluşturulur.",
-    "items": [
-      "Organizasyon takvimini hazırlar.",
-      "Görev ve sorumluluk dağılımlarını belirler.",
-      "Mekân planlamasını yapar.",
-      "Teknik altyapı ihtiyaçlarını tespit eder.",
-      "Konaklama ve ulaşım planlarını oluşturur.",
-      "Tedarikçi ve çözüm ortaklarını belirler.",
-      "Risk ve kriz yönetim planlarını hazırlar.",
-      "Satın alma süreçlerini planlar.",
-      "Kaynak ve bütçe yönetimini oluşturur."
-    ],
-    "closing": "Planlama sürecinde tüm paydaşlar arasında koordinasyon sağlanarak organizasyon gününe kadar gerçekleşecek her adım netleştirilir.",
-    "outputs": [
-      "Operasyon Takvimi",
-      "Görev ve Sorumluluk Planı",
-      "Bütçe Planı",
-      "Risk Yönetim Planı",
-      "Teknik Altyapı Planlaması",
-      "Lojistik ve Transfer Planı"
-    ]
+    "description": "Planlama aşaması, organizasyonun başarısını doğrudan etkileyen en kritik süreçlerden biridir. Bu aşamada tüm operasyonel ve teknik detaylar sistematik şekilde oluşturulur. Planlama sürecinde tüm paydaşlar arasında koordinasyon sağlanarak organizasyon gününe kadar gerçekleşecek her adım netleştirilir.",
+    "items": [],
+    "groups": [],
+    "closing": "",
+    "outputs": []
   },
   {
     "stepKey": "teklif",
     "number": "03",
     "title": "TEKLİF",
     "subtitle": "Şeffaf, Anlaşılır ve İhtiyaca Özel Çözümler",
-    "description": "Planlama çalışmaları tamamlandıktan sonra organizasyonun tüm kapsamını içeren detaylı teklif dosyası hazırlanır.",
-    "items": [
-      "Hizmet kapsamı detaylandırılır.",
-      "Alternatif uygulama senaryoları hazırlanır.",
-      "Bütçe kalemleri açık şekilde listelenir.",
-      "Operasyonel süreçler tanımlanır.",
-      "Teknik ihtiyaçlar belirlenir.",
-      "İnsan kaynağı planlaması sunulur.",
-      "Zaman çizelgesi oluşturulur."
-    ],
-    "closing": "Amacımız yalnızca maliyet sunmak değil; kurumun ihtiyaçlarına uygun, maksimum verim sağlayacak sürdürülebilir bir çözüm modeli geliştirmektir.",
-    "outputs": [
-      "Organizasyon Konsepti",
-      "Hizmet Kapsamı",
-      "Teknik ve Operasyonel Çözümler",
-      "Personel Planlaması",
-      "Konaklama ve Seyahat Yönetimi",
-      "Detaylı Bütçe Analizi",
-      "Uygulama Takvimi"
-    ]
+    "description": "Planlama çalışmaları tamamlandıktan sonra organizasyonun tüm kapsamını içeren detaylı teklif dosyası hazırlanır. Amacımız yalnızca maliyet sunmak değil; kurumun ihtiyaçlarına uygun, maksimum verim sağlayacak sürdürülebilir bir çözüm modeli geliştirmektir.",
+    "items": [],
+    "groups": [],
+    "closing": "",
+    "outputs": []
   },
   {
     "stepKey": "onay",
     "number": "04",
     "title": "ONAY",
     "subtitle": "Sürecin Netleştirildiği ve Projenin Başlatıldığı Aşama",
-    "description": "Teklif değerlendirme sürecinin ardından proje detayları karşılıklı olarak gözden geçirilir ve son hali oluşturulur.",
-    "items": [
-      "Hizmet kapsamı kesinleştirilir.",
-      "Bütçe kalemleri onaylanır.",
-      "Uygulama takvimi netleştirilir.",
-      "Tedarikçi seçimleri tamamlanır.",
-      "Operasyon ekibi oluşturulur.",
-      "İş planları kesinleştirilir.",
-      "İletişim ve koordinasyon süreçleri tanımlanır."
-    ],
-    "closing": "Onay aşaması sayesinde tüm paydaşlar aynı hedef doğrultusunda hareket eder ve uygulama süreci kontrollü şekilde başlatılır.",
-    "outputs": [
-      "Onaylanmış Proje Planı",
-      "Kesin Bütçe Çalışması",
-      "Operasyon Organizasyon Şeması",
-      "Uygulama Takvimi",
-      "Tedarikçi ve Çözüm Ortakları Listesi"
-    ]
+    "description": "Teklif değerlendirme sürecinin ardından proje detayları karşılıklı olarak gözden geçirilir ve son hali oluşturulur. Hizmet kapsamı kesinleştirilir. Operasyon ekibi oluşturulur. İş planları kesinleştirilir. İletişim ve koordinasyon süreçleri tanımlanır. Onay aşaması sayesinde tüm paydaşlar aynı hedef doğrultusunda hareket eder ve uygulama süreci kontrollü şekilde başlatılır.",
+    "items": [],
+    "groups": [],
+    "closing": "",
+    "outputs": []
   },
   {
     "stepKey": "operasyon",
@@ -476,77 +419,21 @@ export const processSteps = [
     "title": "OPERASYON",
     "subtitle": "Organizasyonun Sahadaki Kusursuz Yönetimi",
     "description": "Operasyon süreci, hazırlıkların gerçeğe dönüştüğü ve organizasyonun tüm detaylarının uygulandığı aşamadır. SD Kongre operasyon ekibi etkinlik öncesi, etkinlik süresince ve etkinlik sonrasında tüm süreçlerin koordinasyonunu sağlar.",
-    "groups": [
-      {
-        "title": "Etkinlik Öncesi",
-        "items": [
-          "Mekân hazırlıkları gerçekleştirilir.",
-          "Teknik ekipman kurulumları yapılır.",
-          "Kayıt alanları oluşturulur.",
-          "Yaka kartları ve materyaller hazırlanır.",
-          "Transfer planları uygulanır.",
-          "Konaklama organizasyonları tamamlanır."
-        ]
-      },
-      {
-        "title": "Etkinlik Sırasında",
-        "items": [
-          "Katılımcı kayıt süreçleri yönetilir.",
-          "Konuşmacı koordinasyonu sağlanır.",
-          "Teknik ekipler yönetilir.",
-          "Protokol organizasyonu yürütülür.",
-          "Sahne ve program akışı takip edilir.",
-          "Anlık kriz ve risk yönetimi gerçekleştirilir."
-        ]
-      },
-      {
-        "title": "Etkinlik Sonrasında",
-        "items": [
-          "Kapanış operasyonları tamamlanır.",
-          "Demontaj süreçleri yürütülür.",
-          "Katılımcı verileri konsolide edilir.",
-          "Tedarikçi kapanış işlemleri gerçekleştirilir."
-        ]
-      }
-    ],
     "items": [],
+    "groups": [],
     "closing": "",
-    "outputs": [
-      "Tek Merkezden Koordinasyon",
-      "Anlık Süreç Takibi",
-      "Profesyonel Saha Yönetimi",
-      "Kriz ve Risk Yönetimi",
-      "Katılımcı Memnuniyeti Odaklı Hizmet",
-      "Tam Operasyonel Kontrol"
-    ]
+    "outputs": []
   },
   {
     "stepKey": "raporlama",
     "number": "06",
     "title": "RAPORLAMA",
     "subtitle": "Ölçülebilir Sonuçlar ve Stratejik Değerlendirme",
-    "description": "Bir organizasyonun başarısı yalnızca tamamlanmış olmasıyla değil, elde edilen çıktılarla değerlendirilir. Bu nedenle proje sonunda kapsamlı raporlama ve analiz çalışmaları gerçekleştiriyoruz.",
-    "items": [
-      "Katılımcı istatistikleri hazırlanır.",
-      "Kayıt ve katılım oranları analiz edilir.",
-      "Operasyon performansı değerlendirilir.",
-      "Bütçe gerçekleşme raporları oluşturulur.",
-      "Tedarikçi performans analizleri yapılır.",
-      "Memnuniyet anketleri değerlendirilir.",
-      "Güçlü yönler ve geliştirme alanları belirlenir.",
-      "Gelecek organizasyonlar için öneriler hazırlanır."
-    ],
-    "closing": "Sunulan raporlar sayesinde kurumlar organizasyon yatırımlarının çıktılarını somut verilerle değerlendirebilir ve gelecekteki projelerini daha verimli planlayabilir.",
-    "outputs": [
-      "Katılımcı ve Kayıt Analizleri",
-      "Etkinlik Performans Değerlendirmesi",
-      "Bütçe Gerçekleşme Raporu",
-      "Operasyon Sonuç Raporu",
-      "Memnuniyet ve Geri Bildirim Analizi",
-      "Fotoğraf ve Medya Arşivi",
-      "Yönetici Özet Raporu",
-      "Gelecek Dönem Önerileri"
-    ]
+    "description": "Bir organizasyonun başarısı yalnızca tamamlanmış olmasıyla değil, elde edilen çıktılarla değerlendirilir. Bu nedenle proje sonunda kapsamlı raporlama ve analiz çalışmaları gerçekleştiriyoruz. Sunulan raporlar sayesinde kurumlar organizasyon yatırımlarının çıktılarını somut verilerle değerlendirebilir ve gelecekteki projelerini daha verimli planlayabilir.",
+    "items": [],
+    "groups": [],
+    "closing": "",
+    "outputs": []
   }
 ] as const satisfies readonly ProcessStep[];
 
