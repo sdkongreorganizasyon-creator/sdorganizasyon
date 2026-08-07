@@ -1,22 +1,24 @@
-SDKONGRE GitHub Actions kalite kontrol düzeltmesi
+SDKONGRE E2E navigasyon testi düzeltmesi
 
 1. GitHub'da sdkongreorganizasyon-creator/sdorganizasyon deposunu açın.
 2. Add file > Upload files seçeneğine tıklayın.
 3. Bu paketteki tests klasörünü yükleme alanına sürükleyin.
-4. Mevcut tests/unit/content.test.ts dosyasının değiştirilmesini onaylayın.
-5. Commit mesajı olarak şunu yazın:
-   fix: align corporate content test with approved pages
+4. tests/e2e/home.spec.ts dosyasının değiştirilmesini onaylayın.
+5. Commit mesajı:
+   fix: scope navigation e2e assertions to main menu
 6. Commit changes düğmesine tıklayın.
 
-Bu düzeltme, kurumsal içerikte onaylı üç sayfa bulunmasına rağmen testin eski
-beş sayfalık yapıyı beklemesi nedeniyle oluşan GitHub Actions hatasını giderir.
+Neden:
+ORGANİZASYON SURECİ ve İLETİŞİM bağlantıları hem ana menüde hem alt bilgide
+bulunduğu için Playwright seçicisi iki öğeyle eşleşiyordu. Test artık yalnız
+aria-label="Ana menü" olan navigasyon alanını kontrol eder.
 
-Doğrulama sonucu:
-- Proje kuralları: başarılı (46/46 dosya, 33/33 menü etiketi)
-- TypeScript: başarılı
-- ESLint: başarılı
-- Birim testleri: 8/8 başarılı
-- Next.js üretim derlemesi: başarılı
+Doğrulama:
+- Proje kuralları başarılı
+- TypeScript başarılı
+- ESLint başarılı
+- Birim testleri 8/8 başarılı
+- Next.js üretim derlemesi başarılı
 
-Vercel GitHub deposuna bağlıysa commit sonrasında otomatik deployment başlar.
-Supabase gizli anahtarlarını bu pakete veya GitHub'a eklemeyin.
+Yerel ortamda Chromium indirmesi ağ kısıtlaması nedeniyle tamamlanamadı.
+Değiştirilen E2E testinin TypeScript ve ESLint kontrolleri başarıyla geçti.

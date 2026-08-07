@@ -28,34 +28,36 @@ test("top navigation shows process and the corporate submenu", async ({
 }) => {
   await page.goto("/");
 
+  const mainNavigation = page.getByRole("navigation", { name: "Ana menü" });
+
   await expect(page.locator("button.menu-trigger")).toHaveCount(0);
   await expect(
-    page.getByRole("link", {
+    mainNavigation.getByRole("link", {
       name: "ORGANİZASYON SURECİ",
       exact: true,
     }),
   ).toBeVisible();
   await expect(
-    page.getByRole("link", { name: "İLETİŞİM", exact: true }),
+    mainNavigation.getByRole("link", { name: "İLETİŞİM", exact: true }),
   ).toBeVisible();
 
-  const corporateButton = page.getByRole("button", {
+  const corporateButton = mainNavigation.getByRole("button", {
     name: "KURUMSAL",
     exact: true,
   });
 
   await corporateButton.click();
   await expect(
-    page.getByRole("menuitem", { name: "Hakkımızda", exact: true }),
+    mainNavigation.getByRole("menuitem", { name: "Hakkımızda", exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByRole("menuitem", { name: "Değerlerimiz", exact: true }),
+    mainNavigation.getByRole("menuitem", { name: "Değerlerimiz", exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByRole("menuitem", { name: "Misyon", exact: true }),
+    mainNavigation.getByRole("menuitem", { name: "Misyon", exact: true }),
   ).toHaveCount(0);
   await expect(
-    page.getByRole("menuitem", { name: "Vizyon", exact: true }),
+    mainNavigation.getByRole("menuitem", { name: "Vizyon", exact: true }),
   ).toHaveCount(0);
 
   await page.locator(".approved-hero").hover();
